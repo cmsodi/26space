@@ -1,0 +1,39 @@
+{{ define "main" -}}
+<main class="main layout__main">
+<article class="single-view{{ with .Section }} single-view--{{ . | urlize }}{{ end }}">
+
+{{ $hero := .Resources.GetMatch "featured.*" -}}
+{{ if not $hero }}{{ $hero = .Resources.GetMatch "pic.webp" }}{{ end -}}
+{{ if not $hero }}{{ with .Resources.ByType "image" }}{{ $hero = index . 0 }}{{ end }}{{ end -}}
+
+{{ with $hero }}
+  {{ $hero1600 := .Fit "1600x900 webp q80" -}}
+  {{ $hero1000 := .Fit "1000x600 webp q80" -}}
+  {{ $hero600  := .Fit "600x360 webp q80" -}}
+  <figure class="article-hero">
+    <img
+      src="{{ $hero1000.RelPermalink }}"
+      srcset="{{ $hero600.RelPermalink }} 600w, {{ $hero1000.RelPermalink }} 1000w, {{ $hero1600.RelPermalink }} 1600w"
+      sizes="(max-width: 700px) 100vw, 70ch"
+      width="{{ $hero1000.Width }}"
+      height="{{ $hero1000.Height }}"
+      alt=""
+      loading="eager"
+      decoding="async">
+  </figure>
+{{ end }}
+
+<header>
+<h1 class="title{{ if $.Param "submitted" | default false }} mb--xxs{{ end }}">{{ .Title }}</h1>
+{{ if $.Param "submitted" | default false }}{{ partial "submitted.html" . }}{{ end -}}
+{{ partial "meta-taxonomies.html" . }}
+</header>
+
+{{ .Content }}
+
+{{ if ne .Lastmod .Date }}{{ partial "dates.html" . }}{{ end -}}
+{{ if site.Params.repository | default false }}{{ partial "repository-links.html" . }}{{ end -}}
+{{ if $.Param "relatedposts" | default false }}{{ partial "relatedposts.html" . }}{{ end -}}
+</article>
+</main>
+{{ end -}}

@@ -1,0 +1,23 @@
+# Filters and article navigation
+[filter_by_topics]
+other = "Filter by Topics"
+
+[reset_filters]
+other = "Reset Filters"
+
+[all_articles]
+other = "All articles"
+
+[latest_articles]
+other = "Latest Articles"
+
+[latest_reports]
+other = "Latest Reports"
+
+# Menu
+[methodologies_link]
+other = "Methodologies → spacestrategies.org"
+
+# Footer
+[all_rights_reserved]
+other = "All rights reserved."

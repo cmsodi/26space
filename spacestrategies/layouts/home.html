@@ -1,0 +1,150 @@
+{{ define "main" }}
+<main class="sp-home sp-home--policies">
+
+  <!-- Hero -->
+  <section class="sp-hero">
+    <div class="sp-hero-wrapper">
+      <div class="sp-hero-content">
+        <h1>{{ site.Params.heroTitle | default "Independent analysis of space programs, governance, and industry dynamics" }}</h1>
+        <p>{{ site.Params.heroSubtitle | default "Strategic assessments for professionals, executives, and policy-makers." }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article (Dynamic) -->
+  {{ $featured := where (where site.RegularPages "Section" "article") "Params.featured" true | first 1 }}
+  {{ range $featured }}
+  <section class="sp-section" aria-labelledby="featured-heading">
+    <div class="sp-section-header">
+      <h2 id="featured-heading" class="sp-section-title">Featured Article</h2>
+    </div>
+
+    {{ $thumb := .Resources.GetMatch "pic.webp" -}}
+    {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+    <article class="summary summary--media sp-latest-item">
+      {{ if $thumb }}
+      {{ $t420 := $thumb.Fill "420x280 webp q80" -}}
+      {{ $t280 := $thumb.Fill "280x187 webp q80" -}}
+      <a class="summary__thumb" href="{{ .RelPermalink }}">
+        <img src="{{ $t280.RelPermalink }}" srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+          sizes="140px" width="{{ $t280.Width }}" height="{{ $t280.Height }}" alt="" loading="lazy" decoding="async">
+      </a>
+      {{ else }}
+      <a class="summary__thumb summary__thumb--placeholder" href="{{ .RelPermalink }}" aria-hidden="true"></a>
+      {{ end }}
+
+      <div class="summary__body">
+        <div class="sp-article-tags">
+          {{ $article := . }}
+          {{ range site.Params.taxonomiesToShow }}
+          {{ $taxonomy_key := .key }}
+          {{ with index $article.Params $taxonomy_key }}
+          {{ range . }}
+          {{ $term_page := site.GetPage (printf "/%s/%s" $taxonomy_key . | urlize) }}
+          <a href="{{ if $term_page }}{{ $term_page.RelPermalink }}{{ else }}#{{ end }}"
+            class="sp-article-tag sp-article-tag--{{ $taxonomy_key }}">{{ . }}</a>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+        </div>
+
+        <div class="sp-article-date">{{ .Date.Format "2 Jan 06" }}</div>
+        <h2 class="summary__title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+      </div>
+    </article>
+
+    <div class="sp-featured-desc"
+      style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.5; color: var(--sp-text);">
+      <p>{{ .Params.description }}</p>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Latest Articles (from content/article) -->
+  <section class="sp-section" aria-labelledby="latest">
+    <div class="sp-section-header">
+      <h2 id="latest" class="sp-section-title">{{ i18n "latest_articles" }}</h2>
+      <a class="sp-section-link" href="{{ "/article/" | relLangURL }}">{{ i18n "all_articles" }} →</a>
+    </div>
+
+    {{ $pages := where site.RegularPages "Section" "article" }}
+    {{ $pages = where $pages "Draft" "ne" true }}
+    {{ $pages = $pages.ByDate.Reverse }}
+    {{ range first 3 $pages }}
+    {{ $thumb := .Resources.GetMatch "pic.webp" -}}
+    {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+    <article class="summary summary--media sp-latest-item">
+      {{ if $thumb }}
+      {{ $t420 := $thumb.Fill "420x280 webp q80" -}}
+      {{ $t280 := $thumb.Fill "280x187 webp q80" -}}
+      <a class="summary__thumb" href="{{ $.RelPermalink }}">
+        <img src="{{ $t280.RelPermalink }}" srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+          sizes="140px" width="{{ $t280.Width }}" height="{{ $t280.Height }}" alt="" loading="lazy" decoding="async">
+      </a>
+      {{ else }}
+      <a class="summary__thumb summary__thumb--placeholder" href="{{ .RelPermalink }}" aria-hidden="true"></a>
+      {{ end }}
+
+      <div class="summary__body">
+        <div class="sp-article-tags">
+          {{ $article := . }}
+          {{ range site.Params.taxonomiesToShow }}
+          {{ $taxonomy_key := .key }}
+          {{ with index $article.Params $taxonomy_key }}
+          {{ range . }}
+          {{ $term_page := site.GetPage (printf "/%s/%s" $taxonomy_key . | urlize) }}
+          <a href="{{ if $term_page }}{{ $term_page.RelPermalink }}{{ else }}#{{ end }}"
+            class="sp-article-tag sp-article-tag--{{ $taxonomy_key }}">{{ . }}</a>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+        </div>
+
+        <div class="sp-article-date">{{ .Date.Format "2 Jan 06" }}</div>
+        <h2 class="summary__title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+      </div>
+    </article>
+    {{ end }}
+  </section>
+
+  <!-- Topics (uses top tags by count) -->
+  <section class="sp-section">
+    <div class="sp-section-header">
+      <h2 class="sp-section-title">Topics</h2>
+    </div>
+
+    <div class="sp-topics-grid">
+      {{ range site.Params.taxonomiesToShow }}
+      {{ $taxonomy := index site.Taxonomies .key }}
+      {{ if $taxonomy }}
+      {{ range first 5 $taxonomy.ByCount }}
+      <a class="sp-topic-tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- CTA (static for now) -->
+  <section class="sp-section">
+    <div class="sp-cta-box">
+      <h3>New analysis in your inbox</h3>
+      <p>Subscribe for article alerts. No spam, unsubscribe anytime.</p>
+      <div class="sp-cta-input">
+        <input type="email" placeholder="your@email.com" disabled>
+        <button type="button" disabled>Subscribe</button>
+      </div>
+      <p style="margin: .75rem 0 0; font-size: .8rem; opacity: .8;">
+        (Form disabilitato: lo collegheremo quando decidi lo strumento newsletter.)
+      </p>
+    </div>
+  </section>
+
+</main>
+{{ end }}

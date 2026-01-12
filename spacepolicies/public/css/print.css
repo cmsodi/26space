@@ -1,0 +1,67 @@
+/* The print stylesheet for this theme. */
+/* Initialization partial
+
+To make it easier to use all variables and mixins in any Sass file in this
+project, each .scss file has a `@import 'init';` declaration. The _init.scss
+file is in charge of importing all the other partials needed for the
+project. */
+/* Variables. */
+/* Variables
+These need to be sass variables since they are used in sass functions and mixins.
+Override sass variables in "assets/sass/_extra.scss" */
+/* Base line height, unitless. */
+/* The font sizes in our type hierarchy as tee shirt sizes.
+Size m is base.
+Use like this: var(--fs-m) */
+/* The responsive font sizes in our type hierarchy as tee shirt sizes.
+Size m is base.
+Use like this: var(--fs-m) */
+/* Set the font sizes to use, fixed or fluid. */
+/* Breakpoints (Deprecated in v5, use css @media directly instead.)
+Use the `respond-to(s)` mixin to use named breakpoints. */
+/* Spacing (Deprecated in v5, use spacing css variables instead.)
+$spacing: (
+  xxl:        3,
+  xl:         2,
+  l:          1.5,
+  m:          1,
+  s:          0.75,
+  xs:         0.5,
+  xxs:        0.3,
+  0:          0,
+);
+
+/* The max content width. (Consider using one of the breakpoints.) */
+/* The max page width. Defaults to max-content-width.
+Setting this to a larger value than max-content-width allows
+content with class "stretch" to stretch out to the page edge. */
+/* Add and override variables. This file loads last during init. */
+/* Mixins and functions. */
+.pager,
+.mobile-nav,
+aside,
+nav,
+footer {
+  display: none; }
+
+@media print {
+  html {
+    font-size: var(--print-font-size); }
+  html,
+  body,
+  .page {
+    background-color: white;
+    border-color: black;
+    box-shadow: none;
+    color: black; }
+  .main {
+    width: 100%; }
+  /* Underline all links. */
+  :link,
+  :visited {
+    text-decoration: underline; }
+  /* Add visible title after abbreviations. */
+  abbr[title]::after {
+    content: " (" attr(title) ")"; } }
+
+/*# sourceMappingURL=print.css.map */

@@ -1,0 +1,102 @@
+{{ define "main" }}
+<main class="sp-page">
+    <div class="sp-section" style="border: 0;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h1 class="sp-section-title" style="font-size: 2rem; text-align: center;">
+                {{ i18n "filter_by_topics" }}</h1>
+            {{ if eq .Language.Lang "it" }}
+            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">
+                I termini di classificazione sono mantenuti in inglese per coerenza tecnica.
+            </p>
+            {{ end }}
+        </div>
+
+        <!-- RESET BUTTON -->
+        <div style="text-align: center; margin-bottom: 1rem;">
+            <button class="sp-filter-reset" type="button">{{ i18n "reset_filters" }}</button>
+        </div>
+
+        <!-- FILTER GRID (4 colonne) -->
+        <div class="sp-topics-index-grid filter-groups">
+            {{ $filterTaxonomies := slice "frameworks" "technologies" "stakeholders" "purposes" }}
+            {{ range $filterTaxonomies }}
+            {{ $key := . }}
+            {{ $taxonomy := index site.Taxonomies $key }}
+
+            {{ if $taxonomy }}
+            <div class="sp-taxonomy-column filter-group" data-group="{{ $key }}">
+                <h3 style="text-transform: capitalize;">{{ $key }}</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    {{ range $taxonomy.ByCount }}
+                    <button class="sp-filter-cell" data-value="{{ .Page.Name | urlize }}" type="button">
+                        <span>{{ .Page.Title }}</span>
+                        <span>{{ .Count }}</span>
+                    </button>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+            {{ end }}
+        </div>
+
+        <!-- RESULTS LIST -->
+        <div id="js-list" style="margin-top: 2rem;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <span class="sp-results-count"></span>
+            </div>
+
+            <div class="js-items">
+                {{ $articles := where site.RegularPages "Section" "in" (slice "article" "report") }}
+                {{ range $articles.ByDate.Reverse }}
+                {{ $thumb := .Resources.GetMatch "pic.webp" -}}
+                {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+                <article class="summary summary--media sp-latest-item">
+                  {{ if $thumb }}
+                  {{ $t420 := $thumb.Fill "420x280 webp q80" -}}
+                  {{ $t280 := $thumb.Fill "280x187 webp q80" -}}
+                  <a class="summary__thumb" href="{{ .RelPermalink }}">
+                    <img src="{{ $t280.RelPermalink }}" srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+                      sizes="140px" width="{{ $t280.Width }}" height="{{ $t280.Height }}" alt="" loading="lazy" decoding="async">
+                  </a>
+                  {{ else }}
+                  <a class="summary__thumb summary__thumb--placeholder" href="{{ .RelPermalink }}" aria-hidden="true"></a>
+                  {{ end }}
+
+                  <div class="summary__body">
+                    <div class="sp-article-tags">
+                      {{ $article := . }}
+                      {{ range site.Params.taxonomiesToShow }}
+                      {{ $taxonomy_key := .key }}
+                      {{ with index $article.Params $taxonomy_key }}
+                      {{ range . }}
+                      {{ $term_page := site.GetPage (printf "/%s/%s" $taxonomy_key . | urlize) }}
+                      <a href="{{ if $term_page }}{{ $term_page.RelPermalink }}{{ else }}#{{ end }}"
+                        class="sp-article-tag sp-article-tag--{{ $taxonomy_key }}">{{ . }}</a>
+                      {{ end }}
+                      {{ end }}
+                      {{ end }}
+                    </div>
+
+                    <div class="sp-article-date">{{ .Date.Format "2 Jan 06" }}</div>
+                    <h2 class="summary__title title">
+                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h2>
+                  </div>
+
+                  <!-- Hidden data for List.js -->
+                  <span class="frameworks" style="display:none;">{{ with .Params.frameworks }}{{ delimit . " " }}{{ end }}</span>
+                  <span class="technologies" style="display:none;">{{ with .Params.technologies }}{{ delimit . " " }}{{ end }}</span>
+                  <span class="stakeholders" style="display:none;">{{ with .Params.stakeholders }}{{ delimit . " " }}{{ end }}</span>
+                  <span class="purposes" style="display:none;">{{ with .Params.purposes }}{{ delimit . " " }}{{ end }}</span>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- List.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script src="/js/tagfilter.js"></script>
+{{ end }}

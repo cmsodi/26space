@@ -1,0 +1,48 @@
+
+```
+# TAGS
+frameworks:
+#- space-law
+#- international-treaties
+#- space-policy
+#- standards
+technologies:
+#- transport-systems
+#- spacecrafts
+#- ground-systems
+#- planetary-infrastructures
+stakeholders:
+#- governments
+#- space-industry
+#- agencies-institutions
+#- international-entities
+purposes:
+#- knowledge-expansion 
+#- terrestrial-services
+#- economic-development
+#- space-exploration
+```
+
+```
+# TAG
+quadri-normativi:
+#- diritto-spaziale
+#- trattati-internazionali
+#- politica-spaziale
+#- standard
+tecnologie:
+#- sistemi-trasporto
+#- veicoli-spaziali
+#- sistemi-di-terra
+#- infrastrutture-planetarie
+stakeholder:
+#- governi
+#- industria-spaziale
+#- agenzie-istituzioni
+#- enti-internazionali
+finalità:
+#- espansione-conoscenza
+#- servizi-terrestri
+#- sviluppo-economico
+#- esplorazione-spaziale
+```

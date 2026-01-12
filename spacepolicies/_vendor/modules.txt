@@ -1,0 +1,1 @@
+# github.com/frjo/hugo-theme-zen/v5 v5.8.0

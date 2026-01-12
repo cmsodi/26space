@@ -1,0 +1,92 @@
+baseURL: "http://localhost:1313/"
+title: "spacespolicies.org"
+theme: "github.com/frjo/hugo-theme-zen/v5"
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    languageName: "English"
+    languageCode: "en-US"
+    weight: 1
+    title: "spacepolicies.org"
+    params:
+      tagline: "Analysis & Insights"
+      heroTitle: "Independent analysis of space programs, governance, and industry dynamics"
+      heroSubtitle: "Strategic assessments for professionals, executives, and policy-makers."
+
+  it:
+    languageName: "Italiano"
+    languageCode: "it-IT"
+    weight: 2
+    title: "spacepolicies.org"
+    params:
+      tagline: "Analisi e Approfondimenti"
+      heroTitle: "Analisi indipendente di programmi spaziali, governance e dinamiche industriali"
+      heroSubtitle: "Valutazioni strategiche per professionisti, dirigenti e policy-maker."
+    menu:
+      main:
+        - name: "Articoli"
+          url: "/article/"
+          weight: 10
+        - name: "Tag"
+          url: "/tags/"
+          weight: 20
+        - name: "Chi Siamo"
+          url: "/about/"
+          weight: 30
+
+taxonomies:
+  tag: "tags"
+  stakeholders: "stakeholders"
+  frameworks: "frameworks"
+  technologies: "technologies"
+  purposes: "purposes"
+
+pagination:
+  pagerSize: 10
+
+params:
+  logo: false
+  sitename: false
+  mainSections:
+    - "article"
+    - "report"
+  taxonomiesToShow:
+      - key: tags
+        label: Tags
+      - key: frameworks
+        label: Frameworks
+      - key: technologies
+        label: Technologies
+      - key: stakeholders
+        label: Stakeholders
+      - key: purposes
+        label: Purposes
+
+  tagline: "Analysis & Insights"
+  heroTitle: "Independent analysis of space programs, governance, and industry dynamics"
+  heroSubtitle: "Strategic assessments for professionals, executives, and policy-makers."
+  featured:
+    label: "Featured Articles"
+    title: "European Space Autonomy: Strategic Options for the Next Decade"
+    desc: "A comprehensive assessment of Europe's launcher crisis, institutional fragmentation, and pathways to sovereign access. 45 pages, January 2025."
+    meta: "PDF available · Updated with Ariane 6 flight data"
+
+menu:
+  main:
+    - name: "Articles"
+      url: "/article/"
+      weight: 10
+
+    - name: "Tags"
+      url: "/tags/"
+      weight: 20
+
+    - name: "About"
+      url: "/about/"
+      weight: 30
+
+    - name: "Home1"
+      url: "/home1/"
+      weight: 40

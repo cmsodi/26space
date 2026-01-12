@@ -1,0 +1,106 @@
+{{ define "main" }}
+<main class="sp-home sp-home--strategies">
+
+  <!-- Hero -->
+  <section class="sp-hero">
+    <div class="sp-hero-content">
+      <h1>Analytical tools for strategic thinking in the space domain</h1>
+      <p>Rigorous methodologies — TRIZ, Game Theory, SWOT, Scenario Planning — adapted for space policy and program analysis.</p>
+    </div>
+  </section>
+
+  <section class="sp-section">
+    <div class="sp-section-header">
+      <h2 class="sp-section-title">Core Frameworks</h2>
+      <a href="#" class="sp-section-link">View all →</a>
+    </div>
+
+    <div class="sp-cards-grid">
+      <div class="sp-card">
+        <div class="sp-card-icon">⬡</div>
+        <h3 class="sp-card-title">TRIZ for Space Systems</h3>
+        <p class="sp-card-desc">Contradiction analysis and inventive principles applied to satellite design and mission planning.</p>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-icon">◇</div>
+        <h3 class="sp-card-title">Strategic Game Theory</h3>
+        <p class="sp-card-desc">Modeling competitive dynamics in launch markets, spectrum allocation, and orbital slots.</p>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-icon">△</div>
+        <h3 class="sp-card-title">Scenario Planning</h3>
+        <p class="sp-card-desc">Structured exploration of alternative futures for space governance and industry evolution.</p>
+      </div>
+
+      <div class="sp-card">
+        <div class="sp-card-icon">○</div>
+        <h3 class="sp-card-title">OODA Loop Analysis</h3>
+        <p class="sp-card-desc">Decision cycle optimization for space operations and crisis response.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-section">
+    <div class="sp-section-header">
+      <h2 class="sp-section-title">{{ i18n "latest_reports" }}</h2>
+      <a href="{{ "/report/" | relLangURL }}" class="sp-section-link">{{ i18n "all_articles" }} →</a>
+    </div>
+
+    {{ $pages := first 5 (where site.RegularPages "Section" "report") }}
+    {{ range $pages }}
+      {{ $thumb := .Resources.GetMatch "pic.webp" -}}
+      {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+      <article class="summary summary--media sp-latest-item">
+        {{ with $thumb }}
+          {{ $t420 := .Fill "420x280 webp q80" -}}
+          {{ $t280 := .Fill "280x187 webp q80" -}}
+          <a class="summary__thumb" href="{{ $.RelPermalink }}">
+            <img
+              src="{{ $t280.RelPermalink }}"
+              srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+              sizes="140px"
+              width="{{ $t280.Width }}"
+              height="{{ $t280.Height }}"
+              alt=""
+              loading="lazy"
+              decoding="async">
+          </a>
+        {{ end }}
+
+        <div class="summary__body">
+          {{ with .Date }}
+            <div class="sp-article-date">{{ .Format "Jan 2006" }}</div>
+          {{ end }}
+          <h3 class="summary__title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+
+          {{ with .Params.description }}
+            <div class="summary__content">
+              <p>{{ . }}</p>
+            </div>
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </section>
+
+  <section class="sp-section">
+    <div class="sp-cta-box">
+      <h3>Stay updated on new frameworks</h3>
+      <p>Occasional updates when new methodologies are published.</p>
+      <div class="sp-cta-input">
+        <input type="email" placeholder="your@email.com" disabled>
+        <button type="button" disabled>Subscribe</button>
+      </div>
+      <p style="margin: .75rem 0 0; font-size: .8rem; opacity: .8;">
+        (Form disabilitato: lo collegheremo quando decidi lo strumento newsletter.)
+      </p>
+    </div>
+  </section>
+
+</main>
+{{ end }}

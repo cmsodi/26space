@@ -1,0 +1,28 @@
+{{/* Renders taxonomy-like lists from front matter, driven by site.Params.taxonomiesToShow */}}
+
+{{ $cfg := site.Params.taxonomiesToShow | default (slice) -}}
+{{ if gt (len $cfg) 0 }}
+  <div class="sp-taxos">
+    {{ range $cfg }}
+      {{ $key := .key -}}
+      {{ $label := .label | default $key -}}
+      {{ $vals := index $.Params $key -}}
+
+      {{ with $vals }}
+        <div class="sp-taxos__group">
+          <span class="sp-taxos__label">{{ $label }}:</span>
+
+          {{ range . }}
+            {{ $slug := urlize . -}}
+            {{ $termPage := site.GetPage (printf "taxonomyTerm/%s/%s" $key $slug) -}}
+            {{ if $termPage }}
+              <a class="sp-article-tag" href="{{ $termPage.RelPermalink }}">{{ . }}</a>
+            {{ else }}
+              <span class="sp-article-tag">{{ . }}</span>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

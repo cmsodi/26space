@@ -1,0 +1,120 @@
+# Navigazione
+[menu_title]
+other = "Menu principale"
+
+[skip_to_content]
+other = "Vai al contenuto"
+
+# Paginazione
+[previous]
+other = "Precedente"
+
+[next]
+other = "Successivo"
+
+[page]
+other = "Pagina"
+
+[of]
+other = "di"
+
+# Contenuti
+[read_more]
+other = "Leggi di più"
+
+[posted_in]
+other = "Pubblicato in"
+
+[tagged_in]
+other = "Taggato in"
+
+[related_posts]
+other = "Articoli correlati"
+
+[by]
+other = "di"
+
+[on]
+other = "il"
+
+# Date
+[posted_on]
+other = "Pubblicato il"
+
+[updated_on]
+other = "Aggiornato il"
+
+# Footer
+[powered_by]
+other = "Powered by"
+
+# Form
+[submit]
+other = "Invia"
+
+[name]
+other = "Nome"
+
+[email]
+other = "Email"
+
+[message]
+other = "Messaggio"
+
+# Ricerca
+[search]
+other = "Cerca"
+
+[search_placeholder]
+other = "Cerca nel sito..."
+
+[results]
+other = "risultati"
+
+# Altri
+[home]
+other = "Home"
+
+[tags]
+other = "Tag"
+
+[categories]
+other = "Categorie"
+
+# Tassonomie personalizzate
+[stakeholders]
+other = "Stakeholder"
+
+[frameworks]
+other = "Framework"
+
+[technologies]
+other = "Tecnologie"
+
+[purposes]
+other = "Scopi"
+
+# Filtri e navigazione articoli
+[filter_by_topics]
+other = "Filtra per Argomento"
+
+[reset_filters]
+other = "Ripristina Filtri"
+
+[all_articles]
+other = "Tutti gli articoli"
+
+[latest_articles]
+other = "Articoli Recenti"
+
+[latest_reports]
+other = "Report Recenti"
+
+# Menu
+[methodologies_link]
+other = "Metodologie → spacestrategies.org"
+
+# Footer
+[all_rights_reserved]
+other = "Tutti i diritti riservati."
+

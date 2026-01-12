@@ -1,0 +1,38 @@
+{{/* Summary for list pages: standardized card layout */}}
+
+{{ $thumb := .Resources.GetMatch "pic.webp" -}}
+{{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+<article class="summary summary--media sp-latest-item">
+  {{ if $thumb }}
+  {{ $t420 := $thumb.Fill "420x280 webp q80" -}}
+  {{ $t280 := $thumb.Fill "280x187 webp q80" -}}
+  <a class="summary__thumb" href="{{ .RelPermalink }}">
+    <img src="{{ $t280.RelPermalink }}" srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+      sizes="140px" width="{{ $t280.Width }}" height="{{ $t280.Height }}" alt="" loading="lazy" decoding="async">
+  </a>
+  {{ else }}
+  <a class="summary__thumb summary__thumb--placeholder" href="{{ .RelPermalink }}" aria-hidden="true"></a>
+  {{ end }}
+
+  <div class="summary__body">
+    <div class="sp-article-tags">
+      {{ $article := . }}
+      {{ range site.Params.taxonomiesToShow }}
+      {{ $taxonomy_key := .key }}
+      {{ with index $article.Params $taxonomy_key }}
+      {{ range . }}
+      {{ $term_page := site.GetPage (printf "/%s/%s" $taxonomy_key . | urlize) }}
+      <a href="{{ if $term_page }}{{ $term_page.RelPermalink }}{{ else }}#{{ end }}"
+        class="sp-article-tag sp-article-tag--{{ $taxonomy_key }}">{{ . }}</a>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+
+    <div class="sp-article-date">{{ .Date.Format "2 Jan 06" }}</div>
+    <h2 class="summary__title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+  </div>
+</article>

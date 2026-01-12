@@ -1,0 +1,15 @@
+.theme-toggle {
+  appearance: none;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  opacity: 0.85;
+}

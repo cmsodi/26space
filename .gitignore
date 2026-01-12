@@ -1,0 +1,25 @@
+# Hugo output
+/public/
+/resources/_gen/
+
+# Hugo build lock
+.hugo_build.lock
+
+# Node (if used)
+/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude Code local config
+.claude/
+
+# Local notes/drafts
+/aa-kb/

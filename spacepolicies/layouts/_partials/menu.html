@@ -1,0 +1,45 @@
+<nav class='main-menu{{ if not ($.Param "menuinheader") }} mx--xs layout__navigation{{ end }}'
+  aria-label='{{ i18n "menu_title" }}'>
+  <ul class="flex mx--0 sp-menu-list">
+    {{ $currentPage := . -}}
+    {{ range site.Menus.main -}}
+    <li><a href="{{ .URL | relLangURL }}" {{ if or ($currentPage.IsMenuCurrent "main" .)
+        ($currentPage.HasMenuCurrent "main" .) }} aria-current="page" {{ end }}>{{ .Pre }}<span>{{ or (i18n .Identifier)
+          .Name | safeHTML }}</span>{{ .Post }}</a></li>
+    {{ end -}}
+
+    <li class="sp-menu-right">
+      <a href="https://spacestrategies.org" target="_blank" rel="noopener">{{ i18n "methodologies_link" }}</a>
+    </li>
+
+    <li>
+      <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
+        title="Toggle dark mode">
+        ◐
+      </button>
+    </li>
+
+    <!-- Language Switcher -->
+    {{ if hugo.IsMultilingual }}
+    <li class="sp-menu-lang">
+      {{ range .Translations }}
+        {{/* If translation exists, link to it */}}
+        <a href="{{ .RelPermalink }}" title="{{ .Language.LanguageName }}">
+          {{ if eq .Language.Lang "it" }}[ IT ]{{ else }}[ EN ]{{ end }}
+        </a>
+      {{ else }}
+        {{/* No translation exists, link to other language home */}}
+        {{ range .Site.Languages }}
+          {{ if ne .Lang $.Language.Lang }}
+            {{ $homeURL := "/" }}
+            {{ if eq .Lang "it" }}{{ $homeURL = "/it/" }}{{ end }}
+            <a href="{{ $homeURL }}" title="{{ .LanguageName }}">
+              {{ if eq .Lang "it" }}[ IT ]{{ else }}[ EN ]{{ end }}
+            </a>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</nav>

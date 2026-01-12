@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Purposes on spacepolicies.org</title>
+    <link>http://localhost:1313/purposes/</link>
+    <description>Recent content in Purposes on spacepolicies.org</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 12 Mar 2025 00:00:00 +0000</lastBuildDate>
+      <atom:link href="http://localhost:1313/purposes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Economic-Development</title>
+      <link>http://localhost:1313/purposes/economic-development/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/purposes/economic-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge-Expansion</title>
+      <link>http://localhost:1313/purposes/knowledge-expansion/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/purposes/knowledge-expansion/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Space-Exploration</title>
+      <link>http://localhost:1313/purposes/space-exploration/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/purposes/space-exploration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terrestrial-Services</title>
+      <link>http://localhost:1313/purposes/terrestrial-services/</link>
+      <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/purposes/terrestrial-services/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

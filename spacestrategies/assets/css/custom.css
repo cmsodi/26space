@@ -1,0 +1,26 @@
+:root {
+  --bg: #ffffff;
+  --fg: #0b1220;
+  --muted: #445069;
+  --card: #f6f7fb;
+  --max-page-width: 920px;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --fg: #e8eefc;
+  --muted: #a9b4cc;
+  --card: #141c2f;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.hero .lede, .meta { color: var(--muted); }
+.card { background: var(--card); padding: 1rem; border-radius: 12px; }
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .cards { grid-template-columns: 1fr 1fr; } }
