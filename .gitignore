@@ -20,6 +20,3 @@ Thumbs.db
 
 # Claude Code local config
 .claude/
-
-# Local notes/drafts
-/aa-kb/
