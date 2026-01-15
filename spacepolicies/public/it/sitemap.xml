@@ -2,264 +2,258 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/it/stakeholders/agencies-institutions/</loc>
+    <loc>http://localhost:1314/it/stakeholders/agencies-institutions/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/agencies-institutions/"
+                href="http://localhost:1314/stakeholders/agencies-institutions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/agencies-institutions/"
+                href="http://localhost:1314/it/stakeholders/agencies-institutions/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/</loc>
+    <loc>http://localhost:1314/it/article/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/article/"
+                href="http://localhost:1314/article/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/article/"
+                href="http://localhost:1314/it/article/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/eu-space-autonomy/</loc>
+    <loc>http://localhost:1314/it/article/eu-space-autonomy/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/it/purposes/economic-development/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/purposes/economic-development/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/economic-development/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/it/frameworks/</loc>
+    <loc>http://localhost:1314/it/purposes/economic-development/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/frameworks/"
+                href="http://localhost:1314/purposes/economic-development/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/frameworks/"
+                href="http://localhost:1314/it/purposes/economic-development/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/governments/</loc>
+    <loc>http://localhost:1314/it/frameworks/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/governments/"
+                href="http://localhost:1314/frameworks/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/governments/"
+                href="http://localhost:1314/it/frameworks/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/purposes/</loc>
+    <loc>http://localhost:1314/it/stakeholders/governments/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/"
+                href="http://localhost:1314/stakeholders/governments/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/"
+                href="http://localhost:1314/it/stakeholders/governments/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/purposes/space-exploration/</loc>
+    <loc>http://localhost:1314/it/purposes/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/space-exploration/"
+                href="http://localhost:1314/purposes/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/space-exploration/"
+                href="http://localhost:1314/it/purposes/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/space-industry/</loc>
+    <loc>http://localhost:1314/it/purposes/space-exploration/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/space-industry/"
+                href="http://localhost:1314/purposes/space-exploration/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/space-industry/"
+                href="http://localhost:1314/it/purposes/space-exploration/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/frameworks/space-policy/</loc>
+    <loc>http://localhost:1314/it/stakeholders/space-industry/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/frameworks/space-policy/"
+                href="http://localhost:1314/stakeholders/space-industry/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/frameworks/space-policy/"
+                href="http://localhost:1314/it/stakeholders/space-industry/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/</loc>
+    <loc>http://localhost:1314/it/frameworks/space-policy/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/"
+                href="http://localhost:1314/frameworks/space-policy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/"
+                href="http://localhost:1314/it/frameworks/space-policy/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/</loc>
+    <loc>http://localhost:1314/it/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/"
+                href="http://localhost:1314/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/"
+                href="http://localhost:1314/it/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/</loc>
+    <loc>http://localhost:1314/it/stakeholders/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/"
+                href="http://localhost:1314/stakeholders/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/"
+                href="http://localhost:1314/it/stakeholders/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/transport-systems/</loc>
+    <loc>http://localhost:1314/it/technologies/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/transport-systems/"
+                href="http://localhost:1314/technologies/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/transport-systems/"
+                href="http://localhost:1314/it/technologies/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/china-lunar-program/</loc>
+    <loc>http://localhost:1314/it/technologies/transport-systems/</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1314/technologies/transport-systems/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1314/it/technologies/transport-systems/"
+                />
+  </url><url>
+    <loc>http://localhost:1314/it/article/china-lunar-program/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/it/purposes/knowledge-expansion/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="http://localhost:1313/purposes/knowledge-expansion/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/knowledge-expansion/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/it/technologies/planetary-infrastructures/</loc>
+    <loc>http://localhost:1314/it/purposes/knowledge-expansion/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/planetary-infrastructures/"
+                href="http://localhost:1314/purposes/knowledge-expansion/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/planetary-infrastructures/"
+                href="http://localhost:1314/it/purposes/knowledge-expansion/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/spacecrafts/</loc>
+    <loc>http://localhost:1314/it/technologies/planetary-infrastructures/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/spacecrafts/"
+                href="http://localhost:1314/technologies/planetary-infrastructures/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/spacecrafts/"
+                href="http://localhost:1314/it/technologies/planetary-infrastructures/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/commercial-leo-stations/</loc>
+    <loc>http://localhost:1314/it/technologies/spacecrafts/</loc>
+    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1314/technologies/spacecrafts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1314/it/technologies/spacecrafts/"
+                />
+  </url><url>
+    <loc>http://localhost:1314/it/article/commercial-leo-stations/</loc>
     <lastmod>2025-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/it/purposes/terrestrial-services/</loc>
+    <loc>http://localhost:1314/it/purposes/terrestrial-services/</loc>
     <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/terrestrial-services/"
+                href="http://localhost:1314/purposes/terrestrial-services/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/terrestrial-services/"
+                href="http://localhost:1314/it/purposes/terrestrial-services/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/report/analisi-4pilastri/</loc>
-    <lastmod>2025-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/report/</loc>
-    <lastmod>2025-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/about/</loc>
+    <loc>http://localhost:1314/it/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/about/"
+                href="http://localhost:1314/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/about/"
+                href="http://localhost:1314/it/about/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/tags/</loc>
+    <loc>http://localhost:1314/it/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:1314/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/tags/"
+                href="http://localhost:1314/it/tags/"
                 />
   </url>
 </urlset>

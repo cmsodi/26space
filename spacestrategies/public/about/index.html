@@ -3,13 +3,13 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title> – spacepolicies.org</title>
+<title> – spacestrategies.org</title>
 
 <meta name="created" content="0001-01-01T00:00:00+0000">
 <meta name="modified" content="0001-01-01T00:00:00+0000">
 
 
-<meta property="og:site_name" content="spacepolicies.org">
+<meta property="og:site_name" content="spacestrategies.org">
 <meta property="og:title" content="">
 <meta property="og:url" content="http://localhost:1313/about/">
 <meta property="og:type" content="article">
@@ -22,6 +22,9 @@
 <link rel="alternate" hreflang="it-IT" href="http://localhost:1313/it/about/">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
 <link rel="stylesheet" href="/css/styles.css">
 <link rel="stylesheet" href="/css/print.css" media="print">
@@ -41,7 +44,7 @@
     },
     "publisher": {
       "@type": "Organization",
-      "name": "spacepolicies.org",
+      "name": "spacestrategies.org",
       "url": "http://localhost:1313/"
     }
   }
@@ -76,14 +79,9 @@
 <nav class='main-menu mx--xs layout__navigation'
   aria-label='Main menu'>
   <ul class="flex mx--0 sp-menu-list">
-    <li><a href="/article/" ><span>Articles</span></a></li>
-    <li><a href="/tags/" ><span>Tags</span></a></li>
+    <li><a href="/articles/" ><span>Articles</span></a></li>
+    <li><a href="/strategic-models/" ><span>Models</span></a></li>
     <li><a href="/about/" ><span>About</span></a></li>
-    <li><a href="/home1/" ><span>Home1</span></a></li>
-    <li class="sp-menu-right">
-      <a href="https://spacestrategies.org" target="_blank" rel="noopener">Methodologies → spacestrategies.org</a>
-    </li>
-
     <li>
       <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
         title="Toggle dark mode">
@@ -106,11 +104,14 @@
 </nav><div class="sp-site-header">
   <div class="sp-site-header--global">
     <a href="/" class="sp-brand">
-      <span class="sp-brand-symbol">◈</span>
+      <img src="/images/logo.png" alt="spacestrategies.org" class="sp-brand-logo" height="40">
       <span class="sp-brand-text">
-        <span class="sp-brand-name">spacepolicies.org</span>
-        <span class="sp-brand-tagline">Analysis &amp; Insights</span>
+        <span class="sp-brand-name">spacestrategies.org</span>
+        <span class="sp-brand-tagline">Methods &amp; Frameworks</span>
       </span>
+    </a>
+    <a href="https://spacepolicies.org" target="_blank" rel="noopener" class="sp-header-link">
+      Applied analysis → <img src="/images/logo-spacepolicies.png" onerror="this.onerror=null;this.src='https://spacepolicies.org/images/logo.png';" alt="" class="sp-header-link-logo"> spacepolicies.org
     </a>
   </div>
 </div>
@@ -122,26 +123,265 @@
 <h1 class="title"></h1>
 </header>
 
-<h1 id="about-space-policies">About Space Policies</h1>
-<p>Space Policies delivers independent analysis of space programs, governance, and industry dynamics. The site is written for professionals, executives, and policy-makers who need substantive assessments—not news summaries, but strategic interpretation of what developments mean and where they lead.</p>
-<h2 id="what-youll-find-here">What You&rsquo;ll Find Here</h2>
-<p><strong>Articles</strong> — Analysis of current issues in European and international space policy: institutional decisions, program strategies, regulatory developments, commercial dynamics. Each piece applies structured analytical methods to cut through complexity.</p>
-<p><strong>Monographs</strong> — In-depth studies on strategic topics requiring sustained examination: European launcher autonomy, Copernicus governance, space security architectures, national program assessments.</p>
-<p><strong>Scenarios</strong> — Structured explorations of alternative futures for the space sector, examining how current decisions might unfold under different assumptions.</p>
-<h2 id="methodological-foundation">Methodological Foundation</h2>
-<p>Analyses on this site apply structured frameworks appropriate to each topic—from macro-environmental scanning to stakeholder mapping, from scenario planning to morphological analysis. The specific method is chosen based on the strategic question at hand, not applied mechanically.</p>
-<p>For those interested in the frameworks themselves—their logic, application criteria, and adaptation to space sector problems—the companion site <a href="https://spacestrategies.org">spacestrategies.org</a> provides detailed documentation. The two sites work together: methods there, results here.</p>
-<h2 id="the-founder">The Founder</h2>
-<p><img src="/images/founder-sketch.webp" alt="Cesare Sodi"></p>
-<p><strong>Cesare Sodi</strong> is an independent researcher who spent four decades in the space sector, including 31 years at the Italian Space Agency (ASI). His institutional roles included Project Manager for satellite programs, Chief of Strategy and Public Relations, and advisor on Space Security matters.</p>
-<p>This operational experience—spanning telecommunications, Earth observation, international cooperation, and institutional strategy—informs the analyses published here. While grounded in European space governance, the site addresses dynamics relevant across all major space-faring regions: industrial policy, launch autonomy, spectrum governance, dual-use tensions, commercial-institutional interfaces.</p>
-<p>A Master&rsquo;s degree in Electronic Engineering from La Sapienza University provides technical grounding; a classical education shapes the attention to strategic and political dimensions often overlooked in purely technical assessments.</p>
-<p>Sodi currently holds no affiliations with space agencies, institutions, or commercial entities. Space Policies operates as an independent platform, free to assess programs and policies without institutional constraints or commercial considerations.</p>
-<h2 id="contact">Contact</h2>
+<h1 id="about-space-strategies">About Space Strategies</h1>
+<p>Space Strategies provides analytical frameworks and methodologies for strategic thinking in the space domain. The site serves professionals, executives, and policy-makers who need rigorous tools to analyze complex decisions—not ready-made answers, but structured approaches to find their own.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.frame_box_container-0 {
+  --bg-light: #f8fafc;
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+
+  
+  background: var(--bg-light) !important;
+  border-radius: 0;
+  border: 1px solid lightgray;
+  margin: 2rem 0;
+  padding: 0 0.7rem;
+  
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+
+html[data-theme="dark"] .frame_box_container-0 {
+  background: var(--bg-dark) !important;
+}
+
+
+.frame_box_item-0 {
+  
+  padding: 0.3rem 0;
+  color: inherit;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.frame_box_item-0 p {
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+
+.frame_box_item-0.no-link {
+  cursor: default;
+}
+</style>
+
+<div class="frame_box_container-0">
+  <div class="frame_box_item-0 no-link">
+    <h2 id="what-youll-find-here">What You&rsquo;ll Find Here</h2>
+<p><strong>Original Research</strong> — The 4Dimensions© framework, an ontological structure for strategic analysis rooted in Aristotelian thought (material, formal, efficient, final causes across four systemic levels). This framework integrates with Zwicky&rsquo;s Morphological Analysis for systematic option generation, TRIZ for contradiction resolution, and the Minto Pyramid Principle for structured communication. The four pillars form a coherent methodology: from understanding what exists, to exploring what is possible, to overcoming obstacles, to communicating conclusions effectively. Large Language Models serve as augmentation tools within this framework—enhancing analytical rigor while preserving intellectual autonomy. Methodological reports document both the approach and its limits.</p>
+<p><strong>Frameworks</strong> — Twenty-four strategic analysis methodologies adapted for the space domain, organized across six analytical categories:</p>
 <ul>
-<li>X: <a href="https://x.com/spacepolicies">@spacepolicies</a></li>
+<li><strong>Macro-Environmental Analysis</strong> (PESTLE, classical geopolitical theories, causal layered analysis)</li>
+<li><strong>Capabilities &amp; Power Assessment</strong> (SWOT, instruments of national power, hard/soft/smart power, security sector analysis)</li>
+<li><strong>Relationship &amp; Stakeholder Dynamics</strong> (alliance analysis, stakeholder power-interest mapping, levels of analysis)</li>
+<li><strong>Security &amp; Threat Assessment</strong> (threat risk matrices, red team/blue team exercises, war-gaming)</li>
+<li><strong>Future Foresight &amp; Scenario Planning</strong> (scenario planning, Delphi method, three horizons, futures wheel, cross-impact analysis)</li>
+<li><strong>Structured Thinking &amp; Problem Solving</strong> (six thinking hats, morphological analysis, SCAMPER, forced analogies)</li>
+</ul>
+<p>Each framework includes space-specific translation (how orbital mechanics and institutional structures reshape the methodology), failure mode analysis (where the framework breaks down or misleads), and integration guidance (which other frameworks complement it). The emphasis is critical—exposing limitations rather than overselling applicability.</p>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.frame_box_container-1 {
+  --bg-light: #f1f5f9;
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+
+  
+  background: var(--bg-light) !important;
+  border-radius: 0;
+  border: 1px solid lightgray;
+  margin: 2rem 0;
+  padding: 0 0.7rem;
+  
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+
+html[data-theme="dark"] .frame_box_container-1 {
+  background: var(--bg-dark) !important;
+}
+
+
+.frame_box_item-1 {
+  
+  padding: 0.3rem 0;
+  color: inherit;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.frame_box_item-1 p {
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+
+.frame_box_item-1.no-link {
+  cursor: default;
+}
+</style>
+
+<div class="frame_box_container-1">
+  <div class="frame_box_item-1 no-link">
+    <h2 id="applied-analysis">Applied Analysis</h2>
+<p>For concrete applications of these frameworks—articles, monographs, and scenario analyses on current space policy issues—see the companion site <a href="https://spacepolicies.org">spacepolicies.org</a>.</p>
+<p>Frameworks are used in <a href="https://spacepolicies.org">spacepolicies.org</a> based on their applicability:</p>
+<ul>
+<li><strong>Blog-Native</strong>: fully executable with open source intelligence;</li>
+<li><strong>Adapted Analysis</strong>: require methodological simplification, but provide partial insights without restricted access. Used for more in-depth analysis.</li>
+<li><strong>Illustration of case studies</strong>: too resource-intensive for original execution; explained through analysis of historical cases and examples.</li>
+</ul>
+<p>The two sites work together: rigorous methodology here, applied results there. Each Space Policies analysis links back to the framework that structured it, and each framework page includes example applications.</p>
+
+  </div>
+</div>
+
+<h2 id="the-founder">The Founder</h2>
+
+<figure class="image-container align-left"
+        style="--fig-width: 30%; --fig-width-mobile: 40%;">
+  <img src="/images/founder.webp"
+       loading="lazy" alt="Cesare Sodi">
+  </figure>
+<p><strong>Cesare Sodi</strong></p>
+<p>Cesare Sodi is an independent researcher with three decades of experience in the space sector, including positions at the Italian Space Agency (ASI) as Project Manager, Chief of Strategy and Public Relations, and advisor on Space Security.</p>
+<p>His background spans microwave research, electronic systems design, satellite telecommunications, and Earth observation programs. A Master&rsquo;s degree in Electronic Engineering from La Sapienza University grounds his technical work; a classical education informs his approach to strategic and philosophical inquiry.</p>
+<p>Since leaving institutional roles, Sodi has focused on developing analytical frameworks that bridge engineering methodology with strategic thinking. This work includes three years of systematic research on Large Language Models as tools for augmenting critical analysis—exploring both their potential and their limits.</p>
+<p>He holds no current affiliations with space agencies or institutions, enabling independent assessment free from institutional constraints.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.frame_box_container-2 {
+  --bg-light: #f5f5f4;
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+
+  
+  background: var(--bg-light) !important;
+  border-radius: 0;
+  border: 1px solid lightgray;
+  margin: 2rem 0;
+  padding: 0 0.7rem;
+  
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+
+html[data-theme="dark"] .frame_box_container-2 {
+  background: var(--bg-dark) !important;
+}
+
+
+.frame_box_item-2 {
+  
+  padding: 0.3rem 0;
+  color: inherit;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.frame_box_item-2 p {
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+
+.frame_box_item-2.no-link {
+  cursor: default;
+}
+</style>
+
+<div class="frame_box_container-2">
+  <div class="frame_box_item-2 no-link">
+    <h2 id="contact">Contact</h2>
+<ul>
+<li>X: <a href="https://x.com/spacestrategies">@spacestrategies</a></li>
 <li>Telegram: <a href="https://t.me/cesaresodi">@cesaresodi</a></li>
 </ul>
+
+  </div>
+</div>
+
 
 
 </article>
@@ -152,7 +392,7 @@
 <div class="footer__inner">
     <div class="footer__content"
         style="text-align: center; font-size: 0.85rem; padding: 1rem 0; color: var(--color-text-meta);">
-        <span>&copy; 2026 spacepolicies.org.</span>
+        <span>&copy; 2026 spacestrategies.org.</span>
         <span style="margin: 0 0.5rem;">•</span>
         <span>All rights reserved.</span>
     </div>

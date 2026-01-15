@@ -20,6 +20,8 @@ Per chi è interessato ai framework stessi — la loro logica, i criteri di appl
 
 ## Il Fondatore
 
+{{< figure src="/images/founder.webp" align="left" width-pc="30" width-mobile="40" alt="Cesare Sodi" >}}
+
 **Cesare Sodi** è un ricercatore indipendente che ha trascorso quattro decenni nel settore spaziale, inclusi 31 anni presso l'Agenzia Spaziale Italiana (ASI). I suoi ruoli istituzionali hanno incluso quello di Project Manager per programmi satellitari, Capo della Strategia e delle Relazioni Pubbliche e consulente in materia di sicurezza spaziale.
 
 Questa esperienza operativa — che spazia dalle telecomunicazioni all'osservazione della Terra, dalla cooperazione internazionale alla strategia istituzionale — informa le analisi qui pubblicate. Sebbene radicato nella governance spaziale europea, il sito affronta dinamiche rilevanti per tutte le principali regioni attive nello spazio: politica industriale, autonomia di lancio, governance dello spettro, tensioni dual-use, interfacce tra settore commerciale e istituzionale.

@@ -16,7 +16,7 @@
   {{ range $featured }}
   <section class="sp-section" aria-labelledby="featured-heading">
     <div class="sp-section-header">
-      <h2 id="featured-heading" class="sp-section-title">Featured Article</h2>
+      <h2 id="featured-heading" class="sp-section-title">{{ i18n "featured_article" }}</h2>
     </div>
 
     {{ $thumb := .Resources.GetMatch "pic.webp" -}}

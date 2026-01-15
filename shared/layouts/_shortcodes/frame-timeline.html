@@ -1,0 +1,187 @@
+{{/* Shortcode frame-timeline per visualizzazione cronologica eventi */}}
+
+{{ $width := .Get "width" | default "60%" }}
+
+{{/* Contatore globale per ID univoco - risolve problema Ordinal con shortcode annidati */}}
+{{ $counter := .Page.Scratch.Get "frameTimelineCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameTimelineCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+{{/* Gestione background opzionale */}}
+{{ $hasBg := false }}
+{{ $bgLight := "" }}
+{{ if or (.Get "bgColor") (.Get "bgColorKey") }}
+  {{ $hasBg = true }}
+  {{ $fc := partial "frame-colors.html" (dict
+    "defaultColorKey" "color5"
+    "bgColorKey"      (.Get "bgColorKey")
+    "bgColor"         (.Get "bgColor")
+  ) }}
+  {{ $bgLight = $fc.bgLight }}
+{{ end }}
+
+{{/* Colori gradiente bianco → verde per markers */}}
+{{ $endFull := "#22c55e" }}
+{{ $start := "yellow" }}
+
+{{/* Parse contenuto: ogni riga = data | titolo | descrizione */}}
+{{ $content := trim .Inner "\n" }}
+{{ $lines := split $content "\n" }}
+{{ $events := slice }}
+
+{{ range $lines }}
+  {{ $line := trim . " \t" }}
+  {{ if $line }}
+    {{ $parts := split $line "|" }}
+    {{ if ge (len $parts) 2 }}
+      {{ $date := trim (index $parts 0) " \t" }}
+      {{ $title := trim (index $parts 1) " \t" }}
+      {{ $desc := "" }}
+      {{ if ge (len $parts) 3 }}
+        {{ $desc = trim (index $parts 2) " \t" }}
+      {{ end }}
+      {{ $events = $events | append (dict "date" $date "title" $title "desc" $desc) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<style>
+.frame_timeline_wrapper-{{ $uid }} {
+  width: {{ $width }};
+  max-width: 100%;
+  margin: 2rem auto;
+  {{ if $hasBg }}
+  --bg-light: {{ $bgLight | safeCSS }};
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+  background: var(--bg-light) !important;
+  border-radius: 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  {{ end }}
+}
+
+{{ if $hasBg }}
+html[data-theme="dark"] .frame_timeline_wrapper-{{ $uid }} {
+  background: var(--bg-dark) !important;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+{{ end }}
+
+.frame_timeline-{{ $uid }} {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* Linea verticale grigia fissa */
+.frame_timeline-{{ $uid }}::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #6b7280;
+}
+
+.frame_timeline_event-{{ $uid }} {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.frame_timeline_event-{{ $uid }}:last-child {
+  margin-bottom: 0;
+}
+
+/* Marker cerchio con bordo grigio */
+.frame_timeline_marker-{{ $uid }} {
+  position: absolute;
+  left: -2rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #6b7280;
+}
+
+/* Data piccola sopra marker */
+.frame_timeline_date-{{ $uid }} {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Titolo: stile identico a frame-card title */
+.frame_timeline_title-{{ $uid }} {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: darkred;
+  margin-bottom: 0.3rem;
+}
+
+html[data-theme="dark"] .frame_timeline_title-{{ $uid }} {
+  color: orange;
+}
+
+/* Descrizione: wrapping con indentatura */
+.frame_timeline_desc-{{ $uid }} {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: inherit;
+  margin-left: 0;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .frame_timeline_wrapper-{{ $uid }} {
+    width: 100% !important;
+  }
+
+  .frame_timeline-{{ $uid }} {
+    padding-left: 2rem;
+  }
+
+  .frame_timeline_marker-{{ $uid }} {
+    left: -1.5rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .frame_timeline_date-{{ $uid }} {
+    font-size: 0.7rem;
+  }
+
+  .frame_timeline_title-{{ $uid }} {
+    font-size: 0.85rem;
+  }
+
+  .frame_timeline_desc-{{ $uid }} {
+    font-size: 0.85rem;
+  }
+}
+</style>
+
+<div class="frame_timeline_wrapper-{{ $uid }}">
+  <div class="frame_timeline-{{ $uid }}">
+    {{ $totalEvents := len $events }}
+    {{ range $idx, $event := $events }}
+      {{/* Calcola percentuale di progressione dal bianco al verde */}}
+      {{ $endPercent := 0 }}
+      {{ if gt $totalEvents 1 }}
+        {{ $endPercent = div (mul $idx 100) (sub $totalEvents 1) }}
+      {{ else }}
+        {{ $endPercent = 100 }}
+      {{ end }}
+      {{ $startPercent := sub 100 $endPercent }}
+      {{ $markerColor := printf "color-mix(in srgb, %s %d%%, %s %d%%)" $start $startPercent $endFull $endPercent }}
+      <div class="frame_timeline_event-{{ $uid }}">
+        <div class="frame_timeline_marker-{{ $uid }}" style="background: {{ $markerColor | safeCSS }};"></div>
+        <div class="frame_timeline_date-{{ $uid }}">{{ $event.date }}</div>
+        <div class="frame_timeline_title-{{ $uid }}">{{ $event.title | markdownify }}</div>
+        {{ if $event.desc }}
+          <div class="frame_timeline_desc-{{ $uid }}">{{ $event.desc | markdownify }}</div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</div>

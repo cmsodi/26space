@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="nojs" lang="it-IT" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Articoli – spacestrategies.org</title>
+<link rel="alternate" type="application/rss+xml" title="rss" href="http://localhost:1313/it/articles/index.xml">
+
+<meta name="created" content="2026-01-13T00:00:00+0000">
+<meta name="modified" content="2026-01-13T00:00:00+0000">
+
+
+<meta property="og:site_name" content="spacestrategies.org">
+<meta property="og:title" content="Articoli">
+<meta property="og:url" content="http://localhost:1313/it/articles/">
+<meta property="og:type" content="website">
+
+<meta name="generator" content="Hugo 0.152.2">
+
+
+
+<link rel="canonical" href="http://localhost:1313/it/articles/">
+<link rel="alternate" hreflang="en-US" href="http://localhost:1313/articles/">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/print.css" media="print">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url" : "http://localhost:1313/it/articles/",
+    "name": "Articoli",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://localhost:1313/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "spacestrategies.org",
+      "url": "http://localhost:1313/"
+    }
+  }
+</script>
+
+<script>
+(() => {
+  // <stdin>
+  (function() {
+    document.querySelector("html").classList.replace("nojs", "js");
+  })();
+})();
+
+</script>
+
+<script defer src="/js/script.5ed52cdd956021fd7194109b25dbc5cbe93a1085461b9f29b1284df94c19481c.js"></script>
+
+
+
+
+<script src="/js/theme-toggle.js" defer></script>
+
+
+</head>
+
+<body class="list-page section-page--articles">
+<div class="page layout__page">
+
+    
+
+
+<nav class='main-menu mx--xs layout__navigation'
+  aria-label='Menu principale'>
+  <ul class="flex mx--0 sp-menu-list">
+    <li><a href="/it/articles/" ><span>Articoli</span></a></li>
+    <li><a href="/it/strategic-models/" ><span>Modelli</span></a></li>
+    <li><a href="/it/about/" ><span>Chi Siamo</span></a></li>
+    <li>
+      <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
+        title="Toggle dark mode">
+        ◐
+      </button>
+    </li>
+
+    
+    
+    <li class="sp-menu-lang">
+      
+        
+        <a href="/articles/" title="English">
+          [ EN ]
+        </a>
+      
+    </li>
+    
+  </ul>
+</nav><div class="sp-site-header">
+  <div class="sp-site-header--global">
+    <a href="/it/" class="sp-brand">
+      <img src="/images/logo.png" alt="spacestrategies.org" class="sp-brand-logo" height="40">
+      <span class="sp-brand-text">
+        <span class="sp-brand-name">spacestrategies.org</span>
+        <span class="sp-brand-tagline">Metodi &amp; Framework</span>
+      </span>
+    </a>
+    <a href="https://spacepolicies.org" target="_blank" rel="noopener" class="sp-header-link">
+      Analisi applicate → <img src="/images/logo-spacepolicies.png" onerror="this.onerror=null;this.src='https://spacepolicies.org/images/logo.png';" alt="" class="sp-header-link-logo"> spacepolicies.org
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.articles-list-wrapper {
+  --bg-light: #e2e8f0;
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+  background: var(--bg-light);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 0;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+html[data-theme="dark"] .articles-list-wrapper {
+  background: var(--bg-dark);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.articles-entry {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin: 1rem 0;
+}
+
+.articles-entry:first-child {
+  margin-top: 0;
+}
+
+.articles-entry:last-child {
+  margin-bottom: 0;
+}
+
+.articles-entry__thumb {
+  display: block;
+  padding-top: 0.3rem;
+}
+
+.articles-entry__thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 280 / 187;
+}
+
+.articles-entry__placeholder {
+  width: 100%;
+  aspect-ratio: 280 / 187;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--color-body-bg, #fff) 92%, #000 8%);
+  display: block;
+}
+
+html[data-theme="dark"] .articles-entry__placeholder {
+  background: color-mix(in srgb, #1e293b 92%, #fff 8%);
+}
+
+.articles-entry__body {
+  min-width: 0;
+}
+
+.articles-entry__date {
+  font-size: 0.8rem;
+  color: var(--color-text-meta, #6b7280);
+  margin-bottom: 0.25rem;
+}
+
+.articles-entry__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0.1rem 0 0.35rem;
+  line-height: 1.3;
+}
+
+.articles-entry__title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.articles-entry__title a:hover {
+  text-decoration: underline;
+}
+
+.articles-entry__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-meta, #6b7280);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 666px) {
+  .articles-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .articles-entry__thumb {
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+ 
+.articles-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+  font-size: 0.95rem;
+}
+
+.articles-pagination a {
+  text-decoration: none;
+  color: var(--color-link, #2563eb);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-link, #2563eb);
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.articles-pagination a:hover {
+  background: var(--color-link, #2563eb);
+  color: #fff;
+}
+
+.articles-pagination__info {
+  color: var(--color-text-meta, #6b7280);
+}
+</style>
+
+<main class="sp-page sp-section-list sp-section-list--articles">
+  
+  <h2 id="articoli-su-metodi-di-analisi-strategica">Articoli su Metodi di Analisi Strategica</h2>
+<p>Framework analitici e metodologie per policy, strategia e valutazione di programmi spaziali.</p>
+
+
+  <div class="articles-list-wrapper">
+    
+      
+      
+      
+      
+
+      <article class="articles-entry">
+        <div class="articles-entry__thumb">
+          
+          <a href="/it/articles/three-horizons-framework/" aria-hidden="true"><span class="articles-entry__placeholder"></span></a>
+          
+        </div>
+
+        <div class="articles-entry__body">
+          <div class="articles-entry__date">Jan 2026</div>
+          <h3 class="articles-entry__title">
+            <a href="/it/articles/three-horizons-framework/">Three Horizons Framework: Gestire l&#39;Architettura Temporale della Disruption</a>
+          </h3>
+          
+          <p class="articles-entry__desc">Un approccio grafico per pensare al futuro, connettendo il presente (Horizon 1), la zona transizione (Horizon 2), e il futuro emergente (Horizon 3).</p>
+          
+        </div>
+      </article>
+    
+      
+      
+      
+      
+
+      <article class="articles-entry">
+        <div class="articles-entry__thumb">
+          
+          <a href="/it/articles/war-gaming/" aria-hidden="true"><span class="articles-entry__placeholder"></span></a>
+          
+        </div>
+
+        <div class="articles-entry__body">
+          <div class="articles-entry__date">Jan 2026</div>
+          <h3 class="articles-entry__title">
+            <a href="/it/articles/war-gaming/">War-gaming: Decision-Making Strategico sotto Conflitto Simulato</a>
+          </h3>
+          
+          <p class="articles-entry__desc">Una simulazione strategica che coinvolge regole, dati e procedure per rappresentare situazione real-life effettiva o assunta, permettendo ad analisti di testare teorie e decision-making sotto stress.</p>
+          
+        </div>
+      </article>
+    
+  </div>
+
+  
+  
+  <nav class="articles-pagination" aria-label="Pagination">
+    
+    <a href="/it/articles/page/2/" rel="prev">&larr; Precedente</a>
+    
+
+    <span class="articles-pagination__info">
+      3 / 3
+    </span>
+
+    
+  </nav>
+  
+
+</main>
+
+
+<footer class="footer layout__footer mt--l">
+<div class="footer__inner">
+    <div class="footer__content"
+        style="text-align: center; font-size: 0.85rem; padding: 1rem 0; color: var(--color-text-meta);">
+        <span>&copy; 2026 spacestrategies.org.</span>
+        <span style="margin: 0 0.5rem;">•</span>
+        <span>Tutti i diritti riservati.</span>
+    </div>
+</div>
+</footer>
+
+</div>
+</body>
+</html>

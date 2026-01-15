@@ -2,128 +2,229 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/it/stakeholders/agencies-institutions/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/alliance-relationship-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/agencies-institutions/"
+                href="http://localhost:1313/articles/alliance-relationship-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/agencies-institutions/"
+                href="http://localhost:1313/it/articles/alliance-relationship-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/pestle-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/article/"
+                href="http://localhost:1313/articles/pestle-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/article/"
+                href="http://localhost:1313/it/articles/pestle-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/eu-space-autonomy/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/purposes/economic-development/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/red-team-blue-team-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/economic-development/"
+                href="http://localhost:1313/articles/red-team-blue-team-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/economic-development/"
+                href="http://localhost:1313/it/articles/red-team-blue-team-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/frameworks/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/swot-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/frameworks/"
+                href="http://localhost:1313/articles/swot-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/frameworks/"
+                href="http://localhost:1313/it/articles/swot-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/governments/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/governments/"
+                href="http://localhost:1313/articles/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/governments/"
+                href="http://localhost:1313/it/articles/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/purposes/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/causal-layered-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/"
+                href="http://localhost:1313/articles/causal-layered-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/"
+                href="http://localhost:1313/it/articles/causal-layered-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/purposes/space-exploration/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/cross-impact-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/space-exploration/"
+                href="http://localhost:1313/articles/cross-impact-analysis/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/space-exploration/"
+                href="http://localhost:1313/it/articles/cross-impact-analysis/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/space-industry/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/forced-analogies/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/space-industry/"
+                href="http://localhost:1313/articles/forced-analogies/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/space-industry/"
+                href="http://localhost:1313/it/articles/forced-analogies/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/frameworks/space-policy/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/futures-wheel/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/frameworks/space-policy/"
+                href="http://localhost:1313/articles/futures-wheel/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/frameworks/space-policy/"
+                href="http://localhost:1313/it/articles/futures-wheel/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/hard-soft-smart-power/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/hard-soft-smart-power/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/hard-soft-smart-power/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/levels-of-analysis-waltz/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/levels-of-analysis-waltz/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/levels-of-analysis-waltz/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/delphi-method/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/delphi-method/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/delphi-method/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/morphological-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/morphological-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/morphological-analysis/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/scamper/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/scamper/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/scamper/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/scenario-planning/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/scenario-planning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/scenario-planning/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/security-sector-analysis/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/security-sector-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/security-sector-analysis/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/articles/six-thinking-hats/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/articles/six-thinking-hats/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/articles/six-thinking-hats/"
                 />
   </url><url>
     <loc>http://localhost:1313/it/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -135,108 +236,148 @@
                 href="http://localhost:1313/it/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/stakeholders/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/stakeholder-power-interest-matrix/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/stakeholders/"
+                href="http://localhost:1313/articles/stakeholder-power-interest-matrix/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/stakeholders/"
+                href="http://localhost:1313/it/articles/stakeholder-power-interest-matrix/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/instruments-national-power-dime/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/"
+                href="http://localhost:1313/articles/instruments-national-power-dime/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/"
+                href="http://localhost:1313/it/articles/instruments-national-power-dime/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/transport-systems/</loc>
-    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/classical-geopolitical-theories/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/transport-systems/"
+                href="http://localhost:1313/articles/classical-geopolitical-theories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/transport-systems/"
+                href="http://localhost:1313/it/articles/classical-geopolitical-theories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/china-lunar-program/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/purposes/knowledge-expansion/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/threat-risk-assessment-matrix/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/knowledge-expansion/"
+                href="http://localhost:1313/articles/threat-risk-assessment-matrix/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/knowledge-expansion/"
+                href="http://localhost:1313/it/articles/threat-risk-assessment-matrix/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/planetary-infrastructures/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/three-horizons-framework/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/planetary-infrastructures/"
+                href="http://localhost:1313/articles/three-horizons-framework/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/planetary-infrastructures/"
+                href="http://localhost:1313/it/articles/three-horizons-framework/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/technologies/spacecrafts/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/articles/war-gaming/</loc>
+    <lastmod>2026-01-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/technologies/spacecrafts/"
+                href="http://localhost:1313/articles/war-gaming/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/technologies/spacecrafts/"
+                href="http://localhost:1313/it/articles/war-gaming/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/article/commercial-leo-stations/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/purposes/terrestrial-services/</loc>
-    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/it/reports/holistic-approach/</loc>
+    <lastmod>2025-10-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
-                href="http://localhost:1313/purposes/terrestrial-services/"
+                href="http://localhost:1313/reports/holistic-approach/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="it-IT"
-                href="http://localhost:1313/it/purposes/terrestrial-services/"
+                href="http://localhost:1313/it/reports/holistic-approach/"
                 />
   </url><url>
-    <loc>http://localhost:1313/it/report/analisi-4pilastri/</loc>
+    <loc>http://localhost:1313/it/reports/sixteen-cells/</loc>
+    <lastmod>2025-10-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/reports/sixteen-cells/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/reports/sixteen-cells/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/reports/</loc>
+    <lastmod>2025-10-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/reports/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/reports/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/reports/triz-tools/</loc>
+    <lastmod>2025-10-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/reports/triz-tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/reports/triz-tools/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/reports/four-pillars/</loc>
     <lastmod>2025-01-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/it/report/</loc>
-    <lastmod>2025-01-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/reports/four-pillars/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/reports/four-pillars/"
+                />
   </url><url>
     <loc>http://localhost:1313/it/about/</loc>
     <xhtml:link
@@ -250,6 +391,54 @@
                 href="http://localhost:1313/it/about/"
                 />
   </url><url>
+    <loc>http://localhost:1313/it/frameworks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/frameworks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/frameworks/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/strategic-models/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/strategic-models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/strategic-models/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/purposes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/purposes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/purposes/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/stakeholders/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/stakeholders/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/stakeholders/"
+                />
+  </url><url>
     <loc>http://localhost:1313/it/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -260,6 +449,18 @@
                 rel="alternate"
                 hreflang="it-IT"
                 href="http://localhost:1313/it/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/it/technologies/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="http://localhost:1313/technologies/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="it-IT"
+                href="http://localhost:1313/it/technologies/"
                 />
   </url>
 </urlset>

@@ -1,0 +1,27 @@
+{{/* Partial per blockquote stilizzate con palette colori */}}
+
+{{/* Riceve: .colorKey (obbligatorio, es. "color2"), .content (testo della blockquote) */}}
+
+{{ $c := site.Params.frameColors }}
+
+{{/* Mappa colorKey -> colore da array */}}
+{{ $color1 := index $c 0 | default "#DCE8F1" }}
+{{ $color2 := index $c 1 | default "#F8FAFC" }}
+{{ $color3 := index $c 2 | default "#E0F2FE" }}
+{{ $color4 := index $c 3 | default "#ECFEF4" }}
+{{ $color5 := index $c 4 | default "#F3F0FF" }}
+{{ $color6 := index $c 5 | default "#E0F7FA" }}
+{{ $color7 := index $c 6 | default "#F1F5F9" }}
+
+{{ $bgLight := $color7 }}
+
+{{ if eq .colorKey "color1" }}{{ $bgLight = $color1 }}{{ end }}
+{{ if eq .colorKey "color2" }}{{ $bgLight = $color2 }}{{ end }}
+{{ if eq .colorKey "color3" }}{{ $bgLight = $color3 }}{{ end }}
+{{ if eq .colorKey "color4" }}{{ $bgLight = $color4 }}{{ end }}
+{{ if eq .colorKey "color5" }}{{ $bgLight = $color5 }}{{ end }}
+{{ if eq .colorKey "color6" }}{{ $bgLight = $color6 }}{{ end }}
+{{ if eq .colorKey "color7" }}{{ $bgLight = $color7 }}{{ end }}
+
+{{/* Ritorna dict con colore */}}
+{{ return (dict "bgLight" $bgLight) }}

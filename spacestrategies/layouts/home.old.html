@@ -1,0 +1,131 @@
+{{ define "main" }}
+<main class="sp-home sp-home--strategies">
+
+  <!-- Hero -->
+  <section class="sp-hero">
+    <div class="sp-hero-wrapper">
+      <div class="sp-hero-content">
+        <h1>{{ site.Params.heroTitle | default "Analytical tools for strategic thinking in the space domain" }}</h1>
+        <p>{{ site.Params.heroSubtitle | default "Rigorous methodologies adapted for space policy and program analysis." }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Frameworks -->
+  <section class="sp-section" aria-labelledby="frameworks-heading">
+    <div class="sp-section-header">
+      <h2 id="frameworks-heading" class="sp-section-title">{{ i18n "core_frameworks" | default "Core Frameworks" }}</h2>
+      <a class="sp-section-link" href="{{ "/frameworks/" | relLangURL }}">{{ i18n "view_all" | default "View all" }} &rarr;</a>
+    </div>
+
+    <div class="sp-cards-grid">
+      {{ range site.Params.frameworks }}
+      <div class="sp-card">
+        <div class="sp-card-icon">{{ .icon }}</div>
+        <h3 class="sp-card-title">{{ .title }}</h3>
+        <p class="sp-card-desc">{{ .desc }}</p>
+      </div>
+      {{ else }}
+      <!-- Default frameworks if none configured -->
+      <div class="sp-card">
+        <div class="sp-card-icon">&#x2B21;</div>
+        <h3 class="sp-card-title">
+          {{ $sixteenCellsURL := "/reports/sixteen-cells/" | relLangURL }}
+          <a href="{{ $sixteenCellsURL }}">Le 4dimensions© nello Spazio</a>
+        </h3>
+        <p class="sp-card-desc">Framework comprensivo per l'analisi strategica nel settore spaziale, dalla filosofia aristotelica alla classificazione operativa.</p>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon">&#x265C;</div>
+        <h3 class="sp-card-title">
+          {{ $holisticURL := "/reports/holistic-approach/" | relLangURL }}
+          <a href="{{ $holisticURL }}">Approccio Analitico Olistico</a>
+        </h3>
+        <p class="sp-card-desc">Metodologia multistrato per l'analisi olistica di entità complesse nel dominio spaziale, riconciliando metafisica e strategia.</p>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon">&#x25F3;</div>
+        <h3 class="sp-card-title">
+          {{ $trizURL := "/reports/triz-tools/" | relLangURL }}
+          <a href="{{ $trizURL }}">TRIZ Tools per la Strategia Spaziale</a>
+        </h3>
+        <p class="sp-card-desc">Applicazione degli strumenti TRIZ alla politica e strategia spaziale per innovazione e risoluzione di problemi complessi.</p>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon">&#x1F4D8;</div>
+        <h3 class="sp-card-title">
+          {{ $fourPillarsURL := "/reports/four-pillars/" | relLangURL }}
+          <a href="{{ $fourPillarsURL }}">Dall'Ontologia alla Strategia</a>
+        </h3>
+        <p class="sp-card-desc">Analisi Morfologica Avanzata con Framework 4Dimensions©, Zwicky Box, TRIZ e Minto Pyramid per la formulazione strategica nel dominio spaziale.</p>
+      </div>
+      <div class="sp-card">
+        <div class="sp-card-icon">&#x1F4D8;</div>
+        <h3 class="sp-card-title">
+          {{ $fourPillarsURL := "/reports/four-pillars/" | relLangURL }}
+          <a href="{{ $fourPillarsURL }}">Dall'Ontologia alla Strategia</a>
+        </h3>
+        <p class="sp-card-desc">Analisi Morfologica Avanzata con Framework 4Dimensions©, Zwicky Box, TRIZ e Minto Pyramid per la formulazione strategica nel dominio spaziale.</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="sp-section" aria-labelledby="articles-heading">
+    <div class="sp-section-header">
+      <h2 id="articles-heading" class="sp-section-title">{{ i18n "latest_articles" | default "Latest Articles" }}</h2>
+      <a class="sp-section-link" href="{{ "/articles/" | relLangURL }}">{{ i18n "all_articles" | default "All articles" }} &rarr;</a>
+    </div>
+
+    {{ $pages := where site.RegularPages "Section" "articles" }}
+    {{ $pages = where $pages "Draft" "ne" true }}
+    {{ $pages = $pages.ByDate.Reverse }}
+    {{ range first 3 $pages }}
+    {{ $thumb := .Resources.GetMatch "pic.webp" -}}
+    {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end -}}
+
+    <article class="summary summary--media sp-latest-item">
+      {{ if $thumb }}
+      {{ $t420 := $thumb.Fill "420x280 webp q80" -}}
+      {{ $t280 := $thumb.Fill "280x187 webp q80" -}}
+      <a class="summary__thumb" href="{{ .RelPermalink }}">
+        <img src="{{ $t280.RelPermalink }}" srcset="{{ $t280.RelPermalink }} 280w, {{ $t420.RelPermalink }} 420w"
+          sizes="140px" width="{{ $t280.Width }}" height="{{ $t280.Height }}" alt="" loading="lazy" decoding="async">
+      </a>
+      {{ else }}
+      <a class="summary__thumb summary__thumb--placeholder" href="{{ .RelPermalink }}" aria-hidden="true"></a>
+      {{ end }}
+
+      <div class="summary__body">
+        <div class="sp-article-date">{{ .Date.Format "Jan 2006" }}</div>
+        <h2 class="summary__title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Params.description }}
+        <p class="sp-article-excerpt">{{ . }}</p>
+        {{ end }}
+      </div>
+    </article>
+    {{ else }}
+    <p class="sp-empty-message">{{ i18n "no_articles" | default "No articles published yet." }}</p>
+    {{ end }}
+  </section>
+
+  <!-- CTA -->
+  <section class="sp-section">
+    <div class="sp-cta-box">
+      <h3>{{ i18n "cta_title" | default "Stay updated on new frameworks" }}</h3>
+      <p>{{ i18n "cta_desc" | default "Occasional updates when new methodologies are published." }}</p>
+      <div class="sp-cta-input">
+        <input type="email" placeholder="your@email.com" disabled>
+        <button type="button" disabled>Subscribe</button>
+      </div>
+      <p style="margin: .75rem 0 0; font-size: .8rem; opacity: .8;">
+        (Form disabilitato: lo collegheremo quando decidi lo strumento newsletter.)
+      </p>
+    </div>
+  </section>
+
+</main>
+{{ end }}

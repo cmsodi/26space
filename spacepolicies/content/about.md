@@ -18,7 +18,9 @@ For those interested in the frameworks themselves—their logic, application cri
 
 ## The Founder
 
-![Cesare Sodi](/images/founder-sketch.webp)
+{{< figure src="/images/founder.webp" align="left" width-pc="30" width-mobile="40" alt="Cesare Sodi" >}}
+
+
 
 **Cesare Sodi** is an independent researcher who spent four decades in the space sector, including 31 years at the Italian Space Agency (ASI). His institutional roles included Project Manager for satellite programs, Chief of Strategy and Public Relations, and advisor on Space Security matters.
 

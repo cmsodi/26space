@@ -1,11 +1,14 @@
 <div class="sp-site-header">
   <div class="sp-site-header--global">
     <a href="{{ site.Home.RelPermalink }}" class="sp-brand">
-      <span class="sp-brand-symbol">◈</span>
+      <img src="{{ "images/logo.png" | relURL }}" alt="{{ site.Title }}" class="sp-brand-logo" height="40">
       <span class="sp-brand-text">
         <span class="sp-brand-name">{{ site.Title }}</span>
         <span class="sp-brand-tagline">{{ site.Params.tagline | default "Analysis & Insights" }}</span>
       </span>
+    </a>
+    <a href="https://spacestrategies.org" target="_blank" rel="noopener" class="sp-header-link">
+      {{ i18n "methodologies_text" | default "Methodologies" }} → <img src="{{ "images/logo-spacestrategies.png" | relURL }}" onerror="this.onerror=null;this.src='https://spacestrategies.org/images/logo.png';" alt="" class="sp-header-link-logo"> spacestrategies.org
     </a>
   </div>
 </div>

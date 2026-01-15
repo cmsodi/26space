@@ -94,6 +94,10 @@ other = "Tecnologie"
 [purposes]
 other = "Scopi"
 
+# Homepage
+[featured_article]
+other = "Articolo in Evidenza"
+
 # Filtri e navigazione articoli
 [filter_by_topics]
 other = "Filtra per Argomento"
@@ -113,6 +117,9 @@ other = "Report Recenti"
 # Menu
 [methodologies_link]
 other = "Metodologie → spacestrategies.org"
+
+[methodologies_text]
+other = "Metodologie"
 
 # Footer
 [all_rights_reserved]

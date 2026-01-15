@@ -1,3 +1,7 @@
+# Homepage
+[featured_article]
+other = "Featured Article"
+
 # Filters and article navigation
 [filter_by_topics]
 other = "Filter by Topics"
@@ -17,6 +21,9 @@ other = "Latest Reports"
 # Menu
 [methodologies_link]
 other = "Methodologies → spacestrategies.org"
+
+[methodologies_text]
+other = "Methodologies"
 
 # Footer
 [all_rights_reserved]

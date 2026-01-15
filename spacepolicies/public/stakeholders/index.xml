@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stakeholders on spacepolicies.org</title>
-    <link>http://localhost:1313/stakeholders/</link>
+    <link>http://localhost:1314/stakeholders/</link>
     <description>Recent content in Stakeholders on spacepolicies.org</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
-      <atom:link href="http://localhost:1313/stakeholders/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="http://localhost:1314/stakeholders/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Space-Industry</title>
-      <link>http://localhost:1313/stakeholders/space-industry/</link>
+      <link>http://localhost:1314/stakeholders/space-industry/</link>
       <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/stakeholders/space-industry/</guid>
+      <guid>http://localhost:1314/stakeholders/space-industry/</guid>
       <description></description>
     </item>
     <item>
       <title>Agencies-Institutions</title>
-      <link>http://localhost:1313/stakeholders/agencies-institutions/</link>
+      <link>http://localhost:1314/stakeholders/agencies-institutions/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/stakeholders/agencies-institutions/</guid>
+      <guid>http://localhost:1314/stakeholders/agencies-institutions/</guid>
       <description></description>
     </item>
     <item>
       <title>Governments</title>
-      <link>http://localhost:1313/stakeholders/governments/</link>
+      <link>http://localhost:1314/stakeholders/governments/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/stakeholders/governments/</guid>
+      <guid>http://localhost:1314/stakeholders/governments/</guid>
       <description></description>
     </item>
     <item>
       <title>International-Entities</title>
-      <link>http://localhost:1313/stakeholders/international-entities/</link>
+      <link>http://localhost:1314/stakeholders/international-entities/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/stakeholders/international-entities/</guid>
+      <guid>http://localhost:1314/stakeholders/international-entities/</guid>
       <description></description>
     </item>
   </channel>

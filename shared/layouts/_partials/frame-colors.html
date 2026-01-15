@@ -1,0 +1,58 @@
+
+{{ $c := site.Params.frameColors }}
+
+{{/* Colori con fallback dall'array */}}
+{{ $color1 := index $c 0 | default "#DCE8F1" }}
+{{ $color2 := index $c 1 | default "#F8FAFC" }}
+{{ $color3 := index $c 2 | default "#E0F2FE" }}
+{{ $color4 := index $c 3 | default "#ECFEF4" }}
+{{ $color5 := index $c 4 | default "#F3F0FF" }}
+{{ $color6 := index $c 5 | default "#E0F7FA" }}
+{{ $color7 := index $c 6 | default "#F1F5F9" }}
+{{ $color8 := index $c 7 | default "#FEF7DA" }}
+{{ $color9 := index $c 8 | default "#f9fff9" }}
+{{ $color10 := index $c 9 | default "#fff9fa" }}
+
+{{/* DEFAULT DELLO SHORTCODE - Converti colorKey in indice array */}}
+{{ $lightKey := .defaultColorKey | default "color1" }}
+{{ $bgLight := $color1 }}
+
+{{ if eq $lightKey "color1" }}{{ $bgLight = $color1 }}{{ end }}
+{{ if eq $lightKey "color2" }}{{ $bgLight = $color2 }}{{ end }}
+{{ if eq $lightKey "color3" }}{{ $bgLight = $color3 }}{{ end }}
+{{ if eq $lightKey "color4" }}{{ $bgLight = $color4 }}{{ end }}
+{{ if eq $lightKey "color5" }}{{ $bgLight = $color5 }}{{ end }}
+{{ if eq $lightKey "color6" }}{{ $bgLight = $color6 }}{{ end }}
+{{ if eq $lightKey "color7" }}{{ $bgLight = $color7 }}{{ end }}
+{{ if eq $lightKey "color8" }}{{ $bgLight = $color8 }}{{ end }}
+{{ if eq $lightKey "color9" }}{{ $bgLight = $color9 }}{{ end }}
+{{ if eq $lightKey "color10" }}{{ $bgLight = $color10 }}{{ end }}
+
+{{/* MODO 3: OVERRIDE dai parametri dello shortcode (passati dalla call nel markdown) */}}
+{{ if .bgColorKey }}
+  {{ if eq .bgColorKey "color1" }}{{ $bgLight = $color1 }}{{ end }}
+  {{ if eq .bgColorKey "color2" }}{{ $bgLight = $color2 }}{{ end }}
+  {{ if eq .bgColorKey "color3" }}{{ $bgLight = $color3 }}{{ end }}
+  {{ if eq .bgColorKey "color4" }}{{ $bgLight = $color4 }}{{ end }}
+  {{ if eq .bgColorKey "color5" }}{{ $bgLight = $color5 }}{{ end }}
+  {{ if eq .bgColorKey "color6" }}{{ $bgLight = $color6 }}{{ end }}
+  {{ if eq .bgColorKey "color7" }}{{ $bgLight = $color7 }}{{ end }}
+  {{ if eq .bgColorKey "color8" }}{{ $bgLight = $color8 }}{{ end }}
+  {{ if eq .bgColorKey "color9" }}{{ $bgLight = $color9 }}{{ end }}
+  {{ if eq .bgColorKey "color10" }}{{ $bgLight = $color10 }}{{ end }}
+{{ end }}
+
+{{ if .bgColor }}
+  {{ $bgLight = .bgColor }}
+{{ end }}
+
+{{/*
+  Il colore dark viene calcolato automaticamente in CSS usando color-mix.
+  Non serve passare bgDark, il CSS lo calcola dinamicamente.
+  Formula: color-mix(in oklab, bgLight 20%, black 80%)
+*/}}
+
+{{ return (dict
+  "bgLight" $bgLight
+  "c1" $color1 "c2" $color2 "c3" $color3 "c4" $color4 "c5" $color5 "c6" $color6 "c7" $color7 "c8" $color8 "c9" $color9 "c10" $color10
+) }}

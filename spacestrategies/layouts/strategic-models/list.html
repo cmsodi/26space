@@ -1,0 +1,92 @@
+{{ define "main" }}
+<main class="sp-page">
+  <div class="sp-section" style="border: 0;">
+
+    <!-- HEADER -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h1 class="sp-section-title" style="font-size: 2rem;">
+        {{ .Title }}
+      </h1>
+      <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem;">
+        {{ .Description }}
+      </p>
+    </div>
+
+    <!-- CATEGORY DROPDOWN (Livello 1) -->
+    <div class="sm-filter-section">
+      <label for="category-select" class="sm-filter-label">
+        {{ i18n "select_category" }}:
+      </label>
+      <select id="category-select" class="sm-category-dropdown">
+        <option value="">{{ i18n "all_categories" }}</option>
+        {{ range index site.Data "strategic-models" }}
+        <option value="{{ .id }}" data-slug="{{ .slug }}">{{ .name }}</option>
+        {{ end }}
+      </select>
+    </div>
+
+    <!-- CATEGORY INFO BOX -->
+    <div id="category-info" class="sm-info-box" style="display: none;">
+      <h2 id="category-name" class="sm-info-title"></h2>
+      <p id="category-description" class="sm-info-desc"></p>
+    </div>
+
+    <!-- METHODS BUTTONS (Livello 2) -->
+    <div id="methods-container" class="sm-methods-grid" style="display: none;">
+      <!-- Populated by JavaScript -->
+    </div>
+
+    <!-- METHOD INFO BOX -->
+    <div id="method-info" class="sm-info-box sm-info-box--method" style="display: none;">
+      <h3 id="method-name" class="sm-info-title"></h3>
+      <p id="method-description" class="sm-info-desc"></p>
+      <div class="sm-info-meta">
+        <div class="sm-meta-item">
+          <strong>{{ i18n "target_audience" }}:</strong>
+          <span id="method-audience"></span>
+        </div>
+        <div class="sm-meta-item">
+          <strong>{{ i18n "strategic_utility" }}:</strong>
+          <span id="method-utility"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLES LIST -->
+    <div id="articles-container" class="sm-articles-list" style="display: none;">
+      <h3 class="sm-articles-title">{{ i18n "related_articles" }}</h3>
+      <div id="articles-list">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- All articles data (hidden, for JS processing) -->
+    <script id="articles-data" type="application/json">
+    {{- $articles := where site.RegularPages "Section" "articles" -}}
+    {{- $articlesData := slice -}}
+    {{- range $articles -}}
+      {{- if and .Params.id .Params.category_id -}}
+        {{- $articlesData = $articlesData | append (dict
+          "id" .Params.id
+          "category_id" .Params.category_id
+          "slug" .Params.slug
+          "title" .Title
+          "description" .Params.description
+          "date" (.Date.Format "2006-01-02")
+          "url" .RelPermalink
+        ) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $articlesData | jsonify -}}
+    </script>
+
+    <!-- Strategic models data (for JS) -->
+    <script id="strategic-models-data" type="application/json">
+    {{- index site.Data "strategic-models" | jsonify -}}
+    </script>
+
+  </div>
+</main>
+
+<script src="/js/strategic-models-filter.js"></script>
+{{ end }}

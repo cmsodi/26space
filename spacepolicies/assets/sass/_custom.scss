@@ -1,4 +1,5 @@
-/* Project overrides for Zen v5 */
+/* Project overrides for Zen v5 - spacepolicies (teal theme) */
+@import "shared";
 
 :root {
   --max-page-width: 820px;
@@ -19,8 +20,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
 
 /* Theme toggle button in the main menu */
 .theme-toggle {
@@ -74,7 +73,7 @@ html[data-theme="dark"] {
   /* Brand + text */
   --color-brand: var(--color-nearblack);
   --color-brand-alt: oklch(70% 0.030 250);
-  /* subtle “ice” accent */
+  /* subtle "ice" accent */
   --color-brand-light: var(--color-grey-300);
   --color-brand-dark: var(--color-grey-700);
 
@@ -110,11 +109,17 @@ html[data-theme="dark"] {
   --color-error-bg: oklch(from var(--color-red) 22% 0.04 h);
 }
 
+/* Override theme's .main p max-width restriction globally */
+.main p,
+.main ul,
+.main ol,
+.main blockquote {
+  max-width: none;
+}
 
-
-/* Keep readable measure (choose your width) */
+/* Article content - no max-width restriction */
 .single-view.single-view--article :where(p, ul, ol, blockquote, pre, h1, h2, h3, h4, h5, h6) {
-  max-width: var(--max-page-width);
+  max-width: none;
 }
 
 /* Tables: keep native table layout, but allow horizontal scroll at the article level */
@@ -199,17 +204,6 @@ html[data-theme="dark"] {
   display: block;
 }
 
-/* Home: extra spacing between Latest Articles items (no divider line) */
-.sp-latest-item {
-  margin-bottom: 2rem;
-}
-
-/* No extra space after the last item */
-.sp-latest-item:last-of-type {
-  margin-bottom: 0;
-}
-
-
 /* Mobile: stack */
 @media (max-width: 666px) {
   .summary--media {
@@ -217,22 +211,9 @@ html[data-theme="dark"] {
   }
 }
 
-/* ===== Mockup components (namespaced: sp-*) ===== */
+/* ===== Site-Specific Colors: spacepolicies (teal) ===== */
 
-.sp-home,
-.sp-page {
-  --sp-text: var(--color-text);
-  --sp-text-light: var(--color-text-meta);
-  --sp-border: var(--color-border-light);
-  --sp-bg: var(--color-body-bg);
-  --sp-bg-alt: var(--color-backdrop);
-
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 0 1.25rem 2.5rem;
-}
-
-/* ===== Top Menu Bar ===== */
+/* Top Menu Bar - Teal */
 .main-menu {
   background: #1a4a4a;
   padding: 0.6rem 1.25rem;
@@ -256,7 +237,7 @@ html[data-theme="dark"] {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 800;
   transition: color 0.15s;
   background: none;
   border: none;
@@ -292,7 +273,7 @@ html[data-theme="dark"] {
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* ===== Brand Section ===== */
+/* Brand Section - Teal */
 .sp-site-header {
   background: #fff;
   padding: 1.25rem 1.25rem;
@@ -307,6 +288,36 @@ html[data-theme="dark"] .sp-site-header {
   max-width: 72rem;
   margin: 0 auto;
   padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sp-header-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d5a8a;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sp-header-link:hover {
+  text-decoration: underline;
+}
+
+.sp-header-link-logo {
+  height: 1.8em;
+  width: auto;
+  vertical-align: middle;
+}
+
+html[data-theme="dark"] .sp-header-link {
+  color: var(--color-link);
 }
 
 .sp-brand {
@@ -316,10 +327,10 @@ html[data-theme="dark"] .sp-site-header {
   text-decoration: none;
 }
 
-.sp-brand-symbol {
-  font-size: 2.4rem;
-  line-height: 1;
-  color: #0d9488;
+.sp-brand-logo {
+  height: 100px;
+  width: auto;
+  display: block;
 }
 
 .sp-brand-text {
@@ -349,7 +360,7 @@ html[data-theme="dark"] .sp-brand-name {
   font-weight: 500;
 }
 
-/* ===== Hero Section ===== */
+/* Hero Section - Teal */
 .sp-hero {
   margin: 0;
   border-radius: 0;
@@ -406,70 +417,7 @@ html[data-theme="dark"] .sp-brand-name {
   display: block;
 }
 
-.sp-section {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--sp-border);
-}
-
-.sp-section:last-of-type {
-  border-bottom: 0;
-}
-
-.sp-section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.sp-section-title {
-  font-family: var(--font-family-headings, serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.sp-section-link {
-  font-size: 0.85rem;
-  color: var(--color-link);
-  text-decoration: none;
-}
-
-.sp-section-link:hover {
-  text-decoration: underline;
-}
-
-.sp-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-@media (max-width: 700px) {
-  .sp-cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.sp-card {
-  border: 1px solid var(--sp-border);
-  border-radius: 8px;
-  padding: 1.25rem;
-}
-
-.sp-card-title {
-  font-family: var(--font-family-headings, serif);
-  font-size: 1rem;
-  margin: 0 0 .35rem;
-}
-
-.sp-card-desc {
-  margin: 0;
-  color: var(--sp-text-light);
-  font-size: .9rem;
-}
-
+/* Article items */
 .sp-article-item {
   display: grid;
   gap: 1rem;
@@ -498,58 +446,7 @@ html[data-theme="dark"] .sp-brand-name {
   opacity: 0.65;
 }
 
-.sp-article-date {
-  font-size: .8rem;
-  color: var(--sp-text-light);
-}
-
-.sp-article-title {
-  margin: .1rem 0 .35rem;
-  font-size: 1.05rem;
-}
-
-.sp-article-title a {
-  text-decoration: none;
-}
-
-.sp-article-title a:hover {
-  text-decoration: underline;
-}
-
-.sp-article-excerpt {
-  margin: 0;
-  color: var(--sp-text-light);
-  font-size: .95rem;
-}
-
-.sp-article-tag {
-  display: inline-block;
-  font-size: .7rem;
-  padding: 0rem .3rem;
-  border: 1px solid var(--sp-border);
-  color: var(--color-link);
-  background: var(--sp-bg-alt);
-}
-
-.sp-topics-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
-
-.sp-topic-tag {
-  font-size: .9rem;
-  padding: .0rem .3rem;
-  border: 1px solid var(--sp-border);
-  text-decoration: none;
-  color: var(--color-headings);
-  background: var(--sp-bg-alt);
-}
-
-.sp-topic-tag:hover {
-  border-color: var(--color-border);
-}
-
+/* Topics index grid */
 .sp-topics-index-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -573,72 +470,13 @@ html[data-theme="dark"] .sp-brand-name {
   margin-block: 0em .5em;
 }
 
+/* CTA Box - Teal */
 .sp-cta-box {
-  border-radius: 10px;
-  padding: 1.5rem;
-  color: #fff;
-  background: oklch(18% 0.03 250);
+  background: oklch(20% 0.04 175);
 }
 
 .sp-home--policies .sp-cta-box {
   background: oklch(20% 0.04 175);
-}
-
-.sp-cta-box h3 {
-  font-family: var(--font-family-headings, serif);
-  margin: 0 0 .5rem;
-}
-
-.sp-cta-box p {
-  margin: 0 0 1rem;
-  opacity: .9;
-}
-
-.sp-cta-input {
-  display: flex;
-  gap: .5rem;
-  max-width: 24rem;
-}
-
-.sp-cta-input input {
-  flex: 1;
-  padding: .55rem .75rem;
-  border-radius: 8px;
-  border: 0;
-}
-
-.sp-cta-input button {
-  padding: .55rem 1rem;
-  border-radius: 8px;
-  border: 0;
-  background: rgba(255, 255, 255, .18);
-  color: #fff;
-}
-
-/* Custom Menu Styles */
-.sp-menu-list {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-  column-gap: 1rem;
-  row-gap: 0.5rem;
-}
-
-.sp-menu-right {
-  margin-left: auto;
-  margin-right: 1rem;
-}
-
-/* On mobile (breakpoint matches theme's stack point roughly or custom preference) */
-@media (max-width: 666px) {
-  .sp-menu-right {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 /* Hide only the Japanese image logo; keep the site name visible on normal pages */
@@ -776,21 +614,4 @@ button.sp-filter-cell.active:hover {
   font-size: 0.9rem;
   color: var(--color-text);
   opacity: 0.7;
-}
-
-/* ===== Language Switcher ===== */
-.sp-menu-lang {
-  a {
-    font-family: 'Courier New', 'Monaco', monospace;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-
-    &:hover {
-      color: rgba(255, 255, 255, 1);
-    }
-  }
 }

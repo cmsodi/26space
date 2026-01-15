@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stakeholders on spacepolicies.org</title>
-    <link>http://localhost:1313/it/stakeholders/</link>
+    <link>http://localhost:1314/it/stakeholders/</link>
     <description>Recent content in Stakeholders on spacepolicies.org</description>
     <generator>Hugo</generator>
     <language>it-IT</language>
     <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
-      <atom:link href="http://localhost:1313/it/stakeholders/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="http://localhost:1314/it/stakeholders/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agencies-Institutions</title>
-      <link>http://localhost:1313/it/stakeholders/agencies-institutions/</link>
+      <link>http://localhost:1314/it/stakeholders/agencies-institutions/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/it/stakeholders/agencies-institutions/</guid>
+      <guid>http://localhost:1314/it/stakeholders/agencies-institutions/</guid>
       <description></description>
     </item>
     <item>
       <title>Governments</title>
-      <link>http://localhost:1313/it/stakeholders/governments/</link>
+      <link>http://localhost:1314/it/stakeholders/governments/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/it/stakeholders/governments/</guid>
+      <guid>http://localhost:1314/it/stakeholders/governments/</guid>
       <description></description>
     </item>
     <item>
       <title>Space-Industry</title>
-      <link>http://localhost:1313/it/stakeholders/space-industry/</link>
+      <link>http://localhost:1314/it/stakeholders/space-industry/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/it/stakeholders/space-industry/</guid>
+      <guid>http://localhost:1314/it/stakeholders/space-industry/</guid>
       <description></description>
     </item>
   </channel>

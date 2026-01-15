@@ -1,0 +1,315 @@
+// ==============================================
+// SHARED SCSS - Common styles for all sites
+// ==============================================
+// Usage in site's _custom.scss:
+//   @use "shared" as shared;
+//   or @import "shared";
+// ==============================================
+
+// ===== Shared CSS Variables =====
+// These can be overridden by site-specific _custom.scss
+
+:root {
+  // Typography
+  --sp-font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --sp-font-serif: 'IBM Plex Serif', Georgia, serif;
+  --sp-font-mono: 'Courier New', 'Monaco', monospace;
+
+  // Spacing
+  --sp-spacing-xs: 0.25rem;
+  --sp-spacing-sm: 0.5rem;
+  --sp-spacing-md: 1rem;
+  --sp-spacing-lg: 1.5rem;
+  --sp-spacing-xl: 2rem;
+
+  // Border radius
+  --sp-radius-sm: 4px;
+  --sp-radius-md: 8px;
+  --sp-radius-lg: 12px;
+
+  // Max widths
+  --sp-max-width: 72rem;
+  --sp-max-content: 820px;
+}
+
+// ===== Shared Component Styles =====
+
+// Page container
+.sp-home,
+.sp-page {
+  --sp-text: var(--color-text);
+  --sp-text-light: var(--color-text-meta);
+  --sp-border: var(--color-border-light);
+  --sp-bg: var(--color-body-bg);
+  --sp-bg-alt: var(--color-backdrop);
+
+  max-width: var(--sp-max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem 2.5rem;
+}
+
+// ===== Shared Section Styles =====
+
+.sp-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--sp-border);
+}
+
+.sp-section:last-of-type {
+  border-bottom: 0;
+}
+
+.sp-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sp-section-title {
+  font-family: var(--font-family-headings, serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sp-section-link {
+  font-size: 0.85rem;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.sp-section-link:hover {
+  text-decoration: underline;
+}
+
+// ===== Shared Card Grid =====
+
+.sp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .sp-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sp-card {
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-md);
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+
+.sp-card-title {
+  font-family: var(--font-family-headings, serif);
+  font-size: 1rem;
+  margin: 0 0 .35rem;
+}
+
+.sp-card-desc {
+  margin: 0;
+  color: var(--sp-text-light);
+  font-size: .9rem;
+}
+
+// ===== Shared Topics Grid =====
+
+.sp-topics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.sp-topic-tag {
+  font-size: .9rem;
+  padding: .0rem .3rem;
+  border: 1px solid var(--sp-border);
+  text-decoration: none;
+  color: var(--color-headings);
+  background: var(--sp-bg-alt);
+}
+
+.sp-topic-tag:hover {
+  border-color: var(--color-border);
+}
+
+// ===== Shared Article Styles =====
+
+.sp-article-date {
+  font-size: .8rem;
+  color: var(--sp-text-light);
+}
+
+.sp-article-title {
+  margin: .1rem 0 .35rem;
+  font-size: 1.05rem;
+}
+
+.sp-article-title a {
+  text-decoration: none;
+}
+
+.sp-article-title a:hover {
+  text-decoration: underline;
+}
+
+.sp-article-excerpt {
+  margin: 0;
+  color: var(--sp-text-light);
+  font-size: .95rem;
+}
+
+.sp-article-tag {
+  display: inline-block;
+  font-size: .7rem;
+  padding: 0rem .3rem;
+  border: 1px solid var(--sp-border);
+  color: var(--color-link);
+  background: var(--sp-bg-alt);
+}
+
+// Home: extra spacing between Latest Articles items
+.sp-latest-item {
+  margin-bottom: 2rem;
+}
+
+.sp-latest-item:last-of-type {
+  margin-bottom: 0;
+}
+
+// ===== Shared CTA Box =====
+
+.sp-cta-box {
+  border-radius: var(--sp-radius-lg);
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.sp-cta-box h3 {
+  font-family: var(--font-family-headings, serif);
+  margin: 0 0 .5rem;
+}
+
+.sp-cta-box p {
+  margin: 0 0 1rem;
+  opacity: .9;
+}
+
+.sp-cta-input {
+  display: flex;
+  gap: .5rem;
+  max-width: 24rem;
+}
+
+.sp-cta-input input {
+  flex: 1;
+  padding: .55rem .75rem;
+  border-radius: var(--sp-radius-md);
+  border: 0;
+}
+
+.sp-cta-input button {
+  padding: .55rem 1rem;
+  border-radius: var(--sp-radius-md);
+  border: 0;
+  background: rgba(255, 255, 255, .18);
+  color: #fff;
+}
+
+// ===== Shared Menu Styles =====
+
+.sp-menu-list {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+}
+
+.sp-menu-right {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+@media (max-width: 666px) {
+  .sp-menu-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// ===== Shared Language Switcher =====
+
+.sp-menu-lang {
+  a {
+    font-family: var(--sp-font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+
+// ===== custom figure ===== 
+
+/* Container logic */
+.image-container {
+    width: var(--fig-width-mobile, 100%); /* Uses width-mobile parameter, defaults to 100% */
+    margin: 1.5rem auto; /* Centered on mobile */
+    box-sizing: border-box;
+}
+
+/* Images inside container should fit within it */
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Desktop and Tablet Alignment */
+@media screen and (min-width: 768px) {
+    .image-container {
+        width: var(--fig-width, 100%); /* Uses the value from the shortcode, defaults to 100% */
+    }
+
+    .align-left {
+        float: left;
+        margin-right: 2rem;
+        margin-left: 0;
+    }
+
+    .align-right {
+        float: right;
+        margin-left: 2rem;
+        margin-right: 0;
+    }
+
+    .align-center {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+
+/* Clearfix for the text following a floated image */
+figure::after {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -2,7 +2,10 @@
 <main class="main layout__main">
 <article class="single-view{{ with .Section }} single-view--{{ . | urlize }}{{ end }}">
 
-{{ $hero := .Resources.GetMatch "featured.*" -}}
+{{/* Check for hero image: 1) frontmatter param, 2) featured.*, 3) pic.webp, 4) first image */}}
+{{ $hero := "" -}}
+{{ with .Params.image }}{{ $hero = $.Resources.GetMatch . }}{{ end -}}
+{{ if not $hero }}{{ $hero = .Resources.GetMatch "featured.*" }}{{ end -}}
 {{ if not $hero }}{{ $hero = .Resources.GetMatch "pic.webp" }}{{ end -}}
 {{ if not $hero }}{{ with .Resources.ByType "image" }}{{ $hero = index . 0 }}{{ end }}{{ end -}}
 

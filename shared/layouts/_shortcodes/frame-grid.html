@@ -1,0 +1,181 @@
+{{ $fc := partial "frame-colors.html" (dict
+  "defaultColorKey"     "color2"
+  "bgColorKey"          (.Get "bgColorKey")
+  "bgColor"             (.Get "bgColor")
+) }}
+
+{{ $bgLight := $fc.bgLight }}
+
+{{ $columns := .Get "columns" | default "2" }}
+{{ $width := .Get "width" | default "100%" }}
+
+{{/* Calcola larghezza minima card in base al numero di colonne */}}
+{{ $minWidth := "350px" }}
+{{ if eq $columns "3" }}
+  {{ $minWidth = "300px" }}
+{{ else if eq $columns "4" }}
+  {{ $minWidth = "220px" }}
+{{ end }}
+
+{{/* Contatore globale per ID univoco - risolve problema Ordinal con shortcode annidati */}}
+{{ $counter := .Page.Scratch.Get "frameGridCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameGridCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+<style>
+.frame_grid_wrapper-{{ $uid }} {
+  --bg-light: {{ $bgLight | safeCSS }};
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+
+  /* Hover automatico: più scuro in light, più chiaro in dark */
+  --hover-light: color-mix(in oklab, var(--bg-light) 92%, black 8%);
+  --hover-dark: color-mix(in oklab, var(--bg-dark) 88%, white 12%);
+
+  /* Larghezza minima card per auto-fit */
+  --card-min-width: {{ $minWidth | safeCSS }};
+
+  margin: 2rem 0;
+  border-radius: 0;
+  padding: .7rem;
+  background: var(--bg-light);
+  transition: background 0.3s ease;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} {
+  background: var(--bg-dark);
+}
+
+/* Grid layout */
+.frame_grid_wrapper-{{ $uid }} {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat({{ $columns }}, 1fr);
+  width: {{ $width }};
+  margin: 1rem auto;
+}
+
+/* Fai espandere le card nell'ultima riga quando incomplete */
+{{ if eq $columns "2" }}
+/* Con 2 colonne: se l'ultima card è dispari, occupa entrambe le colonne */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(odd),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(odd) {
+  grid-column: span 2;
+}
+{{ else if eq $columns "3" }}
+/* Con 3 colonne: gestisci righe incomplete con 1 o 2 card */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(3n + 1),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(3n + 1) {
+  grid-column: span 3;
+}
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:nth-last-of-type(2):nth-of-type(3n + 1),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:nth-last-of-type(2):nth-of-type(3n + 1) {
+  grid-column: span 2;
+}
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(3n + 2),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(3n + 2) {
+  grid-column: span 2;
+}
+{{ else if eq $columns "4" }}
+/* Con 4 colonne: gestisci righe incomplete con 1, 2 o 3 card */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(4n + 1),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(4n + 1) {
+  grid-column: span 4;
+}
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:nth-last-of-type(2):nth-of-type(4n + 1),
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:nth-last-of-type(3):nth-of-type(4n + 1),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:nth-last-of-type(2):nth-of-type(4n + 1),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:nth-last-of-type(3):nth-of-type(4n + 1) {
+  grid-column: span 2;
+}
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(4n + 2),
+.frame_grid_wrapper-{{ $uid }} .frame_card_item:last-of-type:nth-of-type(4n + 3),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(4n + 2),
+.frame_grid_wrapper-{{ $uid }} a.frame_card_item:last-of-type:nth-of-type(4n + 3) {
+  grid-column: span 2;
+}
+{{ end }}
+
+@media (max-width: 900px) {
+  .frame_grid_wrapper-{{ $uid }} {
+    grid-template-columns: 1fr;
+  }
+}
+
+.frame_grid_wrapper-{{ $uid }} > :not(.frame_card_item):not(a.frame_card_item) {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+}
+
+/* Card base */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item {
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} .frame_card_item {
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Hover standard */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item.has-link:hover {
+  background: var(--hover-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} .frame_card_item.has-link:hover {
+  background: var(--hover-dark);
+}
+
+/* Supporto card custom (come avevi prima) */
+.frame_grid_wrapper-{{ $uid }} .frame_card_item.frame_card_custom {
+  background: var(--card-bg, transparent) !important;
+}
+
+.frame_grid_wrapper-{{ $uid }} .frame_card_item.frame_card_custom.has-link:hover {
+  background: var(--card-hover-bg, var(--hover-light)) !important;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} .frame_card_item.frame_card_custom {
+  background: var(--card-bg-dark, transparent) !important;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} .frame_card_item.frame_card_custom.has-link:hover {
+  background: var(--card-hover-bg-dark, var(--hover-dark)) !important;
+}
+
+/* Titolo e contenuto */
+.frame_grid_wrapper-{{ $uid }} .frame_card_title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  color: darkred;
+  text-align: center;
+}
+
+html[data-theme="dark"] .frame_grid_wrapper-{{ $uid }} .frame_card_title {
+  color: orange;
+}
+
+.frame_grid_wrapper-{{ $uid }} .frame_card_content {
+  flex: 1;
+  text-align: left;
+  font-size: .9rem;;
+  color: inherit;
+}
+</style>
+
+<div class="frame_grid_wrapper-{{ $uid }}">
+  {{ .Inner }}
+</div>

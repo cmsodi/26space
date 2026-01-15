@@ -20,6 +20,3 @@ Thumbs.db
 
 # Claude Code local config
 .claude/
-
-# Hugo server PID files
-aa-kb/.hugo-pids

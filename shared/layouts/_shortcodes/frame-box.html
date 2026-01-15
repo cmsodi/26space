@@ -1,0 +1,109 @@
+{{/*
+  frame-box: Contenitore semplice con sfondo colorato
+
+  Parametri:
+    bgColorKey  - Colore sfondo dalla palette (es: "color2")
+    bgColor     - Colore sfondo diretto (es: "#f0f0f0")
+    variant     - "hero" per stile hero (sfondo scuro, testo bianco, no bordi)
+    heroBg      - Colore sfondo hero (default: "#035")
+*/}}
+
+{{ $variant := .Get "variant" }}
+{{ $isHero := eq $variant "hero" }}
+
+{{ $fc := partial "frame-colors.html" (dict
+  "defaultColorKey"     "color1"
+  "bgColorKey"          (.Get "bgColorKey")
+  "bgColor"             (.Get "bgColor")
+) }}
+
+{{ $bgLight := $fc.bgLight }}
+{{ $heroBg := .Get "heroBg" | default "#035" }}
+
+{{/* Contatore globale per ID univoco */}}
+{{ $counter := .Page.Scratch.Get "frameBoxCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameBoxCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+<style>
+.frame_box_container-{{ $uid }} {
+  --bg-light: {{ $bgLight | safeCSS }};
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+
+  {{ if $isHero }}
+  background: {{ $heroBg | safeCSS }} !important;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  padding: 0 1.25rem;
+  {{ else }}
+  background: var(--bg-light) !important;
+  border-radius: 0;
+  border: 1px solid lightgray;
+  margin: 2rem 0;
+  padding: 0 0.7rem;
+  {{ end }}
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+{{ if $isHero }}
+html[data-theme="dark"] .frame_box_container-{{ $uid }} {
+  background: {{ $heroBg | safeCSS }} !important;
+}
+{{ else }}
+html[data-theme="dark"] .frame_box_container-{{ $uid }} {
+  background: var(--bg-dark) !important;
+}
+{{ end }}
+
+.frame_box_item-{{ $uid }} {
+  {{ if $isHero }}
+  padding: 1.5rem 0 2rem 0;
+  color: white;
+  {{ else }}
+  padding: 0.3rem 0;
+  color: inherit;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  {{ end }}
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+{{ if $isHero }}
+.frame_box_item-{{ $uid }} h1,
+.frame_box_item-{{ $uid }} h2,
+.frame_box_item-{{ $uid }} h3 {
+  color: white;
+  margin-block: 0.5em 0.3em;
+}
+
+.frame_box_item-{{ $uid }} p {
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+{{ else }}
+.frame_box_item-{{ $uid }} p {
+  text-align: left !important;
+  margin: 0 !important;
+}
+{{ end }}
+
+.frame_box_item-{{ $uid }}.no-link {
+  cursor: default;
+}
+</style>
+
+<div class="frame_box_container-{{ $uid }}">
+  <div class="frame_box_item-{{ $uid }} no-link">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

@@ -1,0 +1,256 @@
+{{/*
+  frame-entry: Shortcode per elementi stile articolo/catalogo
+
+  MODALITÀ DINAMICA (legge da content/):
+    section     - Sezione da cui leggere (es. "articles", "reports")
+    count       - Numero di elementi da mostrare (default: 3)
+    showImage   - "true"/"false" - mostra immagine (default: true)
+    showDate    - "true"/"false" - mostra data (default: true)
+    showDesc    - "true"/"false" - mostra descrizione (default: true)
+    dateFormat  - Formato data (default: "Jan 2006")
+    bgColorKey  - Colore sfondo dalla palette
+
+  MODALITÀ STATICA (singolo elemento manuale):
+    title       - Titolo dell'entry
+    link        - URL per rendere il titolo cliccabile
+    image       - URL immagine
+    date        - Data in formato libero
+    description - Descrizione/excerpt
+    ... (altri parametri come prima)
+*/}}
+
+{{ $section := .Get "section" }}
+
+{{/* Contatore per ID univoco */}}
+{{ $counter := .Page.Scratch.Get "frameEntryCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameEntryCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+{{/* Parametri comuni */}}
+{{ $showImage := .Get "showImage" | default "true" }}
+{{ $showDate := .Get "showDate" | default "true" }}
+{{ $showDesc := .Get "showDesc" | default "true" }}
+{{ $dateFormat := .Get "dateFormat" | default "Jan 2006" }}
+
+{{/* Gestione colori */}}
+{{ $hasBg := false }}
+{{ $bgLight := "" }}
+{{ if or (.Get "bgColor") (.Get "bgColorKey") }}
+  {{ $hasBg = true }}
+  {{ $fc := partial "frame-colors.html" (dict
+    "defaultColorKey" "color1"
+    "bgColorKey"      (.Get "bgColorKey")
+    "bgColor"         (.Get "bgColor")
+  ) }}
+  {{ $bgLight = $fc.bgLight }}
+{{ end }}
+
+{{/* CSS comune */}}
+<style>
+.frame_entry_wrapper-{{ $uid }} {
+  {{ if $hasBg }}
+  --bg-light: {{ $bgLight | safeCSS }};
+  --bg-dark: color-mix(in oklab, var(--bg-light) 30%, black 70%);
+  background: var(--bg-light);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 0;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  {{ end }}
+}
+
+{{ if $hasBg }}
+html[data-theme="dark"] .frame_entry_wrapper-{{ $uid }} {
+  background: var(--bg-dark);
+  border-color: rgba(255,255,255,0.1);
+}
+{{ end }}
+
+.frame_entry-{{ $uid }} {
+  display: grid;
+  grid-template-columns: {{ if eq $showImage "true" }}140px{{ else }}0{{ end }} 1fr;
+  gap: {{ if eq $showImage "true" }}1rem{{ else }}0{{ end }};
+  align-items: start;
+  margin: 1rem 0;
+}
+
+.frame_entry-{{ $uid }}:first-child {
+  margin-top: 0;
+}
+
+.frame_entry-{{ $uid }}:last-child {
+  margin-bottom: 0;
+}
+
+.frame_entry_thumb-{{ $uid }} {
+  {{ if eq $showImage "true" }}
+  display: block;
+  {{ else }}
+  display: none;
+  {{ end }}
+  padding-top: 0.3rem;
+}
+
+.frame_entry_thumb-{{ $uid }} img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 280 / 187;
+}
+
+.frame_entry_placeholder-{{ $uid }} {
+  width: 100%;
+  aspect-ratio: 280 / 187;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--color-body-bg, #fff) 92%, #000 8%);
+  display: block;
+}
+
+html[data-theme="dark"] .frame_entry_placeholder-{{ $uid }} {
+  background: color-mix(in srgb, #1e293b 92%, #fff 8%);
+}
+
+.frame_entry_body-{{ $uid }} {
+  min-width: 0;
+}
+
+.frame_entry_date-{{ $uid }} {
+  font-size: 0.8rem;
+  color: var(--color-text-meta, #6b7280);
+  margin-bottom: 0.25rem;
+}
+
+.frame_entry_title-{{ $uid }} {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0.1rem 0 0.35rem;
+  line-height: 1.3;
+}
+
+.frame_entry_title-{{ $uid }} a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.frame_entry_title-{{ $uid }} a:hover {
+  text-decoration: underline;
+}
+
+.frame_entry_desc-{{ $uid }} {
+  font-size: 0.9rem;
+  color: var(--color-text-meta, #6b7280);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 666px) {
+  .frame_entry-{{ $uid }} {
+    grid-template-columns: 1fr;
+  }
+
+  .frame_entry_thumb-{{ $uid }} {
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+</style>
+
+{{/* ========== MODALITÀ DINAMICA ========== */}}
+{{ if $section }}
+  {{ $count := .Get "count" | default "3" | int }}
+  {{ $pages := where site.RegularPages "Section" $section }}
+  {{ $pages = where $pages "Draft" "ne" true }}
+  {{ $pages = $pages.ByDate.Reverse }}
+
+  <div class="frame_entry_wrapper-{{ $uid }}">
+  {{ range first $count $pages }}
+    {{ $thumb := .Resources.GetMatch "pic.webp" }}
+    {{ if not $thumb }}{{ with .Resources.ByType "image" }}{{ $thumb = index . 0 }}{{ end }}{{ end }}
+    {{ $thumbURL := "" }}
+    {{ if $thumb }}
+      {{ $thumbResized := $thumb.Fill "280x187 webp q80" }}
+      {{ $thumbURL = $thumbResized.RelPermalink }}
+    {{ end }}
+
+    <article class="frame_entry-{{ $uid }}">
+      {{/* Immagine */}}
+      {{ if eq $showImage "true" }}
+      <div class="frame_entry_thumb-{{ $uid }}">
+        {{ if $thumbURL }}
+        <a href="{{ .RelPermalink }}"><img src="{{ $thumbURL }}" alt="" loading="lazy"></a>
+        {{ else }}
+        <a href="{{ .RelPermalink }}" aria-hidden="true"><span class="frame_entry_placeholder-{{ $uid }}"></span></a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="frame_entry_body-{{ $uid }}">
+        {{ if eq $showDate "true" }}
+        <div class="frame_entry_date-{{ $uid }}">{{ .Date.Format $dateFormat }}</div>
+        {{ end }}
+
+        <h3 class="frame_entry_title-{{ $uid }}">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+
+        {{ if and (eq $showDesc "true") .Params.description }}
+        <p class="frame_entry_desc-{{ $uid }}">{{ .Params.description }}</p>
+        {{ end }}
+      </div>
+    </article>
+  {{ else }}
+    <p style="color: var(--color-text-meta); font-style: italic;">No {{ $section }} published yet.</p>
+  {{ end }}
+  </div>
+
+{{/* ========== MODALITÀ STATICA ========== */}}
+{{ else }}
+  {{ $title := .Get "title" | default "Untitled" }}
+  {{ $link := .Get "link" }}
+  {{ $image := .Get "image" }}
+  {{ $date := .Get "date" }}
+  {{ $description := .Get "description" }}
+
+  <div class="frame_entry_wrapper-{{ $uid }}">
+  <article class="frame_entry-{{ $uid }}">
+    {{/* Immagine */}}
+    {{ if eq $showImage "true" }}
+    <div class="frame_entry_thumb-{{ $uid }}">
+      {{ if $image }}
+        {{ if $link }}
+        <a href="{{ $link }}"><img src="{{ $image }}" alt="" loading="lazy"></a>
+        {{ else }}
+        <img src="{{ $image }}" alt="" loading="lazy">
+        {{ end }}
+      {{ else }}
+        {{ if $link }}
+        <a href="{{ $link }}" aria-hidden="true"><span class="frame_entry_placeholder-{{ $uid }}"></span></a>
+        {{ else }}
+        <span class="frame_entry_placeholder-{{ $uid }}"></span>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="frame_entry_body-{{ $uid }}">
+      {{ if and (eq $showDate "true") $date }}
+      <div class="frame_entry_date-{{ $uid }}">{{ $date }}</div>
+      {{ end }}
+
+      <h3 class="frame_entry_title-{{ $uid }}">
+        {{ if $link }}
+        <a href="{{ $link }}">{{ $title }}</a>
+        {{ else }}
+        {{ $title }}
+        {{ end }}
+      </h3>
+
+      {{ if and (eq $showDesc "true") $description }}
+      <p class="frame_entry_desc-{{ $uid }}">{{ $description }}</p>
+      {{ end }}
+    </div>
+  </article>
+  </div>
+{{ end }}

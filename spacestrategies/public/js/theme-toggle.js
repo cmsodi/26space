@@ -7,12 +7,12 @@
     else root.removeAttribute("data-theme");
   }
 
-  // init: saved preference, otherwise system preference
+  // init: saved preference, otherwise default to light
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved === "dark" || saved === "light") {
     set(saved);
-  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    set("dark");
+  } else {
+    set("light");
   }
 
   window.toggleTheme = function () {

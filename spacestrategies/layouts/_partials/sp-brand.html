@@ -1,11 +1,14 @@
 <div class="sp-site-header">
   <div class="sp-site-header--global">
     <a href="{{ site.Home.RelPermalink }}" class="sp-brand">
-      <span class="sp-brand-symbol">◈</span>
+      <img src="{{ "images/logo.png" | relURL }}" alt="{{ site.Title }}" class="sp-brand-logo" height="40">
       <span class="sp-brand-text">
         <span class="sp-brand-name">{{ site.Title }}</span>
-        <span class="sp-brand-tagline">{{ site.Params.tagline | default "Analysis & Insights" }}</span>
+        <span class="sp-brand-tagline">{{ site.Params.tagline | default "Methods & Frameworks" }}</span>
       </span>
+    </a>
+    <a href="https://spacepolicies.org" target="_blank" rel="noopener" class="sp-header-link">
+      {{ i18n "applied_analysis" | default "Applied analysis" }} → <img src="{{ "images/logo-spacepolicies.png" | relURL }}" onerror="this.onerror=null;this.src='https://spacepolicies.org/images/logo.png';" alt="" class="sp-header-link-logo"> spacepolicies.org
     </a>
   </div>
 </div>

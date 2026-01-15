@@ -1,0 +1,52 @@
+{{ $fc := partial "frame-colors.html" (dict
+  "defaultColorKey"     "color3"
+  "bgColorKey"          (.Get "bgColorKey")
+  "bgColor"             (.Get "bgColor")
+) }}
+
+{{ $bgColor := $fc.bgLight }}
+
+{{ $title := .Get "title" }}
+{{ $link  := .Get "link" }}
+
+{{ $styleAttr := "" }}
+{{ $customClass := "" }}
+
+{{ $styles := slice }}
+
+{{ $styles = $styles | append (printf "--card-bg: %s" ($bgColor | safeCSS)) }}
+{{/* Calcolo automatico del colore dark usando color-mix */}}
+{{ $styles = $styles | append "--card-bg-dark: color-mix(in oklab, var(--card-bg) 40%, black 60%)" }}
+
+{{/* Hover automatico con color-mix */}}
+{{ $styles = $styles | append "--card-hover-bg: color-mix(in oklab, var(--card-bg) 92%, black 8%)" }}
+{{ $styles = $styles | append "--card-hover-bg-dark: color-mix(in oklab, var(--card-bg-dark) 88%, white 12%)" }}
+
+{{/* Permetti override manuale (opzionale) */}}
+{{ with .Get "hoverBg" }}
+  {{ $styles = $styles | append (printf "--card-hover-bg: %s" (. | safeCSS)) }}
+{{ end }}
+
+{{/* Contatore globale per ID univoco - risolve problema Ordinal con shortcode annidati */}}
+{{ $counter := .Page.Scratch.Get "frameCardCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameCardCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+{{ $styleAttr = delimit $styles "; " | safeCSS }}
+{{ $customClass = printf "frame_card_custom-%s" $uid }}
+
+{{ if $link }}
+<a href="{{ $link }}" class="frame_card_item has-link frame_card_custom {{ $customClass }}" style="{{ $styleAttr }}">
+{{ else }}
+<div class="frame_card_item frame_card_custom {{ $customClass }}" style="{{ $styleAttr }}">
+{{ end }}
+
+  {{ if $title }}
+  <div class="frame_card_title">{{ $title }}</div>
+  {{ end }}
+
+  <div class="frame_card_content">
+    {{ .Inner }}
+  </div>
+
+{{ if $link }}</a>{{ else }}</div>{{ end }}

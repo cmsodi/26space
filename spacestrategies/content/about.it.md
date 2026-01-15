@@ -1,34 +1,55 @@
----
-title: "Chi Siamo"
----
+# About Space Strategies
 
-Space Policies fornisce analisi indipendenti su programmi spaziali, governance e dinamiche industriali. Il sito è scritto per professionisti, dirigenti e decisori politici che necessitano di valutazioni di merito — non semplici sintesi di notizie, ma interpretazioni strategiche sul significato degli sviluppi e sulle loro traiettorie future.
+Space Strategies fornisce framework analitici e metodologie per il pensiero strategico nel dominio spaziale. Il sito serve professionisti, esecutivi e policy-maker che necessitano strumenti rigorosi per analizzare decisioni complesse—non risposte preconfezionate, ma approcci strutturati per trovare le proprie.
 
-## Cosa Troverete Qui
+{{< frame-box bgColorKey="color1" >}}
+## Cosa Troverai Qui
 
-**Articoli** — Analisi di questioni attuali nella politica spaziale europea e internazionale: decisioni istituzionali, strategie di programma, sviluppi normativi, dinamiche commerciali. Ogni contributo applica metodi analitici strutturati per superare la complessità.
+**Ricerca Originale** — Il framework 4Dimensions©, una struttura ontologica per l'analisi strategica radicata nel pensiero aristotelico (cause materiali, formali, efficienti, finali attraverso quattro livelli sistemici). Questo framework si integra con l'Analisi Morfologica di Zwicky per generazione sistematica di opzioni, TRIZ per risoluzione contraddizioni, e il Principio Piramide di Minto per comunicazione strutturata. I quattro pilastri formano una metodologia coerente: dalla comprensione di ciò che esiste, all'esplorazione di ciò che è possibile, al superamento degli ostacoli, alla comunicazione efficace delle conclusioni. I Large Language Model servono come strumenti di augmentation all'interno di questo framework—potenziando rigore analitico preservando autonomia intellettuale. Report metodologici documentano sia l'approccio che i suoi limiti.
 
-**Monografie** — Studi approfonditi su temi strategici che richiedono un esame prolungato: autonomia dei lanciatori europei, governance di Copernicus, architetture di sicurezza spaziale, valutazioni di programmi nazionali.
+**Framework** — Ventiquattro metodologie analisi strategica adattate per il dominio spaziale, organizzate attraverso sei categorie analitiche:
 
-**Scenari** — Esplorazioni strutturate di futuri alternativi per il settore spaziale, esaminando come le decisioni attuali potrebbero evolversi sotto diverse ipotesi.
+- **Macro-Environmental Analysis** (PESTLE, teorie geopolitiche classiche, causal layered analysis)
+- **Capabilities & Power Assessment** (SWOT, strumenti potere nazionale, hard/soft/smart power, security sector analysis)
+- **Relationship & Stakeholder Dynamics** (alliance analysis, stakeholder power-interest mapping, levels of analysis)
+- **Security & Threat Assessment** (threat risk matrices, esercizi red team/blue team, war-gaming)
+- **Future Foresight & Scenario Planning** (scenario planning, metodo Delphi, three horizons, futures wheel, cross-impact analysis)
+- **Structured Thinking & Problem Solving** (six thinking hats, morphological analysis, SCAMPER, forced analogies)
 
-## Fondamenti Metodologici
+Ogni framework include traduzione space-specific (come meccanica orbitale e strutture istituzionali rimodellano la metodologia), analisi failure mode (dove il framework si rompe o fuorvia), e guida integrazione (quali altri framework lo complementano). L'enfasi è critica—esponendo limitazioni piuttosto che overselling applicabilità.
+{{< /frame-box >}}
 
-Le analisi su questo sito applicano framework strutturati appropriati per ogni argomento — dalla scansione del macro-ambiente alla mappatura degli stakeholder, dalla pianificazione degli scenari all'analisi morfologica. Il metodo specifico viene scelto in base al quesito strategico in esame, non applicato meccanicamente.
+{{< frame-box bgColorKey="color2" >}}
+## Analisi Applicata
 
-Per chi è interessato ai framework stessi — la loro logica, i criteri di applicazione e l'adattamento ai problemi del settore spaziale — il sito complementare  fornisce documentazione dettagliata. I due siti operano in sinergia: i metodi lì, i risultati qui.
+Per applicazioni concrete di questi framework—articoli, monografie e analisi scenari su questioni policy spaziale correnti—vedi il sito companion [spacepolicies.org](https://spacepolicies.org).
+
+I framework sono usati in [spacepolicies.org](https://spacepolicies.org) basati sulla loro applicabilità:
+
+- **Blog-Native**: pienamente eseguibili con open source intelligence;
+- **Adapted Analysis**: richiedono semplificazione metodologica, ma forniscono insight parziali senza accesso ristretto. Usati per analisi più approfondite.
+- **Illustration of case studies**: troppo resource-intensive per esecuzione originale; spiegati attraverso analisi di casi storici ed esempi.
+
+I due siti lavorano insieme: metodologia rigorosa qui, risultati applicati là. Ogni analisi Space Policies linka back al framework che l'ha strutturata, e ogni pagina framework include applicazioni esempio.
+{{< /frame-box >}}
 
 ## Il Fondatore
 
-**Cesare Sodi** è un ricercatore indipendente che ha trascorso quattro decenni nel settore spaziale, inclusi 31 anni presso l'Agenzia Spaziale Italiana (ASI). I suoi ruoli istituzionali hanno incluso quello di Project Manager per programmi satellitari, Capo della Strategia e delle Relazioni Pubbliche e consulente in materia di sicurezza spaziale.
+{{< figure src="/images/founder.webp" align="left" width-pc="30" width-mobile="40" alt="Cesare Sodi" >}}
 
-Questa esperienza operativa — che spazia dalle telecomunicazioni all'osservazione della Terra, dalla cooperazione internazionale alla strategia istituzionale — informa le analisi qui pubblicate. Sebbene radicato nella governance spaziale europea, il sito affronta dinamiche rilevanti per tutte le principali regioni attive nello spazio: politica industriale, autonomia di lancio, governance dello spettro, tensioni dual-use, interfacce tra settore commerciale e istituzionale.
+**Cesare Sodi**
 
-Una laurea magistrale in Ingegneria Elettronica conseguita presso l'Università "La Sapienza" fornisce le basi tecniche; una formazione classica modella l'attenzione alle dimensioni strategiche e politiche, spesso trascurate nelle valutazioni puramente tecniche.
+Cesare Sodi è un ricercatore indipendente con tre decenni di esperienza nel settore spaziale, incluse posizioni all'Agenzia Spaziale Italiana (ASI) come Project Manager, Capo Strategia e Relazioni Pubbliche, e advisor su Space Security.
 
-Sodi non detiene attualmente alcuna affiliazione con agenzie spaziali, istituzioni o entità commerciali. Space Policies opera come piattaforma indipendente, libera di valutare programmi e politiche senza vincoli istituzionali o condizionamenti commerciali.
+Il suo background spazia dalla ricerca microonde, al design sistemi elettronici, alle telecomunicazioni satellitari, ai programmi osservazione Terra. Un Master in Ingegneria Elettronica dall'Università La Sapienza fonda il suo lavoro tecnico; un'educazione classica informa il suo approccio all'indagine strategica e filosofica.
 
-## Contatti
+Dall'abbandono dei ruoli istituzionali, Sodi si è focalizzato sullo sviluppo di framework analitici che colmano metodologia ingegneristica con pensiero strategico. Questo lavoro include tre anni di ricerca sistematica sui Large Language Model come strumenti per augmentare analisi critica—esplorando sia il loro potenziale che i loro limiti.
 
-- X: 
-- Telegram: 
+Non detiene affiliazioni correnti con agenzie spaziali o istituzioni, abilitando valutazione indipendente libera da vincoli istituzionali.
+
+{{< frame-box bgColorKey="color9" >}}
+## Contatto
+
+- X: [@spacestrategies](https://x.com/spacestrategies)
+- Telegram: [@cesaresodi](https://t.me/cesaresodi)
+{{< /frame-box >}}

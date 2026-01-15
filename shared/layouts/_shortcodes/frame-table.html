@@ -1,0 +1,136 @@
+{{ $fc := partial "frame-colors.html" (dict
+  "defaultColorKey" "color7"
+) }}
+
+{{ $headerColor := $fc.bgLight }}
+{{ $stripeColor := index (site.Params.frameColors) 3 | default "#ECFEF4" }}
+
+{{ $width := .Get "width" | default "95%" }}
+
+{{/* Contatore globale per ID univoco - risolve problema Ordinal con shortcode annidati */}}
+{{ $counter := .Page.Scratch.Get "frameTableCounter" | default 0 }}
+{{ .Page.Scratch.Set "frameTableCounter" (add $counter 1) }}
+{{ $uid := printf "%d" $counter }}
+
+<style>
+.frame_table_wrapper-{{ $uid }} {
+  width: {{ $width }};
+  margin: 1rem auto;
+}
+
+/* Responsive: scroll orizzontale su mobile */
+.frame_table_scroll-{{ $uid }} {
+  overflow-x: auto;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
+}
+
+.frame_table_scroll-{{ $uid }} table {
+  --header-bg: {{ $headerColor | safeCSS }};
+  --header-bg-dark: color-mix(in oklab, var(--header-bg) 20%, black 80%);
+  --stripe-bg: {{ $stripeColor | safeCSS }};
+  --stripe-bg-dark: color-mix(in oklab, var(--stripe-bg) 20%, black 80%);
+  --hover-bg: color-mix(in oklab, white 92%, black 8%);
+  --hover-bg-dark: color-mix(in oklab, #1e293b 88%, white 12%);
+
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table {
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* Header (prima riga) */
+.frame_table_scroll-{{ $uid }} table thead th {
+  background: var(--header-bg);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: darkred;
+  text-align: center;
+  padding: 0.6rem 0.8rem;
+  border-right: 1px dotted #d1d5db;
+  border-bottom: 2px solid #d1d5db;
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table thead th {
+  background: var(--header-bg-dark);
+  color: orange;
+  border-right-color: rgba(255,255,255,0.15);
+  border-bottom-color: rgba(255,255,255,0.3);
+}
+
+.frame_table_scroll-{{ $uid }} table thead th:last-child {
+  border-right: none;
+}
+
+/* Righe body */
+.frame_table_scroll-{{ $uid }} table tbody tr {
+  background: white;
+  transition: background 0.2s ease;
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table tbody tr {
+  background: #1e293b;
+}
+
+/* Righe alternate con color4 */
+.frame_table_scroll-{{ $uid }} table tbody tr:nth-child(even) {
+  background: var(--stripe-bg);
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table tbody tr:nth-child(even) {
+  background: var(--stripe-bg-dark);
+}
+
+/* Hover su righe */
+.frame_table_scroll-{{ $uid }} table tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table tbody tr:hover {
+  background: var(--hover-bg-dark);
+}
+
+/* Celle body */
+.frame_table_scroll-{{ $uid }} table tbody td {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  border-right: 1px dotted #d1d5db;
+  color: inherit;
+}
+
+html[data-theme="dark"] .frame_table_scroll-{{ $uid }} table tbody td {
+  border-right-color: rgba(255,255,255,0.15);
+}
+
+.frame_table_scroll-{{ $uid }} table tbody td:last-child {
+  border-right: none;
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  .frame_table_wrapper-{{ $uid }} {
+    width: 100% !important;
+  }
+
+  .frame_table_scroll-{{ $uid }} table {
+    font-size: 0.85rem;
+  }
+
+  .frame_table_scroll-{{ $uid }} table thead th,
+  .frame_table_scroll-{{ $uid }} table tbody td {
+    padding: 0.4rem 0.6rem;
+  }
+}
+</style>
+
+<div class="frame_table_wrapper-{{ $uid }}">
+  <div class="frame_table_scroll-{{ $uid }}">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

@@ -1,37 +1,67 @@
 baseURL: "http://localhost:1313/"
-title: "spacespolicies.org"
+title: "spacestrategies.org"
 theme: "github.com/frjo/hugo-theme-zen/v5"
 defaultContentLanguage: "en"
 defaultContentLanguageInSubdir: false
+
+# Mount shared resources (priority: shared > project > theme)
+module:
+  mounts:
+    # Shared layouts (highest priority - includes _partials, _shortcodes, etc.)
+    - source: "../shared/layouts"
+      target: "layouts"
+    # Shared i18n
+    - source: "../shared/i18n"
+      target: "i18n"
+    # Shared assets (for common SCSS)
+    - source: "../shared/assets"
+      target: "assets"
+    # Shared static (for common images, etc.)
+    - source: "../shared/static"
+      target: "static"
+    # Project layouts (normal priority)
+    - source: "layouts"
+      target: "layouts"
+    # Project i18n
+    - source: "i18n"
+      target: "i18n"
+    # Project assets
+    - source: "assets"
+      target: "assets"
+    # Project content, static
+    - source: "content"
+      target: "content"
+    - source: "static"
+      target: "static"
 
 languages:
   en:
     languageName: "English"
     languageCode: "en-US"
     weight: 1
-    title: "spacepolicies.org"
+    title: "spacestrategies.org"
     params:
-      tagline: "Analysis & Insights"
-      heroTitle: "Independent analysis of space programs, governance, and industry dynamics"
-      heroSubtitle: "Strategic assessments for professionals, executives, and policy-makers."
+      tagline: "Methods & Frameworks"
+      heroTitle: "Analytical tools for strategic thinking in the space domain"
+      heroSubtitle: "Rigorous methodologies — TRIZ, Game Theory, SWOT, Scenario Planning — adapted for space policy and program analysis."
 
   it:
     languageName: "Italiano"
     languageCode: "it-IT"
     weight: 2
-    title: "spacepolicies.org"
+    title: "spacestrategies.org"
     params:
-      tagline: "Analisi e Approfondimenti"
-      heroTitle: "Analisi indipendente di programmi spaziali, governance e dinamiche industriali"
-      heroSubtitle: "Valutazioni strategiche per professionisti, dirigenti e policy-maker."
+      tagline: "Metodi & Framework"
+      heroTitle: "Strumenti analitici per il pensiero strategico nel dominio spaziale"
+      heroSubtitle: "Metodologie rigorose — TRIZ, Game Theory, SWOT, Scenario Planning — adattate per l'analisi di policy e programmi spaziali."
     menu:
       main:
         - name: "Articoli"
-          url: "/article/"
+          url: "/articles/"
           weight: 10
-        - name: "Tag"
-          url: "/tags/"
-          weight: 20
+        - name: "Modelli"
+          url: "/strategic-models/"
+          weight: 15
         - name: "Chi Siamo"
           url: "/about/"
           weight: 30
@@ -64,29 +94,45 @@ params:
       - key: purposes
         label: Purposes
 
-  tagline: "Analysis & Insights"
-  heroTitle: "Independent analysis of space programs, governance, and industry dynamics"
-  heroSubtitle: "Strategic assessments for professionals, executives, and policy-makers."
-  featured:
-    label: "Featured Articles"
-    title: "European Space Autonomy: Strategic Options for the Next Decade"
-    desc: "A comprehensive assessment of Europe's launcher crisis, institutional fragmentation, and pathways to sovereign access. 45 pages, January 2025."
-    meta: "PDF available · Updated with Ariane 6 flight data"
+  tagline: "Methods & Frameworks"
+  heroTitle: "Analytical tools for strategic thinking in the space domain"
+  heroSubtitle: "Rigorous methodologies — TRIZ, Game Theory, SWOT, Scenario Planning — adapted for space policy and program analysis."
+
+  ###################
+  # Palette per frame-box, frame-grid, frame-card
+  # Attiva UNA sola palette decommentandola
+  # I colori dark e mouse hover vengono calcolati automaticamente in CSS
+  #
+  # Palette disponibili:
+  # space:     ["#F5FBFF", "#E3F3FF", "#D1EBFF", "#BFE3FF", "#ADDBFF", "#9BD3FF", "#89CBFF", "#FEF7DA", "#f9fff9", "#fff9fa"]
+  # pastello:  ["#DCE8F1", "#F8FAFC", "#E0F2FE", "#ECFEF4", "#F3F0FF", "#E0F7FA", "#F1F5F9"]
+  # soft:      ["#d7ebeb", "#dce1eb", "#e1d7ea", "#e6cdea", "#eac3ea", "#efb9e9", "#f4afe9"]
+  # vivida:    ["#FFD700", "#FF6B6B", "#4ECDC4", "#95E1D3", "#A78BFA", "#FFA500", "#87CEEB"]
+  # watercolor: ["#f2f3e2", "#e7f1e6", "#ddeee9", "#d2eced", "#c7eaf1", "#bde7f4", "#b2e5f8"]
+  # garden:    ["#ebf4e2", "#e1eed3", "#d3e6be", "#cde2b6", "#c3dca7", "#b9d798", "#afd189"]
+  # blue-oasis: ["#ebf4f5", "#e2ecf2", "#d9e5ee", "#d0ddeb", "#c7d5e7", "#becee4", "#b5c6e0"]
+  # executive: Slate blues - sobrio, professionale (Bloomberg/FT style)
+  # executive: ["#f8fafc", "#f1f5f9", "#e2e8f0", "#cbd5e1", "#94a3b8", "#64748b", "#475569", "#fafaf9", "#f5f5f4", "#e7e5e4"]
+  #
+  frameColors: ["#f8fafc", "#f1f5f9", "#e2e8f0", "#cbd5e1", "#94a3b8", "#64748b", "#475569", "#fafaf9", "#f5f5f4", "#e7e5e4"]
+  ###################
 
 menu:
   main:
     - name: "Articles"
-      url: "/article/"
+      url: "/articles/"
       weight: 10
 
-    - name: "Tags"
-      url: "/tags/"
-      weight: 20
+    - name: "Models"
+      url: "/strategic-models/"
+      weight: 15
 
     - name: "About"
       url: "/about/"
       weight: 30
 
-    - name: "Home1"
-      url: "/home1/"
-      weight: 40
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
