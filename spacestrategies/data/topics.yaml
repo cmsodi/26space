@@ -1,0 +1,340 @@
+technologies:
+  transport-systems:
+  - orbital transfer vehicle
+  - interplanetary spacecraft
+  - reusable launch vehicle
+  - cargo resupply spacecraft
+  - crew transport capsule
+  - propellant depot
+  - space tug
+  - planetary lander
+  - atmospheric entry vehicle
+  - orbital shuttle
+  - lunar transfer vehicle
+  - asteroid mining transport
+  - space elevator system
+  - electromagnetic launch system
+  - nuclear thermal propulsion
+  - electric propulsion spacecraft
+  - solar sail vehicle
+  - inflatable heat shield
+  - autonomous docking system
+  - space traffic management
+  spacecrafts:
+  - communications satellite
+  - Earth observation satellite
+  - navigation satellite
+  - weather satellite
+  - scientific research satellite
+  - technology demonstration satellite
+  - crewed spacecraft
+  - cargo resupply vehicle
+  - lunar lander
+  - Mars lander
+  - planetary orbiter
+  - asteroid probe
+  - interplanetary spacecraft
+  - solar observatory
+  - space telescope
+  - orbital servicing vehicle
+  - space tug
+  - debris removal spacecraft
+  - orbital transfer vehicle
+  - smallsat platform
+  ground-systems:
+  - satellite ground station
+  - telemetry tracking command
+  - mission control center
+  - antenna array system
+  - ground communication network
+  - data processing facility
+  - satellite operations center
+  - ground terminal equipment
+  - baseband processing system
+  - uplink transmission system
+  - downlink reception system
+  - signal monitoring infrastructure
+  - ground segment architecture
+  - remote terminal station
+  - spacecraft control facility
+  - tracking radar system
+  - ground power infrastructure
+  - facility environmental control
+  - network operations center
+  - ground test equipment
+  planetary-systems:
+  - planetary surface rover
+  - orbital reconnaissance satellite
+  - atmospheric entry vehicle
+  - sample return capsule
+  - planetary lander
+  - terrain mapping system
+  - subsurface drilling rig
+  - planetary communication relay
+  - dust mitigation technology
+  - thermal protection system
+  - autonomous navigation system
+  - planetary science payload
+  - radiation shielding material
+  - life detection instrument
+  - seismic monitoring station
+  - planetary weather station
+  - surface mobility platform
+  - cryogenic sample storage
+  - planetary resource extractor
+  - magnetosphere sensor array
+frameworks:
+  space-law:
+  - space treaty framework
+  - orbital liability regime
+  - celestial body sovereignty
+  - space resource rights
+  - satellite frequency allocation
+  - launch licensing procedure
+  - space debris regulation
+  - astronaut rescue obligation
+  - space traffic management
+  - radio spectrum coordination
+  - remote sensing policy
+  - space environmental protection
+  - orbital slot assignment
+  - space arms control
+  - planetary protection protocol
+  - space insurance framework
+  - export control regulation
+  - space accident investigation
+  - international registration convention
+  - space dispute resolution
+  international-treaties:
+  - space liability treaty
+  - orbital debris protocol
+  - celestial body governance
+  - space resource extraction treaty
+  - satellite registration convention
+  - space rescue agreement
+  - nuclear power source regulation
+  - space weapons prohibition
+  - geostationary orbit allocation
+  - frequency coordination agreement
+  - space traffic management treaty
+  - moon base establishment framework
+  - space environment protection accord
+  - astronaut protection convention
+  - space telecommunications treaty
+  - launch notification protocol
+  - space situational awareness agreement
+  - planetary protection treaty
+  - space settlement governance
+  - deep space exploration accord
+  space-policy:
+  - orbital debris regulation
+  - frequency allocation policy
+  - space traffic management
+  - launch licensing framework
+  - planetary protection protocol
+  - space resource governance
+  - remote sensing regulation
+  - satellite export control
+  - space liability regime
+  - collision avoidance standard
+  - spectrum coordination treaty
+  - space situational awareness policy
+  - commercial spaceflight regulation
+  - international space agreement
+  - space weather monitoring policy
+  - nuclear power regulation
+  - technology transfer restriction
+  - end-of-life disposal requirement
+  - dual-use technology control
+  - space sustainability guideline
+  standards:
+  - orbital debris mitigation standards
+  - spacecraft design standards
+  - frequency allocation standards
+  - launch vehicle safety standards
+  - space traffic management standards
+  - environmental compliance standards
+  - satellite communication protocols
+  - astronaut safety standards
+  - payload interface standards
+  - ground station interoperability standards
+  - space data format standards
+  - radiation hardening standards
+  - docking mechanism standards
+  - propulsion system standards
+  - thermal control standards
+  - electromagnetic compatibility standards
+  - mission assurance standards
+  - space material qualification standards
+  - orbital slot allocation standards
+  - telemetry encoding standards
+stakeholders:
+  governments:
+  - national space agency
+  - defense ministry
+  - foreign affairs department
+  - regulatory authority
+  - legislative body
+  - executive branch
+  - intergovernmental organization
+  - space force
+  - civil aviation authority
+  - telecommunications regulator
+  - environmental agency
+  - trade ministry
+  - finance ministry
+  - science ministry
+  - intelligence agency
+  - customs authority
+  - diplomatic mission
+  - national laboratory
+  - procurement agency
+  - standards organization
+  space-industry:
+  - satellite manufacturer
+  - launch service provider
+  - ground station operator
+  - spacecraft component supplier
+  - propulsion system vendor
+  - satellite imagery provider
+  - space insurance company
+  - orbital debris removal company
+  - in-space servicing provider
+  - space mining enterprise
+  - satellite constellation operator
+  - rocket engine manufacturer
+  - spacecraft integration facility
+  - space logistics provider
+  - cubesat developer
+  - space tourism operator
+  - spaceport operator
+  - satellite communications provider
+  - space technology incubator
+  - microgravity research facility
+  agencies-institutions:
+  - national space agency
+  - civil space organization
+  - military space command
+  - space research institute
+  - university space program
+  - intergovernmental space organization
+  - regional space agency
+  - space policy institute
+  - space standards organization
+  - space licensing authority
+  - space weather service
+  - orbital debris office
+  - launch range authority
+  - space situational awareness center
+  - astronaut training facility
+  - satellite operations center
+  - space science laboratory
+  - space technology transfer office
+  - space treaty secretariat
+  - space safety regulatory body
+  international-entities:
+  - intergovernmental space agency
+  - international space consortium
+  - multinational launch provider
+  - global satellite operator
+  - transnational space organization
+  - regional space cooperation body
+  - international standards organization
+  - multilateral treaty organization
+  - cross-border research alliance
+  - international telecommunications union
+  - global navigation partnership
+  - multinational space station consortium
+  - international regulatory body
+  - transnational space fund
+  - global space commerce association
+  - international astronautical federation
+  - multilateral space agreement
+  - cross-border technology partnership
+  - international space law institute
+  - global space sustainability initiative
+purposes:
+  knowledge-expansion:
+  - exoplanet characterization
+  - planetary formation studies
+  - stellar evolution research
+  - cosmic microwave background analysis
+  - dark matter detection
+  - gravitational wave astronomy
+  - astrobiology research
+  - space weather monitoring
+  - magnetospheric physics
+  - solar wind investigation
+  - interstellar medium studies
+  - galaxy formation research
+  - black hole observation
+  - neutron star analysis
+  - cosmic ray detection
+  - heliophysics research
+  - atmospheric composition studies
+  - lunar geology investigation
+  - asteroid composition analysis
+  - cometary science research
+  terrestrial-services:
+  - global positioning service
+  - weather forecasting data
+  - telecommunications relay
+  - remote sensing imagery
+  - disaster monitoring service
+  - precision agriculture data
+  - maritime tracking system
+  - aviation navigation support
+  - environmental monitoring service
+  - climate observation data
+  - internet connectivity provision
+  - television broadcast distribution
+  - radio communication service
+  - search and rescue coordination
+  - asset tracking capability
+  - mapping and surveying data
+  - resource management intelligence
+  - urban planning analytics
+  - infrastructure monitoring service
+  - emergency response coordination
+  economic-development:
+  - commercial launch services
+  - space resource extraction
+  - satellite manufacturing industry
+  - spaceport development
+  - space tourism ventures
+  - orbital logistics services
+  - space technology transfer
+  - satellite data commercialization
+  - microgravity manufacturing
+  - space infrastructure investment
+  - asteroid mining operations
+  - lunar economic zone
+  - space patent licensing
+  - orbital real estate
+  - space insurance market
+  - workforce development programs
+  - supply chain optimization
+  - public-private partnerships
+  - venture capital funding
+  - technology commercialization
+  education-outreach:
+  - planetarium programs
+  - space science curriculum
+  - STEM education initiatives
+  - public observatory operations
+  - astronomy education resources
+  - spacecraft design workshops
+  - astronaut training simulations
+  - rocket launch viewing events
+  - space museum exhibitions
+  - satellite tracking activities
+  - telescope observation sessions
+  - astrobiology education programs
+  - space policy seminars
+  - orbital mechanics courses
+  - remote sensing workshops
+  - space law education
+  - astrophotography training
+  - space exploration documentaries
+  - citizen science projects
+  - space career development

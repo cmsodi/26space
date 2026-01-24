@@ -1,0 +1,48 @@
+task: "Generate {topics_count} generic topics for the space domain"
+
+input:
+  category: "{category}"
+  category_description: "{category_description}"
+  tag: "{tag}"
+
+instructions: |
+  Generate exactly {topics_count} GENERIC topics that fall under:
+  - Category: {category} ({category_description})
+  - Tag: {tag}
+  
+  Each topic must:
+  1. Be a generic type/class, NOT a specific instance
+  2. Use 2-4 words (concise but descriptive)
+  3. Be distinct from other topics in the list
+  4. Be searchable on the web with meaningful results
+  5. Represent a significant concept within this tag
+  
+  Examples of CORRECT generic topics:
+  - "telecommunications satellite" (NOT "Starlink")
+  - "Mars rover" (NOT "Perseverance")
+  - "reusable launch vehicle" (NOT "Falcon 9")
+  - "space debris mitigation" (NOT "ClearSpace-1")
+  - "orbital space station" (NOT "ISS")
+  
+  Cover different aspects and system levels:
+  - Foundational (basic principles, enabling technologies)
+  - Subsystem (components, assemblies)
+  - System (integrated platforms, infrastructures)
+  - Supersystem (networks, ecosystems, governance)
+
+existing_topics: |
+  {existing_topics}
+
+merge_instruction: |
+  If existing_topics is not empty, generate ONLY NEW topics that:
+  - Are NOT duplicates or near-synonyms of existing topics
+  - Complement and expand the coverage of the tag
+  - Fill gaps in the current topic list
+
+output_format: |
+  Respond ONLY with a YAML list, no explanations:
+  
+  - topic one
+  - topic two
+  - topic three
+  ...

@@ -574,6 +574,30 @@ html[data-theme="dark"] .sp-header-link {
   line-height: 1.1;
 }
 
+/* Mobile brand adjustments */
+@media (max-width: 480px) {
+  .sp-brand {
+    gap: 0.4rem;
+  }
+
+  .sp-brand-logo {
+    height: 50px;
+  }
+
+  .sp-brand-name {
+    font-size: 1.1rem;
+  }
+
+  .sp-brand-tagline {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .sp-header-link {
+    display: none;
+  }
+}
+
 html[data-theme="dark"] .sp-brand-name {
   color: var(--color-headings);
 }
@@ -855,48 +879,126 @@ button.sp-filter-cell.active:hover {
 
 /* ===== Strategic Models Filter System ===== */
 
-/* Filter section */
-.sm-filter-section {
-  margin: 2rem 0;
+/* Selector groups (SpaceQuest-style) */
+.sm-selector-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 0.2rem;
+  align-items: center;
+  width: 100%;
+  margin: 0.6rem 0;
 }
 
-.sm-filter-label {
-  font-size: 0.9rem;
+.sm-label {
   font-weight: 600;
-  color: var(--color-text);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-bottom: 0.1rem;
 }
 
-/* Category dropdown */
-.sm-category-dropdown {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--sp-border);
-  border-radius: 6px;
-  background: var(--sp-bg);
-  color: var(--color-text);
-  font-size: inherit;
-  font-family: inherit;
+/* Buttons container - Level 1 (Categories) uses grid */
+#sm-level1 .sm-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  #sm-level1 .sm-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  #sm-level1 .sm-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Level 2 (Methods) uses flex */
+#sm-level2 .sm-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+/* Button styling (SpaceQuest-style) */
+.sm-btn {
+  padding: 0.4rem 0.5rem;
+  border: none;
+  border-radius: 0;
   cursor: pointer;
-  transition: border-color 0.2s;
+  font-size: 0.8rem;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  text-transform: capitalize;
+  color: var(--color-text);
+  text-align: center;
 }
 
-.sm-category-dropdown:hover {
-  font-size: inherit;
-  font-family: inherit;
-  border-color: var(--color-border);
+/* Category buttons (Level 1) - full width in grid, fixed height */
+#sm-level1 .sm-btn {
+  width: 100%;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.sm-category-dropdown:focus {
-  font-size: inherit;
-  font-family: inherit;
-  outline: none;
-  border-color: #2d5a8a;
-  box-shadow: 0 0 0 3px rgba(45, 90, 138, 0.1);
+.sm-btn:hover {
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.sm-btn.sm-active {
+  background: #1e293b;
+  color: white;
+  z-index: 2;
+}
+
+/* Method buttons (Level 2) */
+#sm-level2 .sm-btn {
+  padding: 0.2rem 0.5rem;
+}
+
+/* Reset button */
+.sm-btn-reset {
+  background: transparent;
+  border: 1px solid #94a3b8;
+  color: #64748b;
+  margin-left: 0;
+}
+
+.sm-btn-reset:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  color: #dc2626;
+}
+
+.sm-reset-container {
+  padding-top: 0.3rem;
+  text-align: center;
+}
+
+.sm-hidden {
+  display: none !important;
+}
+
+/* Dark mode adjustments */
+html[data-theme="dark"] .sm-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .sm-btn.sm-active {
+  background: oklch(45% 0.08 250);
 }
 
 /* Info boxes */
@@ -949,58 +1051,12 @@ button.sp-filter-cell.active:hover {
   color: var(--color-text);
 }
 
-/* Methods grid (Level 2) */
-.sm-methods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 0.75rem;
-  margin: 2rem 0;
-}
-
-@media (max-width: 600px) {
-  .sm-methods-grid {
-    grid-template-columns: 1fr;
+/* Responsive */
+@media (max-width: 640px) {
+  .sm-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
   }
-}
-
-/* Method buttons */
-.sm-method-btn {
-  padding: 0.75rem 1rem;
-  background: var(--sp-bg-alt);
-  border: 1px solid var(--sp-border);
-  border-radius: 6px;
-  color: var(--color-text);
-  font-size: 0.9rem;
-  font-family: inherit;
-  font-weight: normal;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s;
-}
-
-.sm-method-btn:hover {
-  border-color: var(--color-border);
-  background: var(--sp-bg);
-}
-
-.sm-method-btn.active {
-  background: #1e3a5f;
-  color: white;
-  border-color: #1e3a5f;
-}
-
-.sm-method-btn.active:hover {
-  opacity: 0.9;
-}
-
-.sm-method-btn span {
-  display: block;
-  line-height: 1.4;
-}
-
-html[data-theme="dark"] .sm-method-btn.active {
-  background: oklch(45% 0.08 250);
-  border-color: oklch(45% 0.08 250);
 }
 
 /* Articles list */

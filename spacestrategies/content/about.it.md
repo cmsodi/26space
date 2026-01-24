@@ -5,47 +5,47 @@ Space Strategies fornisce framework analitici e metodologie per il pensiero stra
 {{< frame-box bgColorKey="color1" >}}
 ## Cosa Troverai Qui
 
-**Ricerca Originale** — Il framework 4Dimensions©, una struttura ontologica per l'analisi strategica radicata nel pensiero aristotelico (cause materiali, formali, efficienti, finali attraverso quattro livelli sistemici). Questo framework si integra con l'Analisi Morfologica di Zwicky per generazione sistematica di opzioni, TRIZ per risoluzione contraddizioni, e il Principio Piramide di Minto per comunicazione strutturata. I quattro pilastri formano una metodologia coerente: dalla comprensione di ciò che esiste, all'esplorazione di ciò che è possibile, al superamento degli ostacoli, alla comunicazione efficace delle conclusioni. I Large Language Model servono come strumenti di augmentation all'interno di questo framework—potenziando rigore analitico preservando autonomia intellettuale. Report metodologici documentano sia l'approccio che i suoi limiti.
+**Ricerca Originale** — Il framework 4Dimensions©, una struttura ontologica per l'analisi strategica radicata nel pensiero aristotelico (cause materiali, formali, efficienti, finali attraverso quattro livelli sistemici). Si integra con Analisi Morfologica di Zwicky per generazione sistematica di opzioni, TRIZ per risoluzione contraddizioni, Principio Piramide di Minto per comunicazione strutturata. I Large Language Model servono come strumenti di augmentation—potenziando rigore analitico preservando autonomia intellettuale.
 
-**Framework** — Ventiquattro metodologie analisi strategica adattate per il dominio spaziale, organizzate attraverso sei categorie analitiche:
+**Framework** — Ventiquattro metodologie analisi strategica adattate per il dominio spaziale, organizzate in sei categorie:
 
-- **Macro-Environmental Analysis** (PESTLE, teorie geopolitiche classiche, causal layered analysis)
-- **Capabilities & Power Assessment** (SWOT, strumenti potere nazionale, hard/soft/smart power, security sector analysis)
-- **Relationship & Stakeholder Dynamics** (alliance analysis, stakeholder power-interest mapping, levels of analysis)
-- **Security & Threat Assessment** (threat risk matrices, esercizi red team/blue team, war-gaming)
-- **Future Foresight & Scenario Planning** (scenario planning, metodo Delphi, three horizons, futures wheel, cross-impact analysis)
+- **Macro-Environmental Analysis** (PESTLE, teorie geopolitiche, causal layered analysis)
+- **Capabilities & Power Assessment** (SWOT, potere nazionale, hard/soft/smart power, security sector analysis)
+- **Relationship & Stakeholder Dynamics** (alliance analysis, stakeholder mapping, levels of analysis)
+- **Security & Threat Assessment** (threat matrices, red team/blue team, war-gaming)
+- **Future Foresight & Scenario Planning** (scenario planning, Delphi, three horizons, futures wheel, cross-impact)
 - **Structured Thinking & Problem Solving** (six thinking hats, morphological analysis, SCAMPER, forced analogies)
 
-Ogni framework include traduzione space-specific (come meccanica orbitale e strutture istituzionali rimodellano la metodologia), analisi failure mode (dove il framework si rompe o fuorvia), e guida integrazione (quali altri framework lo complementano). L'enfasi è critica—esponendo limitazioni piuttosto che overselling applicabilità.
+Ogni framework include traduzione space-specific, analisi failure mode, guida integrazione. L'enfasi è critica—esponendo limitazioni piuttosto che overselling applicabilità.
 {{< /frame-box >}}
 
-{{< frame-box bgColorKey="color2" >}}
-## Analisi Applicata
+{{< frame-box bgColorKey="color3" >}}
+## Space Strategy Hub (SSP Hub)
 
-Per applicazioni concrete di questi framework—articoli, monografie e analisi scenari su questioni policy spaziale correnti—vedi il sito companion [spacepolicies.org](https://spacepolicies.org).
+Space Strategies fa parte di **SSP Hub**, che integra metodologia strategica e analisi policy:
 
-I framework sono usati in [spacepolicies.org](https://spacepolicies.org) basati sulla loro applicabilità:
+- **Space Strategies** → Framework metodologici, strumenti, rigore analitico
+- **Space Policies** → Articoli, monografie, scenari su policy correnti
 
-- **Blog-Native**: pienamente eseguibili con open source intelligence;
-- **Adapted Analysis**: richiedono semplificazione metodologica, ma forniscono insight parziali senza accesso ristretto. Usati per analisi più approfondite.
-- **Illustration of case studies**: troppo resource-intensive per esecuzione originale; spiegati attraverso analisi di casi storici ed esempi.
+I due siti lavorano insieme: metodologia rigorosa qui, risultati applicati in [spacepolicies.org](https://spacepolicies.org). Ogni analisi Space Policies linka il framework che l'ha strutturata; ogni framework include applicazioni esempio.
 
-I due siti lavorano insieme: metodologia rigorosa qui, risultati applicati là. Ogni analisi Space Policies linka back al framework che l'ha strutturata, e ogni pagina framework include applicazioni esempio.
+I framework sono usati in Space Policies basati sulla loro applicabilità:
+- **Blog-Native**: eseguibili con OSINT
+- **Adapted Analysis**: semplificazione metodologica per insight parziali  
+- **Illustration**: spiegati via casi storici
 {{< /frame-box >}}
 
 ## Il Fondatore
 
 {{< figure src="/images/founder.webp" align="left" width-pc="30" width-mobile="40" alt="Cesare Sodi" >}}
 
-**Cesare Sodi**
+**Cesare Sodi** è ricercatore indipendente con tre decenni nel settore spaziale, incluse posizioni all'Agenzia Spaziale Italiana (ASI) come Project Manager, Capo Strategia e Relazioni Pubbliche, advisor Space Security.
 
-Cesare Sodi è un ricercatore indipendente con tre decenni di esperienza nel settore spaziale, incluse posizioni all'Agenzia Spaziale Italiana (ASI) come Project Manager, Capo Strategia e Relazioni Pubbliche, e advisor su Space Security.
+Background: ricerca microonde, design sistemi elettronici, telecomunicazioni satellitari, programmi osservazione Terra. Master Ingegneria Elettronica (La Sapienza); educazione classica informa approccio strategico-filosofico.
 
-Il suo background spazia dalla ricerca microonde, al design sistemi elettronici, alle telecomunicazioni satellitari, ai programmi osservazione Terra. Un Master in Ingegneria Elettronica dall'Università La Sapienza fonda il suo lavoro tecnico; un'educazione classica informa il suo approccio all'indagine strategica e filosofica.
+Dall'abbandono dei ruoli istituzionali, focus su framework analitici che colmano metodologia ingegneristica con pensiero strategico. Include tre anni di ricerca sistematica su LLM come strumenti per augmentare analisi critica—esplorando potenziale e limiti.
 
-Dall'abbandono dei ruoli istituzionali, Sodi si è focalizzato sullo sviluppo di framework analitici che colmano metodologia ingegneristica con pensiero strategico. Questo lavoro include tre anni di ricerca sistematica sui Large Language Model come strumenti per augmentare analisi critica—esplorando sia il loro potenziale che i loro limiti.
-
-Non detiene affiliazioni correnti con agenzie spaziali o istituzioni, abilitando valutazione indipendente libera da vincoli istituzionali.
+Nessuna affiliazione corrente con agenzie o istituzioni. Valutazione indipendente libera da vincoli istituzionali.
 
 {{< frame-box bgColorKey="color9" >}}
 ## Contatto

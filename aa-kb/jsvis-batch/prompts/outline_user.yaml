@@ -1,0 +1,127 @@
+task: "Generate a jsvis knowledge map outline for topic '{topic}' using MECE methodology"
+
+input:
+  topic: "{topic}"
+  category: "{category}"
+  tag: "{tag}"
+
+mece_requirements: |
+  MANDATORY: Apply Barbara Minto's MECE (Mutually Exclusive, Collectively Exhaustive) principle:
+
+  1. MUTUALLY EXCLUSIVE: Each section/subsection must be distinct with NO overlap.
+     - Wrong: "Hardware" and "Electronics" (electronics is part of hardware)
+     - Correct: "Hardware", "Software", "Operations" (distinct categories)
+
+  2. COLLECTIVELY EXHAUSTIVE: Together, all sections must cover the ENTIRE topic.
+     - Ensure no important aspect is missing
+     - The 3 sections at each level must provide complete coverage
+
+  3. LOGICAL GROUPING: Group similar concepts under the same parent node.
+     - Each parent should have children of the same type/abstraction level
+
+structure_requirements:
+  mandatory_structure: "1*3*3*3"
+  total_nodes: 40
+  levels:
+    - level: 1
+      prefix: "#"
+      content: "Topic title (root node)"
+      count: "EXACTLY 1"
+    - level: 2
+      prefix: "##"
+      content: "Main sections (numbered: 1., 2., 3.)"
+      count: "EXACTLY 3 sections"
+    - level: 3
+      prefix: "###"
+      content: "Subsections (numbered: 1.1, 1.2, 1.3, 2.1, 2.2, 2.3, 3.1, 3.2, 3.3)"
+      count: "EXACTLY 3 per section (9 total)"
+    - level: 4
+      prefix: "####"
+      content: "Detail nodes (not numbered)"
+      count: "EXACTLY 3 per subsection (27 total)"
+
+line_format: |
+  Each line must follow this exact format:
+  [[PREFIX]] [[NUMBER]] [[LABEL]]; [[WEB_SEARCH_QUERY]]
+  
+  Where:
+  - [[PREFIX]]: Heading indicator (#, ##, ###, ####)
+  - [[NUMBER]]: Section number (only for ## and ###)
+  - [[LABEL]]: Short label (1-3 words) displayed on map node
+  - [[WEB_SEARCH_QUERY]]: Search string for Google (4-6 keywords)
+
+search_query_rules:
+  title_node:
+    format: "keyword_list"
+    max_keywords: 4
+    example: "telecommunications satellite technology systems"
+  
+  section_node:
+    format: "topic + section keywords"
+    max_keywords: 5
+    example: "{topic} payload transponder design"
+  
+  subsection_node:
+    format: "topic + section + subsection keywords"
+    max_keywords: 6
+    example: "{topic} payload antenna beam coverage"
+  
+  detail_node:
+    format: "specific technical search"
+    max_keywords: 6
+    example: "{topic} antenna phased array technology"
+
+output_constraints:
+  - NO blank lines between entries
+  - NO explanations or comments
+  - ONLY the outline content
+  - Labels must be concise (1-3 words)
+  - Search queries must be effective for web research
+  - Maintain logical hierarchy and flow
+
+example_output: |
+  # Telecom Satellite; telecommunications satellite technology systems
+  ## 1. Technology; telecommunications satellite technology hardware software
+  ### 1.1 Payload Systems; telecom satellite payload transponder antenna
+  #### RF Equipment; satellite radio frequency amplifier converter
+  #### Antenna Arrays; satellite antenna phased array beam forming
+  #### Signal Processing; satellite digital signal processing onboard
+  ### 1.2 Platform Bus; telecommunications satellite bus platform subsystems
+  #### Power Systems; satellite solar array battery power management
+  #### Thermal Control; satellite thermal management heat dissipation
+  #### Propulsion; satellite electric propulsion station keeping
+  ### 1.3 Ground Segment; telecom satellite ground station infrastructure
+  #### Control Centers; satellite mission control center operations
+  #### User Terminals; satellite user terminal VSAT equipment
+  #### Gateway Stations; satellite gateway earth station backbone
+  ## 2. Operations; telecommunications satellite operations lifecycle
+  ### 2.1 Launch Phase; satellite launch deployment commissioning
+  #### Launch Services; satellite launch vehicle provider selection
+  #### Orbit Insertion; satellite orbit transfer geosynchronous injection
+  #### In-Orbit Testing; satellite commissioning payload verification
+  ### 2.2 Mission Control; satellite daily operations management monitoring
+  #### Telemetry; satellite telemetry tracking command systems
+  #### Orbit Maintenance; satellite station keeping maneuver planning
+  #### Anomaly Resolution; satellite anomaly detection troubleshooting
+  ### 2.3 End of Life; satellite decommissioning disposal procedures
+  #### Deorbiting; satellite end life deorbiting graveyard orbit
+  #### Passivation; satellite passivation fuel venting battery discharge
+  #### Debris Mitigation; satellite space debris mitigation guidelines
+  ## 3. Services; telecommunications satellite commercial services applications
+  ### 3.1 Broadcasting; satellite television radio broadcasting services
+  #### DTH Television; direct-to-home satellite television broadcasting
+  #### Radio Services; satellite radio broadcasting digital audio
+  #### Video Contribution; satellite video contribution distribution links
+  ### 3.2 Connectivity; satellite broadband internet connectivity services
+  #### Maritime VSAT; satellite maritime vessel connectivity broadband
+  #### Aviation Services; satellite inflight connectivity passenger WiFi
+  #### Rural Broadband; satellite rural remote area internet access
+  ### 3.3 Enterprise; satellite enterprise corporate network solutions
+  #### Private Networks; satellite private corporate network MPLS
+  #### Backup Links; satellite backup disaster recovery connectivity
+  #### IoT Backhaul; satellite IoT machine-to-machine backhaul
+
+final_instruction: |
+  Generate ONLY the outline for topic "{topic}" in category "{category}" / tag "{tag}".
+  Do not add any conversation, explanations, or markdown code blocks.
+  Start directly with the # line.

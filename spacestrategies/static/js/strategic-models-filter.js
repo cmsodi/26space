@@ -1,6 +1,6 @@
 /**
  * Strategic Models Two-Level Filter System
- * Level 1: Category dropdown
+ * Level 1: Category buttons
  * Level 2: Methods buttons
  */
 (function () {
@@ -27,12 +27,16 @@
   }
 
   // DOM elements
-  const categorySelect = document.getElementById('category-select');
+  const categoryButtonsContainer = document.getElementById('sm-buttons-categories');
+  const level2Group = document.getElementById('sm-level2');
+  const methodsContainer = document.getElementById('methods-container');
+  const resetContainer = document.getElementById('sm-reset-container');
+  const resetButton = document.getElementById('sm-reset');
+
   const categoryInfo = document.getElementById('category-info');
   const categoryName = document.getElementById('category-name');
   const categoryDescription = document.getElementById('category-description');
 
-  const methodsContainer = document.getElementById('methods-container');
   const methodInfo = document.getElementById('method-info');
   const methodName = document.getElementById('method-name');
   const methodDescription = document.getElementById('method-description');
@@ -51,29 +55,51 @@
   let selectedCategory = null;
   let selectedMethod = null;
 
-  // Event: Category selection (Level 1)
-  categorySelect.addEventListener('change', function(e) {
-    const categoryId = e.target.value;
+  // Initialize category button events
+  function init() {
+    // Add click events to category buttons
+    const categoryButtons = categoryButtonsContainer.querySelectorAll('.sm-btn');
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        selectCategory(this.dataset.categoryId);
+      });
+    });
 
-    if (!categoryId) {
-      // Reset all
-      resetView();
-      return;
+    // Reset button event
+    if (resetButton) {
+      resetButton.addEventListener('click', resetView);
     }
+  }
 
+  // Select category (Level 1)
+  function selectCategory(categoryId) {
     // Find selected category
     selectedCategory = strategicModels.find(cat => cat.id === categoryId);
 
     if (selectedCategory) {
+      // Update active state on category buttons
+      const categoryButtons = categoryButtonsContainer.querySelectorAll('.sm-btn');
+      categoryButtons.forEach(btn => {
+        btn.classList.remove('sm-active');
+        if (btn.dataset.categoryId === categoryId) {
+          btn.classList.add('sm-active');
+        }
+      });
+
       showCategoryInfo(selectedCategory);
       renderMethods(selectedCategory.methods);
+
+      // Show reset button
+      if (resetContainer) {
+        resetContainer.classList.remove('sm-hidden');
+      }
 
       // Reset method selection
       selectedMethod = null;
       hideMethodInfo();
       hideArticles();
     }
-  });
+  }
 
   // Show category info
   function showCategoryInfo(category) {
@@ -90,24 +116,25 @@
 
     methods.forEach(method => {
       const button = document.createElement('button');
-      button.className = 'sm-method-btn';
+      button.className = 'sm-btn';
       button.dataset.methodId = method.id;
-      button.innerHTML = `<span>${method.name}</span>`;
+      button.textContent = method.name;
 
       button.addEventListener('click', function() {
         selectMethod(method);
 
         // Visual feedback: active state
-        document.querySelectorAll('.sm-method-btn').forEach(btn => {
-          btn.classList.remove('active');
+        methodsContainer.querySelectorAll('.sm-btn').forEach(btn => {
+          btn.classList.remove('sm-active');
         });
-        button.classList.add('active');
+        button.classList.add('sm-active');
       });
 
       methodsContainer.appendChild(button);
     });
 
-    methodsContainer.style.display = 'grid';
+    // Show level 2
+    level2Group.classList.remove('sm-hidden');
   }
 
   // Select method and show details
@@ -176,12 +203,31 @@
 
   // Reset entire view
   function resetView() {
+    // Remove active states from all buttons
+    categoryButtonsContainer.querySelectorAll('.sm-btn').forEach(btn => {
+      btn.classList.remove('sm-active');
+    });
+
+    // Hide level 2
+    level2Group.classList.add('sm-hidden');
+    methodsContainer.innerHTML = '';
+
+    // Hide reset button
+    if (resetContainer) {
+      resetContainer.classList.add('sm-hidden');
+    }
+
+    // Hide info boxes
     categoryInfo.style.display = 'none';
-    methodsContainer.style.display = 'none';
     hideMethodInfo();
     hideArticles();
+
+    // Reset state
     selectedCategory = null;
     selectedMethod = null;
   }
+
+  // Initialize on DOM ready
+  init();
 
 })();

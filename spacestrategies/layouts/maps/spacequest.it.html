@@ -1,0 +1,226 @@
+{{ define "main" }}
+<main class="sq-page">
+    <div class="sq-container">
+        <div class="sq-header">
+            <h1 class="sq-title">SpaceQuest@</h1>
+            <p class="sq-subtitle">La mappa SpaceQuest© è un potente strumento di ricerca web che consente di recuperare rapidamente informazioni e svolgere analisi approfondite. È particolarmente utile per l'analisi strategica e la ricerca sul campo, poiché offre varie funzioni e opzioni per esplorare argomenti specifici. Sperimenta le sue funzionalità per trovare le informazioni di cui hai bisogno.</p>
+        </div>
+
+        <!-- SELECTORS -->
+        <div class="sq-selectors">
+            <!-- Level 1: Categoria -->
+            <div class="sq-selector-group" id="sq-level1">
+                <label class="sq-label">Categoria</label>
+                <div class="sq-buttons" id="sq-buttons-l1">
+                    {{ range $key, $value := site.Data.topics }}
+                    <button class="sq-btn" data-level="1" data-value="{{ $key }}">{{ $key }}</button>
+                    {{ end }}
+                </div>
+            </div>
+
+            <!-- Level 2: Tag -->
+            <div class="sq-selector-group sq-hidden" id="sq-level2">
+                <label class="sq-label">Tag</label>
+                <div class="sq-buttons" id="sq-buttons-l2"></div>
+            </div>
+
+            <!-- Level 3: Argomento -->
+            <div class="sq-selector-group sq-hidden" id="sq-level3">
+                <label class="sq-label">Argomento</label>
+                <div class="sq-buttons" id="sq-buttons-l3"></div>
+            </div>
+
+            <!-- Pulsante Reset -->
+            <div class="sq-reset-container sq-hidden" id="sq-reset-container">
+                <button class="sq-btn sq-btn-reset" id="sq-reset">Reset</button>
+            </div>
+        </div>
+
+        <!-- BREADCRUMB -->
+        <div class="sq-breadcrumb sq-hidden" id="sq-breadcrumb"></div>
+
+        <!-- MAP CONTENT -->
+        <div class="sq-content sq-hidden" id="sq-content">
+            <div class="sq-loading sq-hidden" id="sq-loading">Caricamento...</div>
+            <div class="sq-map" id="sq-map"></div>
+        </div>
+    </div>
+</main>
+
+<!-- Topics data for JavaScript -->
+<script id="sq-topics-data" type="application/json">
+{{ site.Data.topics | jsonify | safeJS }}
+</script>
+
+<style>
+.sq-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.sq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sq-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.sq-title {
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem 0;
+}
+
+.sq-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+.sq-selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.sq-selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.sq-label {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    margin-bottom: 0.1rem;
+}
+
+.sq-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+}
+
+/* Level 3 (Topic) has small gap between buttons */
+#sq-level3 .sq-buttons {
+    gap: 0.3rem;
+}
+
+.sq-btn {
+    padding: 0.05rem 0.5rem;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.15s ease;
+    text-transform: capitalize;
+    margin-left: -1px;
+}
+
+.sq-btn:first-child {
+    margin-left: 0;
+}
+
+.sq-btn:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+    z-index: 1;
+}
+
+.sq-btn.sq-active {
+    background: #1e293b;
+    color: white;
+    border-color: #1e293b;
+    z-index: 2;
+}
+
+/* Topic buttons have slight separation */
+#sq-level3 .sq-btn {
+    margin-left: 0;
+}
+
+.sq-btn-reset {
+    background: transparent;
+    border-color: #94a3b8;
+    color: #64748b;
+    margin-left: 0;
+}
+
+.sq-btn-reset:hover {
+    background: #fee2e2;
+    border-color: #f87171;
+    color: #dc2626;
+}
+
+.sq-reset-container {
+    padding-top: 0.3rem;
+}
+
+.sq-breadcrumb {
+    color: #64748b;
+    padding: 0.4rem 0.8rem;
+    background: #c0dfff;
+    border-radius: 0;
+    text-align: center;
+}
+
+.sq-breadcrumb span {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.sq-content {
+    margin-top: 0.5rem;
+    min-height: 400px;
+}
+
+.sq-loading {
+    text-align: center;
+    padding: 1.5rem;
+    color: #64748b;
+}
+
+.sq-map {
+    padding: 0;
+    background: white;
+    overflow: visible;
+}
+
+.sq-iframe {
+    width: 100%;
+    height: 95vh;
+    min-height: 910px;
+    border: none;
+    display: block;
+}
+
+.sq-hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .sq-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+</style>
+
+<script src="/js/spacequest.js"></script>
+{{ end }}

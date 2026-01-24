@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="map-article">
+    {{ .Content }}
+</article>
+
+<script>
+// Hide header/footer when embedded
+(function() {
+    if (window.location.search.includes('embed=1')) {
+        document.documentElement.classList.add('embed-mode');
+    }
+})();
+</script>
+
+<style>
+/* Zen theme specific classes */
+.embed-mode .layout__navigation,
+.embed-mode .main-menu,
+.embed-mode .layout__footer,
+.embed-mode .footer,
+.embed-mode .sp-site-header,
+.embed-mode header,
+.embed-mode nav,
+.embed-mode footer {
+    display: none !important;
+}
+
+.embed-mode .layout__page {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.embed-mode .layout__main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.embed-mode .map-article {
+    padding: 0.5rem;
+    margin: 0;
+}
+</style>
+{{ end }}

@@ -1,6 +1,6 @@
 # About Space Policies
 
-Space Policies delivers independent analysis of space programs, governance, and industry dynamics. The site is written for professionals, executives, and policy-makers who need substantive assessments—not news summaries, but strategic interpretation of what developments mean and where they lead.
+Space Policies delivers independent analysis of space programs, governance, and industry dynamics. Written for professionals, executives, and policy-makers who need substantive assessments—not news summaries, but strategic interpretation of what developments mean and where they lead.
 
 ## What You'll Find Here
 
@@ -10,23 +10,28 @@ Space Policies delivers independent analysis of space programs, governance, and 
 
 **Scenarios** — Structured explorations of alternative futures for the space sector, examining how current decisions might unfold under different assumptions.
 
-## Methodological Foundation
+{{< frame-box bgColorKey="color3" >}}
+## Space Strategy Hub (SSP Hub)
 
-Analyses on this site apply structured frameworks appropriate to each topic—from macro-environmental scanning to stakeholder mapping, from scenario planning to morphological analysis. The specific method is chosen based on the strategic question at hand, not applied mechanically.
+Space Policies is part of **SSP Hub**, which integrates strategic methodology and policy analysis:
 
-For those interested in the frameworks themselves—their logic, application criteria, and adaptation to space sector problems—the companion site [spacestrategies.org](https://spacestrategies.org) provides detailed documentation. The two sites work together: methods there, results here.
+- **Space Strategies** → Methodological frameworks, tools, analytical rigor
+- **Space Policies** → Articles, monographs, scenarios on current policy issues
+
+The two sites work together: methods in [spacestrategies.org](https://spacestrategies.org), results here. Each Space Policies analysis links to the framework that structured it; each framework includes example applications.
+
+Analyses apply structured frameworks appropriate to each topic—from macro-environmental scanning to stakeholder mapping, from scenario planning to morphological analysis. The specific method is chosen based on the strategic question, not applied mechanically.
+{{< /frame-box >}}
 
 ## The Founder
 
 {{< figure src="/images/founder.webp" align="left" width-pc="30" width-mobile="40" alt="Cesare Sodi" >}}
 
+**Cesare Sodi** is an independent researcher who spent four decades in the space sector, including 31 years at the Italian Space Agency (ASI). Institutional roles included Project Manager for satellite programs, Chief of Strategy and Public Relations, and advisor on Space Security.
 
+This operational experience—spanning telecommunications, Earth observation, international cooperation, institutional strategy—informs the analyses published here. While grounded in European space governance, the site addresses dynamics relevant across all major space-faring regions: industrial policy, launch autonomy, spectrum governance, dual-use tensions, commercial-institutional interfaces.
 
-**Cesare Sodi** is an independent researcher who spent four decades in the space sector, including 31 years at the Italian Space Agency (ASI). His institutional roles included Project Manager for satellite programs, Chief of Strategy and Public Relations, and advisor on Space Security matters.
-
-This operational experience—spanning telecommunications, Earth observation, international cooperation, and institutional strategy—informs the analyses published here. While grounded in European space governance, the site addresses dynamics relevant across all major space-faring regions: industrial policy, launch autonomy, spectrum governance, dual-use tensions, commercial-institutional interfaces.
-
-A Master's degree in Electronic Engineering from La Sapienza University provides technical grounding; a classical education shapes the attention to strategic and political dimensions often overlooked in purely technical assessments.
+Master's degree in Electronic Engineering (La Sapienza University) provides technical grounding; classical education shapes attention to strategic and political dimensions often overlooked in purely technical assessments.
 
 Sodi currently holds no affiliations with space agencies, institutions, or commercial entities. Space Policies operates as an independent platform, free to assess programs and policies without institutional constraints or commercial considerations.
 

@@ -313,3 +313,35 @@ figure::after {
     display: table;
     clear: both;
 }
+
+// ===== Mobile Brand Adjustments =====
+// Reduce logo + site name width on small screens
+
+@media (max-width: 480px) {
+  .sp-site-header--global {
+    padding: 1rem 0;
+  }
+
+  .sp-brand {
+    gap: 0.4rem;
+    max-width: 100%;
+  }
+
+  .sp-brand-logo {
+    height: 50px;
+  }
+
+  .sp-brand-name {
+    font-size: 1.1rem;
+  }
+
+  .sp-brand-tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  // Hide secondary link on very small screens
+  .sp-header-link {
+    display: none;
+  }
+}

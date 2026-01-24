@@ -1,0 +1,178 @@
+<!--{{/*
+
+    USAGE:
+
+    {{< jsvis-map "COLOR CODE HERE" >}}
+
+*/}}-->  
+
+<!--{{/*  Importing external scripts*/}} */}}-->
+<script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<script>
+  if (!window.vis) {
+    document.write('<script src="https://cdn.jsdelivr.net/npm/vis-network@latest/standalone/umd/vis-network.min.js"><\/script>');
+  }
+</script>
+<script>
+  if (!window.vis) {
+    document.write('<script src="/js/vis-network.min.js"><\/script>');
+  }
+</script>
+
+
+<!--{{/*  ************************************************************* */}}-->
+<!--{{/*  REMOVE BELOW LINES TO REBUILD A STANDALONE HTML FILE */}}-->  
+
+<script>
+    var outlineText = "\n" + `{{ trim .Inner "\n\r " }}`  + "\n";
+</script>
+
+{{ $css := resources.Get "css/jsvisMapStyle.css" }}
+<link href="{{ $css.RelPermalink }}" rel="stylesheet">
+
+<style>#mynetwork {background-color: {{ .Get 0 }};background-image: url({{ .Get 1 }});}</style>
+
+{{ $js := resources.Get "js/jsvisMap.js" }}
+{{ $js := $js | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+
+{{ $jso := resources.Get "js/jsvisMapOptions.js" }}
+{{ $jso := $jso  | fingerprint }}
+<script src="{{ $jso.RelPermalink }}" integrity="{{ $jso.Data.Integrity }}"></script>
+
+<!--{{/*  REMOVE ABOVE LINES TO REBUILD A STANDALONE HTML FILE */}}--> 
+<!--{{/*  ************************************************************* */}}-->
+
+<!--{{/*  ************************************************************* */}}-->
+<!--{{/*  INSERT BELOW LINES TO REBUILD A STANDALONE HTML FILE */}}-->  
+
+<!--{{/*  
+var outlineText = MAP OUTLINE STRING
+<link href="jsvisMapStile.css" rel="stylesheet">
+<style>#mynetwork {background-color: COLOR CODE HERE; background-image: url(IMAGE URL HERE);}</style>
+<script src="/js/jsvisMap.js"></script>
+<script src="/js/jsvisMapOptions.js"></script>
+*/}}-->  
+
+<!--{{/*  INSERT ABOVE LINES TO REBUILD A STANDALONE HTML FILE */}}--> 
+<!--{{/*  ************************************************************* */}}-->
+
+
+{{/*  NEXT LINE TO BE UNCOMMENTED FOR STANDALONE HTML FILE  */}}
+{{/*  <h3 class="titleMap">Jsvis SpaceQuest</h3>  */}}
+
+
+
+<details style="margin: 0rem; text-align: left; padding: 0.3rem; text-align: justify; border-radius: 5px;">
+    <summary id="help">
+      Please toggle here for instructions
+    </summary>
+    <ul>
+      <li>① ➡ <a href="https://www.google.com/preferences?hl=en&lang=1 prev=https://www.google.com/preferences?hl%3Den" target="_blank"> possibly specify search language ↗</a> (English for a wider selection)</li>
+      <li>② ➡ select search options from left box</li>
+      <li>③ ➡ zoom the map with mouse wheel</li>
+      <li>④ ➡ click empty space between nodes to move the map, </li>
+      <li>⑤ ➡ RESET (multiple times if needed) or drag nodes to improve the layout</li>
+      <li>⑥ ➡ mouse hover node for web string; click for connections; double-click for search</li>
+      <li>⑦ ➡ <a href="https://www.freecodecamp.org/news/how-to-google-like-a-pro-10-tips-for-effective-googling/" target="_blank" >adjust search string ↗</a> in the SERP to suit your needs</li>
+    </ul>
+</details>
+
+<div id= "allMap" style="position: relative">
+    <div id="selectoptions">
+        <!-- Search Options -->
+        <div id="searchOptions" style="font-family: Arial; font-size:13px;">
+            <p style="color:darkred ; font-size:.7rem; margin-bottom:0; font-weight: bold; text-align:left">Google Search</p>
+            <input type="radio" id="allBtn" name="options" value="pdf" checked="checked">
+            <label for="allBtn">All</label><br>
+            <input type="radio" id="pdfBtn" name="options" value="pdf">
+            <label for="pdfBtn">PDF</label><br>
+            <input type="radio" id="newsBtn" name="options" value="news">
+            <label for="newsBtn">News</label><br>
+            <input type="radio" id="bookBtn" name="options" value="book">
+            <label for="bookBtn">Books</label><br>
+            <input type="radio" id="videoBtn" name="options" value="video">
+            <label for="videoBtn">Videos</label><br>
+            <input type="radio" id="scholarBtn" name="options" value="scholar">
+            <label for="scholarBtn">Scholar</label><br>
+
+            {{/*  {{ if .Page.Draft }}  */}}
+            <hr style="margin:.2rem; background:navy;">
+            <input type="radio" id="consultBtn" name="options" value="consult">
+            <label for="consultBtn">Consultants</label><br>
+            <input type="radio" id="agenciesBtn" name="options" value="agencies">
+            <label for="agenciesBtn">Agencies</label><br>
+            <hr style="margin:.2rem; background:navy;">
+
+            <p style="color:darkred ; font-size:.7rem; font-weight: bold;margin-bottom:0; padding-top:1rem; text-align:left">Exa Search</p>
+            <input type="radio" id="ExaBtn" name="options" value="e-all">
+            <label for="ExaBtn">All</label><br>
+            {{/*    
+          
+            <input type="radio" id="ExaCompanyBtn" name="options" value="e-company">
+            <label for="ExaBtn">Company</label><br>
+            <input type="radio" id="ExaResearchPaperBtn" name="options" value="e-research">
+            <label for="ExaBtn">Papers</label><br>
+            <input type="radio" id="ExaBlogPostBtn" name="options" value="e-blog">
+            <label for="ExaBtn">Blog</label><br>
+            <input type="radio" id="ExaNewsBtn" name="options" value="e-news">
+            <label for="ExaBtn">News</label><br>
+            */}}
+
+            {{/*  {{ end }}  */}}
+
+        </div>
+        <hr style="margin:.2rem; background:navy;">
+        <br>
+        <!-- Date Inputs -->
+        <div id="dates" style="font-size:13px;">
+            from <input type="date" id="startDate" style="font-size:11px; margin-bottom:0">
+            till <input type="date" id="endDate" style="font-size:11px;">
+        </div>
+        <!-- <button id="initialView" onClick="window.location.reload();">initial view🖱️</button> -->
+        <div id="initialView" style="background-color:white" onClick="reloadDiv();">RESET 🖱️</div>
+    </div>
+  
+
+    <div id="mynetwork"></div>
+
+    <div class="footermap">
+        powered by <a href=https://visjs.org/ target=_blank rel="noopener noreffer"
+            title="visjs.org">visjs.org</a> | The SpaceQuest© Map© 2025-2030 | cesare sodi's production | <a
+            rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/
+            target=_blank> CC BY-NC 4.0</a>
+    </div>
+
+</div>
+
+<script>
+    function reloadDiv() {
+        // Just call the functions to recreate the map
+        setDefaultSearchOptions();
+        var network = createNetwork(data, options);
+        network.moveTo({ scale: mapScale });
+        handleNetworkInteractions(network, nodes, rootId);
+    }   
+</script>
+
+<script type="text/javascript">
+    let rootId = 1; // id number of central node
+    if (positionAcquired === true) {
+        updateNodePositions(nodes, positions);
+    }
+
+    if (colorStyle === "default") {
+        updateNodeColors(nodes, edges, rootId);
+    } else if (colorStyle === "palette") {
+        paletteNodeColors(nodes);
+    }
+
+    setDefaultSearchOptions();
+
+    var network = createNetwork(data, options);
+
+    network.moveTo({ scale: mapScale })
+
+    handleNetworkInteractions(network, nodes, rootId);
+
+</script>

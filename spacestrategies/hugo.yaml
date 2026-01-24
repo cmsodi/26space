@@ -62,7 +62,10 @@ languages:
         - name: "Modelli"
           url: "/strategic-models/"
           weight: 15
-        - name: "Chi Siamo"
+        - name: "SpaceQuest@"
+          url: "/maps/"
+          weight: 20
+        - name: "SSP Hub"
           url: "/about/"
           weight: 30
 
@@ -127,7 +130,11 @@ menu:
       url: "/strategic-models/"
       weight: 15
 
-    - name: "About"
+    - name: "SpaceQuest@"
+      url: "/maps/"
+      weight: 20
+
+    - name: "SSP Hub"
       url: "/about/"
       weight: 30
 

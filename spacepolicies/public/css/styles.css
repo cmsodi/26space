@@ -1794,6 +1794,22 @@ figure::after {
   display: table;
   clear: both; }
 
+@media (max-width: 480px) {
+  .sp-site-header--global {
+    padding: 1rem 0; }
+  .sp-brand {
+    gap: 0.4rem;
+    max-width: 100%; }
+  .sp-brand-logo {
+    height: 50px; }
+  .sp-brand-name {
+    font-size: 1.1rem; }
+  .sp-brand-tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em; }
+  .sp-header-link {
+    display: none; } }
+
 :root {
   --max-page-width: 820px;
   /* prova 980px o 900px */
@@ -2085,6 +2101,20 @@ html[data-theme="dark"] .sp-header-link {
   color: #1a202c;
   letter-spacing: -0.01em;
   line-height: 1.1; }
+
+/* Mobile brand adjustments */
+@media (max-width: 480px) {
+  .sp-brand {
+    gap: 0.4rem; }
+  .sp-brand-logo {
+    height: 50px; }
+  .sp-brand-name {
+    font-size: 1.1rem; }
+  .sp-brand-tagline {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em; }
+  .sp-header-link {
+    display: none; } }
 
 html[data-theme="dark"] .sp-brand-name {
   color: var(--color-headings); }

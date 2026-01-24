@@ -80,7 +80,8 @@
   <ul class="flex mx--0 sp-menu-list">
     <li><a href="/it/articles/" ><span>Articoli</span></a></li>
     <li><a href="/it/strategic-models/" ><span>Modelli</span></a></li>
-    <li><a href="/it/about/" ><span>Chi Siamo</span></a></li>
+    <li><a href="/it/maps/" ><span>SpaceQuest@</span></a></li>
+    <li><a href="/it/about/" ><span>SSP Hub</span></a></li>
     <li>
       <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"
         title="Toggle dark mode">
@@ -131,26 +132,23 @@
     </div>
 
     
-    <div class="sm-filter-section">
-      <label for="category-select" class="sm-filter-label">
-        Seleziona una categoria:
-      </label>
-      <select id="category-select" class="sm-category-dropdown">
-        <option value="">— Seleziona una categoria —</option>
+    <div class="sm-selector-group" id="sm-level1">
+      <label class="sm-label">Categoria</label>
+      <div class="sm-buttons" id="sm-buttons-categories">
         
-        <option value="1" data-slug="macro-environmental-analysis">Macro-Environmental Analysis</option>
+        <button class="sm-btn" data-category-id="1" data-slug="macro-environmental-analysis">Macro-Environmental Analysis</button>
         
-        <option value="2" data-slug="capabilities-power-assessment">Capabilities &amp; Power Assessment</option>
+        <button class="sm-btn" data-category-id="2" data-slug="capabilities-power-assessment">Capabilities &amp; Power Assessment</button>
         
-        <option value="3" data-slug="relationship-stakeholder-dynamics">Relationship &amp; Stakeholder Dynamics</option>
+        <button class="sm-btn" data-category-id="3" data-slug="relationship-stakeholder-dynamics">Relationship &amp; Stakeholder Dynamics</button>
         
-        <option value="4" data-slug="security-threat-assessment">Security &amp; Threat Assessment</option>
+        <button class="sm-btn" data-category-id="4" data-slug="security-threat-assessment">Security &amp; Threat Assessment</button>
         
-        <option value="5" data-slug="future-foresight-planning">Future Foresight &amp; Scenario Planning</option>
+        <button class="sm-btn" data-category-id="5" data-slug="future-foresight-planning">Future Foresight &amp; Scenario Planning</button>
         
-        <option value="6" data-slug="structured-thinking-problem-solving">Structured Thinking &amp; Problem Solving</option>
+        <button class="sm-btn" data-category-id="6" data-slug="structured-thinking-problem-solving">Structured Thinking &amp; Problem Solving</button>
         
-      </select>
+      </div>
     </div>
 
     
@@ -160,8 +158,16 @@
     </div>
 
     
-    <div id="methods-container" class="sm-methods-grid" style="display: none;">
-      
+    <div class="sm-selector-group sm-hidden" id="sm-level2">
+      <label class="sm-label">Metodo</label>
+      <div class="sm-buttons" id="methods-container">
+        
+      </div>
+    </div>
+
+    
+    <div class="sm-reset-container sm-hidden" id="sm-reset-container">
+      <button class="sm-btn sm-btn-reset" id="sm-reset">Reset</button>
     </div>
 
     

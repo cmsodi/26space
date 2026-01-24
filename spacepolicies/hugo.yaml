@@ -62,7 +62,7 @@ languages:
         - name: "Tag"
           url: "/tags/"
           weight: 20
-        - name: "Chi Siamo"
+        - name: "SSP Hub"
           url: "/about/"
           weight: 30
 
@@ -132,7 +132,7 @@ menu:
       url: "/tags/"
       weight: 20
 
-    - name: "About"
+    - name: "SSP Hub"
       url: "/about/"
       weight: 30
 
