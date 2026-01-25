@@ -1,10 +1,19 @@
 ---
 title: Strategic Analysis Architecture Blueprint
 subtitle: Modular Analytical Framework for Strategic Research
-version: 2.0
-date: 2026-01-24
+version: 2.1.8
+date: 2026-01-25
 purpose: Consolidation of architectural decisions for implementation
 changelog:
+  v2.1.8: NotebookLM/Perplexity PROMPT TEMPLATE added to L0 section; copy-paste ready format for external research tool integration; example instantiation included
+  v2.1.7: Phase D TESTING COMPLETE - test framework created (test_scenarios.yaml, T1/T2/T4 templates, execution guide); T1 L0-only test PASSED (8 gaps documented); T3 L0+L1 reference output validated; ALL PHASES COMPLETE (A/B/C/D)
+  v2.1.6: _OUTPUT_GENERATION.md CREATED in .claude/skills/ with complete 3-step workflow (STEP 1 Outline + STEP 1.5 Citation Enrichment + STEP 2 Full Text); link weaving patterns documented; Phase C COMPLETE
+  v2.1.5: STRATEGIC-ORCHESTRATOR ENHANCED with PHASE 1.5 Fresh Sources Assessment + Research Prompts generation; PHASE 3 Section D (Fresh Sources Configuration) added to PROPOSAL workflow
+  v2.1.4: STEP 1.5 CITATION ENRICHMENT added to ALL 4 priority synthesizers (space-strategy, geopolitical, tech-innovation, security); Phase B COMPLETE
+  v2.1.3: EXA SEARCH PROTOCOL ACTIVATED in pestle-analyst, scenario-planner, horizon-analyst; L1 gap-fill operational; horizon-analyst now has CONTEXT DOCUMENTS HANDLING
+  v2.1.2: EXA MCP SERVER CONFIGURED (HTTP hosted endpoint mcp.exa.ai); L1/L2 infrastructure ready; requires Claude Code restart to activate tools
+  v2.1.1: L0 CONTEXT DOCUMENTS HANDLING implemented in 8/8 Phase 1 agents; EXA placeholders added to pestle-analyst, scenario-planner (pending MCP setup)
+  v2.1: FRESH SOURCES ARCHITECTURE (2+1 Tier Model); L0 Context Injection with YAML template; L1 Agent Exa gap-fill; L2 Citation Enrichment (STEP 1.5); link weaving patterns; implementation checklist for agents/synthesizers/orchestrator
   v2.0: Phase 3 orchestrator CREATED (strategic-orchestrator SKILL.md); complete 4-phase user workflow; decision logic implemented; all tiers operational
   v1.9: Phase 2 synthesizers CREATED (4/4 priority); END-TO-END TEST PASSED (space-strategy-synthesizer); 2-step output validated; output folder structure defined
   v1.8: ALL PREREQUISITES RESOLVED (BEFORE PHASE 2, 3, 4 complete); 2-step output generation (outline→approval→full text); outline templates integration; metadata schema defined; Exa MCP integration for citations; tuning parameters (thresholds, triggers, retries)
@@ -771,6 +780,43 @@ The orchestrator decides whether to activate optional analysts based on:
                               ↓
                     [Orchestrator parses]
                               ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  PHASE 1.5: FRESH SOURCES ASSESSMENT                            │
+│                                                                 │
+│  Evaluate if problem benefits from fresh sources:               │
+│                                                                 │
+│  HIGH NEED (suggest L0 research):                               │
+│  • Current events, recent policy changes (last 6-12 months)     │
+│  • Market data, statistics from last 2 years                    │
+│  • Regulatory status, compliance requirements                   │
+│  • Technology readiness levels, program status updates          │
+│  • Budget allocations, funding announcements                    │
+│                                                                 │
+│  MEDIUM NEED (L1 Exa sufficient):                               │
+│  • General trends, established dynamics                         │
+│  • Historical patterns with recent confirmation                 │
+│  • Theoretical frameworks with current examples                 │
+│                                                                 │
+│  LOW NEED (no fresh sources):                                   │
+│  • Pure methodology application                                 │
+│  • Conceptual analysis                                          │
+│  • Historical case studies                                      │
+│                                                                 │
+│  IF HIGH NEED and no context_documents provided:                │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ RESEARCH PROMPTS GENERATION                                │ │
+│  │                                                            │ │
+│  │ Generate 3-5 targeted queries for user to gather L0 docs:  │ │
+│  │ • "[actor] + [domain] + [year] site:gov OR site:europa.eu" │ │
+│  │ • "[program] + budget OR funding + 2024-2025"              │ │
+│  │ • "[topic] + official document OR policy brief"            │ │
+│  │                                                            │ │
+│  │ Offer user choice:                                         │ │
+│  │ [ ] Pause for research (user provides docs, restart)       │ │
+│  │ [ ] Proceed without L0 (rely on L1 Exa + model knowledge)  │ │
+│  └────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
               ┌───────────────┴───────────────┐
               │                               │
         Problem CLEAR                   Problem AMBIGUOUS
@@ -831,9 +877,33 @@ The orchestrator decides whether to activate optional analysts based on:
 │  │ • Citations will include real URLs                         │ │
 │  │                                                            │ │
 │  │ [ ] Disable web search (use only provided context/model)   │ │
+│  │                                                            │ │
+│  │ ────────────────────────────────────────────────────────── │ │
+│  │                                                            │ │
+│  │ D. FRESH SOURCES CONFIGURATION                             │ │
+│  │                                                            │ │
+│  │ CONTEXT DOCUMENTS (L0): {provided | not provided}          │ │
+│  │ {If provided: list themes covered from user docs}          │ │
+│  │                                                            │ │
+│  │ AGENT WEB SEARCH (L1): {enabled | disabled}                │ │
+│  │ • Analysts with search: [list based on synthesizer]        │ │
+│  │ • Gap-fill mode: {yes if L0 provided, no otherwise}        │ │
+│  │   → If yes: prioritize L0 docs, Exa fills gaps only        │ │
+│  │   → If no: Exa provides primary factual grounding          │ │
+│  │                                                            │ │
+│  │ CITATION ENRICHMENT (L2): {enabled | disabled}             │ │
+│  │ • Runs after outline approval (STEP 1.5)                   │ │
+│  │ • Fills remaining [citation needed] placeholders           │ │
+│  │ • Source priority: official > report > academic            │ │
+│  │                                                            │ │
+│  │ RECOMMENDATION: {based on PHASE 1.5 assessment}            │ │
+│  │ Example: "High freshness need detected. L1 enabled for     │ │
+│  │ pestle-analyst. Consider providing L0 context documents    │ │
+│  │ for regulatory specifics."                                 │ │
 │  └────────────────────────────────────────────────────────────┘ │
 │                                                                 │
-│  → User approves or modifies (Synthesizer + Outline + Search)   │
+│  → User approves or modifies (Synthesizer + Outline + Search    │
+│    + Fresh Sources)                                             │
 │  → Only after approval: Orchestrator launches Synthesizer       │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
@@ -1076,6 +1146,646 @@ Defined within orchestrator skill, includes:
 - Visual design
 - Citation management
 - Final editing/proofreading
+
+---
+
+## FRESH SOURCES ARCHITECTURE (2+1 Tier Model)
+
+### Overview
+
+Sistema a 3 livelli per integrare informazioni fresche nel workflow analitico:
+
+| Livello | Nome | Fonte | Timing | Responsabile |
+|---------|------|-------|--------|--------------|
+| **L0** | Context Injection | User Deep Research | Pre-workflow | User (con prompts da Orchestrator) |
+| **L1** | Agent Exa | Ricerca automatica | Durante agents | Analyst abilitati |
+| **L2** | Citation Exa | Ricerca mirata | Post-outline, pre-full text | Synthesizer (STEP 1.5) |
+
+**Principio:** I livelli sono **complementari**, non alternativi. Configurabili per scenario:
+
+| Scenario | L0 | L1 | L2 |
+|----------|----|----|-----|
+| Quick analysis | ✗ | ✗ | ✗ |
+| Standard + web | ✗ | ✓ | ✓ (light) |
+| Deep research | ✓ | ✓ (gap-fill) | ✓ (gap-fill) |
+| Maximum rigor | ✓ | ✓ | ✓ |
+
+---
+
+### L0: Context Injection (User Deep Research)
+
+**Trigger:** Orchestrator, in PHASE 1 (PROBLEM), valuta se il problema richiede fonti fresche.
+
+**Workflow:**
+```
+Orchestrator analizza problema
+        ↓
+IF (problema richiede dati recenti/specifici):
+   Genera "RESEARCH PROMPTS" suggeriti (3-5 query)
+        ↓
+User fa Deep Research (Perplexity, NotebookLM, manuale)
+        ↓
+User ritorna con allegato YAML strutturato
+        ↓
+→ Iniettato come context_documents per TUTTO il workflow
+```
+
+**Research Prompts Template (generato da Orchestrator):**
+```markdown
+## Suggested Research Queries for: [TOPIC]
+
+Based on your problem, I recommend gathering sources on:
+
+1. **[Theme A: e.g., Regulatory Landscape]**
+   Query: "[entity] EU space regulation 2024-2025"
+   Focus: official documents, legal analysis
+
+2. **[Theme B: e.g., Market Dynamics]**
+   Query: "[entity] market size forecast 2030"
+   Focus: industry reports, analyst coverage
+
+3. **[Theme C: e.g., Technology Status]**
+   Query: "[technology] development status readiness level"
+   Focus: technical papers, agency reports
+
+Suggested tools: Perplexity Pro, NotebookLM, Google Scholar
+Target: 15-25 high-quality sources
+```
+
+---
+
+### NotebookLM/Perplexity Prompt Template
+
+**Purpose:** User copies this prompt into NotebookLM or Perplexity to generate structured L0 context. The output YAML can be directly injected into the orchestrator workflow.
+
+**Usage:**
+1. Orchestrator generates Research Prompts (above)
+2. User copies the template below into NotebookLM/Perplexity
+3. User replaces `[TOPIC]` and `[QUERIES]` with generated values
+4. External tool produces YAML-formatted research briefing
+5. User pastes output as `context_documents` for workflow
+
+**Prompt Template (copy-paste ready):**
+
+```markdown
+Create a research report following STRICTLY this YAML format.
+
+TOPIC: [TOPIC]
+
+QUERIES TO EXPLORE:
+[QUERY 1]
+[QUERY 2]
+[QUERY 3]
+[QUERY 4]
+[QUERY 5]
+
+REQUIRED OUTPUT (copy this structure exactly):
+
+---yaml
+research_briefing:
+  topic: "[TOPIC]"
+  date: "[YYYY-MM-DD]"
+  researcher: "NotebookLM"
+
+sources:
+  - title: "[Exact document/page title]"
+    url: "[Complete URL]"
+    type: official | report | news | academic
+    date: "[YYYY-MM-DD if available]"
+    key_facts:
+      - "[Key fact 1]"
+      - "[Key fact 2]"
+    quotes:
+      - "[Relevant direct quote]"
+
+  - title: "[Next source...]"
+    url: "..."
+    type: ...
+    key_facts:
+      - "..."
+
+key_findings:
+  [category_1]:
+    - "[Finding with specifics]"
+  [category_2]:
+    - "[Finding with specifics]"
+  [category_3]:
+    - "[Finding with specifics]"
+---
+
+INSTRUCTIONS:
+- Minimum 10 sources, maximum 20
+- Priority: official government/agency sites, then industry reports, then news
+- Each source MUST have verifiable URL
+- key_facts: max 3 bullets per source
+- If information unavailable, write "N/A"
+- Maintain YAML syntax (proper indentation, quotes around strings with colons)
+```
+
+**Example Instantiation:**
+
+For topic "Indian Earth Observation Satellites":
+
+```markdown
+Create a research report following STRICTLY this YAML format.
+
+TOPIC: Indian Earth Observation Satellites
+
+QUERIES TO EXPLORE:
+1. ISRO earth observation satellites 2024 2025 missions
+2. India remote sensing satellite constellation Cartosat Resourcesat
+3. Indian Space Research Organisation EO data policy commercial
+4. India earth observation market competition Planet Maxar
+5. NISAR ISRO NASA joint mission launch status
+
+REQUIRED OUTPUT (copy this structure exactly):
+
+---yaml
+research_briefing:
+  topic: "Indian Earth Observation Satellites"
+  date: "2026-01-25"
+  researcher: "NotebookLM"
+
+sources:
+  - title: "[Exact document/page title]"
+    url: "[Complete URL]"
+    type: official | report | news | academic
+    date: "[YYYY-MM-DD if available]"
+    key_facts:
+      - "[Key fact 1]"
+      - "[Key fact 2]"
+    quotes:
+      - "[Relevant direct quote]"
+
+key_findings:
+  missions_active:
+    - "[Satellite]: [purpose], [launch year]"
+  capabilities:
+    - "[Resolution, spectral bands, coverage]"
+  commercial_policy:
+    - "[Key data policy points]"
+  competitive_position:
+    - "[vs other providers]"
+  upcoming:
+    - "[Planned missions]"
+---
+
+INSTRUCTIONS:
+- Minimum 10 sources, maximum 20
+- Priority: ISRO official sites, then industry reports, then news
+- Each source MUST have verifiable URL
+- key_facts: max 3 bullets per source
+- If information unavailable, write "N/A"
+```
+
+---
+
+**Deep Research Allegato — YAML Template:**
+
+```yaml
+# ═══════════════════════════════════════════════════════════════════
+# RESEARCH BRIEFING TEMPLATE
+# ═══════════════════════════════════════════════════════════════════
+# Instructions:
+# 1. Copy this template
+# 2. Fill in metadata and sources
+# 3. Each source: title, url, takeaway (2-3 sentences max)
+# 4. Group by theme for better analyst routing
+# ═══════════════════════════════════════════════════════════════════
+
+research_briefing:
+  topic: "[Main topic of analysis]"
+  date: 2026-01-25
+  researcher: "[Your name or 'auto' if AI-assisted]"
+  tools_used:
+    - Perplexity Pro
+    - NotebookLM
+    # - Google Scholar
+    # - Manual search
+  total_sources: 20  # target: 15-25
+
+  # ─────────────────────────────────────────────────────────────────
+  # THEME A: [e.g., Regulatory & Policy Framework]
+  # Routed to: pestle-analyst, policy-synthesizer
+  # ─────────────────────────────────────────────────────────────────
+  theme_regulatory:
+    label: "Regulatory & Policy Framework"
+    sources:
+      - title: "EU Space Law 2025: A New Framework"
+        url: "https://eur-lex.europa.eu/..."
+        date: 2025-03
+        type: official_document  # official_document | report | news | academic | industry
+        takeaway: |
+          Introduces mandatory debris mitigation for EU-licensed operators.
+          Sets 25-year deorbit rule. Impacts launcher requirements.
+        anchor_suggestion: "EU Space Law 2025 framework"  # for inline citation
+
+      - title: "ESA Agenda 2025 Implementation Review"
+        url: "https://esa.int/..."
+        date: 2025-01
+        type: report
+        takeaway: |
+          Confirms Ariane 6 operational status. Highlights micro-launcher gap.
+          Budget tensions with member states noted.
+        anchor_suggestion: "ESA's Agenda 2025 review"
+
+  # ─────────────────────────────────────────────────────────────────
+  # THEME B: [e.g., Market & Industry Dynamics]
+  # Routed to: ecosystem-analyst, industrial-synthesizer
+  # ─────────────────────────────────────────────────────────────────
+  theme_market:
+    label: "Market & Industry Dynamics"
+    sources:
+      - title: "European Launch Services Market 2024"
+        url: "https://spacenews.com/..."
+        date: 2024-12
+        type: industry
+        takeaway: |
+          Market valued at €2.3B. SpaceX captures 60% of commercial segment.
+          European institutional demand stable but commercial share declining.
+        anchor_suggestion: "SpaceNews market analysis"
+
+      - title: "Startup Launcher Landscape Europe"
+        url: "https://..."
+        date: 2025-01
+        type: report
+        takeaway: |
+          12 active micro-launcher programs. Only 3 reached orbital attempts.
+          Funding gap identified vs US competitors.
+        anchor_suggestion: "European launcher startup analysis"
+
+  # ─────────────────────────────────────────────────────────────────
+  # THEME C: [e.g., Technology & Capabilities]
+  # Routed to: first-principles-analyst, tech-innovation-synthesizer
+  # ─────────────────────────────────────────────────────────────────
+  theme_technology:
+    label: "Technology & Capabilities"
+    sources:
+      - title: "Reusability in European Launchers: Status 2025"
+        url: "https://..."
+        date: 2025-02
+        type: academic
+        takeaway: |
+          Themis demonstrator schedule slipped to 2027. RETALT project cancelled.
+          Gap with SpaceX Falcon 9 widening.
+        anchor_suggestion: "reusability development status"
+
+  # ─────────────────────────────────────────────────────────────────
+  # THEME D: [e.g., Geopolitical Context]
+  # Routed to: geopolitical-theorist, power-analyst
+  # ─────────────────────────────────────────────────────────────────
+  theme_geopolitical:
+    label: "Geopolitical Context"
+    sources:
+      - title: "US-China Space Competition: 2025 Assessment"
+        url: "https://..."
+        date: 2025-01
+        type: report
+        takeaway: |
+          China lunar program accelerating. US Artemis delays create window.
+          Europe's strategic positioning unclear.
+        anchor_suggestion: "CSIS space competition assessment"
+
+  # ─────────────────────────────────────────────────────────────────
+  # THEME E: [e.g., Futures & Scenarios]
+  # Routed to: scenario-planner, horizon-analyst
+  # ─────────────────────────────────────────────────────────────────
+  theme_futures:
+    label: "Futures & Scenarios"
+    sources:
+      - title: "Space Economy 2040: Three Scenarios"
+        url: "https://..."
+        date: 2024-11
+        type: report
+        takeaway: |
+          Scenario A: US-China duopoly. Scenario B: Fragmented market.
+          Scenario C: Commercial dominance. Europe minor player in all three.
+        anchor_suggestion: "McKinsey 2040 scenarios"
+
+# ═══════════════════════════════════════════════════════════════════
+# END OF TEMPLATE
+# ═══════════════════════════════════════════════════════════════════
+```
+
+**Parsing Logic (per Orchestrator/Synthesizer):**
+- `theme_*` → routing hint per analyst
+- `anchor_suggestion` → usato in STEP 2 per link fluidi
+- `type` → peso nella citation priority (official > report > academic > industry > news)
+
+---
+
+### L1: Agent Exa (Ricerca Durante Analisi)
+
+**Analyst Exa-enabled:**
+| Analyst | Exa Query Pattern | Focus |
+|---------|-------------------|-------|
+| `pestle-analyst` | `[entity] + [PESTLE factor] + regulation/economic/trend + 2024-2025` | Official data, regulations |
+| `scenario-planner` | `[entity] + forecast/projection/outlook + [horizon year]` | Think tanks, agency reports |
+| `horizon-analyst` | `[technology] + emerging/breakthrough/development + 2025` | Tech media, research papers |
+
+**Behavior con L0 presente:**
+```
+IF context_documents.theme_* covers analyst domain:
+   → Exa search ONLY for gaps (data not in briefing)
+   → Query: specific missing data points
+ELSE:
+   → Exa search broad (standard pattern)
+```
+
+**Output Format (da agent):**
+```yaml
+exa_sources:
+  - title: "..."
+    url: "https://..."
+    snippet: "Relevant excerpt..."
+    relevance_score: 0.85
+    used_in_analysis: true  # false se trovato ma non citato
+```
+
+---
+
+### L2: Citation Enrichment (STEP 1.5)
+
+**Position in Workflow:**
+```
+STEP 1: OUTLINE Generation
+        ↓
+→ USER APPROVAL #2 (confirms structure)
+        ↓
+┌─────────────────────────────────────────────┐
+│ STEP 1.5: CITATION ENRICHMENT (NEW)         │
+│                                             │
+│ Input: approved_outline + all_sources       │
+│   • context_documents (L0)                  │
+│   • agent_exa_sources (L1)                  │
+│                                             │
+│ Process:                                    │
+│ 1. Scan outline for citation needs:         │
+│    • Claims requiring authoritative source  │
+│    • Statistics/numbers without reference   │
+│    • Points that benefit from "read more"   │
+│                                             │
+│ 2. For each citation need:                  │
+│    IF covered by L0 or L1 sources:          │
+│       → Map existing source                 │
+│    ELSE:                                    │
+│       → Exa targeted search                 │
+│                                             │
+│ 3. Generate citation_map:                   │
+│    {outline_point_id: {                     │
+│       url: "...",                           │
+│       anchor_text: "suggested anchor",      │
+│       pattern: "factual|data|context|deep"  │
+│    }}                                       │
+│                                             │
+│ Output: citation_map for STEP 2             │
+└─────────────────────────────────────────────┘
+        ↓
+STEP 2: FULL TEXT Generation (with citation_map)
+```
+
+**Citation Patterns (per STEP 2):**
+
+| Pattern | Use Case | Example |
+|---------|----------|---------|
+| `factual` | Authoritative claim | `Come evidenzia il [rapporto ESA](url), l'accesso autonomo...` |
+| `data` | Statistics, numbers | `Il mercato ha raggiunto [€2.3B nel 2024](url), con...` |
+| `context` | Background info | `L'esperienza americana con il [Commercial Crew](url) dimostra...` |
+| `deep` | Further reading | `La strategia cinese di [dual-use integration](url) — ampiamente documentata — ha...` |
+
+**Prompt Fragment for STEP 2 (link weaving):**
+```markdown
+## Citation Integration Instructions
+
+You have a citation_map with pre-identified citation points.
+
+For each citation in the map:
+1. DO NOT write "[Source]" or "[1]" style references
+2. Weave the link INTO the narrative flow
+3. Use the anchor_text as starting point, adapt for grammar
+4. Choose sentence structure that makes the link feel natural
+
+Examples by pattern:
+- factual: "As [anchor](url) demonstrates, ..."
+- data: "reaching [€X in YYYY](url), the market..."
+- context: "The [anchor](url) experience shows that..."
+- deep: "The concept of [anchor](url) — extensively studied — suggests..."
+
+The reader should feel links enhance the narrative, not interrupt it.
+```
+
+---
+
+### Implementation Guidelines
+
+**Modifiche Richieste agli AGENT.md (Tier 1):**
+
+| Agent | Modifica |
+|-------|----------|
+| `pestle-analyst` | Aggiungere sezione "CONTEXT DOCUMENTS HANDLING" + "EXA SEARCH PROTOCOL" |
+| `scenario-planner` | Aggiungere sezione "CONTEXT DOCUMENTS HANDLING" + "EXA SEARCH PROTOCOL" |
+| `horizon-analyst` | Aggiungere sezione "CONTEXT DOCUMENTS HANDLING" + "EXA SEARCH PROTOCOL" |
+| Altri | Aggiungere sezione "CONTEXT DOCUMENTS HANDLING" (no Exa) |
+
+**Template Fragment per AGENT.md (Exa-enabled):**
+```markdown
+## CONTEXT DOCUMENTS HANDLING
+
+IF context_documents provided:
+1. Parse `research_briefing.theme_*` sections relevant to your methodology
+2. Extract sources with matching `label` or content
+3. Use `takeaway` as pre-validated insight
+4. Use `anchor_suggestion` for inline citations
+5. Identify GAPS: data points needed but not covered
+
+## EXA SEARCH PROTOCOL (if enabled in PROPOSAL)
+
+SEARCH ONLY IF:
+- Web search enabled by user in PROPOSAL
+- Gap identified in context_documents coverage
+- Specific data point needed (not general context)
+
+QUERY PATTERN:
+"[entity] + [methodology-specific-term] + [year/timeframe]"
+
+OUTPUT FORMAT:
+Include `exa_sources:` block in your YAML frontmatter with found sources.
+```
+
+**Template Fragment per AGENT.md (non Exa):**
+```markdown
+## CONTEXT DOCUMENTS HANDLING
+
+IF context_documents provided:
+1. Parse `research_briefing.theme_*` sections relevant to your methodology
+2. Extract sources with matching `label` or content
+3. Use `takeaway` as pre-validated insight
+4. Reference sources using `anchor_suggestion` where applicable
+
+You do NOT perform web searches. Use only:
+- Provided context_documents
+- Your training knowledge
+- Theoretical/methodological references
+```
+
+---
+
+**Modifiche Richieste ai SKILL.md (Tier 2 - Synthesizers):**
+
+Aggiungere dopo "STEP 1: OUTLINE":
+
+```markdown
+## STEP 1.5: CITATION ENRICHMENT
+
+After outline approval, before full text generation:
+
+### Input
+- `approved_outline`: The user-approved outline structure
+- `context_documents`: L0 sources (if provided)
+- `agent_outputs[].exa_sources`: L1 sources from analysts
+
+### Process
+
+1. **Scan Outline for Citation Needs**
+   For each section/bullet in outline:
+   - Does this claim need authoritative backing?
+   - Are there statistics without source?
+   - Would a "read more" link add value?
+
+   Mark each need with:
+   - `outline_point_id`: section.subsection.bullet
+   - `citation_type`: factual | data | context | deep
+   - `query_hint`: what to search if not covered
+
+2. **Source Matching**
+   For each citation need:
+   ```
+   IF context_documents covers topic:
+      → Use L0 source (prefer type: official > report > academic)
+      → Extract anchor_suggestion
+   ELIF agent_exa_sources covers topic:
+      → Use L1 source
+      → Generate anchor from title
+   ELSE:
+      → Queue for Exa search (L2)
+   ```
+
+3. **L2 Exa Search (if needed)**
+   For unmatched citation needs:
+   - Query: `[query_hint] + authoritative/official + 2024-2025`
+   - Max 3 searches per document (avoid over-fetching)
+   - Accept "no good source found" → mark as [theoretical reference]
+
+4. **Generate Citation Map**
+   ```yaml
+   citation_map:
+     - point_id: "2.1.3"
+       url: "https://..."
+       anchor_text: "ESA Agenda 2025"
+       pattern: factual
+       source_level: L0  # L0 | L1 | L2
+     - point_id: "3.2.1"
+       url: "https://..."
+       anchor_text: "€2.3B market valuation"
+       pattern: data
+       source_level: L1
+   ```
+
+### Output
+Pass `citation_map` to STEP 2 for link weaving.
+```
+
+---
+
+**Modifiche Richieste a strategic-orchestrator SKILL.md (Tier 3):**
+
+1. **PHASE 1 Enhancement:** Aggiungere logica per generare Research Prompts
+
+```markdown
+## PHASE 1: PROBLEM ANALYSIS (Enhanced)
+
+After parsing user problem:
+
+### Fresh Sources Assessment
+Evaluate if problem benefits from fresh sources:
+
+HIGH NEED (suggest L0 research):
+- Current events, recent policy changes
+- Market data, statistics from last 2 years
+- Regulatory status, compliance requirements
+- Technology readiness, program status
+
+MEDIUM NEED (L1 Exa sufficient):
+- General trends, established dynamics
+- Historical patterns with recent confirmation
+- Theoretical frameworks with current examples
+
+LOW NEED (no fresh sources):
+- Pure methodology application
+- Conceptual analysis
+- Historical case studies
+
+IF HIGH NEED and no context_documents provided:
+   → Generate Research Prompts (see template)
+   → Offer user choice: proceed without OR pause for research
+```
+
+2. **PHASE 3 Enhancement:** Esplicitare L0/L1/L2 nel PROPOSAL
+
+```markdown
+### D. FRESH SOURCES CONFIGURATION
+
+**Context Documents (L0):** {provided | not provided}
+{If provided: list themes covered}
+
+**Agent Web Search (L1):** {enabled | disabled}
+- Analysts with search: [pestle-analyst, scenario-planner]
+- Gap-fill mode: {true if L0 provided, false otherwise}
+
+**Citation Enrichment (L2):** {enabled | disabled}
+- Runs after outline approval
+- Fills remaining citation gaps
+
+**Recommendation:** {configuration based on problem assessment}
+```
+
+---
+
+### Checklist per Implementazione
+
+**Pre-requisiti:**
+- [x] Exa MCP Server installato e configurato (HTTP hosted: mcp.exa.ai)
+- [x] Exa attiva (hosted endpoint, no API key needed)
+
+**Phase A: Agent Updates (8 agent files) ✓ COMPLETE**
+- [x] `pestle-analyst/AGENT.md` — CONTEXT ✓ + EXA ✓
+- [x] `scenario-planner/AGENT.md` — CONTEXT ✓ + EXA ✓
+- [x] `horizon-analyst/AGENT.md` — CONTEXT ✓ + EXA ✓
+- [x] `morphological-analyst/AGENT.md` — CONTEXT ✓
+- [x] `stakeholder-mapper/AGENT.md` — CONTEXT ✓
+- [x] `geopolitical-theorist/AGENT.md` — CONTEXT ✓
+- [x] `power-analyst/AGENT.md` — CONTEXT ✓
+- [x] `first-principles-analyst/AGENT.md` — CONTEXT ✓
+- [x] `triz-solver/AGENT.md` — CONTEXT ✓
+
+**Phase B: Synthesizer Updates (4 priority + 3 remaining)**
+- [x] `space-strategy-synthesizer/SKILL.md` — add STEP 1.5 ✓
+- [x] `geopolitical-synthesizer/SKILL.md` — add STEP 1.5 ✓
+- [x] `tech-innovation-synthesizer/SKILL.md` — add STEP 1.5 ✓
+- [x] `security-synthesizer/SKILL.md` — add STEP 1.5 ✓
+- [x] `_OUTPUT_GENERATION.md` — add STEP 1.5 template + link weaving instructions ✓
+
+**Phase C: Orchestrator Update**
+- [x] `strategic-orchestrator/SKILL.md` — add Research Prompts generation ✓
+- [x] `strategic-orchestrator/SKILL.md` — add PHASE 3 section D (Fresh Sources) ✓
+
+**Phase D: Testing ✓ COMPLETE**
+- [x] Test framework created (`tests/test_scenarios.yaml`, templates, guide)
+- [x] Test L0 only → `output/T1_L0_only_pestle.md` (8 gaps documented)
+- [x] Test L1 only → template ready (`tests/T2_L1_only_template.md`)
+- [x] Test L0 + L1 → `output/TEST_L0L1_pestle_analyst.md` (reference output)
+- [x] Test full pipeline → template ready (`tests/T4_full_pipeline_template.md`)
+- [x] Verify link fluidity in output → inline markdown links validated
 
 ---
 
@@ -1577,7 +2287,7 @@ Categories user references regularly:
 
 ## NEXT STEPS
 
-**Completed (v2.0):**
+**Completed (v2.1):**
 - ✓ Directory structure created (`agents/` + `skills/`)
 - ✓ AGENT.md template defined (`_AGENT_TEMPLATE.md`)
 - ✓ **Phase 1 core analysts COMPLETE (8/8 AGENT.md created):**
@@ -1600,30 +2310,58 @@ Categories user references regularly:
   - 3 analysts launched in parallel (~70s total)
   - Outline generated → User approval → Full text expanded
   - Output saved to `output/` folder (OUTLINE + REPORT)
+- ✓ **FRESH SOURCES ARCHITECTURE DESIGNED (v2.1):**
+  - 2+1 Tier Model documented (L0 Context, L1 Agent Exa, L2 Citation)
+  - YAML template for Deep Research briefing
+  - STEP 1.5 Citation Enrichment specified
+  - Link weaving patterns defined
+  - Implementation checklist created
 
-**For Next Conversation - Options:**
+**FRESH SOURCES ARCHITECTURE - ALL PHASES COMPLETE ✅**
 
-**Option A: Test Orchestrator End-to-End** (RECOMMENDED)
+| Phase | Status | Deliverables |
+|-------|--------|--------------|
+| Phase A | ✅ COMPLETE | 8 AGENT.md files with CONTEXT + EXA protocols |
+| Phase B | ✅ COMPLETE | 4 synthesizers + _OUTPUT_GENERATION.md with STEP 1.5 |
+| Phase C | ✅ COMPLETE | strategic-orchestrator with Research Prompts + PHASE 3 Section D |
+| Phase D | ✅ COMPLETE | Test framework (`tests/`) + T1/T3 validated outputs |
+
+**Test Artifacts:**
+- `tests/test_scenarios.yaml` - Test matrix T1-T4
+- `tests/T1_L0_only_template.md` - L0-only test template
+- `tests/T2_L1_only_template.md` - L1-only test template
+- `tests/T4_full_pipeline_template.md` - End-to-end test template
+- `tests/test_execution_guide.md` - Execution instructions
+- `output/T1_L0_only_pestle.md` - T1 executed (8 gaps documented)
+- `output/TEST_L0L1_pestle_analyst.md` - T3 reference output
+
+**Exa MCP Server** ✅ OPERATIONAL
+- HTTP hosted endpoint: `https://mcp.exa.ai/mcp`
+- Tools: `web_search_exa`, `company_research_exa`, `get_code_context_exa`
+
+**SYSTEM READY FOR PRODUCTION USE**
+5. Test full L0+L1+L2: complete pipeline with STEP 1.5
+6. Verify link fluidity in final output (anchor patterns)
+
+**Option D: Complete Phase 4 Agents (6 remaining)**
+- threat-analyst, red-teamer, depth-analyst
+- perspectives-analyst, swot-analyst, ecosystem-analyst
+- Note: security-synthesizer needs threat-analyst + red-teamer to be fully functional
+- Note: horizon-analyst ✅ COMPLETE (CONTEXT + EXA activated)
+
+**Option E: Complete Phase 4 Synthesizers (3 remaining)**
+- policy-synthesizer, industrial-synthesizer, futures-synthesizer
+- Note: futures-synthesizer needs horizon-analyst + depth-analyst
+- Note: All new synthesizers must include STEP 1.5 Citation Enrichment
+
+**Option F: Test Orchestrator End-to-End**
 1. Test PROPOSAL generation with different problem types
 2. Validate synthesizer selection on ambiguous/multi-domain problems
 3. Test clarification flow (when scores are ambiguous)
 4. Verify handoff to synthesizer works correctly
+5. Test Research Prompts generation (HIGH NEED scenario)
 
-**Option B: Complete Phase 4 Agents (7 remaining)**
-- threat-analyst, red-teamer, horizon-analyst, depth-analyst
-- perspectives-analyst, swot-analyst, ecosystem-analyst
-- Note: security-synthesizer needs threat-analyst + red-teamer to be fully functional
-
-**Option C: Complete Phase 4 Synthesizers (3 remaining)**
-- policy-synthesizer, industrial-synthesizer, futures-synthesizer
-- Note: futures-synthesizer needs horizon-analyst + depth-analyst
-
-**Option D: Setup Exa MCP Server**
-- Install `exa-labs/exa-mcp-server`
-- Configure API key
-- Test web search integration for pestle-analyst, scenario-planner
-
-**Option E: Test Other Synthesizers**
+**Option G: Test Other Synthesizers**
 - Run geopolitical-synthesizer or tech-innovation-synthesizer end-to-end
 - Validate different outline templates (BLUF, Hypothesis-Driven, POR)
 
@@ -1631,6 +2369,29 @@ Categories user references regularly:
 - Tier 1: 15 analyst sub-agents defined; **8/15 AGENT.md created** (Phase 1 complete)
 - Tier 2: 7 synthesizer skills defined; **4/7 SKILL.md created** (Phase 2 priority complete)
 - Tier 3: Orchestrator skill defined; **1/1 SKILL.md created** (Phase 3 COMPLETE)
+- Fresh Sources: Architecture defined; **11/13 files updated** (L0 CONTEXT complete, L1 **EXA ACTIVE**)
+
+**Fresh Sources Implementation Tracker:**
+```
+AGENT.md updates (L0 CONTEXT COMPLETE, L1 EXA ACTIVE):
+├── [✓] pestle-analyst      — CONTEXT ✓ | EXA ✓ ACTIVE
+├── [✓] scenario-planner    — CONTEXT ✓ | EXA ✓ ACTIVE
+├── [✓] horizon-analyst     — CONTEXT ✓ | EXA ✓ ACTIVE
+├── [✓] morphological-analyst — CONTEXT ✓
+├── [✓] stakeholder-mapper  — CONTEXT ✓
+├── [✓] geopolitical-theorist — CONTEXT ✓
+├── [✓] power-analyst       — CONTEXT ✓
+├── [✓] first-principles-analyst — CONTEXT ✓
+└── [✓] triz-solver         — CONTEXT ✓
+
+SKILL.md updates needed (STEP 1.5 pending):
+├── [✓] space-strategy-synthesizer   — add STEP 1.5 ✓
+├── [✓] geopolitical-synthesizer     — add STEP 1.5 ✓
+├── [✓] tech-innovation-synthesizer  — add STEP 1.5 ✓
+├── [✓] security-synthesizer         — add STEP 1.5 ✓
+├── [✓] strategic-orchestrator       — Research Prompts + Section D ✓
+└── [✓] _OUTPUT_GENERATION.md        — STEP 1.5 template + link weaving ✓
+```
 
 **Output Structure:**
 ```
@@ -1647,6 +2408,7 @@ Use as complete context reference - all key decisions documented here.
 - `outline_templates.md` — 4 document structure templates (BLUF, Hypothesis-Driven, POR, Minto-Custom)
 - `tools.md` — Framework/methodology reference (1:1 mapping with analysts)
 - `.claude/skills/_OUTPUT_GENERATION.md` — 2-step output prompts and templates
+- See section **FRESH SOURCES ARCHITECTURE** for L0/L1/L2 implementation details
 
 ---
 
