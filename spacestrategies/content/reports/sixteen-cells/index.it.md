@@ -427,25 +427,25 @@ Sebbene il framework completo a cinque dimensioni fornisca una potenza analitica
         <a href="/frameworks/standards" class="subcategory-link">standard</a>
     </div>
     <div class="column">
-        <div class="big"><a href="/technologies">technologies</a></div>
+        <div class="big"><a href="/technologies">tecnologie</a></div>
         <a href="/technologies/transport-systems" class="subcategory-link">sistemi di trasporto</a>
         <a href="/technologies/spacecrafts" class="subcategory-link">veicoli spaziali</a>
-        <a href="/technologies/ground-systems" class="subcategory-link">sistemi di terra</a>
-        <a href="/technologies/planetary-systems" class="subcategory-link">sistemi planetari</a>
+        <a href="/technologies/ground-systems" class="subcategory-link">sistemi a terra</a>
+        <a href="/technologies/planetary-infrastructures" class="subcategory-link">infrastrutture planetarie</a>
     </div>
     <div class="column">
-        <div class="big"><a href="/stakeholders">stakeholders</a></div>
+        <div class="big"><a href="/stakeholders">stakeholder</a></div>
         <a href="/stakeholders/governments" class="subcategory-link">governi</a>
         <a href="/stakeholders/space-industry" class="subcategory-link">industria spaziale</a>
         <a href="/stakeholders/agencies-institutions" class="subcategory-link">agenzie e istituzioni</a>
         <a href="/stakeholders/international-entities" class="subcategory-link">entità internazionali</a>
     </div>
     <div class="column">
-        <div class="big"><a href="/purposes">purposes</a></div>
+        <div class="big"><a href="/purposes">finalità</a></div>
         <a href="/purposes/knowledge-expansion" class="subcategory-link">espansione della conoscenza</a>
         <a href="/purposes/terrestrial-services" class="subcategory-link">servizi terrestri</a>
         <a href="/purposes/economic-development" class="subcategory-link">sviluppo economico</a>
-        <a href="/purposes/education-outreach" class="subcategory-link">educazione e sensibilizzazione</a>
+        <a href="/purposes/space-exploration" class="subcategory-link">esplorazione spaziale</a>
     </div>
 </div>
 
