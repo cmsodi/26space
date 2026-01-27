@@ -1,0 +1,226 @@
+# Phase D Test Scenarios
+# Testing L0 (Context Injection), L1 (Exa Gap-Fill), and combined configurations
+
+version: "1.0"
+created: 2026-01-25
+
+# ==============================================================================
+# TEST MATRIX
+# ==============================================================================
+# | Test ID | L0 Context | L1 Exa | Purpose                                   |
+# |---------|------------|--------|-------------------------------------------|
+# | T1      | ✓          | ✗      | Baseline: L0 only (internal sources)      |
+# | T2      | ✗          | ✓      | Baseline: L1 only (external sources)      |
+# | T3      | ✓          | ✓      | Integration: L0+L1 combined               |
+# | T4      | ✓          | ✓      | Full pipeline: all agents + synthesizer   |
+# ==============================================================================
+
+test_entity: "European Autonomous Access to Space"
+test_analyst: "pestle-analyst"
+
+scenarios:
+
+  # ---------------------------------------------------------------------------
+  # T1: L0 ONLY (Context Injection)
+  # ---------------------------------------------------------------------------
+  T1_L0_only:
+    name: "L0 Context Injection Only"
+    description: |
+      Tests analyst performance using ONLY L0 injected sources.
+      No Exa calls allowed. Measures coverage from curated sources.
+
+    configuration:
+      L0_context_injection: enabled
+      L1_exa_gap_fill: disabled
+      L2_web_fallback: disabled
+
+    expected_sources:
+      - type: official
+        examples:
+          - "ESA space transportation strategy"
+          - "European Commission EU Space Act"
+          - "ESA Ministerial Council 2025"
+      - type: report
+        examples:
+          - "McKinsey European space ecosystem"
+
+    validation_criteria:
+      - all_links_from_L0_sources: true
+      - no_exa_urls_present: true
+      - minimum_citations: 5
+      - coverage_gaps_documented: true
+
+    expected_gaps:
+      - "Current SpaceX launch share statistics (2024-25)"
+      - "Themis demonstrator latest status"
+      - "European micro-launcher funding comparisons"
+
+  # ---------------------------------------------------------------------------
+  # T2: L1 ONLY (Exa Gap-Fill)
+  # ---------------------------------------------------------------------------
+  T2_L1_only:
+    name: "L1 Exa Gap-Fill Only"
+    description: |
+      Tests analyst with Exa search only (no L0 context).
+      Simulates scenario where no curated sources available.
+
+    configuration:
+      L0_context_injection: disabled
+      L1_exa_gap_fill: enabled
+      L2_web_fallback: disabled
+
+    exa_query_requirements:
+      - "European space autonomy launcher 2025"
+      - "Ariane 6 Themis reusable development"
+      - "SpaceX market share vs Europe"
+      - "EU Space Act regulation"
+
+    validation_criteria:
+      - all_links_from_exa: true
+      - minimum_exa_sources: 4
+      - source_diversity: true  # Not all from same domain
+      - recency_check: true     # Sources from 2024-2026
+
+    quality_checks:
+      - authoritative_sources: ["esa.int", "ec.europa.eu", "mckinsey.com", "brookings.edu"]
+      - avoid_low_quality: ["blogspot", "medium.com/@random", "reddit.com"]
+
+  # ---------------------------------------------------------------------------
+  # T3: L0 + L1 Combined
+  # ---------------------------------------------------------------------------
+  T3_L0L1_combined:
+    name: "L0 + L1 Combined Integration"
+    description: |
+      Tests full L0→L1 cascade: L0 for authoritative sources,
+      L1 Exa fills gaps where L0 insufficient.
+
+    configuration:
+      L0_context_injection: enabled
+      L1_exa_gap_fill: enabled
+      L2_web_fallback: disabled
+
+    cascade_behavior:
+      - step_1: "Check L0 for citation need"
+      - step_2: "If L0 match found → use L0 source"
+      - step_3: "If no L0 match → query Exa"
+      - step_4: "If Exa insufficient → flag gap (no L2)"
+
+    validation_criteria:
+      - L0_sources_used: minimum 3
+      - L1_sources_used: minimum 2
+      - source_priority_respected: true  # L0 preferred over L1 for same topic
+      - no_duplicate_citations: true
+
+    reference_output: "../output/TEST_L0L1_pestle_analyst.md"
+
+    expected_source_mix:
+      L0_typical:
+        - "ESA official strategy documents"
+        - "European Commission policy pages"
+        - "ESA Ministerial decisions"
+      L1_typical:
+        - "Recent market share data"
+        - "Latest Themis development status"
+        - "Geopolitical analysis articles"
+
+  # ---------------------------------------------------------------------------
+  # T4: Full Pipeline
+  # ---------------------------------------------------------------------------
+  T4_full_pipeline:
+    name: "Full Pipeline Integration"
+    description: |
+      End-to-end test: Orchestrator → All Agents → Synthesizer.
+      Tests complete workflow from research brief to final output.
+
+    configuration:
+      L0_context_injection: enabled
+      L1_exa_gap_fill: enabled
+      L2_web_fallback: optional  # Only if both L0 and L1 fail
+
+    pipeline_stages:
+      1_orchestrator:
+        - parse_research_brief
+        - select_analysts
+        - distribute_entity_focus
+
+      2_parallel_agents:
+        - pestle-analyst
+        - stakeholder-analyst
+        - value-chain-analyst
+
+      3_synthesizer:
+        - collect_agent_outputs
+        - generate_outline_with_markers
+        - enrich_citations
+        - produce_full_text
+
+    validation_criteria:
+      - all_agents_complete: true
+      - synthesizer_output_valid: true
+      - citations_properly_linked: true
+      - no_broken_urls: true
+      - frontmatter_complete: true
+
+    output_validation:
+      frontmatter_required:
+        - analyst
+        - methodology
+        - entity
+        - timestamp
+        - status
+        - confidence
+        - sources_used  # With L0/L1 breakdown
+
+# ==============================================================================
+# EXECUTION INSTRUCTIONS
+# ==============================================================================
+execution_notes:
+  T1_L0_only:
+    prompt_modifier: |
+      [TEST MODE: L0 ONLY]
+      You have access ONLY to injected L0 context sources.
+      DO NOT use Exa or any web search.
+      If information is not in L0 sources, document as [GAP: description].
+
+  T2_L1_only:
+    prompt_modifier: |
+      [TEST MODE: L1 ONLY]
+      You have NO L0 context injection.
+      Use Exa search to find all required sources.
+      Document source URLs and relevance in frontmatter.
+
+  T3_L0L1_combined:
+    prompt_modifier: |
+      [TEST MODE: L0+L1]
+      Use L0 context as primary source.
+      Use Exa ONLY for gaps not covered by L0.
+      Track which sources came from L0 vs L1.
+
+  T4_full_pipeline:
+    prompt_modifier: |
+      [TEST MODE: FULL PIPELINE]
+      Execute complete orchestrator→agents→synthesizer flow.
+      Document timing and source breakdown at each stage.
+
+# ==============================================================================
+# QUALITY METRICS
+# ==============================================================================
+quality_metrics:
+  citation_density:
+    minimum: 1 per 300 words
+    optimal: 1 per 200 words
+
+  source_authority:
+    tier_1: ["esa.int", "ec.europa.eu", "nasa.gov", "uscc.gov"]
+    tier_2: ["mckinsey.com", "brookings.edu", "csis.org", "spacenews.com"]
+    tier_3: ["europeanspaceflight.com", "spacexstock.com"]
+
+  recency_requirement:
+    preferred: "2025-2026"
+    acceptable: "2024-2026"
+    outdated: "before 2023"
+
+  link_format:
+    style: "inline markdown [text](url)"
+    placement: "natural within prose"
+    avoid: "footnotes, endnotes, raw URLs"
