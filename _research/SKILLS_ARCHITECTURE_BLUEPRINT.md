@@ -66,13 +66,24 @@ User Problem → [Clarification] → Proposal (Synthesizer + Outline Template)
 → USER APPROVAL #1 (confirms approach)
      ↓
 Synthesizer → Sub-Agents (parallel) → Integration → OUTLINE
-     ↓
-→ USER APPROVAL #2 (confirms structure)
-     ↓
-Synthesizer → FULL TEXT → Markdown Output → [Manual Publishing]
+     ↓                                      ↑
+     ↓                                      │
+→ USER APPROVAL #2 (confirms structure)    │
+     ↓                                      │
+Synthesizer → FULL TEXT → Markdown Output  │
+     ↓                                      │
+     └──────────────────────────────────────┘
+     (Save to output/{slug}/ with progressive numbering)
+
+Alternative: --from-folder output/{slug}_1
+     └→ Skip to OUTLINE (reuse analyst reports)
 ```
 
 **Interaction Model:** Problem-First with On-Demand Clarification (minimal overhead)
+
+**Resume Capabilities:**
+- `--resume state.yaml`: Resume from any saved checkpoint
+- `--from-folder output/{slug}/`: Reuse analyst reports, regenerate outline/document with different configuration
 
 ---
 
@@ -2395,10 +2406,29 @@ SKILL.md updates needed (STEP 1.5 pending):
 
 **Output Structure:**
 ```
-skills-definition/
+_research/
 ├── output/                              # Generated documents
-│   ├── [topic]_OUTLINE.md               # Step 1: Bullet-point outline
-│   └── [topic]_REPORT.md                # Step 2: Full prose document
+│   ├── {slug}/                          # Auto-generated slug from problem
+│   │   ├── pestle-analyst.md            # Individual analyst reports
+│   │   ├── stakeholder-mapper.md
+│   │   ├── {analyst-name}.md            # ... other analysts
+│   │   ├── outline.md                   # Structured outline (Phase 4.2)
+│   │   ├── index.md                     # Final prose document (Phase 4.4)
+│   │   └── workflow_state.yaml          # Checkpoint (if --save)
+│   ├── {slug}_1/                        # Progressive numbering if folder exists
+│   └── {slug}_2/                        # Prevents overwriting previous runs
+```
+
+**CLI Options:**
+```bash
+# New analysis (creates numbered folder if slug exists)
+python strategic_orchestrator.py --run
+
+# Resume from checkpoint
+python strategic_orchestrator.py --resume output/workflow_state.yaml
+
+# Reuse analyst reports (try different templates/synthesizers)
+python strategic_orchestrator.py --from-folder output/{slug}_1
 ```
 
 **Bring This Document:**

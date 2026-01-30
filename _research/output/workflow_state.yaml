@@ -1,0 +1,36 @@
+problem: 'AfSA & ALCE: The Regional Shield Against Orbital Hegemony'
+language: en
+current_step: problem_parsed
+problem_keywords:
+- orbital hegemony
+- space sovereignty
+- regional alliances
+- space security
+- satellite infrastructure
+- space governance
+- military space assets
+- space deterrence
+synthesizer_scores:
+  strategic-geopolitical: 0.95
+  strategic-industrial: 0.75
+  policy-regulatory: 0.8
+fresh_sources_need: ''
+fresh_sources_choice: ''
+context_documents: []
+text_documents: []
+clarification_questions: []
+clarification_answers: []
+synthesizer: ''
+template: BLUF
+fixed_analysts: []
+optional_analysts: []
+web_search_enabled: true
+analyst_outputs: {}
+integration_summary: ''
+outline: ''
+citation_map: []
+final_document: ''
+errors: []
+warnings: []
+_saved_at: '2026-01-30T16:00:36.068563'
+_version: '1.0'

@@ -12,6 +12,13 @@ Usage:
   python strategic_orchestrator.py --run --seq        # Sequential mode
   python strategic_orchestrator.py --run --save       # Auto-save checkpoints
   python strategic_orchestrator.py --resume FILE      # Resume from saved state
+  python strategic_orchestrator.py --from-folder DIR  # Reuse analyst reports from folder
+
+Recipe mode:
+  python strategic_orchestrator.py --list-recipes               # Show available recipes
+  python strategic_orchestrator.py --recipe NAME                # Run recipe (interactive topic)
+  python strategic_orchestrator.py --recipe NAME --topic TEXT   # Run recipe with topic
+  python strategic_orchestrator.py --recipe NAME --context FILE # With context documents
 
 Error recovery options:
   --no-graceful                                       # Abort on failures
@@ -59,6 +66,8 @@ from src import (
     validate_analyst_output, validate_citation_map, validate_frontmatter,
     # Orchestrator
     StrategicOrchestrator,
+    # Recipe
+    RecipeRunner, discover_recipes, load_recipe,
 )
 
 
@@ -114,6 +123,81 @@ def main():
             print("❌ Error: --max-retries requires a number argument")
             sys.exit(1)
 
+    # LIST RECIPES MODE
+    if "--list-recipes" in sys.argv:
+        recipe_names = discover_recipes()
+        if recipe_names:
+            print("Available recipes:\n")
+            for name in sorted(recipe_names):
+                r = load_recipe(name)
+                tags_str = ", ".join(r.tags) if r.tags else ""
+                print(f"  {name:<20} {r.methodology:<45} [{r.output_type}]")
+                if r.description:
+                    print(f"  {'':<20} {r.description}")
+        else:
+            print("No recipes found in .claude/recipes/")
+        return
+
+    # RECIPE MODE
+    if "--recipe" in sys.argv:
+        try:
+            recipe_idx = sys.argv.index("--recipe")
+            recipe_name = sys.argv[recipe_idx + 1]
+        except (ValueError, IndexError):
+            print("Error: --recipe requires a recipe name")
+            print("   Usage: python strategic_orchestrator.py --recipe four-causes")
+            print("   List:  python strategic_orchestrator.py --list-recipes")
+            sys.exit(1)
+
+        # Optional: topic from CLI or interactive prompt
+        topic = None
+        if "--topic" in sys.argv:
+            try:
+                topic_idx = sys.argv.index("--topic")
+                topic = sys.argv[topic_idx + 1]
+            except (ValueError, IndexError):
+                print("Error: --topic requires a text argument")
+                sys.exit(1)
+
+        if not topic:
+            topic = get_input("Enter analysis topic")
+            if not topic:
+                print("No topic provided. Aborting.")
+                return
+
+        # Optional: context documents
+        context_yaml = None
+        if "--context" in sys.argv:
+            try:
+                ctx_idx = sys.argv.index("--context")
+                context_yaml = sys.argv[ctx_idx + 1]
+            except (ValueError, IndexError):
+                print("Error: --context requires a filepath argument")
+                sys.exit(1)
+
+        try:
+            runner = RecipeRunner(
+                recipe_name=recipe_name,
+                verbose=verbose_mode,
+                context_yaml=context_yaml,
+            )
+
+            if verbose_mode:
+                print_section_header("Recipe Mode", emoji="🧪")
+
+            result = runner.run(topic)
+            if result:
+                print(f"\n  Document saved to: output/{runner.slug}/")
+
+        except FileNotFoundError as e:
+            print(f"Error: {e}")
+            print("Run --list-recipes to see available recipes.")
+        except KeyboardInterrupt:
+            print("\n\nInterrupted by user")
+        except Exception as e:
+            print(f"\nRecipe execution failed: {e}")
+        return
+
     # RESUME MODE
     if "--resume" in sys.argv:
         try:
@@ -153,6 +237,47 @@ def main():
                     orch.save_state()
         except Exception as e:
             print(f"\n❌ Resume failed: {e}")
+        return
+
+    # FROM-FOLDER MODE
+    if "--from-folder" in sys.argv:
+        try:
+            folder_idx = sys.argv.index("--from-folder")
+            folder_path = sys.argv[folder_idx + 1]
+        except (ValueError, IndexError):
+            print("❌ Error: --from-folder requires a directory path argument")
+            print("   Usage: python strategic_orchestrator.py --from-folder output/my-analysis_1")
+            sys.exit(1)
+
+        if verbose_mode:
+            print_section_header("Load from Folder Mode", emoji="📂")
+
+        parallel_mode = "--seq" not in sys.argv and "--sequential" not in sys.argv
+        auto_save = "--save" in sys.argv
+
+        try:
+            orch = StrategicOrchestrator.load_from_folder(
+                folder_path,
+                parallel_analysts=parallel_mode,
+                graceful_degradation=graceful_degradation,
+                auto_recovery=auto_recovery,
+                max_analyst_retries=max_retries,
+                verbose=verbose_mode
+            )
+            orch.auto_save = auto_save
+
+            result = orch.resume()
+            if result:
+                doc_path = orch._save_final_document(result)
+                print(f"\n  📄 Final document saved to: {doc_path}")
+
+        except KeyboardInterrupt:
+            print("\n\n⚠ Interrupted by user")
+            if 'orch' in locals():
+                if confirm("Save current state before exiting?"):
+                    orch.save_state()
+        except Exception as e:
+            print(f"\n❌ Load from folder failed: {e}")
         return
 
     # RUN MODE

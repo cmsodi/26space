@@ -1,0 +1,270 @@
+task: |
+  # Comprehensive Space Analysis Prompt Framework
+
+  ## Primary Directive
+
+  Analyze "{title}" through the "Four Causes in Space©" multidimensional framework. Perform a deep, systematic examination across all causal dimensions and system levels to provide a holistic understanding and strategic insight.
+
+  ## Analysis Structure
+
+  For "{title}", examine all intersections of the four causal dimensions and three system levels in the matrix. Ensure comprehensive coverage of all relevant aspects without simplification.
+
+  ### Dimension 1: Material Cause (Technologies) -> what
+
+  Identify and analyze all relevant physical components and technological aspects:
+
+  **Subsystem Level:**
+
+  - Materials, fuels, and component technologies
+  - Scientific instruments and specialized equipment
+  - Emerging materials (composites, metamaterials, radiation-resistant alloys)
+  - Life support system components
+  - Propulsion components and elements
+  - Sensing and measurement technologies
+  - Radiation shielding technologies
+
+  **System Level:**
+
+  - Satellites, probes, and spacecraft systems
+  - Ground stations and control centers
+  - Launch vehicles and spaceport facilities
+  - Complete propulsion systems (chemical, ion, nuclear)
+  - Habitation technologies and modules
+  - Communication networks and data systems
+  - Space robotics and autonomous systems
+  - Integration architectures
+
+  **Supersystem Level:**
+
+  - Space stations and orbital infrastructures
+  - Interplanetary transport systems and architectures
+  - Planetary bases and colonization technologies
+  - In-Situ Resource Utilization (ISRU) systems
+  - Solar sails and advanced propulsion concepts
+  - Artificial gravity solutions for long-duration missions
+  - Closed-loop ecological systems for self-sustaining habitats
+  - Cross-platform technological ecosystems
+
+  ### Dimension 2: Formal Cause (Frameworks) -> how
+
+  Analyze the organizational principles, structures, and methodologies:
+
+  **Subsystem Level:**
+
+  - Engineering specifications and technical requirements
+  - Software architectures and coding standards
+  - Technical protocols and interface standards
+  - Design methodologies for components
+  - Risk management approaches for subsystems
+  - Quality assurance standards and verification methods
+  - Testing protocols and failure analysis frameworks
+  - Configuration management systems
+
+  **System Level:**
+
+  - Mission architectures and operational concepts
+  - Organizational structures and team compositions
+  - Project management frameworks and methodologies
+  - Systems engineering approaches and integration methods
+  - Concurrent engineering practices
+  - Digital twin technologies and simulation frameworks
+  - Commercial models (space-as-a-service, data-as-a-service)
+  - Operational procedures and mission rules
+
+  **Supersystem Level:**
+
+  - International space treaties and agreements
+  - National space policies and strategic directives
+  - Global standards for space activities and operations
+  - Regulatory frameworks (licensing, spectrum allocation, debris mitigation)
+  - Knowledge management systems across generations
+  - Sustainability guidelines and long-term planning
+  - Space governance models and international cooperation frameworks
+  - Legal precedents and emerging space law concepts
+
+  ### Dimension 3: Efficient Cause (Stakeholders) -> who
+
+  Identify all relevant actors and their relationships:
+
+  **Subsystem Level:**
+
+  - Engineers and scientists with specialized expertise
+  - Manufacturing process specialists and technicians
+  - Individual space enthusiasts and advocates
+  - Educational institutions and training centers
+  - Citizen scientists and amateur contributors
+  - Open-source space hardware communities
+  - Specialized workforce and talent pools
+  - Technical subject matter experts
+
+  **System Level:**
+
+  - Space agencies and research institutions
+  - Private space companies and commercial operators
+  - Satellite operators and service providers
+  - Consumers and users of space-derived services
+  - Financial entities (VCs, investors, funding sources)
+  - Insurance providers and risk assessors
+  - Media organizations and cultural influencers
+  - Supply chain partners and industrial base
+
+  **Supersystem Level:**
+
+  - Governments and legislative bodies
+  - International space organizations and consortia
+  - Global scientific communities and research networks
+  - Commercial space industry associations
+  - Non-traditional actors in the space domain
+  - Multinational consortia and public-private partnerships
+  - Defense and security organizations
+  - International relations and diplomatic channels
+
+  ### Dimension 4: Final Cause (Purposes) -> why
+
+  Examine the objectives, goals, and driving motivations:
+
+  **Subsystem Level:**
+
+  - Ensuring reliable component operation and performance
+  - Maintaining safety and quality standards
+  - Developing cutting-edge space technologies
+  - Educational purposes and STEM skill development
+  - Technical knowledge advancement in specialized areas
+  - Component-level innovation and improvement
+  - Specialized skill development and capability building
+  - Meeting specific technical requirements
+
+  **System Level:**
+
+  - Conducting space-based research and experimentation
+  - Providing Earth observation and monitoring services
+  - Enabling global communications and connectivity
+  - Supporting navigation and positioning applications
+  - Commercial exploitation and business opportunities
+  - Space tourism and human experience
+  - In-space manufacturing and production
+  - Operational mission success and performance
+
+  **Supersystem Level:**
+
+  - Advancing human presence beyond Earth
+  - Fostering international cooperation and diplomacy
+  - Driving broad technological innovation and spillover
+  - Addressing national security and strategic interests
+  - Tackling global challenges (climate change, resource management)
+  - Pursuing cultural and inspirational goals
+  - Engaging with philosophical questions about humanity's place in the cosmos
+  - Working toward species preservation and multiplanetary existence
+  - Sustainable development and long-term human flourishing
+
+  ## Analytical Process
+
+  1. **Initial Classification**: Place the subject within the matrix, identifying its primary position(s).
+  2. **Comprehensive Mapping**: Expand analysis to all relevant cells, ensuring no dimensional aspects are overlooked.
+  3. **Cross-Dimensional Analysis**: Identify relationships, tensions, and synergies between different cells.
+  4. **Temporal Considerations**: Consider past development, current state, and future trajectories.
+  5. **Gap Identification**: Highlight underexplored or underdeveloped areas relevant to the subject.
+  6. **Strategic Implications**: Synthesize findings into actionable strategic insights.
+
+Output_Format: |
+
+  Provide a structured analysis that:
+
+  - Maintains the full complexity of the subject without reductive simplification
+  - Explores all relevant dimensional intersections systematically
+  - Provide verbose bullet points where planned in Output_Standard
+  - Highlights key insights at each level of the system hierarchy
+  - Identifies strategic implications and potential future developments
+  - Presents information in a structured format that preserves the richness of the matrix framework
+  - Draws connections between seemingly disparate elements to reveal non-obvious relationships
+
+  This framework serves as a cognitive tool for comprehensive analysis, ensuring all aspects of space-related activities are thoroughly considered in their proper context and relationships.
+
+Output_Standard: |
+  ```markdown
+  # Strategic Analysis: [Subject Name]
+
+  ## Executive Summary
+  - Primary classification: [Main position in matrix]
+  - Key characteristics: [Brief overview]
+  - Strategic significance: [High-level importance]
+
+  ## Comprehensive Matrix Analysis
+
+  ### 1. Material Cause (Technologies) -> what
+  #### Subsystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### System Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### Supersystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  ### 2. Formal Cause (Frameworks) -> how
+  #### Subsystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### System Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### Supersystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  ### 3. Efficient Cause (Stakeholders) -> who
+  #### Subsystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### System Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### Supersystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  ### 4. Final Cause (Purposes) -> why
+  #### Subsystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### System Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  #### Supersystem Level
+  - [Bullet points of relevant elements]
+  - [detailed Gap analysis if applicable]
+
+  ## Cross-Dimensional Analysis
+  - [Key relationships between different dimensions]
+  - [Contraddictions, tensions or conflicts]
+  - [Synergies and opportunities]
+
+  ## Temporal Perspective
+  - **Historical Context**: [Relevant past developments]
+  - **Current State**: [Present situation and dynamics]
+  - **Future Trajectory**: [Projected developments and trends]
+
+  ## Strategic Implications
+  - [Critical insights for decision-makers]
+  - [Potential opportunities]
+  - [Possible challenges]
+  - [Recommended areas for further exploration]
+
+  ## Identified Gaps
+  - [Underexplored or underdeveloped areas]
+  - [Missing connections]
+  - [Knowledge deficiencies]
+
+  ## Visualization
+  [Reference to matrix position with primary and secondary areas highlighted]
+  ```
+

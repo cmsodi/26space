@@ -53,32 +53,30 @@ The system will:
 
 ### Step 1: Prepare Research Briefing
 
-Create a YAML file with your pre-researched sources:
+Create a YAML file with your pre-researched sources. **See [doc/research_briefing_template.yaml](doc/research_briefing_template.yaml) for a complete template with examples.**
 
+**Quick example:**
 ```yaml
 # context_documents/your_topic.yaml
 research_briefing:
   topic: "Your Topic"
-  date: "2026-01-25"
+  date: "2026-01-29"
   researcher: "NotebookLM"
+  language: "en"
 
 sources:
-  - title: "Source Title"
-    url: "https://example.com/source"
-    type: official  # official | report | news | academic
-    date: "2026-01-20"
-    key_facts:
-      - "Key fact 1"
-      - "Key fact 2"
-    quotes:
-      - "Relevant direct quote"
-
-key_findings:
-  category_1:
-    - "Finding 1"
-  category_2:
-    - "Finding 2"
+  - title: "Policy on Celestial Time Standardization"
+    url: "https://example.com/policy.pdf"
+    type: "official_document"
+    date: "2024-04-02"
+    takeaways:
+      - "Key technical finding"
+      - "Policy implication"
+    relevance: "Establishes regulatory framework for the domain"
+    anchor_suggestion: "as mandated in the White House's April 2024 policy directive"
 ```
+
+**IMPORTANT**: Use natural anchor text, not just citations. See [doc/anchor_text_guide.md](doc/anchor_text_guide.md) for best practices.
 
 ### Step 2: Run Analysis
 
@@ -86,7 +84,11 @@ key_findings:
 python strategic_orchestrator.py --run
 ```
 
-The system will detect files in `context_documents/` and offer to load them.
+At the proposal review stage, select **"Add context documents"** and then:
+- Choose option 1: "Load from YAML file"
+- System lists all YAML files in `context_documents/`
+- Enter filename(s): `your_topic.yaml` (or multiple: `file1.yaml, file2.yaml`)
+- Press Enter to skip if you change your mind
 
 ---
 
@@ -106,6 +108,9 @@ python strategic_orchestrator.py --run --save
 
 # Resume from saved state
 python strategic_orchestrator.py --resume output/workflow_state.yaml
+
+# Reuse analyst reports from existing folder
+python strategic_orchestrator.py --from-folder output/my-analysis_1
 ```
 
 ### Error Recovery
@@ -202,21 +207,69 @@ python strategic_orchestrator.py --run --log-file output/analysis.log
 
 ## Output Location
 
-Reports saved automatically to slug-based directories:
+Reports saved automatically to slug-based directories with **progressive numbering**:
 ```
 output/{slug}/
-├── outline.md       # English outline
-├── outline.it.md    # Italian outline
-├── index.md         # English final document
-└── index.it.md      # Italian final document
-
-output/workflow_state.yaml   # State checkpoint (if --save)
+├── pestle-analyst.md         # Individual analyst reports
+├── stakeholder-mapper.md
+├── outline.md                # Structured outline
+├── index.md                  # Final document
+└── workflow_state.yaml       # State checkpoint (if --save)
 ```
 
-Example: for "European space launch autonomy challenges":
+**Progressive Numbering**: If the folder already exists, a number suffix is automatically added:
 ```
-output/european-space-launch-autonomy/index.md
+First run:   output/european-space-launch-autonomy/
+Second run:  output/european-space-launch-autonomy_1/
+Third run:   output/european-space-launch-autonomy_2/
 ```
+
+This prevents overwriting previous analyses and keeps all runs organized.
+
+---
+
+## Reusing Analyst Reports
+
+**Use Case**: Expensive analyst analyses completed, want to try different outline templates or synthesizers without re-running analysts.
+
+### Load from Folder
+
+```bash
+python strategic_orchestrator.py --from-folder output/lunar-analysis_1
+```
+
+The system will:
+1. Load all analyst reports (`*.md` files) from the folder
+2. Extract metadata from existing `outline.md` or `index.md` (if present)
+3. Show current configuration and allow modifications:
+   - Change synthesizer
+   - Change template
+   - Keep or modify other settings
+4. Continue from outline generation with your new configuration
+
+### Example Workflow
+
+```bash
+# Original analysis with BLUF template
+python strategic_orchestrator.py --run
+# Problem: "Lunar PNT standardization"
+# Template: BLUF
+# Output: output/lunar-pnt-standardization/
+
+# Try Hypothesis-Driven template with same analysts
+python strategic_orchestrator.py --from-folder output/lunar-pnt-standardization
+# Select: Change template → Hypothesis-Driven
+# Output: Same folder, regenerated outline and final document
+
+# Or run fresh analysis (gets numbered folder)
+python strategic_orchestrator.py --run
+# Same problem creates: output/lunar-pnt-standardization_1/
+```
+
+**Benefits**:
+- Saves API costs (no re-running expensive analyst LLM calls)
+- Experiment with different narrative structures
+- Iterate on report format without losing analytical depth
 
 ---
 
@@ -243,8 +296,19 @@ output/european-space-launch-autonomy/index.md
 
 ## Reference Documents
 
-- `PYTHON_ORCHESTRATOR_PLAN.md` — Implementation details, progress log
-- `SKILLS_ARCHITECTURE_BLUEPRINT.md` — Original system specification
-- `flow_weaknesses.md` — Why Python orchestrator was needed
+### User Guides
+- **`doc/research_briefing_template.yaml`** — Complete YAML template with examples
+- **`doc/anchor_text_guide.md`** — Guide for writing natural citation anchor text
+- **`doc/README.md`** — Documentation index and quick reference
+
+### System Documentation
+- `CLAUDE.md` — Project overview, quick start, key features
+- `SKILLS_ARCHITECTURE_BLUEPRINT.md` — Full system specification
+- `tools.md` — Analytical methodologies catalog
+- `outline_templates.md` — Document structure templates
+
+### Legacy/Advanced
+- `legacy/PYTHON_ORCHESTRATOR_PLAN.md` — Implementation plan (completed)
+- `legacy/flow_weaknesses.md` — Original weakness analysis (resolved)
 - `.claude/skills/` — Synthesizer prompts
 - `.claude/agents/` — Analyst prompts

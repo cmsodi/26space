@@ -1,0 +1,207 @@
+# Research Briefing Template
+# This file provides guidance and examples for creating L0 context documents
+# that will be used by the Strategic Analysis Orchestrator.
+
+# ============================================================================
+# BEST PRACTICES FOR ANCHOR TEXT
+# ============================================================================
+#
+# The anchor_suggestion field should provide natural text that can be embedded
+# in prose, not just a citation label.
+#
+# ❌ BAD:  anchor_suggestion: "Boamah 2025"
+# ✅ GOOD: anchor_suggestion: "according to Boamah's critical analysis"
+#
+# ❌ BAD:  anchor_suggestion: "NASA 2024"
+# ✅ GOOD: anchor_suggestion: "as detailed in NASA's 2024 architecture white paper"
+#
+# The LLM will weave these into sentences naturally:
+# "The LunaNet infrastructure, as detailed in NASA's 2024 architecture white paper,
+#  provides delay-tolerant networking for seamless communications."
+#
+# ============================================================================
+
+# Metadata about the research briefing itself
+research_briefing:
+  topic: "Lunar PNT Standardization: Strategic and Technical Challenges"
+  date: "2026-01-29"
+  researcher: "Your Name or NotebookLM"
+  language: "en"  # or "it" for Italian
+  notes: "Sources compiled from international space policy documents and technical reports"
+
+# ============================================================================
+# SOURCES SECTION
+# ============================================================================
+# Each source should include:
+# - title: Full document title
+# - url: Direct link to the source
+# - type: official_document | report | news | academic | industry
+# - date: Publication date (as specific as possible)
+# - takeaways: Key points extracted (2-5 bullet points)
+# - relevance: Why this source matters for the analysis
+# - anchor_suggestion: Natural text phrase for citation embedding
+
+sources:
+  # Example 1: OFFICIAL DOCUMENT
+  # Use for government policies, agency white papers, standards
+  - title: "Policy on Celestial Time Standardization in Support of the National Cislunar S&T Strategy"
+    url: "https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/04/Celestial-Time-Standardization-Policy.pdf"
+    type: "official_document"
+    date: "2024-04-02"
+    takeaways:
+      - "LTC must provide tracciability to UTC while maintaining operational independence in the lunar gravitational environment"
+      - "Time standardization is foundational for interoperability between international and commercial partners"
+      - "Establishing LTC will support precise SI unit definitions (meter, kilogram) on the Moon"
+    relevance: "Official U.S. government directive establishing the framework for extraterrestrial time standards"
+    anchor_suggestion: "as mandated in the White House's April 2024 policy directive"
+
+  # Example 2: ACADEMIC/TECHNICAL REPORT
+  # Use for peer-reviewed papers, technical analyses, engineering studies
+  - title: "LunaNet: a Flexible and Extensible Lunar Exploration Communications and Navigation Infrastructure"
+    url: "https://www.researchgate.net/publication/343799827_LunaNet"
+    type: "report"
+    date: "2020-03"
+    takeaways:
+      - "LunaNet is based on Delay Tolerant Networking (DTN) for seamless communications"
+      - "Supports mission autonomy by reducing dependence on Earth-based data processing"
+      - "Provides navigation accuracy and crew safety alerts including solar flare monitoring"
+    relevance: "Defines the foundational network architecture for Artemis and cislunar missions"
+    anchor_suggestion: "according to the LunaNet architecture design study by Israel et al."
+
+  # Example 3: NEWS/JOURNALISM
+  # Use for recent developments, announcements, expert commentary
+  - title: "NASA to Develop Lunar Time Standard for Exploration Initiatives"
+    url: "https://www.nasa.gov/solar-system/moon/nasa-to-develop-lunar-time-standard/"
+    type: "news"
+    date: "2024-09-12"
+    takeaways:
+      - "NASA tasked with defining an interoperable lunar time standard linked to UTC"
+      - "LTC will provide cislunar users with a time reference defined near their gravitational environment"
+      - "Standard must support precision navigation and science while surviving loss of Earth contact"
+    relevance: "Official announcement detailing the presidential directive for lunar time creation"
+    anchor_suggestion: "as announced by NASA in September 2024"
+
+  # Example 4: GEOPOLITICAL ANALYSIS
+  # Use for strategic assessments, policy analyses, competitive dynamics
+  - title: "Orbital Rivalry: The U.S.-China Competition and the Future of the Global Space Economy"
+    url: "https://trendsresearch.org/insight/orbital-rivalry/"
+    type: "report"
+    date: "2025-09-19"
+    takeaways:
+      - "Space has transitioned from scientific frontier to economic and military power domain"
+      - "Fragmentation of orbital governance creates risk of parallel normative regimes between U.S. and Chinese blocs"
+      - "Middle powers must balance strategic autonomy with access to diverse technology pools"
+    relevance: "Examines systemic implications of U.S.-China orbital rivalry for global economy"
+    anchor_suggestion: "as Vermeylen argues in his analysis of orbital rivalry"
+
+  # Example 5: STANDARDS DOCUMENTATION
+  # Use for technical standards, specifications, blue books
+  - title: "Blue Books: Recommended Standards for Space Data System Practices"
+    url: "https://ccsds.org/publications/bluebooks/"
+    type: "official_document"
+    date: "2026"
+    takeaways:
+      - "Define complete technical interfaces and protocols for mission interoperability"
+      - "Provide normative definitions for building cross-agency compatible systems"
+      - "Include standards for optical communications and data link layer security"
+    relevance: "Prescriptive technical specifications for international space cooperation"
+    anchor_suggestion: "per the CCSDS Blue Book standards"
+
+  # Example 6: INDUSTRY/COMMERCIAL PERSPECTIVE
+  # Use for market analyses, commercial roadmaps, industrial strategies
+  - title: "A Vision for Industry on the Moon"
+    url: "https://spacesettlementprogress.com/a-vision-for-industry-on-the-moon/"
+    type: "industry"
+    date: "2026-01-14"
+    takeaways:
+      - "Outlines blueprint for transforming the Moon into self-sustaining industrial marketplace by 2030s"
+      - "Identifies four lunar economic eras: Exploration, Foundation, Industrial, and Jet Age"
+      - "Proposes 'Infrastructure as a Service' models for power and data via scalable nodes"
+    relevance: "Provides commercial roadmap aligned with DARPA's LunA-10 initiative"
+    anchor_suggestion: "according to the Space Settlement Progress industrial vision"
+
+  # Example 7: LEGAL/REGULATORY ANALYSIS
+  # Use for treaty analyses, legal frameworks, compliance assessments
+  - title: "The Artemis Accords and International Space Law"
+    url: "https://www.diplomacyandlaw.com/post/the-artemis-accords-and-international-space-law"
+    type: "report"
+    date: "2026"
+    takeaways:
+      - "Analyzes the Accords as legal operationalization of abstract treaty obligations"
+      - "Resource extraction treated as exercise of freedom of use under OST Article I"
+      - "Safety zones are temporary spatial coordination measures, not territorial claims"
+    relevance: "Comprehensive doctrinal assessment of Accords' compatibility with international space law"
+    anchor_suggestion: "as Santos demonstrates in his legal analysis"
+
+  # Example 8: TECHNICAL ENGINEERING STUDY
+  # Use for engineering challenges, technical solutions, implementation details
+  - title: "Advances in Lunar Construction Technologies: Engineering Challenges and Solutions"
+    url: "https://www.ijfmr.com/papers/2025/3/45071.pdf"
+    type: "report"
+    date: "2025"
+    takeaways:
+      - "In-Situ Resource Utilization (ISRU) essential to overcome prohibitive Earth transport costs"
+      - "3D-printed regolith structures combined with inflatable modules are most promising near-term solution"
+      - "Lunar environment requires sophisticated thermal management due to 300°C day-night temperature swings"
+    relevance: "Provides engineering framework for sustainable lunar habitat development"
+    anchor_suggestion: "according to Kothapalli et al.'s engineering assessment"
+
+# ============================================================================
+# OPTIONAL: KEY FINDINGS SECTION
+# ============================================================================
+# Organize high-level takeaways by thematic categories
+# This helps analysts quickly understand the research landscape
+
+key_findings:
+  technical_standards:
+    - "Multiple competing standards for lunar PNT create interoperability challenges"
+    - "Coordinated Lunar Time (LTC) definition required by end of 2026"
+    - "Reference frame standardization essential for flight safety and data alignment"
+
+  geopolitical_dynamics:
+    - "U.S.-China competition defines two parallel governance frameworks: Artemis Accords vs. ILRS"
+    - "First-mover advantage allows establishment of de facto operational practices"
+    - "Middle powers (Thailand, Senegal) participate in both blocs as bridges"
+
+  commercial_opportunities:
+    - "Lunar economy projected to reach industrial phase by 2030s"
+    - "Infrastructure-as-a-Service models enable scalable commercial operations"
+    - "ISRU technology critical for cost-effective lunar industrialization"
+
+  legal_frameworks:
+    - "Outer Space Treaty (1967) ambiguous on resource extraction rights"
+    - "Moon Agreement (1979) provides transparency framework but lacks major power ratification"
+    - "Artemis Accords operationalize OST principles but face legitimacy challenges"
+
+# ============================================================================
+# TIPS FOR WRITING EFFECTIVE anchor_suggestion TEXT
+# ============================================================================
+#
+# 1. INCLUDE THE AUTHOR/ORGANIZATION:
+#    ✅ "according to Boamah's analysis"
+#    ✅ "as NASA's white paper details"
+#    ✅ "per ESA's strategic vision"
+#
+# 2. ADD DESCRIPTIVE CONTEXT:
+#    ✅ "according to the CCSDS standards body"
+#    ✅ "as outlined in the White House policy directive"
+#    ✅ "per Israel et al.'s LunaNet architecture study"
+#
+# 3. USE NATURAL PHRASES:
+#    ✅ "as demonstrated by..."
+#    ✅ "according to recent analysis from..."
+#    ✅ "detailed in the..."
+#    ✅ "as argued in..."
+#    ✅ "per the specifications outlined by..."
+#
+# 4. CONSIDER THE SENTENCE FLOW:
+#    The anchor text should read naturally when inserted mid-sentence:
+#    "The time standard, as mandated in the White House's April 2024 policy directive,
+#     must maintain tracciability to UTC while operating independently."
+#
+# 5. AVOID REDUNDANCY:
+#    Don't repeat information that's already in the title:
+#    ❌ "according to the Policy on Celestial Time Standardization policy"
+#    ✅ "as mandated in the White House's April 2024 policy directive"
+#
+# ============================================================================

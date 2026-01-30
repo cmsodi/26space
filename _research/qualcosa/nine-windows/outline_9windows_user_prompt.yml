@@ -1,0 +1,202 @@
+task: "Creating a Comprehensive Article Outline based on the TRIZ 9-Windows Tool"
+audience: 
+  - "professional"
+  - "policy makers"
+  - "space enthusiast"
+context: |
+  - The Nine Windows (or System Operator) is a powerful analytical tool from TRIZ methodology that helps examine problems across different system levels and time periods. This tool uses a 3x3 matrix to analyze a system through two dimensions: temporal (past, present, 
+  future) and hierarchical (subsystem, system, supersystem).
+  - The article should be structured with three main sections based on the temporal dimension (Past, Present, Future) with each section containing three subsections based on the system hierarchy dimension (Subsystem, System, Supersystem), following the specific context in space_domain_taxonomy below
+
+instructions: |
+  - Create a detailed article on {title}. 
+  - Follow strict output_loop and output_blueprint
+  - Use verbose points style
+  - Exclude: ["Introduction", "Conclusion"]
+  - Provide only the final result of your work in JSON code. Do not add any conversation or extra explanation.
+
+output_loop: |
+  loop until have been created:
+    all sections:
+      - "Past: Understanding System Evolution"
+      - "Present: Analyzing Current System Dynamics"
+      - "Future: Predicting System Development"
+    and for each section, related subsections:
+      - "Subsystem Level Analysis"
+      - "System Level Analysis"
+      - "Supersystem Level Analysis"
+    and for each subsection,related points
+
+output_blueprint: |
+  ```json
+  [
+    {
+      "prefix": "## ",
+      "id": "1.",
+      "title": "<heading on Past: Understanding System Evolution>",
+      "subsections": [
+        {
+            "prefix": "### ",
+            "id": "1.1",
+            "title": "<heading on Subsystem Level Analysis>",
+            "points": [
+              "point" <verbose style>
+            ]
+        }
+      ]
+    },
+    ...
+    {
+    ...
+    }
+  ]
+  ```
+
+space_domain_taxonomy: |
+  ### Dimension 1: Material Cause (Technologies) -> what
+
+  Identify and analyze all relevant physical components and technological aspects:
+
+  **Subsystem Level:**
+
+  - Materials, fuels, and component technologies
+  - Scientific instruments and specialized equipment
+  - Emerging materials (composites, metamaterials, radiation-resistant alloys)
+  - Life support system components
+  - Propulsion components and elements
+  - Sensing and measurement technologies
+  - Radiation shielding technologies
+
+  **System Level:**
+
+  - Satellites, probes, and spacecraft systems
+  - Ground stations and control centers
+  - Launch vehicles and spaceport facilities
+  - Complete propulsion systems (chemical, ion, nuclear)
+  - Habitation technologies and modules
+  - Communication networks and data systems
+  - Space robotics and autonomous systems
+  - Integration architectures
+
+  **Supersystem Level:**
+
+  - Space stations and orbital infrastructures
+  - Interplanetary transport systems and architectures
+  - Planetary bases and colonization technologies
+  - In-Situ Resource Utilization (ISRU) systems
+  - Solar sails and advanced propulsion concepts
+  - Artificial gravity solutions for long-duration missions
+  - Closed-loop ecological systems for self-sustaining habitats
+  - Cross-platform technological ecosystems
+
+  ### Dimension 2: Formal Cause (Frameworks) -> how
+
+  Analyze the organizational principles, structures, and methodologies:
+
+  **Subsystem Level:**
+
+  - Engineering specifications and technical requirements
+  - Software architectures and coding standards
+  - Technical protocols and interface standards
+  - Design methodologies for components
+  - Risk management approaches for subsystems
+  - Quality assurance standards and verification methods
+  - Testing protocols and failure analysis frameworks
+  - Configuration management systems
+
+  **System Level:**
+
+  - Mission architectures and operational concepts
+  - Organizational structures and team compositions
+  - Project management frameworks and methodologies
+  - Systems engineering approaches and integration methods
+  - Concurrent engineering practices
+  - Digital twin technologies and simulation frameworks
+  - Commercial models (space-as-a-service, data-as-a-service)
+  - Operational procedures and mission rules
+
+  **Supersystem Level:**
+
+  - International space treaties and agreements
+  - National space policies and strategic directives
+  - Global standards for space activities and operations
+  - Regulatory frameworks (licensing, spectrum allocation, debris mitigation)
+  - Knowledge management systems across generations
+  - Sustainability guidelines and long-term planning
+  - Space governance models and international cooperation frameworks
+  - Legal precedents and emerging space law concepts
+
+  ### Dimension 3: Efficient Cause (Stakeholders) -> who
+
+  Identify all relevant actors and their relationships:
+
+  **Subsystem Level:**
+
+  - Engineers and scientists with specialized expertise
+  - Manufacturing process specialists and technicians
+  - Individual space enthusiasts and advocates
+  - Educational institutions and training centers
+  - Citizen scientists and amateur contributors
+  - Open-source space hardware communities
+  - Specialized workforce and talent pools
+  - Technical subject matter experts
+
+  **System Level:**
+
+  - Space agencies and research institutions
+  - Private space companies and commercial operators
+  - Satellite operators and service providers
+  - Consumers and users of space-derived services
+  - Financial entities (VCs, investors, funding sources)
+  - Insurance providers and risk assessors
+  - Media organizations and cultural influencers
+  - Supply chain partners and industrial base
+
+  **Supersystem Level:**
+
+  - Governments and legislative bodies
+  - International space organizations and consortia
+  - Global scientific communities and research networks
+  - Commercial space industry associations
+  - Non-traditional actors in the space domain
+  - Multinational consortia and public-private partnerships
+  - Defense and security organizations
+  - International relations and diplomatic channels
+
+  ### Dimension 4: Final Cause (Purposes) -> why
+
+  Examine the objectives, goals, and driving motivations:
+
+  **Subsystem Level:**
+
+  - Ensuring reliable component operation and performance
+  - Maintaining safety and quality standards
+  - Developing cutting-edge space technologies
+  - Educational purposes and STEM skill development
+  - Technical knowledge advancement in specialized areas
+  - Component-level innovation and improvement
+  - Specialized skill development and capability building
+  - Meeting specific technical requirements
+
+  **System Level:**
+
+  - Conducting space-based research and experimentation
+  - Providing Earth observation and monitoring services
+  - Enabling global communications and connectivity
+  - Supporting navigation and positioning applications
+  - Commercial exploitation and business opportunities
+  - Space tourism and human experience
+  - In-space manufacturing and production
+  - Operational mission success and performance
+
+  **Supersystem Level:**
+
+  - Advancing human presence beyond Earth
+  - Fostering international cooperation and diplomacy
+  - Driving broad technological innovation and spillover
+  - Addressing national security and strategic interests
+  - Tackling global challenges (climate change, resource management)
+  - Pursuing cultural and inspirational goals
+  - Engaging with philosophical questions about humanity's place in the cosmos
+  - Working toward species preservation and multiplanetary existence
+  - Sustainable development and long-term human flourishing

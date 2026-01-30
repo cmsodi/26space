@@ -20,6 +20,14 @@ class Source:
 
 
 @dataclass
+class TextDocument:
+    """Inline text document loaded from .md or .txt file for background context."""
+    filename: str       # Original filename (e.g., "briefing.md")
+    content: str        # Full text content
+    label: str = ""     # Optional user-provided label
+
+
+@dataclass
 class AnalystOutput:
     """Parsed output from an analyst agent."""
     name: str
@@ -51,6 +59,7 @@ class WorkflowState:
     # Input
     problem: str = ""
     language: str = "en"  # Detected from input
+    slug: str = ""  # Generated from problem, used for output directory
 
     # Current position
     current_step: Step = Step.INIT
@@ -63,6 +72,7 @@ class WorkflowState:
     fresh_sources_need: str = ""  # HIGH, MEDIUM, LOW
     fresh_sources_choice: str = ""  # A, B, C
     context_documents: list[Source] = field(default_factory=list)  # L0 sources
+    text_documents: list[TextDocument] = field(default_factory=list)  # Inline text context (.md/.txt)
 
     # Phase 2 outputs
     clarification_questions: list[str] = field(default_factory=list)

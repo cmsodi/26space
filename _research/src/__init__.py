@@ -8,6 +8,7 @@ from .config import (
     SKILLS_PATH,
     AGENTS_PATH,
     OUTPUT_GEN_PATH,
+    RECIPES_PATH,
     MODEL_DEFAULT,
     MODEL_COMPLEX,
     MODEL_FAST,
@@ -16,8 +17,16 @@ from .config import (
     TEMPLATES,
 )
 
+from .utils import (
+    detect_language,
+    generate_slug,
+    generate_unique_slug,
+    get_document_filename,
+)
+
 from .models import (
     Source,
+    TextDocument,
     AnalystOutput,
     CitationEntry,
     WorkflowState,
@@ -26,6 +35,8 @@ from .models import (
 from .state import (
     source_to_dict,
     source_from_dict,
+    text_document_to_dict,
+    text_document_from_dict,
     analyst_output_to_dict,
     analyst_output_from_dict,
     citation_entry_to_dict,
@@ -100,15 +111,27 @@ from .validation import (
 
 from .orchestrator import StrategicOrchestrator
 
+from .recipe import (
+    RecipeRunner,
+    discover_recipes,
+    load_recipe,
+)
+
+# Import engines to trigger registration
+import src.engines  # noqa: F401
+
 __all__ = [
     # Config
-    'SKILLS_PATH', 'AGENTS_PATH', 'OUTPUT_GEN_PATH',
+    'SKILLS_PATH', 'AGENTS_PATH', 'OUTPUT_GEN_PATH', 'RECIPES_PATH',
     'MODEL_DEFAULT', 'MODEL_COMPLEX', 'MODEL_FAST',
     'Step', 'SYNTHESIZERS', 'TEMPLATES',
+    # Utils
+    'detect_language', 'generate_slug', 'generate_unique_slug', 'get_document_filename',
     # Models
-    'Source', 'AnalystOutput', 'CitationEntry', 'WorkflowState',
+    'Source', 'TextDocument', 'AnalystOutput', 'CitationEntry', 'WorkflowState',
     # State
     'source_to_dict', 'source_from_dict',
+    'text_document_to_dict', 'text_document_from_dict',
     'analyst_output_to_dict', 'analyst_output_from_dict',
     'citation_entry_to_dict', 'citation_entry_from_dict',
     'workflow_state_to_dict', 'workflow_state_from_dict',
@@ -135,4 +158,6 @@ __all__ = [
     'REQUIRED_FRONTMATTER',
     # Orchestrator
     'StrategicOrchestrator',
+    # Recipe
+    'RecipeRunner', 'discover_recipes', 'load_recipe',
 ]

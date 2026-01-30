@@ -13,6 +13,7 @@ _BASE_DIR = Path(__file__).parent.parent  # _research/
 SKILLS_PATH = _BASE_DIR / ".claude" / "skills"
 AGENTS_PATH = _BASE_DIR / ".claude" / "agents"
 OUTPUT_GEN_PATH = SKILLS_PATH / "_OUTPUT_GENERATION.md"
+RECIPES_PATH = _BASE_DIR / ".claude" / "recipes"
 
 
 # ============== MODEL SELECTION ==============

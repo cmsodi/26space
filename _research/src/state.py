@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .config import SKILLS_PATH, AGENTS_PATH, OUTPUT_GEN_PATH, Step
-from .models import Source, AnalystOutput, CitationEntry, WorkflowState
+from .models import Source, AnalystOutput, CitationEntry, WorkflowState, TextDocument
 
 
 # ============== STATE SERIALIZATION ==============
@@ -32,6 +32,24 @@ def source_from_dict(d: dict) -> Source:
         anchor_suggestion=d.get("anchor_suggestion", ""),
         level=d.get("level", "L0"),
         relevance=d.get("relevance")
+    )
+
+
+def text_document_to_dict(td: TextDocument) -> dict:
+    """Convert TextDocument to serializable dict."""
+    return {
+        "filename": td.filename,
+        "content": td.content,
+        "label": td.label
+    }
+
+
+def text_document_from_dict(d: dict) -> TextDocument:
+    """Restore TextDocument from dict."""
+    return TextDocument(
+        filename=d.get("filename", ""),
+        content=d.get("content", ""),
+        label=d.get("label", "")
     )
 
 
@@ -110,6 +128,7 @@ def workflow_state_to_dict(state: WorkflowState) -> dict:
         "fresh_sources_need": state.fresh_sources_need,
         "fresh_sources_choice": state.fresh_sources_choice,
         "context_documents": [source_to_dict(s) for s in state.context_documents],
+        "text_documents": [text_document_to_dict(td) for td in state.text_documents],
 
         # Phase 2 outputs
         "clarification_questions": state.clarification_questions,
@@ -174,6 +193,7 @@ def workflow_state_from_dict(d: dict) -> WorkflowState:
         fresh_sources_need=d.get("fresh_sources_need", ""),
         fresh_sources_choice=d.get("fresh_sources_choice", ""),
         context_documents=[source_from_dict(s) for s in d.get("context_documents", [])],
+        text_documents=[text_document_from_dict(td) for td in d.get("text_documents", [])],
 
         # Phase 2 outputs
         clarification_questions=d.get("clarification_questions", []),

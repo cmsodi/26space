@@ -1,0 +1,236 @@
+sources:
+  # OFFICIAL DOCUMENTS
+  - title: "Common Foreign and Security Policy Report - Our priorities in 2025"
+    url: "https://data.consilium.europa.eu/doc/document/ST-11306-2025-INIT/en/pdf"
+    type: "official_document"
+    date: "2025-06-25"
+    takeaways:
+      - "EU Council Document HR(2025) 148 establishes Africa-EU Space Partnership with €45 million secured via Global Gateway initiative, representing 45% of committed €100 million infrastructure fund."
+      - "Mandates co-design of dedicated African EO smallsat with pilot Business Innovation Lab deployment to foster indigenous private space ecosystem."
+      - "Integrates space capacity-building into broader CFSP framework linking orbital infrastructure to migration management and climate resilience in Mediterranean basin."
+    relevance: "Primary EU policy directive framing AfricaSpace as geopolitical instrument for European strategic autonomy in Global South engagement."
+    anchor_suggestion: "in accordance with the EU's 2025 CFSP priorities for space cooperation"
+
+  - title: "Strategic Trajectories Assessing China's Space Rise and the Risks to U.S. Leadership"
+    url: "https://science.house.gov/2025/12/subcommittee-on-space-aeronautics-hearing-strategic-trajectories"
+    type: "official_document"
+    date: "2025-12-04"
+    takeaways:
+      - "Congressional testimony documents U.S. conducted over 160 successful launches placing 2,000+ payloads in 2025, versus China's 80 launches with ~250 payloads."
+      - "Identifies structural asymmetry: Starlink operates 8,000+ active satellites with 200 Gbps optical links, while China's Guowang constellation has <150 satellites deployed of 13,000 planned."
+      - "Quantifies U.S. network centrality: 50% of all international space arrangements involve U.S. organizations versus 22.9% for China, despite China's claimed 400 Gbps experimental link speeds."
+    relevance: "Authoritative U.S. government assessment establishing baseline metrics for orbital competition and identifying vulnerabilities in American space industrial base."
+    anchor_suggestion: "as documented in the December 2025 House Space & Aeronautics Subcommittee testimony"
+
+  - title: "United Nations Convention on the Law of the Sea on the Conservation and Sustainable Use of Marine Biological Diversity of Areas beyond National Jurisdiction (BBNJ Agreement)"
+    url: "https://treaties.un.org/pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXI-10&chapter=21"
+    type: "official_document"
+    date: "2023-06-19"
+    takeaways:
+      - "Establishes precedent for Global South collective bargaining on commons governance through legally binding framework for Areas Beyond National Jurisdiction (ABNJ)."
+      - "Implements mandatory technology transfer and capacity-building mechanisms with dedicated funding streams, providing template for analogous space resource negotiations."
+      - "Creates multilateral decision-making structures balancing developed/developing nation interests, directly referenced in AfSA-ALCE joint positioning papers on lunar governance."
+    relevance: "Analogical framework demonstrating how regional blocs can leverage collective action to reshape international commons regimes, applicable to cislunar space."
+    anchor_suggestion: "drawing on the governance precedents established by the 2023 BBNJ Agreement"
+
+  # ACADEMIC RESEARCH
+  - title: "Empire Strikes Back: Comparing US and China's Structural Power in Outer Space"
+    url: "https://doi.org/10.1093/isagsq/ksad067"
+    type: "report"
+    date: "2023-12"
+    takeaways:
+      - "Defines structural power through network analysis: of 1,613 active space organizations (2022), 382 (23.68%) are U.S.-based versus 130 (8.06%) Chinese."
+      - "Documents U.S. established 200 new space organizations since 2000 versus China's 75, with American entities maintaining three-fold higher international partnership formation rate."
+      - "Artemis Accords achieve 59 signatories across six continents by late 2025, versus ILRS's 14 state partners, demonstrating normative diffusion asymmetry favoring market-led governance frameworks."
+    relevance: "Foundational academic analysis quantifying structural dimensions of space power beyond traditional launch/satellite metrics, essential for understanding AfSA-ALCE strategic positioning."
+    anchor_suggestion: "as analyzed in the Oxford Global Studies Quarterly structural power comparison"
+
+  - title: "A Thirdspace approach to the 'Global South': insights from the margins of a popular category"
+    url: "https://doi.org/10.1080/01436597.2020.1712999"
+    type: "report"
+    date: "2020-02"
+    takeaways:
+      - "Theorizes 'Thirdspace' as analytical framework for Global South agency beyond binary North-South or state-centric models, emphasizing transnational civil society networks."
+      - "Documents how post-colonial states leverage 'commonality of interests' rhetoric (G77 Charter of Algiers 1967) to construct collective bargaining positions in global governance fora."
+      - "Identifies tension between (Secondspace) interstate alliances and (Firstspace) popular movements, critical for understanding divergent stakeholder interests within AfSA-ALCE frameworks."
+    relevance: "Provides conceptual vocabulary for analyzing how regional space agencies transcend traditional dependency models while navigating internal contradictions."
+    anchor_suggestion: "applying the Thirdspace theoretical framework to South-South cooperation dynamics"
+
+  - title: "Beyond 'BRICS': 10 Theses on South-South Cooperation in the 21st Century"
+    url: "https://doi.org/10.1080/01436597.2015.1108161"
+    type: "report"
+    date: "2016-03"
+    takeaways:
+      - "Establishes tripartite cooperation principles from ALBA-TCP framework: solidarity (mutual support for sustainable development), complementarity (integrated capacity-sharing), cooperation (strategic alliances)."
+      - "Documents UNOSSC South-South Galaxy platform as digital infrastructure enabling technology transfer outside traditional North-South channels, operational since 1974."
+      - "Identifies shift from state-centric to transnational SSC involving non-state actors (Landless Workers Movement, recuperated factories), expanding cooperation beyond diplomatic sphere."
+    relevance: "Academic foundation for understanding institutional architectures and normative principles underlying AfSA-ALCE coordination mechanisms."
+    anchor_suggestion: "grounded in the South-South cooperation principles articulated in contemporary development literature"
+
+  - title: "Sustainable Africa space governance: Strategic decision support framework, opportunities, challenges and solutions"
+    url: "https://doi.org/10.1016/j.jsse.2025.11.001"
+    type: "report"
+    date: "2025-11"
+    takeaways:
+      - "Proposes three-tier governance model: Continental (AfSA policy harmonization), Regional (economic community resource pooling), National (technical autonomy), with 15-year implementation roadmap."
+      - "Quantifies challenges: infrastructure deficiencies, limited sustainable funding, skilled professional shortage exacerbated by brain drain to Global North, underdeveloped legal harmonization across 54 states."
+      - "Recommends $500 million Continental Fund leveraging PPPs, Regional Space Centers of Excellence, and AI/Open Science/Geoinformatics integration for real-time policy formulation."
+    relevance: "Most comprehensive recent framework for African space governance architecture, directly informing AfSA's operational structure and strategic planning."
+    anchor_suggestion: "following the strategic decision support framework developed for sustainable African space governance"
+
+  - title: "The impact of US-China strategic competition on the idea of space as a 'global commons'"
+    url: "https://doi.org/10.3389/frspt.2025.1664300"
+    type: "report"
+    date: "2025-10-20"
+    takeaways:
+      - "Documents erosion of 'commons' paradigm through rival lunar governance frameworks: Artemis Accords' market transparency versus ILRS's state-centric military-civil fusion model."
+      - "Analyzes how export control regimes create 'glass ceiling' limiting China's cooperation network expansion with technologically advanced partners, fragmenting global space ecosystem."
+      - "Identifies AfSA-ALCE as emerging 'third bloc' attempting to preserve commons principles while achieving technological sovereignty outside bipolar structure."
+    relevance: "Critical analysis of how great power competition reshapes foundational space governance concepts, providing context for regional agency strategic positioning."
+    anchor_suggestion: "within the contested framework of space as global commons under bipolar competition"
+
+  - title: "Contours of Space Diplomacy in the Global South"
+    url: "https://doi.org/10.1126/scidip.adi7595"
+    type: "report"
+    date: "2023-05-16"
+    takeaways:
+      - "Documents shift from 'space for development' to 'space for sovereignty' discourse in Global South diplomatic positioning since 2020."
+      - "Maps emerging South-South institutional architectures: BRICS Space Cooperation Mechanism, ASEAN space working groups, Africa-India Framework Agreement."
+      - "Identifies 'selective alignment' strategy where developing nations participate in both Artemis and ILRS frameworks to maximize technology access while preserving autonomy."
+    relevance: "Authoritative overview of evolving diplomatic strategies enabling comparative analysis of AfSA-ALCE positioning relative to broader Global South approaches."
+    anchor_suggestion: "as evidenced by evolving contours of Global South space diplomacy"
+
+  # POLICY REPORTS
+  - title: "Driving U.S. Space Competitiveness in the Time of Great Power Competition"
+    url: "https://www.itic.org/policy/driving-us-space-competitiveness"
+    type: "report"
+    date: "2025-10"
+    takeaways:
+      - "ITI report identifies regulatory fragmentation as primary U.S. competitiveness risk: average 3.2-year licensing timeline versus China's state-directed 8-month approval cycle."
+      - "Recommends establishing 'Space Economic Zones' with streamlined permitting to compete with China's integrated military-civil space industrial base."
+      - "Documents how U.S. export controls inadvertently create market opportunities for Chinese alternatives in Global South, risking long-term normative influence erosion."
+    relevance: "Industry perspective on U.S. policy constraints that create strategic openings for AfSA-ALCE to negotiate favorable terms with multiple partners."
+    anchor_suggestion: "in light of the competitiveness challenges documented by the Information Technology Industry Council"
+
+  - title: "Orbital Rivalry: The U.S.-China Competition and the Future of the Global Space Economy"
+    url: "https://trendsinstitution.org/orbital-rivalry-report"
+    type: "report"
+    date: "2025-09-19"
+    takeaways:
+      - "Projects global space economy growth from $630 billion (2024) to $1.8 trillion (2035), with developing nations capturing projected 18% market share ($324 billion)."
+      - "Analyzes how U.S.-China bifurcation creates dual supply chains: Western (ITAR-compliant) versus Eastern (Belt & Road aligned), forcing Global South navigation of incompatible standards."
+      - "Documents AfSA-ALCE strategy of maintaining 'interoperability corridors' enabling technology transfer from both blocs while avoiding exclusive alignment."
+    relevance: "Strategic foresight analysis providing economic context for regional agency positioning and market opportunity sizing."
+    anchor_suggestion: "according to the Trends Research & Advisory orbital rivalry analysis"
+
+  - title: "Industrial policy for the final frontier: Governing growth in the emerging space economy"
+    url: "https://www.brookings.edu/articles/industrial-policy-space-economy"
+    type: "report"
+    date: "2025-09-23"
+    takeaways:
+      - "Brookings analysis documents $180 billion in cumulative government space subsidies (2020-2025) across G20 nations, with China ($47B) and U.S. ($52B) leading investment."
+      - "Identifies 'developmental state' model in emerging space nations combining sovereign capacity-building with commercial ecosystem cultivation, exemplified by UAE's $5.4B Mars mission program."
+      - "Recommends AfSA-ALCE adopt 'anchor tenant' procurement strategies leveraging collective $100M+ annual budgets to stimulate indigenous satellite manufacturing capabilities."
+    relevance: "Policy framework analysis providing empirical basis for industrial strategy recommendations applicable to AfSA-ALCE member states."
+    anchor_suggestion: "drawing on industrial policy frameworks for emerging space economies"
+
+  - title: "China's Third Policy Paper on Latin America and the Caribbean: Expanding Influence and Ambitions"
+    url: "https://www.csis.org/analysis/chinas-third-policy-paper-latin-america"
+    type: "report"
+    date: "2025-12-18"
+    takeaways:
+      - "CSIS analysis of China's LAC engagement: €410 billion bilateral trade (2024) marking 74% increase since 2019, with space cooperation positioned as 'high-tech diplomacy' pillar."
+      - "Documents CBERS (China-Brazil Earth Resources Satellite) providing free remote sensing data globally, establishing precedent for AfSA-ALCE 'data sovereignty' demands from commercial providers."
+      - "Identifies December 2025 China-Brazil expansion into satellite internet and joint space laboratory construction, signaling intensified competition with Starlink in underserved markets."
+    relevance: "Recent assessment of Chinese engagement strategy in LAC providing comparative framework for understanding similar approaches to Africa."
+    anchor_suggestion: "as detailed in the CSIS analysis of China's expanding LAC space engagement"
+
+  - title: "Overview of the CopernicusLAC EO Services Development & Transfer Activity"
+    url: "https://earth.esa.int/eogateway/activities/copernicuslac"
+    type: "report"
+    date: "2025-10-13"
+    takeaways:
+      - "ESA technical report documents Panama Centre deployment providing Sentinel satellite data access (SAR/optical/ocean/atmospheric) using STAC and COG open standards."
+      - "Integration with ALCE's $100M annual budget enables regional ground segment cost-sharing reducing individual member state expenses by estimated 40-60%."
+      - "Establishes template for 'data hub' model replicable in African context, with technical architecture supporting 1PB+ annual data throughput and disaster response latency <4 hours."
+    relevance: "Detailed technical specifications for successful EU-LAC partnership providing blueprint for AfricaSpace implementation."
+    anchor_suggestion: "following the technical architecture established by the CopernicusLAC initiative"
+
+  - title: "Southern currents: Mapping the geopolitics of the South Atlantic"
+    url: "https://www.iss.europa.eu/content/southern-currents"
+    type: "report"
+    date: "2025-12-11"
+    takeaways:
+      - "EUISS brief documents August 2025 Nigeria-Brazil MoU establishing space science collaboration with INPE access, marking first trans-Atlantic South-South space partnership."
+      - "Analyzes ZOPACAS (Zone of Peace and Cooperation of the South Atlantic, est. 1986) evolution from nuclear non-proliferation to dual-use technology cooperation framework."
+      - "Identifies February 2025 SADC-ALBA MoU on industrialization creating institutional infrastructure for potential AfSA-ALCE formal coordination mechanisms by 2027."
+    relevance: "EU strategic assessment of South Atlantic geopolitics providing regional context for AfSA-ALCE convergence beyond space sector."
+    anchor_suggestion: "within the broader South Atlantic geopolitical dynamics mapped by EU strategic analysts"
+
+  # INDUSTRY REPORTS
+  - title: "Space Infrastructure as a Service Market Outlook 2025-2032"
+    url: "https://www.intelmarketresearch.com/reports/space-infrastructure-service-market"
+    type: "industry"
+    date: "2025-09-18"
+    takeaways:
+      - "Market valued at $3.52 billion (2024) projected to reach $5.77 billion (2032) at 8.0% CAGR, with U.S. commanding 48% market share and China expanding at 12% CAGR."
+      - "Defense applications represent 35% of 2024 market, while orbital servicing segment projects 15% CAGR through 2032 with $3B+ addressable annual market."
+      - "Shared satellite platforms and ride-sharing models demonstrated 40-60% cost reduction versus dedicated missions, enabling AfSA-ALCE 'fractionated architecture' strategies."
+    relevance: "Industry intelligence quantifying SIaaS market dynamics critical for AfSA-ALCE infrastructure procurement and partnership negotiation strategies."
+    anchor_suggestion: "based on Space Infrastructure as a Service market projections"
+
+  - title: "Satellite Ground Station Market Research Report 2033"
+    url: "https://dataintelo.com/report/satellite-ground-station-market"
+    type: "industry"
+    date: "2025"
+    takeaways:
+      - "Market valued $6.9B (2024) projected $13.2B (2033) at 8.2% CAGR, with Asia Pacific commanding 52.8% share and fastest regional growth at 10.1-13.5% CAGR."
+      - "Fixed platform segment holds 69.9% market share while Communication applications represent 58.3%, indicating infrastructure investment priorities for AfSA-ALCE ground networks."
+      - "Ground Station as a Service (GSaaS) adoption and AI integration reducing operational costs by up to 40%, enabling AfSA-ALCE distributed network approach versus centralized facility model."
+    relevance: "Market intelligence informing AfSA-ALCE ground segment infrastructure strategies and technology adoption roadmaps."
+    anchor_suggestion: "aligned with satellite ground station market growth trajectories"
+
+  # NEWS & INSTITUTIONAL
+  - title: "African Space Agency celebrates official inauguration"
+    url: "https://www.transportationsolutionsmag.com/african-space-agency-inauguration"
+    type: "news"
+    date: "2025-04-20"
+    takeaways:
+      - "AfSA inaugurated April 20, 2025, at Egyptian Space City headquarters following 2017 African Space Agency Act and 2018 Statute under AU Agenda 2063 framework."
+      - "Governance structure: 10-member African Space Council (2 per region), Director General, Advisory Committee overseeing strategic plans and budgets for 54-55 AU member states."
+      - "Initial funding: Egypt's $10 million contribution plus €21 million Africa-EU Space Partnership budget (€45 million total via Global Gateway), supporting ARMC constellation and STEM initiatives."
+    relevance: "Definitive announcement marking AfSA operational transition with concrete organizational and financial parameters."
+    anchor_suggestion: "following the April 2025 official inauguration of the African Space Agency"
+
+  - title: "Latin American and Caribbean Space Agency - UNOOSA"
+    url: "https://www.unoosa.org/oosa/en/ourwork/psa/regional-centres/alce.html"
+    type: "official_document"
+    date: "2021"
+    takeaways:
+      - "ALCE established 2021 with Mexico headquarters, 21-23 signatory states with 9-11 ratifications (Mexico, Belize, Antigua & Barbuda, Venezuela confirmed), operating on ~$100M annual budget."
+      - "Governance via Annual Assembly and Secretary-General managing regional infrastructure: GOC (Geoinformatics/Open Science) center Trinidad & Tobago, CopernicusLAC hub Panama."
+      - "Strategic mandate emphasizes environmental resilience (agricultural/hydrometeorological monitoring), social equity (women in STEM participation targets), shared infrastructure cost reduction."
+    relevance: "Official UNOOSA documentation providing authoritative baseline on ALCE organizational structure and strategic objectives."
+    anchor_suggestion: "as registered with the United Nations Office for Outer Space Affairs"
+
+  - title: "The Future of the African Space Agency (AfSA) Towards Advancing the Africa We Want"
+    url: "https://www.researchgate.net/publication/AfSA-Future-Africa"
+    type: "report"
+    date: "2025"
+    takeaways:
+      - "Documents African space sector growth: 327 companies across 36 states generating $309.31M annual revenue (2023), with 50+ satellites launched collectively by AU member states."
+      - "Projects ARMC (African Resource and Environmental Management Constellation) as flagship multi-spectral imagery and ground station network addressing climate, disasters, resources."
+      - "Identifies transition from state-led missions to market-oriented ecosystem requiring indigenous R&D and private sector innovation, supported by planned $500M Continental Fund and PPPs."
+    relevance: "Comprehensive assessment of AfSA strategic trajectory integrating economic metrics, technical programs, and institutional evolution roadmap."
+    anchor_suggestion: "according to the strategic assessment of AfSA's future trajectory"
+
+  - title: "South Africa's ambitions for a thriving African space industry"
+    url: "https://www.sansa.org.za/news/south-africa-african-space-ambitions"
+    type: "news"
+    date: "2025"
+    takeaways:
+      - "SANSA (South African National Space Agency) positions as AfSA anchor tenant with operational ground stations, satellite integration facilities, and advanced R&D capabilities."
+      - "Documents LEO constellation initiatives for broadband expansion targeting digital divide bridging across continent, complementing regional connectivity mandates."
+      - "Identifies technology transfer requirements from international partners as critical enabling factor for indigenous satellite manufacturing capacity development within AfSA framework."
+    relevance: "National space agency perspective on AfSA collaborative architecture and technology sovereignty objectives from leading African space power."
+    anchor_suggestion: "building on South Africa's established space capabilities and regional leadership"

@@ -17,7 +17,7 @@ from .config import (
     MODEL_DEFAULT, MODEL_COMPLEX
 )
 from .models import (
-    Source, AnalystOutput, CitationEntry, WorkflowState
+    Source, TextDocument, AnalystOutput, CitationEntry, WorkflowState
 )
 from .state import (
     workflow_state_to_dict, workflow_state_from_dict,
@@ -39,6 +39,12 @@ from .ui import (
 from .validation import (
     validate_analyst_output, validate_citation_map,
     validate_frontmatter, REQUIRED_FRONTMATTER
+)
+from .utils import (
+    detect_language as _detect_language_fn,
+    generate_slug as _generate_slug_fn,
+    generate_unique_slug as _generate_unique_slug_fn,
+    get_document_filename as _get_document_filename_fn,
 )
 
 
@@ -153,10 +159,163 @@ class StrategicOrchestrator:
         orch.state = workflow_state_from_dict(state_dict)
         orch.save_path = filepath  # Use same path for subsequent saves
 
+        # Ensure slug is generated (backward compatibility for old state files)
+        if not orch.state.slug and orch.state.problem:
+            orch.state.slug = orch._generate_slug()
+
         saved_at = state_dict.get("_saved_at", "unknown")
         orch._vprint(f"  📂 State loaded from: {filepath}")
         orch._vprint(f"     Saved at: {saved_at}")
         orch._vprint(f"     Current step: {orch.state.current_step.value}")
+
+        return orch
+
+    @classmethod
+    def load_from_folder(
+        cls,
+        folder_path: str,
+        parallel_analysts: bool = True,
+        graceful_degradation: bool = True,
+        auto_recovery: bool = False,
+        max_analyst_retries: int = 2,
+        verbose: bool = False
+    ) -> "StrategicOrchestrator":
+        """
+        Load analyst reports from an output folder and resume workflow.
+
+        Reconstructs the workflow state by reading agent output files from
+        a previous analysis. Useful for reusing analyst reports with different
+        outline templates or synthesizers.
+
+        Args:
+            folder_path: Path to output folder (e.g., output/my-analysis_1)
+            parallel_analysts: Whether to use parallel analyst execution
+            graceful_degradation: Continue with partial results on failures
+            auto_recovery: Automatically choose recovery actions
+            max_analyst_retries: Maximum retries for failed analysts
+            verbose: Show detailed output
+
+        Returns:
+            StrategicOrchestrator instance ready to continue from outline generation
+        """
+        folder = Path(folder_path)
+        if not folder.exists():
+            raise FileNotFoundError(f"Folder not found: {folder_path}")
+        if not folder.is_dir():
+            raise ValueError(f"Not a directory: {folder_path}")
+
+        # Create orchestrator
+        orch = cls(
+            parallel_analysts=parallel_analysts,
+            graceful_degradation=graceful_degradation,
+            auto_recovery=auto_recovery,
+            max_analyst_retries=max_analyst_retries,
+            verbose=verbose
+        )
+
+        orch._vprint(f"\n  📂 Loading analyst reports from: {folder_path}")
+
+        # Extract slug from folder name
+        slug = folder.name
+        orch.state.slug = slug
+
+        # Try to load metadata from existing outline or index.md
+        metadata_loaded = False
+        for filename in ["outline.md", "index.md"]:
+            filepath = folder / filename
+            if filepath.exists():
+                try:
+                    content = filepath.read_text(encoding='utf-8')
+                    if content.startswith("---"):
+                        parts = content.split("---", 2)
+                        if len(parts) >= 3:
+                            frontmatter = yaml.safe_load(parts[1]) or {}
+
+                            # Extract metadata
+                            orch.state.problem = frontmatter.get("description", "")
+                            orch.state.language = frontmatter.get("language", "en")
+                            orch.state.synthesizer = frontmatter.get("synthesizer", "")
+                            orch.state.template = frontmatter.get("outline_template", "")
+                            orch.state.fixed_analysts = frontmatter.get("analysts_fixed", [])
+                            orch.state.optional_analysts = frontmatter.get("analysts_optional", [])
+
+                            metadata_loaded = True
+                            orch._vprint(f"  ✓ Metadata loaded from {filename}")
+                            break
+                except Exception as e:
+                    orch._vprint(f"  ⚠ Could not parse {filename}: {e}")
+
+        if not metadata_loaded:
+            orch._vprint("  ⚠ No metadata found in outline.md or index.md")
+            # Will prompt user for missing info later
+
+        # Load all agent output files
+        agent_files = list(folder.glob("*.md"))
+        # Filter out special files
+        agent_files = [f for f in agent_files if f.stem not in ["outline", "index"]]
+
+        if not agent_files:
+            raise ValueError(f"No agent output files (*.md) found in {folder_path}")
+
+        orch._vprint(f"\n  Found {len(agent_files)} agent output file(s):")
+
+        # Parse each agent output file
+        for agent_file in sorted(agent_files):
+            agent_name = agent_file.stem
+            try:
+                content = agent_file.read_text(encoding='utf-8')
+                parsed = validate_analyst_output(content, agent_name)
+                orch.state.analyst_outputs[agent_name] = parsed
+                orch._vprint(f"    ✓ {agent_name} (confidence: {parsed.confidence})")
+            except Exception as e:
+                orch._vprint(f"    ✗ {agent_name}: {e}")
+                if not graceful_degradation:
+                    raise
+
+        if not orch.state.analyst_outputs:
+            raise ValueError("Failed to load any valid analyst outputs")
+
+        # Update fixed_analysts list if empty
+        if not orch.state.fixed_analysts:
+            orch.state.fixed_analysts = list(orch.state.analyst_outputs.keys())
+
+        orch._vprint(f"\n  ✓ Loaded {len(orch.state.analyst_outputs)} analyst report(s)")
+
+        # Show current configuration and allow modifications
+        orch._vprint("\n" + "=" * 60)
+        orch._vprint("Current Configuration:")
+        orch._vprint("-" * 40)
+        orch._vprint(f"  Problem: {orch.state.problem[:80]}..." if len(orch.state.problem) > 80 else f"  Problem: {orch.state.problem}")
+        orch._vprint(f"  Synthesizer: {orch.state.synthesizer or '(not set)'}")
+        orch._vprint(f"  Template: {orch.state.template or '(not set)'}")
+        orch._vprint(f"  Language: {orch.state.language}")
+        orch._vprint(f"  Analysts: {', '.join(orch.state.fixed_analysts)}")
+        orch._vprint("-" * 40)
+
+        # Allow user to modify configuration before continuing
+        while True:
+            options = [
+                "Continue with current configuration",
+                "Change synthesizer",
+                "Change template",
+                "Cancel and exit"
+            ]
+
+            choice = ask_user("Review configuration:", options, allow_other=False)
+
+            if "Continue" in choice:
+                break
+            elif "Change synthesizer" in choice:
+                orch._modify_synthesizer()
+            elif "Change template" in choice:
+                orch._modify_template()
+            elif "Cancel" in choice:
+                orch._vprint("\n  Cancelled by user")
+                raise KeyboardInterrupt()
+
+        # Set current step to just before outline generation
+        orch.state.current_step = Step.ANALYSTS_COMPLETE
+        orch._vprint(f"\n  📍 Ready to continue from: {orch.state.current_step.value}")
 
         return orch
 
@@ -242,6 +401,7 @@ class StrategicOrchestrator:
     def run(self, problem: str) -> str:
         """Main entry point - run full analysis workflow."""
         self.state.problem = problem
+        self.state.slug = self._generate_unique_slug()  # Generate unique slug with numbering if needed
         workflow_start = time.time()
 
         # Reset Exa search counter for this analysis
@@ -327,14 +487,7 @@ web_search_useful: true|false
 
     def _detect_language(self, text: str) -> str:
         """Simple language detection based on common patterns."""
-        italian_indicators = [
-            "analizza", "valuta", "strategia", "l'", "è", "perché",
-            "quali", "come", "dello", "della", "degli", "delle",
-            "europeo", "italiano", "spaziale"
-        ]
-        text_lower = text.lower()
-        italian_count = sum(1 for ind in italian_indicators if ind in text_lower)
-        return "it" if italian_count >= 2 else "en"
+        return _detect_language_fn(text)
 
     def _parse_phase1_response(self, response: str):
         """Parse YAML response from Phase 1 LLM call."""
@@ -510,9 +663,9 @@ web_search_useful: true|false
             reverse=True
         )[:2]
 
-        # Generate clarification questions via LLM
+        # Generate clarification question via LLM
         system = """You are helping clarify a strategic analysis request.
-The problem could fit multiple analysis frameworks. Generate 1-2 targeted questions
+The problem could fit multiple analysis frameworks. Generate exactly 1 targeted question
 to determine the best approach.
 
 Return ONLY valid YAML:
@@ -558,16 +711,15 @@ Generate questions to determine which framework is more appropriate."""
             return []
 
     def _ask_clarification_questions(self, questions: list[dict]):
-        """Present clarification questions to user and capture answers."""
+        """Present single clarification question to user and capture answer."""
         # User prompts must ALWAYS be visible (not _vprint)
-        print("\n  Clarification needed:")
-
-        for i, q in enumerate(questions[:2], 1):  # Max 2 questions
-            question_text = q.get("question", str(q))
-            print(f"\n  Q{i}: {question_text}")
-            answer = get_input("  Your answer")
-            self.state.clarification_questions.append(question_text)
-            self.state.clarification_answers.append(answer)
+        q = questions[0]
+        question_text = q.get("question", str(q))
+        print(f"\n  Clarification needed:\n  {question_text}")
+        print("  (any format: plain text, markdown, yaml...)")
+        answer = get_input("  Your answer")
+        self.state.clarification_questions.append(question_text)
+        self.state.clarification_answers.append(answer)
 
         # Re-score based on answers if we got meaningful input
         if self.state.clarification_answers:
@@ -716,6 +868,12 @@ Re-score based on this additional context."""
         else:
             lines.append("Context Documents (L0): None (you can add URLs/sources)")
 
+        if self.state.text_documents:
+            lines.append(f"Text Documents (inline): {len(self.state.text_documents)} file(s)")
+            for td in self.state.text_documents:
+                label = f" ({td.label})" if td.label else ""
+                lines.append(f"  - {td.filename}{label} [{len(td.content)} chars]")
+
         return "\n".join(lines)
 
     def _modify_synthesizer(self):
@@ -770,7 +928,7 @@ Re-score based on this additional context."""
             print(f"  Added: {choice}")
 
     def _add_context_documents(self):
-        """Allow user to add context documents (L0 sources) with URLs."""
+        """Allow user to add context documents (L0 sources) with URLs or text files."""
         # Show current documents if any
         if self.state.context_documents:
             print(f"\n  Currently loaded: {len(self.state.context_documents)} L0 source(s)")
@@ -778,9 +936,15 @@ Re-score based on this additional context."""
                 print(f"    {i}. {doc.title[:50]}{'...' if len(doc.title) > 50 else ''}")
             if len(self.state.context_documents) > 5:
                 print(f"    ... and {len(self.state.context_documents) - 5} more")
+        if self.state.text_documents:
+            print(f"  Text documents: {len(self.state.text_documents)} file(s)")
+            for td in self.state.text_documents:
+                label = f" ({td.label})" if td.label else ""
+                print(f"    - {td.filename}{label} [{len(td.content)} chars]")
 
         options = [
             "Load from YAML file (research_briefing.yaml format)",
+            "Load text file (.md or .txt for inline context)",
             "Add single URL manually",
             "Clear all context documents",
             "Done - return to proposal"
@@ -790,12 +954,98 @@ Re-score based on this additional context."""
             choice = ask_user("Context documents:", options, allow_other=False)
 
             if "YAML" in choice:
-                path = get_input("Enter path to YAML file")
-                if path and Path(path).exists():
-                    self._load_research_briefing(path)
-                    print(f"  Loaded {len(self.state.context_documents)} L0 source(s)")
-                elif path:
-                    print(f"  Warning: File not found: {path}")
+                # List available YAML files in context_documents/
+                context_dir = Path("context_documents")
+                if context_dir.exists():
+                    yaml_files = sorted([f.name for f in context_dir.glob("*.yaml")] +
+                                      [f.name for f in context_dir.glob("*.yml")])
+                    if yaml_files:
+                        print(f"\n  Available YAML files in context_documents/:")
+                        for f in yaml_files:
+                            print(f"    - {f}")
+                    else:
+                        print(f"  No YAML files found in context_documents/")
+                else:
+                    print(f"  Warning: context_documents/ directory not found")
+
+                # Prompt for file(s)
+                print(f"\n  Enter one or more filenames (comma-separated)")
+                print(f"  Example: test.yaml  or  test.yaml, briefing.yaml")
+                filenames = get_input("Filenames (or press Enter to skip)")
+
+                if not filenames:
+                    # User chose to skip
+                    continue
+
+                # Process comma-separated list
+                loaded_count = 0
+                for filename in [f.strip() for f in filenames.split(",")]:
+                    if not filename:
+                        continue
+
+                    # Always look in context_documents/
+                    file_path = context_dir / filename
+
+                    if file_path.exists():
+                        try:
+                            self._load_research_briefing(str(file_path))
+                            loaded_count += 1
+                            print(f"  ✓ Loaded: {filename}")
+                        except Exception as e:
+                            print(f"  ✗ Error loading {filename}: {e}")
+                    else:
+                        print(f"  ✗ File not found: {filename}")
+
+                if loaded_count > 0:
+                    print(f"\n  Total loaded: {loaded_count} file(s), {len(self.state.context_documents)} L0 source(s)")
+
+            elif "text file" in choice.lower():
+                # List available .md and .txt files in context_documents/
+                context_dir = Path("context_documents")
+                if context_dir.exists():
+                    text_files = sorted(
+                        [f.name for f in context_dir.glob("*.md")] +
+                        [f.name for f in context_dir.glob("*.txt")]
+                    )
+                    if text_files:
+                        print(f"\n  Available text files in context_documents/:")
+                        for f in text_files:
+                            print(f"    - {f}")
+                    else:
+                        print(f"  No .md or .txt files found in context_documents/")
+                else:
+                    print(f"  Warning: context_documents/ directory not found")
+
+                print(f"\n  Enter one or more filenames (comma-separated)")
+                print(f"  Example: notes.md  or  notes.md, background.txt")
+                filenames = get_input("Filenames (or press Enter to skip)")
+
+                if not filenames:
+                    continue
+
+                loaded_count = 0
+                for filename in [f.strip() for f in filenames.split(",")]:
+                    if not filename:
+                        continue
+                    file_path = context_dir / filename
+                    if file_path.exists() and file_path.suffix in (".md", ".txt"):
+                        try:
+                            content = file_path.read_text(encoding="utf-8")
+                            self.state.text_documents.append(TextDocument(
+                                filename=filename,
+                                content=content
+                            ))
+                            loaded_count += 1
+                            print(f"  ✓ Loaded: {filename} ({len(content)} chars)")
+                        except Exception as e:
+                            print(f"  ✗ Error loading {filename}: {e}")
+                    elif file_path.exists():
+                        print(f"  ✗ Unsupported extension: {filename} (only .md and .txt)")
+                    else:
+                        print(f"  ✗ File not found: {filename}")
+
+                if loaded_count > 0:
+                    print(f"\n  Total text documents: {len(self.state.text_documents)}")
 
             elif "single URL" in choice:
                 url = get_input("Enter URL")
@@ -813,6 +1063,7 @@ Re-score based on this additional context."""
 
             elif "Clear" in choice:
                 self.state.context_documents = []
+                self.state.text_documents = []
                 print("  All context documents cleared")
 
             elif "Done" in choice:
@@ -821,6 +1072,8 @@ Re-score based on this additional context."""
         # Summary
         if self.state.context_documents:
             print(f"\n  Total L0 sources: {len(self.state.context_documents)}")
+        if self.state.text_documents:
+            print(f"  Total text documents: {len(self.state.text_documents)}")
 
     # ============== PHASE 4: Execution ==============
 
@@ -1047,6 +1300,15 @@ Re-score based on this additional context."""
                     context_docs_text += f": {src.relevance}"
                 context_docs_text += "\n"
 
+        text_docs_text = ""
+        if self.state.text_documents:
+            text_docs_text = "\n\n## Inline Context Documents\n"
+            text_docs_text += "Use the following documents as background context for your analysis. "
+            text_docs_text += "These are NOT citable URL sources — they provide direction and depth.\n"
+            for td in self.state.text_documents:
+                label = f" — {td.label}" if td.label else ""
+                text_docs_text += f"\n### {td.filename}{label}\n\n{td.content}\n"
+
         user_message = f"""## Analysis Request
 
 **Problem:** {self.state.problem}
@@ -1054,7 +1316,7 @@ Re-score based on this additional context."""
 **Language:** {self.state.language}
 
 **Web Search:** {"Enabled" if self.state.web_search_enabled else "Disabled"}
-{context_docs_text}
+{context_docs_text}{text_docs_text}
 
 Please provide your analysis following your methodology."""
 
@@ -1124,6 +1386,15 @@ key_findings:
                     context_docs_text += f": {src.relevance}"
                 context_docs_text += "\n"
 
+        text_docs_text = ""
+        if self.state.text_documents:
+            text_docs_text = "\n\n## Inline Context Documents\n"
+            text_docs_text += "Use the following documents as background context for your analysis. "
+            text_docs_text += "These are NOT citable URL sources — they provide direction and depth.\n"
+            for td in self.state.text_documents:
+                label = f" — {td.label}" if td.label else ""
+                text_docs_text += f"\n### {td.filename}{label}\n\n{td.content}\n"
+
         user_message = f"""## Analysis Request
 
 **Problem:** {self.state.problem}
@@ -1131,7 +1402,7 @@ key_findings:
 **Language:** {self.state.language}
 
 **Web Search:** {"Enabled" if self.state.web_search_enabled else "Disabled"}
-{context_docs_text}
+{context_docs_text}{text_docs_text}
 
 Please provide your analysis following your methodology."""
 
@@ -1282,7 +1553,8 @@ Please provide your analysis following your methodology."""
 
 ### Frontmatter
 Generate valid YAML frontmatter with:
-- title, description, slug (kebab-case from title), date (today)
+- title, description, date (today)
+- slug: "{self.state.slug}"
 - version: "0.1-outline"
 - synthesizer: "{self.state.synthesizer}"
 - analysts_fixed: {self.state.fixed_analysts}
@@ -1748,7 +2020,7 @@ citation_map:
 Generate valid YAML with ALL these required fields:
 - title
 - description
-- slug (kebab-case derived from title, e.g. "european-space-launch-autonomy")
+- slug: "{self.state.slug}"
 - date: {self._get_today_date()}
 - version: "1.0"
 - synthesizer: "{self.state.synthesizer}"
@@ -1828,7 +2100,7 @@ Weave all citations from the map into the narrative."""
                 defaults = {
                     "title": "Strategic Analysis",
                     "description": self.state.problem[:200],
-                    "slug": self._generate_slug(),
+                    "slug": self.state.slug,
                     "date": self._get_today_date(),
                     "version": "1.0",
                     "synthesizer": self.state.synthesizer,
@@ -1854,19 +2126,18 @@ Weave all citations from the map into the narrative."""
 
     def _generate_slug(self) -> str:
         """Generate slug from problem statement."""
-        # Take first 60 chars of problem, convert to kebab-case
-        text = self.state.problem[:60].lower()
-        text = re.sub(r'[^a-z0-9\s-]', '', text)
-        text = re.sub(r'[\s_]+', '-', text)
-        text = re.sub(r'-+', '-', text).strip('-')
-        return text
+        return _generate_slug_fn(self.state.problem)
+
+    def _generate_unique_slug(self) -> str:
+        """Generate a unique slug by adding progressive numbers if folder exists."""
+        return _generate_unique_slug_fn(self.state.problem)
 
     def _generate_complete_frontmatter(self) -> str:
         """Generate complete frontmatter block."""
         frontmatter = {
             "title": "Strategic Analysis",
             "description": self.state.problem[:200],
-            "slug": self._generate_slug(),
+            "slug": self.state.slug,
             "date": self._get_today_date(),
             "version": "1.0",
             "synthesizer": self.state.synthesizer,
@@ -1904,14 +2175,11 @@ Weave all citations from the map into the narrative."""
 
     def _get_document_filename(self) -> str:
         """Get final document filename based on language."""
-        if self.state.language == "it":
-            return "index.it.md"
-        return "index.md"
+        return _get_document_filename_fn(self.state.language)
 
     def _save_outline(self, outline: str) -> Path:
         """Save outline to file and return the path."""
-        slug = self._extract_slug_from_document(outline)
-        output_dir = self._get_output_dir(slug)
+        output_dir = self._get_output_dir(self.state.slug)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         filepath = output_dir / self._get_outline_filename()
@@ -1920,8 +2188,7 @@ Weave all citations from the map into the narrative."""
 
     def _save_final_document(self, document: str) -> Path:
         """Save final document to file and return the path."""
-        slug = self._extract_slug_from_document(document)
-        output_dir = self._get_output_dir(slug)
+        output_dir = self._get_output_dir(self.state.slug)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         filepath = output_dir / self._get_document_filename()
@@ -1941,8 +2208,7 @@ Weave all citations from the map into the narrative."""
         Returns:
             Path where the output was saved
         """
-        slug = self._generate_slug()
-        output_dir = self._get_output_dir(slug)
+        output_dir = self._get_output_dir(self.state.slug)
         output_dir.mkdir(parents=True, exist_ok=True)
 
         filepath = output_dir / f"{agent_name}.md"

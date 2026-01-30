@@ -1,0 +1,459 @@
+sources:
+  # === BATCH 1: Primary sources with verified URLs ===
+
+  - title: "All eyes on the EU Space Act at the European Space Forum 2025 - Forum Europe"
+    url: "https://forum-europe.com/news/2025/all-eyes-on-the-eu-space-act-at-the-european-space-forum-2025"
+    type: "news"
+    date: "2025-07-11"
+    takeaways:
+      - "Identifies a critical industry concern regarding Article 7's differentiation between constellation sizes, with stakeholders arguing the thresholds lack a technical basis and may stifle innovation."
+      - "Highlights the inaugural Direct-to-Device (D2D) Policy Forum held alongside the event to address connectivity and non-terrestrial network (NTN) licensing."
+      - "Notes U.S. State Department concerns that the Act may disrupt global supply chains and calls for a formal consultation process for international private entities."
+    relevance: "Provides real-time industry and diplomatic feedback on the Act's unveiling."
+    anchor_suggestion: "during the discussions at the European Space Forum 2025"
+
+  - title: "CEN and CENELEC Submit Feedback on EU Space Act"
+    url: "https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-11-14-space-act-position-paper/"
+    type: "industry"
+    date: "2025-11-16"
+    takeaways:
+      - "Proposes using the Toy Safety Regulation as a blueprint for harmonizing 'common specifications' within the EU Space Act to ensure legislative consistency."
+      - "Advocates for moving technical requirements out of delegated acts and into established standard frameworks for cybersecurity, cryptography, and in-space servicing interfaces."
+      - "Urges formal cooperation between the ESA Compliance Board and European Standardization Organizations to prevent duplicative regulatory silos."
+    relevance: "Defines the technical standardization roadmap required for the Act's implementation."
+    anchor_suggestion: "according to the standardization feedback submitted by CEN and CENELEC"
+
+  - title: "COM(2025) 675 final - EUR-Lex - European Union"
+    url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0675"
+    type: "official_document"
+    date: "2025-11-04"
+    takeaways:
+      - "Amends Italy's Recovery and Resilience Plan (RRP) with a revised total estimated cost of EUR 194,435,381,164, driven by market conditions and extreme weather impacts."
+      - "Decreases the RRP's overall climate target contribution by 2.4 percentage points (to 37.1%) while increasing digital transition measures to 26.5%."
+      - "Implements Investment 1.1 (Digital Infrastructure) targeting the migration of 280 Central Public Administrations to the Polo Strategico Nazionale (PSN) or certified cloud environments by Q2 2026."
+    relevance: "Primary financial and strategic document linking national recovery funds to space and digital infrastructure."
+    anchor_suggestion: "as detailed in the European Commission's proposal for Italy's amended RRP"
+
+  - title: "EARSC Position Paper on the EU Space Act Proposal"
+    url: "https://earsc.org/2025/11/06/earsc-position-paper-on-the-eu-space-act-proposal/"
+    type: "industry"
+    date: "2025-11-17"
+    takeaways:
+      - "Demands a risk-based approach to environmental sustainability that distinguishes between satellite operators and value-added service companies."
+      - "Stresses the necessity of alignment with global standards to ensure European Earth Observation (EO) companies maintain international market access."
+    relevance: "Represents the specific interests of the Earth Observation industry regarding regulatory burdens."
+    anchor_suggestion: "following the EARSC position on the proposed regulation"
+
+  - title: "EU Space Act - Defence Industry and Space - European Commission"
+    url: "https://defence-industry-space.ec.europa.eu/eu-space-act_en"
+    type: "official_document"
+    date: "2025-06-25"
+    takeaways:
+      - "Defines the three pillars of the Act: Safety (debris mitigation/tracking), Resilience (cybersecurity), and Sustainability (environmental impact assessments)."
+      - "Explicitly applies requirements to both EU and non-EU operators providing space services within the Union's internal market."
+      - "Introduces a 'targeted support package' specifically designed to reduce administrative compliance burdens for startups and SMEs."
+    relevance: "The definitive Commission factsheet outlining the Act's fundamental structure."
+    anchor_suggestion: "based on the European Commission's core pillars for the EU Space Act"
+
+  - title: "EPRS Briefing: EU space act - European Parliament"
+    url: "https://www.europarl.europa.eu/RegData/etudes/BRIE/2025/772914/EPRS_BRI(2025)772914_EN.pdf"
+    type: "report"
+    date: "2025-09-22"
+    takeaways:
+      - "Extracts data indicating that 10% of EU GDP is currently enabled by satellite signals (PNT and EO)."
+      - "Notes that the global space economy is projected to reach EUR 1.628 trillion by 2035, growing at an average annual rate of 9%."
+      - "Identifies the legal basis as Article 114 TFEU (Internal Market) to circumvent Article 189's prohibition on harmonizing national space laws."
+    relevance: "Comprehensive research briefing providing economic context and legal justification for the Act."
+    anchor_suggestion: "per the EPRS assessment of the European space economy"
+
+  - title: "EU Space Act Unveiled: A Turning Point or Just Legal Lift-Off? - GamingTechLaw"
+    url: "https://www.gamingtechlaw.com/2025/07/eu-space-act-unveiled-a-turning-point-or-just-legal-lift-off/"
+    type: "news"
+    date: "2025-07-11"
+    takeaways:
+      - "Introduces a two-year transitional period to facilitate compliance for Member States and private operators."
+      - "Contrasts the EU's broad 'Regulation' approach (ensuring direct applicability) with Italy's specific Law No. 89/2025."
+    relevance: "Legal analysis of the immediate regulatory impact and the transition roadmap."
+    anchor_suggestion: "as noted in the GamingTechLaw analysis of the legislative rollout"
+
+  - title: "EU Space Act and Italian Space Law: Innovation or potential conflict? - Global Space Week 2025"
+    url: "https://www.jdsupra.com/legalnews/eu-space-act-and-italian-space-law-1627154/"
+    type: "industry"
+    date: "2025-11-17"
+    takeaways:
+      - "Identifies potential jurisdictional friction between the Italian Space Agency (ASI) and new centralized EU supervisory authorities."
+      - "Highlights that both Italian and EU frameworks utilize the 'principle of territoriality,' creating overlapping obligations for foreign operators entering the market."
+      - "Italian Law No. 89 of 2025 introduces strict liability for operators for damages caused to persons or property on Earth or aircraft."
+    relevance: "Strategic assessment of national vs. supranational regulatory conflict."
+    anchor_suggestion: "regarding the potential conflicts between Italian and EU space regulations"
+
+  - title: "EU Space Act vs. European Space Law (EUSL)"
+    url: "https://www.european-space-law.com/"
+    type: "news"
+    date: "2025-06-25"
+    takeaways:
+      - "Distinguishes the EU Space Act as an 'operational law' driven by immediate resilience and geopolitical imperatives, rather than the foundational codification of a EUSL."
+      - "Details the 'dual-use' problem: since most space technology is dual-use, threats are identified by behavior and capability rather than object isolation."
+      - "Warns of the 'Kessler effect' as a primary driver for the Act's safety provisions due to 12,400 tonnes of objects currently in orbit."
+    relevance: "Technical breakdown of the geopolitical and physical risks addressed by the Act."
+    anchor_suggestion: "in the comparison between the EU Space Act and foundational space law"
+
+  - title: "EU space law | Legislative Train Schedule - European Parliament"
+    url: "https://www.europarl.europa.eu/legislative-train/theme-a-new-plan-for-europe-s-sustainable-prosperity-and-competitiveness/file-eu-space-law"
+    type: "official_document"
+    date: "2025-12-14"
+    takeaways:
+      - "Confirms Elena Donazzan (ECR, Italy) as the rapporteur for the ITRE committee overseeing the file."
+      - "Details Policy Option 2+ as the chosen path, which combines binding safety/resilience rules with non-binding 'labels' to encourage industry excellence."
+      - "Notes that a majority of Member States (13) had already adopted national space laws by late 2024, creating a 'fragmented legal environment' that the Act must resolve."
+    relevance: "Tracks the official status and procedural choices of the legislative process."
+    anchor_suggestion: "according to the European Parliament's legislative train schedule"
+
+  - title: "European Competition Law Newsletter – January 2025 | McGuireWoods LLP"
+    url: "https://www.jdsupra.com/legalnews/european-competition-law-newsletter-7103574/"
+    type: "industry"
+    date: "2025-01-07"
+    takeaways:
+      - "Documents the EC's use of Article 22(1) EUMR to review 'below-threshold' acquisitions (e.g., NVIDIA/Run:ai) that may affect competition in strategic sectors like AI."
+      - "Highlights the UK's Digital Markets, Competition and Consumers Act 2024 as a parallel regime for regulating 'Strategic Market Status' (SMS) in tech."
+    relevance: "Provides context for the competition environment surrounding space-adjacent high-tech firms."
+    anchor_suggestion: "as discussed in the European Competition Law Newsletter"
+
+  - title: "Eurospace Position Paper on the EU Space Act"
+    url: "https://eurospace.org/eurospace-position-paper-eu-space-act/"
+    type: "industry"
+    date: "2025-11-28"
+    takeaways:
+      - "Calls for the limitation of 'equivalence decisions' for third countries to protect the 'EU preference' principle for domestic operators."
+      - "Stresses the Act should rely on existing ECSS (European Cooperation for Space Standardization) and ISO standards rather than creating novel technical requirements."
+      - "Argues that the Act overlooks the potential of the European commercial Space Situational Awareness (SSA) provider ecosystem."
+    relevance: "Critical industry feedback on strategic autonomy and standardized technical criteria."
+    anchor_suggestion: "in the Eurospace position paper on the draft Act"
+
+  - title: "ICLE Comments on the Proposed EU Space Act"
+    url: "https://laweconcenter.org/resource/icle-comments-proposed-eu-space-act/"
+    type: "industry"
+    date: "2025-11-06"
+    takeaways:
+      - "Identifies a 'giga-constellation' category (Article 73) for systems with >1,000 satellites, which ICLE argues is a discriminatory threshold targeting U.S. firms while exempting EU programs like IRIS²."
+      - "Estimates compliance with the Act will increase satellite manufacturing costs by 3% to 10%."
+      - "Warns of a structural conflict of interest where EUSPA acts as both a regulator and a competitor (via IRIS² management)."
+    relevance: "Legal and economic critique of the Act from a trade perspective."
+    anchor_suggestion: "as highlighted in the ICLE regulatory comments"
+
+  - title: "Italy Approves Its First Space Economy Law"
+    url: "https://www.unipi.it/news/italy-approves-first-space-economy-law/"
+    type: "news"
+    date: "2025-06-17"
+    takeaways:
+      - "Final approval given by the Italian Senate on June 12, 2025, specifically addressing mandatory mission insurance and startup support."
+      - "Establishes the legislative framework for Italian private operators prior to the formal proposal of the EU Space Act."
+    relevance: "Records the pivotal timeline of the Italian national legislation."
+    anchor_suggestion: "following the official passage of Italy's space economy law"
+
+  - title: "Main Developments in Competition Law and Policy 2025 – Italy"
+    url: "https://competitionlawblog.kluwerarbitration.com/2026/01/27/italy-competition-law-2025/"
+    type: "report"
+    date: "2026-01-27"
+    takeaways:
+      - "Notes a shift in Italian Competition Authority (AGCM) enforcement toward 'system design' and 'operational bottlenecks' rather than just price-based infringements."
+      - "Details the Ryanair case (EUR 255M fine) as a precedent for how 'technical and contractual measures' can amount to an abuse of a dominant position via interface obstruction."
+    relevance: "Strategic view of how market access and technical standards are governed in Italy."
+    anchor_suggestion: "per the Kluwer Competition Law Blog's review of Italian policy"
+
+  - title: "Redefining the Rules for a New Generation of National Laws and Agreements in Commercial Space Mining - Opinio Juris"
+    url: "http://opiniojuris.org/2025/12/18/redefining-the-rules-space-mining/"
+    type: "industry"
+    date: "2025-12-18"
+    takeaways:
+      - "Cites Italy's Space Law (Article 4) as one of the few national frameworks regulating resource extraction on celestial bodies."
+      - "Notes the expansion of the Artemis Accords to 56 signatories as of late 2025, explicitly endorsing resource extraction under safe and sustainable norms."
+    relevance: "Analyzes the shift from speculation to reality in space resource governance."
+    anchor_suggestion: "as analyzed in the Opinio Juris review of commercial space mining"
+
+  - title: "Regulating the Final Frontier: Why the EU Space Act Matters - CELIS Institute"
+    url: "https://www.celis-institute.eu/regulating-the-final-frontier-eu-space-act/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Estimates that 15% of EU space startups are currently backed by U.S.-based venture capital, raising concerns about the Act's impact on foreign investment."
+      - "Identifies Article 19 as a 'pragmatic admission' of Europe's launch capability gap, providing derogations where no Union-based substitute exists."
+      - "Highlights the 'Kessler Syndrome' risk: one million debris fragments >1cm currently threaten active satellites."
+    relevance: "Analyzes the Act's strategic impetus and potential operational workability."
+    anchor_suggestion: "according to the CELIS Institute's analysis of space regulation"
+
+  - title: "Space Law 2025 - Italy | Global Practice Guides | Chambers and Partners"
+    url: "https://chambers.com/practice-guides/italy-space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Reports the creation of the EUR 1.1 billion IRIDE Earth-observation constellation funded via the National Recovery and Resilience Plan."
+      - "Identifies Italy's 'reserve capacity principle' (Article 25) which safeguards national satellite capacity for strategic connectivity and digital sovereignty."
+      - "Notes the rise of 'NewSpace logistics' in Italy, exemplified by D-Orbit's 17 ION orbital transfer flights by early 2025."
+    relevance: "Authoritative practice guide on the Italian space industrial base and regulatory landscape."
+    anchor_suggestion: "as documented in the Chambers Global Practice Guide for Italy"
+
+  - title: "Space Law 2025 | MLL Legal"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Germany: Reports the 2024 cornerstone for a Federal Space Law, noting the DLR's role in administering significant annual R&D expenditure."
+      - "Portugal: Cites a 43% increase in space companies between 2019 and 2023, with the licensing of the Santa Maria Island launch centre expected for 2026."
+      - "Norway: Notes the May 2025 signing of the Artemis Accords and the opening of the Andøya Spaceport for small satellite launches."
+    relevance: "Aggregated comparative legal data across multiple European jurisdictions."
+    anchor_suggestion: "in the comparative space law findings by MLL Legal"
+
+  - title: "Space and Satellite wrap up - Legal and regulatory developments in 2025 - Bird & Bird"
+    url: "https://www.twobirds.com/en/insights/2026/space-and-satellite-wrap-up-2025/"
+    type: "industry"
+    date: "2026-01-07"
+    takeaways:
+      - "Australia introduced reforms reducing the launch safety notification period from 30 to 20 days and clarifying the definition of 'accident'."
+      - "US Senate introduced the ORBITS Act of 2025 to mandate active orbital debris remediation for government and non-government operators."
+      - "2025 saw the highest number of orbital launches to date, intensifying broadband constellation competition."
+    relevance: "Global overview of legislative trends and international partnerships in 2025."
+    anchor_suggestion: "as summarized in the Bird & Bird space sector wrap-up"
+
+  - title: "The EU Space Act: Why the National Security Clause Should Be Removed"
+    url: "https://law.stanford.edu/2026/01/23/eu-space-act-security-clause/"
+    type: "report"
+    date: "2026-01-23"
+    takeaways:
+      - "Critiques Article 4 (National Security Clause) for potentially allowing Member States to exempt dual-use projects from EU standards indefinitely."
+      - "Proposes a 'repurposing ban' to prevent space objects from being declared military for exemption and then shifted back to civilian use without oversight."
+      - "Argues that Article 114 TFEU provides the legal mandate to restrict military exemptions when they appreciably impact the internal market."
+    relevance: "Academic and strategic critique of the Act's sovereignty-based loopholes."
+    anchor_suggestion: "as argued in the Stanford Space Law Society's critique of the security clause"
+
+  - title: "The New Italian Law on the Space Economy: Regulatory Framework and Incentives for Businesses - CMS"
+    url: "https://cms.law/en/ita/publication/new-italian-space-economy-law/"
+    type: "industry"
+    date: "2025-07-22"
+    takeaways:
+      - "Mandates a 'performance reserve' in public contracts, requiring that at least 10% of contract value be sub-contracted to SMEs or innovative startups."
+      - "Enforces a strict 40% advance payment on contract value for SMEs within 15 days of starting space-related services."
+      - "Sets a EUR 35 million Space Economy Fund specifically for 2025, with 70% allocated to non-repayable grants."
+      - "Introduces criminal sanctions (3–6 years imprisonment) for conducting space activities without authorization."
+    relevance: "Detailed technical breakdown of business incentives and SME protections in Italy."
+    anchor_suggestion: "per the CMS legal analysis of Italian space incentives"
+
+  - title: "The 'Third Way' to Space Power: Europe's Digital Sovereignty Advantage"
+    url: "https://law.stanford.edu/2026/01/23/third-way-space-power-europe/"
+    type: "report"
+    date: "2026-01-23"
+    takeaways:
+      - "Details the IRIS² multi-orbital constellation, consisting of 290 satellites designed for secure governmental communications and civilian broadband."
+      - "Highlights the 'concession contract' signed in December 2024 with the SpaceRISE consortium (SES, Eutelsat, Hispasat)."
+      - "Advocates for a 'EuroCloud Space' to enable GDPR-compliant data processing in-orbit, maintaining digital sovereignty over ground-based competitors."
+    relevance: "Strategic analysis of Europe's competitive edge via privacy-by-design and secure connectivity."
+    anchor_suggestion: "in the context of Europe's 'Third Way' to space power"
+
+  # === BATCH 2: Additional sources from comparative guides and specialized analyses ===
+
+  - title: "EU space act - Members' Research Service Briefing - European Parliament"
+    url: "https://www.europarl.europa.eu/RegData/etudes/BRIE/2025/775922/EPRS_BRI(2025)775922_EN.pdf"
+    type: "report"
+    date: "2025-09-22"
+    takeaways:
+      - "Article 114 TFEU (internal market) is chosen as the legal basis because Article 189 TFEU explicitly excludes law harmonization."
+      - "The Act does not apply to assets launched before January 1, 2030, or those used exclusively for defense."
+      - "Introduces a 'Union Register of Space Objects' (URSO) managed by EUSPA."
+      - "Operators must submit environmental footprint declarations as part of their authorization applications."
+    relevance: "Provides technical details on the legal basis, scope, and specific technical requirements of the formal proposal."
+    anchor_suggestion: "per the EPRS Members' Research Service briefing on the EU Space Act"
+
+  - title: "EU space act | Think Tank - European Parliament"
+    url: "https://www.europarl.europa.eu/thinktank/en/document/EPRS_BRI(2025)775922"
+    type: "report"
+    date: "2025-09-22"
+    takeaways:
+      - "Confirms the referral of the legislative file to the ITRE committee with Elena Donazzan as rapporteur."
+      - "Summarizes the Act's role in supporting EU sovereignty and economy as highlighted by the Draghi report."
+    relevance: "Procedural status and thematic keywords for the legislation within the European Parliament."
+    anchor_suggestion: "as tracked by the European Parliament Think Tank"
+
+  - title: "Italy's first Space Economy Law has come into force - Bird & Bird"
+    url: "https://www.twobirds.com/en/insights/2025/italy-space-economy-law/"
+    type: "news"
+    date: "2025-06-27"
+    takeaways:
+      - "Law No. 1415 on the Space Economy recognizes space as a strategic crossroads for military, economic, and scientific interests."
+      - "The law aims to regulate access and encourage investment in the emerging space sector."
+    relevance: "Early summary of the newly enacted Italian legal framework."
+    anchor_suggestion: "as reported by Bird & Bird on Italy's space economy law"
+
+  - title: "New Italian Space Law And The EU Space Act: The Latest Analysis Of Sergio Marchisio"
+    url: null
+    type: "industry"
+    date: "2025-06-25"
+    takeaways:
+      - "Sergio Marchisio emphasizes that 'complementarity' is key to the relationship between the EU Space Act and national space laws."
+      - "Authorizations should remain a Member State competence while technical requirements are unified at the EU level."
+      - "Highlights the decade-long effort toward creating an Italian national registry for space objects."
+    relevance: "Authoritative legal perspective on the historical development and intended synergy between Italian and EU space regulations."
+    anchor_suggestion: "according to the analysis of Professor Sergio Marchisio"
+
+  - title: "The EU Space Act: A new proposal, towards a European space economy - Hogan Lovells"
+    url: "https://www.hoganlovells.com/en/publications/eu-space-act-new-proposal/"
+    type: "industry"
+    date: "2025-07-14"
+    takeaways:
+      - "The EU Space Act is designated as lex specialis over the NIS 2 Directive for space operators."
+      - "Compliance costs for launch service providers are estimated between EUR 200,000 and EUR 1.5 million per mission."
+      - "The Act will formally apply from January 1, 2030."
+    relevance: "Highlights technical requirements for risk management and financial impact on operators."
+    anchor_suggestion: "as analyzed in the Hogan Lovells assessment of the EU Space Act"
+
+  - title: "THE GLOBAL REGULATORY DEVELOPMENTS JOURNAL"
+    url: null
+    type: "report"
+    date: "2026-01-01"
+    takeaways:
+      - "The EU Space Act creates a Single Market for Space and supports startups by reducing administrative burdens."
+      - "Third-country operators must obtain e-certificates for registration in URSO if they provide services with an EU nexus."
+      - "Governance remains 'two-tiered,' involving both national regulators and the Commission/ESA at the EU level."
+    relevance: "Reviews the ambitious scope and governance structure of the EU Space Act as it enters the legislative process."
+    anchor_suggestion: "per the Global Regulatory Developments Journal review"
+
+  - title: "2025: A Turning Point for Space Activity Regulation"
+    url: "https://www.simmons-simmons.com/en/publications/cmdrdg2xd00jcu11ofw9m8sqa/2025-a-turning-point-for-space-activity-regulation"
+    type: "industry"
+    date: "2025"
+    takeaways:
+      - "Frames 2025 as a watershed year with both the Italian Space Law and EU Space Act emerging in close succession."
+      - "Highlights the regulatory convergence challenge between national frameworks and supranational harmonization."
+    relevance: "Contextual framing of 2025 as a pivotal regulatory year."
+    anchor_suggestion: "as identified in the Simmons & Simmons analysis of 2025 regulatory trends"
+
+  # === Comparative jurisdiction guides (MLL Legal) ===
+
+  - title: "Space Law 2025 | MLL Legal - France"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "France's Space Operations Act (LOS) of 2008 remains the primary framework, refined for constellations."
+      - "Technical regulations include strict requirements for de-orbiting plans (25-year limit) to preserve space as a common good."
+      - "Space data affecting national defense is subject to review, while scientific data follows open-access policies."
+    relevance: "French regulatory model emphasizing sustainability-by-design."
+    anchor_suggestion: "according to MLL Legal's analysis of French space law"
+
+  - title: "Space Law 2025 | MLL Legal - Germany"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Germany still lacks its first designated space law, though cornerstones were published in late 2024."
+      - "Satellite data security is regulated under the SatDSiG act to protect national security."
+      - "The new government re-organized the former education ministry into the Ministry of Technology, Research and Space."
+    relevance: "Germany's evolving path toward a national space act."
+    anchor_suggestion: "per MLL Legal's assessment of German space law developments"
+
+  - title: "Space Law 2025 | MLL Legal - India"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "The Indian Space Policy 2023 shifted ISRO's role toward research and development, enabling private sector growth."
+      - "IN-SPACe acts as a single-window autonomous nodal agency for private sector authorization."
+      - "The 2023 Telecommunications Act shifted satellite spectrum allocation to an administrative process rather than an auction."
+    relevance: "India's rapid liberalization and new institutional roles."
+    anchor_suggestion: "as documented in MLL Legal's Indian space law overview"
+
+  - title: "Space Law 2025 | MLL Legal - Japan"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Japan enacted the Space Resources Act in 2021 to allow private ownership of extracted resources."
+      - "Major amendments to the Space Activities Act are scheduled for 2026 to address suborbital flights and reusable rockets."
+      - "The government established a JPY 1 trillion Space Strategic Fund to support startups and research over ten years."
+    relevance: "Japan's aggressive support for the commercial lunar economy."
+    anchor_suggestion: "in MLL Legal's review of Japanese space legislation"
+
+  - title: "Space Law 2025 | MLL Legal - Norway"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Norway enacted one of the world's first space acts in 1969, and is currently drafting a modern replacement."
+      - "The country opened Andøya Spaceport in 2024 to facilitate rocket launches from Norwegian soil."
+      - "Norway signed the Artemis Accords in May 2025."
+    relevance: "Norway's transition from scientific probe launches to commercial launch hub."
+    anchor_suggestion: "as reported in MLL Legal's Norwegian space law chapter"
+
+  - title: "Space Law 2025 | MLL Legal - Portugal"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "The 'New Space Portugal Agenda' project includes the Atlantic constellation and a pilot data space called Digital Planet."
+      - "Portugal allows for 'blanket' and 'joint' licenses to grant flexibility to constellation operators."
+      - "The country is establishing a launch center on Santa Maria Island in the Azores for operations starting in 2026."
+    relevance: "Portugal's strategic use of EU recovery funds for downstream and launch development."
+    anchor_suggestion: "per MLL Legal's Portuguese space sector analysis"
+
+  - title: "Space Law 2025 | MLL Legal - South Korea"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "The Korea AeroSpace Administration (KASA) was established in May 2024 to oversee all aspects of space policy."
+      - "South Korea aims for a lunar landing by 2032 and a Mars landing by 2045."
+      - "The space development budget is set to increase to over KRW 1.5 trillion."
+    relevance: "South Korea's long-term objectives to become a leading space power."
+    anchor_suggestion: "according to MLL Legal's South Korean space overview"
+
+  - title: "Space Law 2025 | MLL Legal - Switzerland"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Switzerland published a draft Federal Act on Space Activities in January 2025 to implement UN treaty obligations."
+      - "The country invests over CHF 300 million annually in space activities."
+      - "Swiss startups are leading debris removal missions like ClearSpace-1, supported by ESA."
+    relevance: "Switzerland's commitment to space sustainability and scientific instrumentation leadership."
+    anchor_suggestion: "per MLL Legal's Swiss space law analysis"
+
+  - title: "Space Law 2025 | MLL Legal - UK"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "The UK aims to be Europe's leading provider of commercial small satellite launch services by 2030."
+      - "SaxaVord Spaceport received the first vertical launch license in Western Europe in December 2023."
+      - "UK ranks second only to the U.S. in attracting private investment in the global space sector."
+    relevance: "UK's mature legislative framework and push toward global launch destination."
+    anchor_suggestion: "as detailed in MLL Legal's UK space law chapter"
+
+  - title: "Space Law 2025 | MLL Legal - Italy"
+    url: "https://www.mll-legal.com/space-law-2025/"
+    type: "report"
+    date: "2025-07-10"
+    takeaways:
+      - "Law No. 89/2025 aligns Italian domestic rules with global standards and provides clarity for NewSpace investors."
+      - "ASI handles technical evaluations while the Presidency of the Council of Ministers acts as the political licensing authority."
+      - "Cybersecurity compliance is an express condition for every mission license."
+    relevance: "Implementation details of Italy's 2025 law and the resulting one-stop licensing desk."
+    anchor_suggestion: "in MLL Legal's Italian space law practice guide"
+
+  # === Remaining specialized sources ===
+
+  - title: "Feedback from: CEN-CENELEC - European Union"
+    url: "https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/13971-EU-Space-Act-new-rules-for-safe-resilient-and-sustainable-space-activities/F33113182_en"
+    type: "official_document"
+    date: "2025-11"
+    takeaways:
+      - "Direct feedback submission to the EU Better Regulation portal from CEN-CENELEC on space standardization."
+    relevance: "Primary regulatory feedback channel for standardization bodies."
+    anchor_suggestion: "as submitted through the EU Better Regulation feedback portal"
+
+  - title: "ISPI Policy Paper on European Strategic Autonomy"
+    url: "https://www.esteri.it/wp-content/uploads/2025/11/ISPI_Autonomia-strategica-europea-policy-paper.pdf"
+    type: "report"
+    date: "2025-11"
+    takeaways:
+      - "Frames European strategic autonomy within a broader geopolitical context including space policy."
+    relevance: "Italian foreign policy perspective on strategic autonomy."
+    anchor_suggestion: "as outlined in the ISPI policy paper on European strategic autonomy"

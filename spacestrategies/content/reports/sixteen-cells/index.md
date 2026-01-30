@@ -386,8 +386,8 @@ While the complete four-dimensional framework provides comprehensive analytical 
         <div class="big"><a href="/technologies">technologies</a></div>
         <a href="/technologies/transport-systems" class="subcategory-link">transport systems</a>
         <a href="/technologies/spacecrafts" class="subcategory-link">spacecrafts</a>
-        <a href="/technologies/ground-systems" class="subcategory-link">ground-systems</a>
-        <a href="/technologies/planetary-systems" class="subcategory-link">planetary systems</a>
+        <a href="/technologies/ground-systems" class="subcategory-link">ground systems</a>
+        <a href="/technologies/planetary-infrastructures" class="subcategory-link">planetary infrastructures</a>
     </div>
     <div class="column">
         <div class="big"><a href="/stakeholders">stakeholders</a></div>
@@ -398,10 +398,10 @@ While the complete four-dimensional framework provides comprehensive analytical 
     </div>
     <div class="column">
         <div class="big"><a href="/purposes">purposes</a></div>
-        <a href="/purposes/knowledge-expansion" class="subcategory-link">knowledge-expansion</a>
-        <a href="/purposes/terrestrial-services" class="subcategory-link">terrestrial-services</a>
-        <a href="/purposes/economic-development" class="subcategory-link">economic-development</a>
-        <a href="/purposes/education-outreach" class="subcategory-link">education-outreach</a>
+        <a href="/purposes/knowledge-expansion" class="subcategory-link">knowledge expansion</a>
+        <a href="/purposes/terrestrial-services" class="subcategory-link">terrestrial services</a>
+        <a href="/purposes/economic-development" class="subcategory-link">economic development</a>
+        <a href="/purposes/space-exploration" class="subcategory-link">spaceexploration</a>
     </div>
 </div>
 
