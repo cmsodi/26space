@@ -26,11 +26,11 @@ into one self-contained, reusable package. Each recipe defines its own steps, pr
 ## Architecture Overview
 
 ```
-CLI: python strategic_orchestrator.py --recipe four-causes [--topic "..."] [--context briefing.yaml]
+CLI: python run.py --recipe four-causes [--topic "..."] [--context briefing.yaml]
                     │
                     ▼
          ┌──────────────────┐
-         │  Entry Point     │  strategic_orchestrator.py
+         │  Entry Point     │  run.py
          │  --recipe flag   │
          └────────┬─────────┘
                   │
@@ -109,7 +109,7 @@ _research/
 │   └── orchestrator.py                   # Import utilities from src/utils.py
 │                                         # (replace internal methods with shared functions)
 │
-├── strategic_orchestrator.py             # Add --recipe, --list-recipes, --topic flags
+├── run.py             # Add --recipe, --list-recipes, --topic flags
 └── CLAUDE.md                             # Document recipe system
 ```
 
@@ -801,7 +801,7 @@ def _get_document_filename(self) -> str:
 
 This keeps backward compatibility (methods still exist on the class) while sharing the logic.
 
-### 8. `strategic_orchestrator.py` (MODIFY)
+### 8. `run.py` (MODIFY)
 
 Add recipe CLI handling:
 
@@ -834,8 +834,8 @@ from src import RecipeRunner, discover_recipes
             recipe_name = sys.argv[recipe_idx + 1]
         except (ValueError, IndexError):
             print("Error: --recipe requires a recipe name")
-            print("   Usage: python strategic_orchestrator.py --recipe four-causes")
-            print("   List:  python strategic_orchestrator.py --list-recipes")
+            print("   Usage: python run.py --recipe four-causes")
+            print("   List:  python run.py --list-recipes")
             sys.exit(1)
 
         # Optional: topic from CLI or interactive prompt
@@ -892,25 +892,25 @@ from src import RecipeRunner, discover_recipes
 
 ```bash
 # List available recipes
-python strategic_orchestrator.py --list-recipes
+python run.py --list-recipes
 
 # Run a recipe (interactive topic prompt)
-python strategic_orchestrator.py --recipe four-causes
+python run.py --recipe four-causes
 
 # Run with topic specified
-python strategic_orchestrator.py --recipe four-causes --topic "European Launch Autonomy"
+python run.py --recipe four-causes --topic "European Launch Autonomy"
 
 # Run with context documents
-python strategic_orchestrator.py --recipe nine-windows --topic "Lunar PNT" --context context_documents/briefing.yaml
+python run.py --recipe nine-windows --topic "Lunar PNT" --context context_documents/briefing.yaml
 
 # Verbose mode (works with all existing flags)
-python strategic_orchestrator.py --recipe four-pillars --topic "..." -v
+python run.py --recipe four-pillars --topic "..." -v
 ```
 
 ### Complete CLI (updated)
 
 ```
-python strategic_orchestrator.py [MODE] [OPTIONS]
+python run.py [MODE] [OPTIONS]
 
 Modes (mutually exclusive):
   (none)              Run test suite
@@ -951,7 +951,7 @@ Common options:
 
 ### Phase 3: CLI Integration
 
-9. **Add `--recipe`, `--list-recipes`, `--topic`, `--context` to `strategic_orchestrator.py`**
+9. **Add `--recipe`, `--list-recipes`, `--topic`, `--context` to `run.py`**
 10. **Test with simple recipe** (four-causes): end-to-end execution
 
 ### Phase 4: Recipe Content
@@ -965,7 +965,7 @@ Common options:
 
 15. **Update `CLAUDE.md`** — Add recipe section
 16. **Update `START_HERE.md`** — Add recipe quick start
-17. **Add recipe test** to default test mode in `strategic_orchestrator.py`
+17. **Add recipe test** to default test mode in `run.py`
 
 ---
 
@@ -1082,7 +1082,7 @@ assert "Scenario" in result
 
 ```bash
 # Requires ANTHROPIC_API_KEY
-python strategic_orchestrator.py --recipe four-causes --topic "Test topic" -v
+python run.py --recipe four-causes --topic "Test topic" -v
 # Verify: output/test-topic/index.md exists and has valid frontmatter
 ```
 
@@ -1121,7 +1121,7 @@ No code changes needed in the core system.
 | `src/config.py` | MODIFY | Add `RECIPES_PATH` constant |
 | `src/__init__.py` | MODIFY | Add recipe + utils exports |
 | `src/orchestrator.py` | MODIFY | Import from utils, delegate 4 methods |
-| `strategic_orchestrator.py` | MODIFY | Add --recipe, --list-recipes, --topic, --context flags |
+| `run.py` | MODIFY | Add --recipe, --list-recipes, --topic, --context flags |
 | `.claude/recipes/four-causes/` | CREATE | recipe.yaml + prompts (from qualcosa) |
 | `.claude/recipes/nine-windows/` | CREATE | recipe.yaml + prompts (from qualcosa) |
 | `.claude/recipes/four-pillars/` | CREATE | recipe.yaml + references (prompts = future task) |

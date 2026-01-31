@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 """
-strategic_orchestrator.py
+run.py
 Entry point for the Strategic Analysis Orchestrator.
 
 This is a simplified entry point that imports from the modular src/ package.
 For the full implementation, see src/orchestrator.py.
 
 Usage:
-  python strategic_orchestrator.py                    # Run tests
-  python strategic_orchestrator.py --run              # Interactive mode (parallel)
-  python strategic_orchestrator.py --run --seq        # Sequential mode
-  python strategic_orchestrator.py --run --save       # Auto-save checkpoints
-  python strategic_orchestrator.py --resume FILE      # Resume from saved state
-  python strategic_orchestrator.py --from-folder DIR  # Reuse analyst reports from folder
+  python run.py                    # Run tests
+  python run.py --run              # Interactive mode (parallel)
+  python run.py --run --seq        # Sequential mode
+  python run.py --run --save       # Auto-save checkpoints
+  python run.py --resume FILE      # Resume from saved state
+  python run.py --from-folder DIR  # Reuse analyst reports from folder
+
+Editorial mode:
+  python run.py --editorial                   # Interactive topic + research + analysis
 
 Recipe mode:
-  python strategic_orchestrator.py --list-recipes               # Show available recipes
-  python strategic_orchestrator.py --recipe NAME                # Run recipe (interactive topic)
-  python strategic_orchestrator.py --recipe NAME --topic TEXT   # Run recipe with topic
-  python strategic_orchestrator.py --recipe NAME --context FILE # With context documents
+  python run.py --list-recipes               # Show available recipes
+  python run.py --recipe NAME                # Run recipe (interactive topic)
+  python run.py --recipe NAME --topic TEXT   # Run recipe with topic
+  python run.py --recipe NAME --context FILE # With context documents
 
 Error recovery options:
   --no-graceful                                       # Abort on failures
@@ -68,6 +71,11 @@ from src import (
     StrategicOrchestrator,
     # Recipe
     RecipeRunner, discover_recipes, load_recipe,
+    # Editorial
+    select_or_create_topic, build_problem_from_item,
+    load_editorial_plan, update_item_status,
+    CONTEXT_DOCUMENTS_PATH,
+    ensure_unique_slug,
 )
 
 
@@ -138,6 +146,27 @@ def main():
             print("No recipes found in .claude/recipes/")
         return
 
+    # EDITORIAL MODE
+    if "--editorial" in sys.argv:
+        from src.editorial import run_editorial_workflow
+        try:
+            run_editorial_workflow(
+                verbose=verbose_mode,
+                parallel_analysts="--seq" not in sys.argv and "--sequential" not in sys.argv,
+                auto_save="--save" in sys.argv,
+                graceful_degradation=graceful_degradation,
+                auto_recovery=auto_recovery,
+                max_analyst_retries=max_retries,
+            )
+        except KeyboardInterrupt:
+            print("\n\nInterrupted by user.")
+        except Exception as e:
+            print(f"\nEditorial workflow failed: {e}")
+            if verbose_mode:
+                import traceback
+                traceback.print_exc()
+        return
+
     # RECIPE MODE
     if "--recipe" in sys.argv:
         try:
@@ -145,8 +174,8 @@ def main():
             recipe_name = sys.argv[recipe_idx + 1]
         except (ValueError, IndexError):
             print("Error: --recipe requires a recipe name")
-            print("   Usage: python strategic_orchestrator.py --recipe four-causes")
-            print("   List:  python strategic_orchestrator.py --list-recipes")
+            print("   Usage: python run.py --recipe four-causes")
+            print("   List:  python run.py --list-recipes")
             sys.exit(1)
 
         # Optional: topic from CLI or interactive prompt
@@ -205,7 +234,7 @@ def main():
             state_file = sys.argv[resume_idx + 1]
         except (ValueError, IndexError):
             print("❌ Error: --resume requires a filepath argument")
-            print("   Usage: python strategic_orchestrator.py --resume path/to/state.yaml")
+            print("   Usage: python run.py --resume path/to/state.yaml")
             sys.exit(1)
 
         if verbose_mode:
@@ -246,7 +275,7 @@ def main():
             folder_path = sys.argv[folder_idx + 1]
         except (ValueError, IndexError):
             print("❌ Error: --from-folder requires a directory path argument")
-            print("   Usage: python strategic_orchestrator.py --from-folder output/my-analysis_1")
+            print("   Usage: python run.py --from-folder output/my-analysis_1")
             sys.exit(1)
 
         if verbose_mode:
@@ -304,30 +333,63 @@ def main():
             if max_retries != 2:
                 print(f"Max analyst retries: {max_retries}")
 
-        problem = get_input("Enter analysis problem")
-        if problem:
-            orch = StrategicOrchestrator(
-                parallel_analysts=parallel_mode,
-                auto_save=auto_save,
-                graceful_degradation=graceful_degradation,
-                auto_recovery=auto_recovery,
-                max_analyst_retries=max_retries,
-                verbose=verbose_mode
-            )
-            try:
-                result = orch.run(problem)
-                if result:
-                    doc_path = orch._save_final_document(result)
-                    print(f"\n  📄 Final document saved to: {doc_path}")
+        # --- Topic selection: editorial plan ID or free-form problem ---
+        result = select_or_create_topic()
+        if result is None:
+            return
+        items, selected = result
 
-            except KeyboardInterrupt:
-                print("\n\n⚠ Interrupted by user")
-                if confirm("Save current state before exiting?"):
-                    orch.save_state()
-            except Exception as e:
-                print(f"\n❌ Analysis aborted: {e}")
-                if confirm("Save current state for debugging?"):
-                    orch.save_state()
+        problem = build_problem_from_item(selected)
+
+        # Set status to drafting
+        if selected.get("status", "tbd") == "tbd":
+            items = update_item_status(items, selected["id"], "drafting")
+            print(f"  Status updated to 'drafting'")
+
+        # Ensure context folder exists
+        slug = selected["slug"]
+        context_dir = CONTEXT_DOCUMENTS_PATH / slug
+        context_dir.mkdir(parents=True, exist_ok=True)
+
+        orch = StrategicOrchestrator(
+            parallel_analysts=parallel_mode,
+            auto_save=auto_save,
+            graceful_degradation=graceful_degradation,
+            auto_recovery=auto_recovery,
+            max_analyst_retries=max_retries,
+            verbose=verbose_mode
+        )
+
+        # Pre-set slug from editorial item
+        orch.state.slug = ensure_unique_slug(slug)
+
+        # Pass editorial item for NotebookLM research (used by _handle_user_research)
+        orch.editorial_item = selected
+
+        # Pre-load any existing context documents for this topic
+        for yaml_file in sorted(context_dir.glob("*.yaml")):
+            orch._load_research_briefing(str(yaml_file))
+        if orch.state.context_documents:
+            print(f"  Pre-loaded {len(orch.state.context_documents)} L0 sources from {context_dir.name}/")
+
+        try:
+            result = orch.run(problem)
+            if result:
+                doc_path = orch._save_final_document(result)
+                print(f"\n  📄 Final document saved to: {doc_path}")
+                # Update editorial status to finalized
+                items = load_editorial_plan()
+                update_item_status(items, selected["id"], "finalized")
+                print(f"  Editorial status updated to 'finalized'")
+
+        except KeyboardInterrupt:
+            print("\n\n⚠ Interrupted by user")
+            if confirm("Save current state before exiting?"):
+                orch.save_state()
+        except Exception as e:
+            print(f"\n❌ Analysis aborted: {e}")
+            if confirm("Save current state for debugging?"):
+                orch.save_state()
         return
 
     # TEST MODE (default)

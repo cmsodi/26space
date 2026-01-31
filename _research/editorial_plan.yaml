@@ -5,6 +5,7 @@
   analytical_angle: "Interoperability as a neutral ground. Analyze if technical standards can prevent geopolitical friction in cislunar space."
   deep_prompt: "Develop a BLUF briefing for space agency executives. Focus on the technical necessity of a unified lunar time standard. Use the White House 2024 memo as a baseline but analyze the friction with alternative ILRS standards. Argument: standardization is the only way to protect multi-billion dollar logistics investments."
   slug: "lunar-pnt-battle-prime-meridian-moon"
+  status: "drafting" # tbd | drafting | editing | finalized
 
 - id: 2
   title: "AfSA & ALCE: The Regional Shield Against Orbital Hegemony"
@@ -12,6 +13,7 @@
   analytical_angle: "South-South cooperation as a 'Third Way' beyond US-China bipolarity. Resilience through shared infrastructure."
   deep_prompt: "Draft an industrial vision report using the Minto-Custom framework. Argue that regional agencies like AfSA and ALCE are shifting from prestige missions to utilitarian data sovereignty. Focus on the 2025 Cairo inauguration and its impact on the Global South's bargaining power."
   slug: "afsa-alce-regional-shield-orbital-hegemony"
+  status: "drafting" # tbd | drafting | editing | finalized
 
 - id: 3
   title: "The Italian Space Law 2025: Regulatory Pilot for Europe?"
@@ -19,6 +21,7 @@
   analytical_angle: "Pragmatic nationalism vs. EU harmonization. Evaluate if Italy's move accelerates or fragments the Single Market."
   deep_prompt: "Act as a Critical Analyst. Using a POR structure, evaluate the Italian Law 89/2025. Contrast national autonomy with the need for EU-wide harmonization. Challenge the assumption that national laws are sufficient for resource extraction. Target: Space policy-makers."
   slug: "italian-space-law-2025-regulatory-pilot-europe"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 4
   title: "The Myth of ITAR-Free: Global Supply Chain Realities in 2026"
@@ -26,6 +29,7 @@
   analytical_angle: "Pragmatic decoupling. ITAR-free is often a marketing label; true independence requires vertical industrial sovereignty."
   deep_prompt: "Construct a persuasive analysis using an Hypothesis-Driven model. Challenge the 'ITAR-free' claim by analyzing the deep supply chain of 2025-2026 missions. Distinguish between 'Label' and 'Sovereignty'. Target audience: Procurement officers and industrial strategists."
   slug: "myth-itar-free-global-supply-chain-realities-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 5
   title: "BRICS Virtual Constellation: Beyond Geopolitical Propaganda"
@@ -33,6 +37,7 @@
   analytical_angle: "Utilitarian integration. Focus on data-sharing latency and ground-station interoperability between India, China, and Brazil."
   deep_prompt: "Synthesize the outcomes of the 2025 BRICS space meetings into a BLUF report. Move past political rhetoric to evaluate the 'Virtual Constellation's' actual performance in climate monitoring. Address the reduction of technological asymmetries within the bloc."
   slug: "brics-virtual-constellation-geopolitical-propaganda"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 6
   title: "Lunar Mining Ethics: Planetary Stewardship vs. Extractivism"
@@ -40,6 +45,7 @@
   analytical_angle: "Utilitarian stewardship: Arguments for a 'Circular Space Economy' as the only viable long-term business model for the Moon."
   deep_prompt: "Draft an ethical-strategic vision using the Minto Pyramid. Contrast the 'Province of all Mankind' principle with commercial extraction. Use the concept of 'Planetary Stewardship' to propose a compromise for resource sharing. Target: International law experts."
   slug: "lunar-mining-ethics-planetary-stewardship-extractivism"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 7
   title: "Starlink in Italy: LEO Constellations as Crisis Infrastructure"
@@ -47,6 +53,7 @@
   analytical_angle: "Balancing operational efficiency with sovereignty considerations. Analyze the complementary role of private and institutional systems."
   deep_prompt: "Using a POR structure, analyze the Italian case study of Starlink during urban evacuations. Evaluate the operational benefits while considering a dual-use strategy incorporating IRIS² for institutional needs. Recognize SpaceX's innovation in rapid deployment."
   slug: "starlink-italy-leo-constellations-crisis-infrastructure"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 8
   title: "Mandatory STM: Internalizing the Cost of Space Debris"
@@ -54,6 +61,7 @@
   analytical_angle: "The 'Kessler Tax'. Evaluate STM as a necessary economic requirement for satellite insurance and long-term sustainability."
   deep_prompt: "Synthesize the 2025 ESA and UN debris mitigation reports into a BLUF for insurance executives. Explain why 'Voluntary' is dead and 'Mandatory' is the only way to protect LEO asset valuations. Define the 'economic Kessler syndrome'."
   slug: "mandatory-stm-internalizing-cost-space-debris"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 9
   title: "KASA: South Korea's 2026 Moonshot Strategy"
@@ -61,6 +69,7 @@
   analytical_angle: "The 'Fast Follower' pivot. How South Korea is transitioning from launcher development to lunar economic participation."
   deep_prompt: "Draft a BLUF briefing for international space partners. Evaluate KASA's role as a new middle-power player. Explain how their lunar mission roadmap (2032) is being accelerated to match JAXA and ISRO. Focus on industrial spillover for the Korean defense sector."
   slug: "kasa-south-korea-2026-moonshot-strategy"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 10
   title: "The India-U.S. TRUST Initiative: A New Partnership Model"
@@ -68,6 +77,7 @@
   analytical_angle: "India as the 'Bridge State'. Analyze how India leverages US tech while maintaining leadership in the Global South."
   deep_prompt: "Construct an Hypothesis-Driven analysis of the 2025 TRUST initiative. Argue that India is using this partnership to leapfrog China in lunar logistics while maintaining 'strategic autonomy'. Focus on the joint astronaut mission and technology transfer."
   slug: "india-u-s-trust-initiative-new-partnership-model"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 11
   title: "Unstealing the Sky: Dark Skies as Global Heritage"
@@ -75,6 +85,7 @@
   analytical_angle: "Planetary Ethics. The 'Right to the Stars' as a universal human right vs. the 'Right to Connectivity'."
   deep_prompt: "Draft a Minto-style report for the UN General Assembly. Argue that the night sky is a 'cultural commons' being eroded by private constellations. Use the 2025 IAU report to support a call for global regulation of satellite reflectivity."
   slug: "unstealing-sky-dark-skies-global-heritage"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 12
   title: "Russian Lunar Power: The Roscosmos-Lavochkin 2036 Contract"
@@ -82,6 +93,7 @@
   analytical_angle: "Energy as a Geopolitical Lever. Whoever powers the lunar south pole controls the operational tempo of all partners."
   deep_prompt: "Synthesize the 2025 Roscosmos-Lavochkin contract into a BLUF report. Focus on the 'Zeus' nuclear propulsion heritage and its application to lunar power. Explain why this makes Russia an indispensable technical anchor for the ILRS."
   slug: "russian-lunar-power-roscosmos-lavochkin-2036-contract"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 13
   title: "Lunar Safety Zones: Operational Deconfliction or De Facto Possession?"
@@ -89,6 +101,7 @@
   analytical_angle: "Functional Sovereignty. How to implement 'safety zones' through technical standards (CCSDS) to avoid violating non-appropriation rules."
   deep_prompt: "Using a POR model, evaluate the competing Chinese and US visions for 'Safety Zones'. Recommend a multilateral 'Operational Deconfliction' protocol to prevent the perception of territorial claims. Focus on 'Due Regard' from the OST."
   slug: "lunar-safety-zones-operational-deconfliction-de-facto-possession"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 14
   title: "Small-Sats for Small Nations: Democratizing Space Access"
@@ -96,6 +109,7 @@
   analytical_angle: "Utility over Prestige. Small-sats as sovereign tools for climate resilience, skipping the expensive 'legacy' path."
   deep_prompt: "Draft an executive briefing for Global South ministers. Using a BLUF structure, explain how 2025-2026 SmallSat technology allows for immediate disaster risk reduction (DRR) without reliance on Western commercial data. Focus on cost/benefit."
   slug: "small-sats-small-nations-democratizing-space-access"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 15
   title: "Circular Space Economy: The In-Orbit Servicing Market (2026)"
@@ -103,6 +117,7 @@
   analytical_angle: "Sustainability as Profit. Analyze refueling and repair as the next multi-billion dollar frontier in orbital logistics."
   deep_prompt: "Draft an industrial vision report using a Minto structure. Argue that the 'Circular Space Economy' is no longer elective but mandatory for financial resilience. Highlight 2025 breakthroughs in robotic docking and refueling standards."
   slug: "circular-space-economy-in-orbit-servicing-market-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 16
   title: "IRIS² vs. Starlink: Complementary Models for Global Connectivity"
@@ -110,6 +125,7 @@
   analytical_angle: "Complementary rather than competing models. IRIS² for institutional security, Starlink for commercial scale—both have distinct value propositions."
   deep_prompt: "Construct an Hypothesis-Driven analysis. Argue that IRIS² and Starlink serve different market segments and can coexist. Recognize SpaceX's achievement in scaling while highlighting IRIS²'s unique security value for government operations. Target: EU policy-makers."
   slug: "iris2-starlink-complementary-models-global-connectivity"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 17
   title: "ADR Liability: Who Pays for the 'Broom'?"
@@ -117,6 +133,7 @@
   analytical_angle: "The Liability Trap. Solving the paradox where the state removing debris might be liable for accidental orbital collisions."
   deep_prompt: "Using a POR structure, evaluate the legal liability frameworks for ADR. Propose a global 'Debris Insurance Fund' to mitigate the risk for service providers. Analyze the impact of the 'Due Regard' principle on operational safety."
   slug: "adr-liability-pays-broom"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 18
   title: "The Alcantara Paradox: Brazil's Equatorial Advantage"
@@ -124,6 +141,7 @@
   analytical_angle: "Logistics over Latitude. Geography is a starting point, but without deep industrial integration, Alcantara remains a 'sleeping giant'."
   deep_prompt: "Synthesize the 2025 RAND report into a BLUF for investors. Explain why Alcantara is the key to South American space sovereignty but highlight the missing 'last mile' infrastructure. Recommend public-private partnerships to bridge the gap."
   slug: "alcantara-paradox-brazil-equatorial-advantage"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 19
   title: "Optical Comms: Ending the RF Spectrum Congestion"
@@ -131,6 +149,7 @@
   analytical_angle: "Standardization as Power. Whoever defines the optical protocol controls the 'Internet of Space Things'."
   deep_prompt: "Construct a BLUF report on the 2025 optical communication results. Argue that laser comms are the only way to support the data load of 2030 lunar bases. Highlight the need for global interoperability standards to avoid proprietary silos."
   slug: "optical-comms-ending-rf-spectrum-congestion"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 20
   title: "The UN 'Pact for the Future': A New Mandate for Space?"
@@ -138,6 +157,7 @@
   analytical_angle: "Multilateral Realism. Moving from grand treaties to functional, technical cooperation that bypasses geopolitical vetoes."
   deep_prompt: "Draft a Minto-style summary of the 'Pact for the Future' progress. Analyze the shift from political rhetoric to technical data-sharing hubs. Evaluate if the 2025 UN repository for space sustainability is actually being used by member states."
   slug: "un-pact-future-new-mandate-space"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 21
   title: "Lunar Resource Rights: OST Article II in 2026"
@@ -145,6 +165,7 @@
   analytical_angle: "Legal Evolution. National laws are not 'breaking' the OST but creating 'evolutive' interpretations that allow mining without possession."
   deep_prompt: "Construct an Hypothesis-Driven analysis challenging the view that lunar mining is illegal. Use recent Italian and UAE laws to argue that a new customary law is emerging. Recommend a 'Benefit Sharing' mechanism to ensure Global South inclusion."
   slug: "lunar-resource-rights-ost-article-ii-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 22
   title: "The \$1.8 Trillion Space Economy: From Hype to Resilience"
@@ -152,6 +173,7 @@
   analytical_angle: "Execution over Excitement. The 2026 market values players who can scale dual-use services rather than just speculative technology."
   deep_prompt: "Synthesize the 2026 Novaspace report into a BLUF for financial analysts. Contrast the 'pre-2024 hype' with the current focus on execution discipline and EBITDA. Identify LEO-based climate analytics as the highest growth sub-sector."
   slug: "1-8-trillion-space-economy-hype-resilience"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 23
   title: "In-Orbit Servicing (IOS): Establishing Global Interoperability Standards"
@@ -159,6 +181,7 @@
   analytical_angle: "The 'Gas Station' of Space. Analyze how the first mover in docking standards will control the orbital service market."
   deep_prompt: "Act as a Market Analyst for a space logistics firm. Using a POR structure, evaluate the 2025 CONFERS recommendations. Argue that without standardized docking interfaces, the IOS market will remain a niche for government-funded 'prestige' missions instead of a scalable commercial ecosystem."
   slug: "in-orbit-servicing-ios-establishing-global-interoperability-standards"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 24
   title: "European SSA: Protecting Critical Infrastructure in a Contested LEO"
@@ -166,6 +189,7 @@
   analytical_angle: "Intelligence over Observation. SSA is no longer just tracking debris; it's about identifying 'hostile intent' in orbit."
   deep_prompt: "Draft a BLUF briefing for an EU defense subcommittee. Synthesize the 2025 EUSST report. Explain why Europe must integrate civilian and military SSA to protect critical assets like Galileo and Copernicus. Focus on 'Strategic Autonomy' through data fusion."
   slug: "european-ssa-protecting-critical-infrastructure-contested-leo"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 25
   title: "The German Space Strategy 2023-2026: Mid-Term Impact Review"
@@ -173,6 +197,7 @@
   analytical_angle: "Industrial Realism. Evaluate if Germany's focus on 'Earth-based utility' has successfully reduced public costs while maintaining technical leadership."
   deep_prompt: "Using a Minto-Custom framework, analyze the execution of the German Space Strategy (2023). Focus on the 'Utility Principle'—did the investments in downstream services generate the expected ROI for German industries like automotive and logistics? Tone: Peer-level researcher."
   slug: "german-space-strategy-2023-2026-mid-term-impact-review"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 26
   title: "Japan's 4th Basic Plan for Space Policy: Reorienting JAXA"
@@ -180,6 +205,7 @@
   analytical_angle: "The 'Security-Science Nexus'. Japan is using scientific excellence (Lunar) as a cover for developing dual-use security capabilities."
   deep_prompt: "Adopt an Hypothesis-Driven model. Argue that JAXA's recent focus on lunar logistics is a strategic hedge to develop heavy-lift and precision capabilities for national security in the Indo-Pacific. Use 2025 budget data as core evidence."
   slug: "japan-4th-basic-plan-space-policy-reorienting-jaxa"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 27
   title: "French Commandement de l'Espace: Operational Maturity in 2026"
@@ -187,6 +213,7 @@
   analytical_angle: "Active Defense. France is the only European nation currently training for 'orbital dogfights' (non-kinetic). What does this mean for EU stability?"
   deep_prompt: "Draft a BLUF for a defense industry CEO. Summarize the outcomes of the AsterX 2026 exercise. Highlight the technical gaps in 'Active Debris Removal as a Weapon' (Dual-use risk) and how French industry is filling the gap for the CdE."
   slug: "french-commandement-de-l-espace-operational-maturity-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 28
   title: "Debris Tickets: A Market Mechanism for Active Removal"
@@ -194,6 +221,7 @@
   analytical_angle: "Sovereignty vs. Safety. Can a pre-paid ticket system bypass the 'Consent Problem' of Article VIII of the OST?"
   deep_prompt: "Construct an Hypothesis-Driven analysis. Propose that 'Debris Tickets' (pre-authorized removal clauses) are the only way to scale the ADR market without a new international treaty. Use the 2025 EUCASS findings to support the economic viability of this model. Target: Space lawyers and insurers."
   slug: "debris-tickets-market-mechanism-active-removal"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 29
   title: "In-Space Manufacturing (ISM): The 2026 ROI Reality"
@@ -201,6 +229,7 @@
   analytical_angle: "The 'Microgravity Advantage'. Evaluate if the high cost of orbital transport is finally offset by the unique quality of space-made products."
   deep_prompt: "Using a POR structure, compare the business cases for orbital bio-fabrication versus semi-conductor manufacturing. Use 2025-2026 flight data to establish a realistic ROI timeline for private investors. Address the 'Sovereignty' risk of the manufacturing location."
   slug: "in-space-manufacturing-ism-2026-roi-reality"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 30
   title: "Starlab and Beyond: The Commercialization of LEO (Post-ISS)"
@@ -208,6 +237,7 @@
   analytical_angle: "Market Fragmentation. Will a multi-station LEO be more profitable, or will it lead to a race-to-the-bottom for research costs?"
   deep_prompt: "Using the Minto Pyramid, draft a strategic vision for the commercial station market. Argue that Starlab represents a European industrial foothold in a US-led commercial LEO. Focus on the value of 'In-Space R&D' for pharmaceutical and materials sectors."
   slug: "starlab-commercialization-leo-post-iss"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 31
   title: "Orbital Reef & Blue Origin: The Commercial Gateway to LEO"
@@ -215,6 +245,7 @@
   analytical_angle: "The Multi-Node Future. Is a fragmented LEO market sustainable, or will it lead to a 'Space Station Gap' for European and Japanese research?"
   deep_prompt: "Draft a Minto-style report for space agency directors. Evaluate the risk of a 'LEO Gap' if private stations like Orbital Reef aren't operational by ISS decommissioning. Argument: Europe and Japan must secure equity in these platforms now to avoid technological exclusion."
   slug: "orbital-reef-blue-origin-commercial-gateway-leo"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 32
   title: "Active Debris Removal (ADR): The Liability vs. Technology Paradox"
@@ -222,6 +253,7 @@
   analytical_angle: "The 'Consent Problem'. You can't clean up someone else's trash without their permission—even if it's about to hit you."
   deep_prompt: "Act as a Space Law expert. Using a POR model, evaluate the ADR liability problem. Suggest a 'Debris Amnesty' protocol where states can waive liability for removal by certified 3rd parties. Focus on the 2025 ADRAP results as a proof of concept."
   slug: "active-debris-removal-adr-liability-technology-paradox"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 33
   title: "Satellite-to-Cell (D2D): Ending the Dead Zones (2026)"
@@ -229,6 +261,7 @@
   analytical_angle: "Infrastructure Convergence. Satellite is no longer an 'alternative' to cellular; it is the 'failover' layer of the global internet."
   deep_prompt: "Synthesize the 2025-2026 D2D rollout into a BLUF for telecom executives. Explain the impact of 'Zero Dead Zones' on rural economic development. Address the spectrum interference risks identified by terrestrial operators."
   slug: "satellite-to-cell-d2d-ending-dead-zones-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 34
   title: "The EU Space Act: Decoupling or Integration?"
@@ -236,6 +269,7 @@
   analytical_angle: "Managed Competition. The Act tries to harmonize security while protecting national industrial 'jewels'. Is it a compromise or a catalyst?"
   deep_prompt: "Critically analyze the EU Space Act using a POR structure. Compare the 'One Europe' vision for space traffic management with the reality of national defense mandates. Tone: Intellectually rigorous colleague."
   slug: "eu-space-act-decoupling-integration"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 35
   title: "The EU Space Act: Impact on Space SMEs and Startups"
@@ -243,6 +277,7 @@
   analytical_angle: "Regulatory Burden or Opportunity? Analyze if mandatory STM and sustainability standards create a barrier to entry or a global competitive advantage."
   deep_prompt: "Using a POR structure, evaluate the 'Regulation vs. Innovation' trade-off in the 2025 EU Space Act. Analyze if the Act favors incumbent 'Grand Champions' or creates a fair playground for startups. Target: EU Commissioners and National Space Agencies."
   slug: "eu-space-act-impact-space-smes-startups"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 36
   title: "Space-Based Solar Power (SBSP): The 2026 Feasibility Horizon"
@@ -250,6 +285,7 @@
   analytical_angle: "Base-load orbital power. SBSP is the ultimate PESTLE challenge: technically possible, economically difficult, and politically sensitive (dual-use)."
   deep_prompt: "Adopt an Hypothesis-Driven approach to the SBSP business case. Challenge the 'high-cost' consensus by factoring in carbon taxes and 24/7 reliability vs. terrestrial solar. Target: Energy sector policy-makers."
   slug: "space-based-solar-power-sbsp-2026-feasibility-horizon"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 37
   title: "Optical Nucleus Network: Standardizing Laser Cross-links"
@@ -257,6 +293,7 @@
   analytical_angle: "Standardization as Power. Whoever defines the optical protocol controls the flow of cislunar data."
   deep_prompt: "Synthesize the 2025 Optical Nucleus Network results into a BLUF. Explain why optical cross-links are critical for the 'Circular Space Economy'. Argument: Proprietary protocols are the biggest threat to orbital interoperability. Target: Technical CEOs."
   slug: "optical-nucleus-network-standardizing-laser-cross-links"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 38
   title: "Software-Defined Satellites (SDS): The New Cybersecurity Frontier"
@@ -264,6 +301,7 @@
   analytical_angle: "The Vulnerability of Agility. SDS allows for mission flexibility but creates a massive, remote attack surface."
   deep_prompt: "Construct an Hypothesis-Driven analysis. Argue that current cybersecurity standards are 10 years behind the hardware of 2026. Focus on 'On-Orbit Hacking' as the next major threat to national security. Propose a 'Hardware Root of Trust' mandate for all SDS assets."
   slug: "software-defined-satellites-sds-new-cybersecurity-frontier"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 39
   title: "Cyber-Resilience in Space: The 2026 'Zero Trust' Mandate"
@@ -271,6 +309,7 @@
   analytical_angle: "Space as the weakest link. In a multi-domain conflict, the ground station is a more vulnerable target than the satellite."
   deep_prompt: "Draft a BLUF on the 2025-2026 space cyber threats. Focus on 'Software-Defined Satellites' as a new attack surface. Recommend a 'Zero Trust' architecture for all commercial downlinks used by government clients."
   slug: "cyber-resilience-in-space-2026-zero-trust-mandate"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 40
   title: "Cislunar Logistics: The 'Cislunar Highway' Economy"
@@ -278,6 +317,7 @@
   analytical_angle: "Nodal Infrastructure. The value is in the 'way-stations' (L1, L2 points), not just the destination."
   deep_prompt: "Using a Minto-Custom framework, build the case for investment in 'Cislunar Nodal Infrastructure'. Focus on why LEO-to-Moon transport requires orbital propellant depots to be economically viable. Target: Infrastructure funds and VC firms."
   slug: "cislunar-logistics-cislunar-highway-economy"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 41
   title: "AI Sovereignty in Orbit: Edge Computing at Scale"
@@ -285,6 +325,7 @@
   analytical_angle: "Data Autonomy. On-orbit processing reduces downlink pressure but moves the 'Intelligence' beyond the physical reach of the state."
   deep_prompt: "Draft a Minto-style executive summary based on the 2026 WEF AI Sovereignty report. Analyze the strategic shift from 'sensing' to 'knowing' in orbit. Evaluate the risks of AI hallucination in mission-critical satellite decisions. Target: Intelligence and defense agencies."
   slug: "ai-sovereignty-in-orbit-edge-computing-scale"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 42
   title: "IRIS²: The European Answer to Orbital Interdependence"
@@ -292,6 +333,7 @@
   analytical_angle: "The Third Way. Can IRIS² successfully blend institutional security with commercial service models without the 'legacy' bloat of past projects?"
   deep_prompt: "Synthesize the IRIS² roadmap into a BLUF report for EU defense ministers. Contrast the 'Sovereign Multi-Orbit' approach with the US commercial-first model. Explain why IRIS² is a prerequisite for European digital autonomy by 2030."
   slug: "iris2-european-answer-orbital-interdependence"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 43
   title: "AfSA HQ in New Cairo: A New Geometric Center for African Space"
@@ -299,6 +341,7 @@
   analytical_angle: "Soft Power through Hardware. Egypt is positioning itself as the 'Service Hub' for all African space agencies, creating a tech-dependency."
   deep_prompt: "Synthesize the impact of the new Cairo AfSA HQ into a BLUF report. Explain how Egypt is leveraging its industrial capacity (AITC) to become the mandatory gatekeeper for African satellite manufacturing. Address the geopolitical balance with South Africa and Nigeria."
   slug: "afsa-hq-new-cairo-new-geometric-center-african-space"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 44
   title: "The Kessler Tax: Economic Modeling of Orbital Risk"
@@ -306,6 +349,7 @@
   analytical_angle: "Externalities internalized. Orbital debris is no longer an 'environmental' issue; it's a direct 'tax' on satellite ROI."
   deep_prompt: "Adopt an Hypothesis-Driven model to analyze the 'Kessler Tax'. Argue that current LEO missions are underpriced because they don't account for long-term debris cleanup costs. Propose a 'mandatory de-orbit bond' based on the 2025 OECD findings."
   slug: "kessler-tax-economic-modeling-orbital-risk"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 45
   title: "The BRICS Space Programme: A Technical Data-Sharing Reality"
@@ -313,6 +357,7 @@
   analytical_angle: "Asymmetric Cooperation. Analyze if this 'virtual' infrastructure effectively reduces technical dependency on Western data sources."
   deep_prompt: "Act as a Geopolitical Strategist. Using the Minto framework, evaluate the technical efficacy of the BRICS Virtual Constellation. Contrast the high-level political goals with the ground-level data latency and interoperability challenges. Target: Policy-makers in emerging space nations."
   slug: "brics-space-programme-technical-data-sharing-reality"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 46
   title: "Copernicus Data Access: The Evolution of European Earth Observation"
@@ -320,6 +365,7 @@
   analytical_angle: "Open Data as a Public Good. Is the European model of free access sustainable against the rise of specialized commercial SAR constellations?"
   deep_prompt: "Synthesize the current state of Copernicus data access into a BLUF report. Explain how the 2026 update addresses the 'bottleneck' in high-bandwidth data delivery to commercial users. Compare the European public-access model with the US private-led model."
   slug: "copernicus-data-access-evolution-european-earth-observation"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 47
   title: "The UK Space Agency KEIS Project: Measuring the Unmeasurable"
@@ -327,6 +373,7 @@
   analytical_angle: "Metrics as Regulation. The first entity to successfully standardize 'environmental impact' in orbit will define the future of space insurance and licensing."
   deep_prompt: "Construct an Hypothesis-Driven analysis of the UK's KEIS project. Argue that establishing environmental indicators is a strategic move to lead the global space insurance market. Focus on the shift from 'orbital debris counts' to 'carrying capacity' metrics."
   slug: "uk-space-agency-keis-project-measuring-unmeasurable"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 48
   title: "Planetary Stewardship: A New Moral Compass for Space"
@@ -334,6 +381,7 @@
   analytical_angle: "Constructive Ethics. We are not just observers; we are architects of a new multi-planetary ecosystem. This requires a pragmatic, not absolute, stewardship."
   deep_prompt: "Draft a philosophical-strategic essay using the Minto Pyramid. Challenge the traditional 'Planetary Protection' model by proposing a 'Planetary Stewardship' framework that allows for sustainable construction on the Moon. Target: International scientific and ethical boards."
   slug: "planetary-stewardship-new-moral-compass-space"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 49
   title: "The ALCE Charter: Latin American Sovereignty in Force"
@@ -341,6 +389,7 @@
   analytical_angle: "Regional Synergy vs. National Interests. Can ALCE effectively pool resources like Brazil's Alcantara and Argentina's satellite expertise?"
   deep_prompt: "Draft a Minto-style report on the entry into force of the ALCE Charter. Analyze how ALCE is positioning itself as a 'South-South' alternative to Artemis. Highlight the 2025 project on regional climate monitoring as its first true test of technical integration."
   slug: "alce-charter-latin-american-sovereignty-force"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 50
   title: "Indonesia's Space Ambitions: Non-Alignment in Orbit"
@@ -348,6 +397,7 @@
   analytical_angle: "Strategic Hedging. Indonesia is using its space port potential and satellite needs to leverage both US and China-led blocs."
   deep_prompt: "Construct an Hypothesis-Driven analysis. Argue that Indonesia's space policy is a direct reflection of its 'Bebas-Aktif' (Free and Active) foreign policy. Evaluate the impact of its 2025 BRICS accession on its long-term partnership with the US. Target: Geopolitical analysts."
   slug: "indonesia-space-ambitions-non-alignment-in-orbit"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 51
   title: "French Strategic Autonomy: The 'Yoda' Program and Orbital Defense"
@@ -355,6 +405,7 @@
   analytical_angle: "Beyond Deterrence. France is moving from passive observation to active protection. Does this signal the start of a European 'orbital constabulary'?"
   deep_prompt: "Draft a BLUF briefing on the French Yoda program. Explain its role in the context of 'active surveillance' and how it sets France apart from other European nations in terms of kinetic awareness. Target: Defense industry executives."
   slug: "french-strategic-autonomy-yoda-program-orbital-defense"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 52
   title: "The German Launcher Challenge: Fostering the Micro-Launcher Revolution"
@@ -362,6 +413,7 @@
   analytical_angle: "The 'German Model'. Public money for private risk: evaluate if managed competition is more efficient than traditional institutional procurement."
   deep_prompt: "Using a POR structure, compare the German micro-launcher funding model with the traditional ESA ArianeGroup model. Evaluate if the DLR's approach of 'managed competition' provides a better ROI for the national taxpayer and industrial ecosystem."
   slug: "german-launcher-challenge-fostering-micro-launcher-revolution"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 53
   title: "The Roscosmos Pivot: From ISS Departure to the ILRS Core"
@@ -369,6 +421,7 @@
   analytical_angle: "Legacy as Leverage. Russia is trading decades of life-support expertise for a guaranteed role in the next lunar era. A pragmatic survival strategy."
   deep_prompt: "Act as a Critical Analyst. Minto-style dive into the Roscosmos-ILRS pivot. Argue that despite economic difficulties, Russia's technical 'legacy' (ECLSS, docking) remains its most powerful diplomatic tool. Target: Global space policy researchers."
   slug: "roscosmos-pivot-iss-departure-ilrs-core"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 54
   title: "Japan's SLIM Legacy: Precision Landing as a Strategic Asset"
@@ -376,6 +429,7 @@
   analytical_angle: "Precision as Diplomacy. Japan's ability to land 'where it wants' makes it an indispensable partner for both Artemis and ILRS missions."
   deep_prompt: "Construct a BLUF report on Japan's SLIM heritage. Explain how landing precision has become a 'gatekeeping' technology for the next phase of lunar logistics. Highlight Japan's strategic use of this tech to secure its place in global coalitions."
   slug: "japan-slim-legacy-precision-landing-strategic-asset"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 55
   title: "Franco-German Synergy: The Ariane 6 Ramp-Up and Sovereignty"
@@ -383,6 +437,7 @@
   analytical_angle: "The Price of Independence. Does the Franco-German compromise protect Europe from a SpaceX monopoly, or does it stifle internal European innovation?"
   deep_prompt: "Draft an executive report using the BLUF model. Evaluate the 2026 ramp-up of Ariane 6 and the strategic necessity of the Franco-German industrial pact. Address the trade-off between institutional reliability and commercial agility."
   slug: "franco-german-synergy-ariane-6-ramp-up-sovereignty"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 56
   title: "Russia's Nuclear Propulsion: Zeus and the Reality of Deep Space Tugboats"
@@ -390,6 +445,7 @@
   analytical_angle: "Bypassing the Chemical Limit. If successful, Zeus gives Russia a unique heavy-lift capability in deep space that compensates for its launcher gap."
   deep_prompt: "Analyze the 'Zeus' project through an Hypothesis-Driven lens. Challenge the view that Russia is technologically stagnant by highlighting its persistent leadership in space nuclear power. Focus on the 'Deep Space Tug' as a game-changer for lunar logistics."
   slug: "russia-nuclear-propulsion-zeus-reality-deep-space-tugboats"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 57
   title: "The Toyota Lunar Cruiser: Japan's Bet on Long-Range Mobility"
@@ -397,6 +453,7 @@
   analytical_angle: "Industrial Spillovers. Analyze how the lunar environment is being used as a 'stress-test' for terrestrial hydrogen technologies, creating a dual-market ROI."
   deep_prompt: "Using a POR structure, evaluate the Toyota Lunar Cruiser project. Argue that Japan is leveraging its automotive strength to become the 'logistics backbone' of the Moon. Discuss the dual-use value of hydrogen fuel cells for Earth and Moon."
   slug: "toyota-lunar-cruiser-japan-bet-long-range-mobility"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 58
   title: "German STM Leadership: The DLR and the ESA ESOC Operational Nexus"
@@ -404,6 +461,7 @@
   analytical_angle: "Standards as Soft Power. Germany's influence comes from controlling the 'rules of the road' rather than just the rockets."
   deep_prompt: "Synthesize the role of Darmstadt/ESOC in global STM into a BLUF report. Explain how Germany is positioning itself as the 'regulatory hub' of European space. Focus on the impact of technical standards on international space law."
   slug: "german-stm-leadership-dlr-esa-esoc-operational-nexus"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 59
   title: "The CNES-AfSA MoU: Neo-Diplomacy or Genuine Tech Sharing?"
@@ -411,6 +469,7 @@
   analytical_angle: "Re-branding Influence. Is France building a 'Francophone Space Bloc' or providing a necessary bridge for African technological autonomy?"
   deep_prompt: "Construct an Hypothesis-Driven analysis of the 2026 CNES-AfSA MoU. Evaluate if this partnership serves African interests or primarily secures French industrial access to emerging markets. Tone: Intellectually rigorous researcher."
   slug: "cnes-afsa-mou-neo-diplomacy-genuine-tech-sharing"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 60
   title: "Russia's Soyuz Legacy: Maintaining Reliability Amid Technical Brain Drain"
@@ -418,6 +477,7 @@
   analytical_angle: "The 'AK-47' of Space. Russia's strength is in simplicity and massive flight heritage. Can this survive the generational shift in engineering?"
   deep_prompt: "Draft a Minto-style report on the 'Soyuz Paradox'. Use the 'Arguments' section to explain why technical stagnation is actually a market advantage for reliability-seeking clients. Contrast with the high-risk profile of the new generation of launchers."
   slug: "russia-soyuz-legacy-maintaining-reliability-amid-technical-brain-drain"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 61
   title: "JAXA's Space-Based Solar Power (SBSP): A Solution for the Planet?"
@@ -425,6 +485,7 @@
   analytical_angle: "The Energy-Space Nexus. Japan is treating space as a direct solution to national energy security. Evaluate the cost-per-kWh vs. terrestrial renewables."
   deep_prompt: "Using an Hypothesis-Driven model, analyze JAXA's SBSP roadmap. Challenge the 'unfeasible' narrative by factoring in Japan's unique energy scarcity. Propose that SBSP is Japan's ultimate 'Strategic Technology' for 2030."
   slug: "jaxa-space-based-solar-power-sbsp-solution-planet"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 62
   title: "The EU Space Act: Harmonizing French and German Divergent Interests"
@@ -432,6 +493,7 @@
   analytical_angle: "Institutional Balance. Does the Act favor the French 'Grand Champion' model or the German 'SME-friendly' competitive model?"
   deep_prompt: "Using a POR model, evaluate the EU Space Act's impact on Franco-German relations. Recommend a regulatory path that allows for national security mandates while fostering a competitive Single Market. Target: EU policy-makers."
   slug: "eu-space-act-harmonizing-french-german-divergent-interests"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 63
   title: "Vostochny Cosmodrome: Russia's Path to Geographic Independence"
@@ -439,6 +501,7 @@
   analytical_angle: "Sovereign Logistics. Vostochny is a signal of Russia's strategic reorientation toward the Pacific and China."
   deep_prompt: "Synthesize the technical and geopolitical shift to Vostochny into a BLUF report. Explain how this move reduces Russia's dependency on Kazakhstan and aligns its space operations with its 'Pivot to Asia' policy."
   slug: "vostochny-cosmodrome-russia-path-geographic-independence"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 64
   title: "Japan's Role in the Artemis Gateway: The I-Hab Contribution"
@@ -446,6 +509,7 @@
   analytical_angle: "The 'Invisible Architect'. Japan secures its lunar presence through indispensable life-support systems (ECLSS) rather than rockets."
   deep_prompt: "Draft a BLUF briefing on Japan's contribution to the Artemis Gateway. Highlight how JAXA has mastered a 'niche' technology (environmental control) to guarantee seats for its astronauts. Explain why this makes Japan the most reliable partner in the coalition."
   slug: "japan-role-artemis-gateway-i-hab-contribution"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 65
   title: "De-escalation Diplomacy: Japan as the Bridge in UNCOPUOS"
@@ -453,6 +517,7 @@
   analytical_angle: "Middle-Power Influence. Can Japan maintain enough technical neutrality to lead global debris and traffic negotiations?"
   deep_prompt: "Adopt the persona of a Global Policy Researcher. Using an Hypothesis-Driven model, argue that Japan's 'Technical Diplomacy' is the only viable bridge between US and Chinese lunar standards. Focus on the 2025 TCBM results as evidence of Japan's neutral leverage."
   slug: "de-escalation-diplomacy-japan-bridge-uncopuos"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 66
   title: "CNSA's Long March 10: China's Heavy-Lift Lunar Ambitions"
@@ -460,6 +525,7 @@
   analytical_angle: "Technical Achievement. Analyze China's indigenous heavy-lift capability as a genuine engineering accomplishment, independent of geopolitical framing."
   deep_prompt: "Draft a BLUF briefing for aerospace executives. Evaluate the Long March 10's technical specifications and compare with SLS and Starship. Focus on China's systematic approach to human spaceflight and the realistic timeline for crewed lunar missions."
   slug: "cnsa-long-march-10-china-heavy-lift-lunar-ambitions"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 67
   title: "China's Space Station: Strategic Autonomy in Orbit"
@@ -467,6 +533,7 @@
   analytical_angle: "Treat Tiangong as both capability and diplomacy: how station access, payload slots, and training become instruments of influence and governance shaping."
   deep_prompt: "Draft a BLUF briefing for policy-makers and agency leadership. Assess Tiangong's technical maturity (operations tempo, utilization, life-extension plans) and its diplomatic function as a parallel cooperation platform. Compare incentives and constraints versus the ISS model. Provide 3 scenarios for how Tiangong could shape norms for station access, data rights, and partner dependence through 2030."
   slug: "china-space-station-strategic-autonomy-in-orbit"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 68
   title: "BeiDou's Global Reach: Navigation Constellation as Infrastructure Diplomacy"
@@ -474,6 +541,7 @@
   analytical_angle: "Infrastructure diplomacy via technical lock-in: PNT is not a service, it's a platform that cascades into timing, payments, logistics, and national critical infrastructure."
   deep_prompt: "Using a POR structure, evaluate BeiDou as (1) technical system, (2) interoperability/standards vector, and (3) diplomatic instrument. Identify the most likely pathways of dependence (timing services, receivers, augmentation, regulations). Conclude with response options for other actors (e.g., Galileo partners, Global South governments) that preserve resilience without forcing binary alignment."
   slug: "beidou-global-reach-navigation-constellation-infrastructure-diplomacy"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 69
   title: "CNSA's Lunar Ambitions: Chang'e, ILRS, and Moon Governance"
@@ -481,6 +549,7 @@
   analytical_angle: "Governance follows infrastructure: the actor that operationalizes logistics and standards earliest can shape de facto norms without rewriting treaties."
   deep_prompt: "Write a Minto-structured analysis testing the hypothesis: 'Lunar governance will be set by operational practice and standards before it is set by treaties.' Use Chang'e/ILRS milestones to map likely governance pressure points (landing site deconfliction, comm/nav standards, sample curation, resource-related activities). Provide a balanced set of recommendations for multilateral engagement that reduces escalation risk."
   slug: "cnsa-lunar-ambitions-chang-e-ilrs-moon-governance"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 70
   title: "Chinese Commercial Space: Private Actors Under State Guidance"
@@ -488,6 +557,7 @@
   analytical_angle: "State-shaped markets can accelerate scale but constrain autonomy: analyze where this model outperforms (deployment speed, guaranteed demand) and where it underperforms (exportability, trust, governance risk)."
   deep_prompt: "Construct a hypothesis-driven market analysis: 'China's state-guided commercial space will win on scaling domestic demand but face friction internationally on trust, compliance, and interoperability.' Use a POR structure to compare with US/EU models (procurement, capital, regulation, export controls). End with 5 indicators to watch in 2026-2028 (reusability maturity, insurer behavior, foreign customers, standards adoption, profitability)."
   slug: "chinese-commercial-space-private-actors-state-guidance"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 71
   title: "China's Space Science: Beyond Prestige to Measurable Discovery"
@@ -495,6 +565,7 @@
   analytical_angle: "Scientific value is separable from strategic competition, but data governance is the bridge: collaboration hinges on access, reproducibility, and reciprocal benefit."
   deep_prompt: "Produce a BLUF briefing for science leadership. Evaluate China's science portfolio by (1) novelty and citations, (2) data release and reproducibility, (3) opportunities for third-party collaboration (especially via multilateral science channels). Include a 'Collaboration Feasibility Matrix' ranking mission areas by political risk vs. scientific upside."
   slug: "china-space-science-prestige-measurable-discovery"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 72
   title: "China–Russia Space Axis: Partnership or Marriage of Convenience?"
@@ -502,6 +573,7 @@
   analytical_angle: "Alliance realism: cooperation is driven by complementary gaps and geopolitical necessity, but asymmetry and trust deficits cap integration depth."
   deep_prompt: "Using a POR framework, test the hypothesis: 'China–Russia cooperation will remain modular (interfaces) rather than integrated (shared architectures).' Identify where integration is most likely (ground segment, standards) versus least likely (sensitive subsystems, autonomy-critical tech). Provide implications for global governance forums and for third countries considering alignment."
   slug: "china-russia-space-axis-partnership-marriage-convenience"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 73
   title: "Chinese Space Doctrine: Strategic Thought, Counterspace, and Military Integration"
@@ -509,6 +581,7 @@
   analytical_angle: "Capability mapping, not alarmism: focus on operational concepts (ISR, targeting, communications resilience) and deterrence signaling pathways."
   deep_prompt: "Draft a BLUF briefing for defense and policy audiences. Map Chinese space doctrine into a simple model of objectives, enabling capabilities, and likely operational concepts. Include a section on 'misperception risks' and confidence-building measures that could reduce escalation in orbit while acknowledging competition."
   slug: "chinese-space-doctrine-strategic-thought-counterspace-military-integration"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 74
   title: "China's Space Diplomacy in the Global South: Capacity Building or Dependency?"
@@ -516,6 +589,7 @@
   analytical_angle: "Dual lens: development utility is real, but long-term dependence can emerge via ground segment, data policy, and maintenance supply chains."
   deep_prompt: "Write a Minto-style analysis that separates (1) tangible capability uplift (skills, services, resilience) from (2) structural dependency risks (data rights, ground stations, sustainment). Provide a practical checklist for recipient governments to maximize sovereignty outcomes while still leveraging external partnerships."
   slug: "china-space-diplomacy-global-south-capacity-building-dependency"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 75
   title: "Engaging China in Space: Policy Options Beyond Containment"
@@ -523,6 +597,7 @@
   analytical_angle: "Functional cooperation: prioritize narrow, verifiable domains where shared safety incentives outweigh strategic leakage risks."
   deep_prompt: "Draft a BLUF policy memo outlining 4 engagement pathways with China: (A) technical safety cooperation (debris/STM), (B) SSA data-sharing protocols with guardrails, (C) science collaboration via multilateral channels, (D) norms/standards engagement. For each, provide prerequisites, red lines, verification mechanisms, and an implementation roadmap. Conclude with a risk-managed recommendation set for EU/US and middle-power actors."
   slug: "engaging-china-space-policy-options-containment"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 76
   title: "Space Procurement Playbook (Part I): From Mission Need to Requirements That Vendors Can Actually Bid"
@@ -530,27 +605,31 @@
   analytical_angle: "Requirements are a market-shaping instrument. Bad requirements select bad suppliers and inflate lifecycle cost."
   deep_prompt: "Write a POR-led playbook for program managers. Include a step-by-step requirements workflow, examples of good vs. bad requirements, and a checklist for verification and acceptance criteria."
   slug: "space-procurement-playbook-part-i-mission-need-requirements-vendors-actually-bid"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 77
-  title: "Space Procurement Playbook (Part II): Making LEO Services \"Buyable\" — SLAs, KPIs, and What to Put in the Contract"
+  title: "Space Procurement Playbook (Part II): Making LEO Services \"
   core_evidence: "Common commercial SLA constructs for EO and connectivity; acceptance testing patterns for service procurement."
   analytical_angle: "Service procurement fails when governments import hardware-era acceptance logic into subscription-era services."
   deep_prompt: "Draft a BLUF briefing with a contract clause menu: SLAs, service credits, data rights, security, termination, escrow, and step-in rights. Provide an example KPI table for EO analytics."
   slug: "space-procurement-playbook-part-ii-making-leo-services-buyable"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 78
-  title: "ITAR/EAR in Practice for Space Startups: A \"First 90 Days\" Compliance Checklist"
+  title: "ITAR/EAR in Practice for Space Startups: A \"
   core_evidence: "Typical export-control compliance program elements; common triggers in spacecraft/ground segment work."
   analytical_angle: "Most violations are process failures, not intent. Compliance can be operationalized like quality management."
   deep_prompt: "Write an actionable checklist for a small team. Cover governance roles, technical data controls, visitor management, cloud/storage rules, and incident response. Keep it non-legal-advice and risk-focused."
   slug: "itar-ear-practice-space-startups-first-90-days-compliance-checklist"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 79
-  title: "The ITAR Myth-Busting Guide: What \"ITAR-Free\" Can and Cannot Mean in 2026"
+  title: "The ITAR Myth-Busting Guide: What \"
   core_evidence: "Observed patterns in component traceability and technical data control in multinational space programs."
-  analytical_angle: "\"ITAR-free\" is often a marketing claim unless backed by auditable bill-of-materials and data-handling controls."
-  deep_prompt: "Build a Hypothesis-Driven argument that \"ITAR-free\" should be treated as an evidence-backed procurement attribute. Include a due-diligence questionnaire and red-flag list."
+  analytical_angle: "\"
+  deep_prompt: "Build a Hypothesis-Driven argument that \"
   slug: "itar-myth-busting-guide-itar-free-2026"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 80
   title: "Export Controls in the Ground Segment: When Your Downlink Becomes the Regulated Item"
@@ -558,6 +637,7 @@
   analytical_angle: "Export control is increasingly a software and operations problem. The weakest link is often the vendor's cloud stack."
   deep_prompt: "Write a POR analysis for operators buying managed ground services. Provide a risk map and recommended contract controls (audit, logging, access, key custody, data residency)."
   slug: "export-controls-ground-segment-downlink-becomes-regulated-item"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 81
   title: "EO Analytics Business Models: From Pixels to Decisions (and Where Margins Actually Live)"
@@ -565,6 +645,7 @@
   analytical_angle: "EO margins concentrate where customers outsource liability: compliance, reporting, and operational decisions—not imagery."
   deep_prompt: "Draft a Minto-style market explainer with 5 archetypal EO business models. For each: customer, willingness-to-pay driver, moat, CAC/LTV risks, and data rights needs."
   slug: "eo-analytics-business-models-pixels-decisions-margins-actually-live"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 82
   title: "Unit Economics for EO Startups: A Practical Model for CAC, Gross Margin, and Retention"
@@ -572,76 +653,87 @@
   analytical_angle: "Many EO analytics companies misprice because they ignore per-customer ops cost and variable tasking expense."
   deep_prompt: "Create a step-by-step unit economics worksheet narrative. Define the metrics, show example calculations with assumed numbers, and explain how to price tiers and usage caps."
   slug: "unit-economics-eo-startups-practical-model-cac-gross-margin-retention"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 83
   title: "Pricing EO Analytics: Subscription, Usage-Based, or Outcome-Based?"
   core_evidence: "Common pricing schemes in data and SaaS markets; procurement constraints in public buyers."
-  analytical_angle: "EO pricing fails when the vendor sells \"data\" but the buyer budgets for \"service\" (or vice versa)."
+  analytical_angle: "EO pricing fails when the vendor sells \"
   deep_prompt: "Write a BLUF with a decision tree: choose pricing model based on buyer type, risk transfer, and measurability. Include pitfalls and recommended contract language for each model."
   slug: "pricing-eo-analytics-subscription-usage-based-outcome-based"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 84
   title: "Data Rights in EO Contracts: Avoiding the Two Traps (Unlimited Rights vs. Vendor Lock-In)"
   core_evidence: "Typical clauses: IP ownership, derived products, government purpose rights, escrow, continuity planning."
-  analytical_angle: "The real asset is the \"decision layer\" and its training data. Contracts must anticipate model drift and re-training."
+  analytical_angle: "The real asset is the \"
   deep_prompt: "Draft a practical guide for contracting officers. Provide a clause checklist and suggested positions for government vs. commercial buyers, including governance for model updates."
   slug: "data-rights-eo-contracts-avoiding-two-traps-unlimited-rights-vendor-lock-in"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 85
   title: "Buying EO as a Service: A Procurement Checklist for Ministries and Agencies"
   core_evidence: "Standard vendor evaluation dimensions in managed data services; operational readiness assessment patterns."
-  analytical_angle: "Most EO procurements underweight \"operations\": ground segment, support, escalation paths, and incident handling."
+  analytical_angle: "Most EO procurements underweight \"
   deep_prompt: "Write a BLUF procurement checklist with weighted scoring categories. Include sample RFP questions and what evidence to request (logs, uptime reports, QA reports, security attestations)."
   slug: "buying-eo-service-procurement-checklist-ministries-agencies"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 86
   title: "Compliance by Design: How to Build Export-Control Controls Into Engineering Workflows"
   core_evidence: "Common compliance controls mapped to engineering artifacts (design docs, repos, build logs, access control)."
   analytical_angle: "Export-control maturity is a competitive advantage: it shortens sales cycles with governments and primes."
-  deep_prompt: "Write a Minto-style implementation guide. Provide a \"control mapping\" table: control objective → tool/workflow → evidence produced → audit frequency."
+  deep_prompt: "Write a Minto-style implementation guide. Provide a \"
   slug: "compliance-design-build-export-control-controls-engineering-workflows"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 87
-  title: "Supplier Due Diligence for Space Programs: The \"Five Files\" You Should Demand Before Award"
+  title: "Supplier Due Diligence for Space Programs: The \"
   core_evidence: "Typical supplier evaluation artifacts: FAI, nonconformance logs, SBOM, export-control program docs, insurance."
   analytical_angle: "In space, supplier failure is a mission failure. Due diligence must be evidence-driven, not reputation-driven."
-  deep_prompt: "Draft a BLUF checklist and explain why each \"file\" matters. Include red flags and how to validate claims with sampling and audits."
+  deep_prompt: "Draft a BLUF checklist and explain why each \"
   slug: "supplier-due-diligence-space-programs-five-files-demand-award"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 88
   title: "Framework: Make-or-Buy Decisions for Space Capabilities (Payload, Bus, Ground, Analytics)"
   core_evidence: "Common make/buy criteria in high-reliability industries; known cost drivers across space segments."
-  analytical_angle: "The hidden variable is \"learning rate\": building can be cheaper if it accelerates institutional competence."
+  analytical_angle: "The hidden variable is \"
   deep_prompt: "Write a Minto framework with a scoring model and examples for each segment (payload, bus, ground, analytics). Include how export controls and data rights shift the decision."
   slug: "framework-make-or-buy-decisions-space-capabilities-payload-bus-ground-analytics"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 89
-  title: "EO Analytics for Insurance and Finance: Designing \"Audit-Grade\" Evidence Products"
+  title: "EO Analytics for Insurance and Finance: Designing \"
   core_evidence: "Common requirements for regulated industries: traceability, audit logs, model validation, data lineage."
-  analytical_angle: "\"Audit-grade\" EO products can command premium pricing and retention. Regulated buyers pay for liability transfer."
+  analytical_angle: "\"
   deep_prompt: "Write a POR guide describing product requirements, a minimal compliance stack, and a go-to-market path for insurance/finance. Include a checklist for uncertainty reporting."
   slug: "eo-analytics-insurance-finance-designing-audit-grade-evidence-products"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 90
   title: "From Pilot to Scale: Why EO Analytics POCs Fail (and How to Engineer Adoption)"
   core_evidence: "Typical POC failure causes: unclear decision owner, missing integration, unpriced ops, procurement mismatch."
   analytical_angle: "Adoption is a systems problem: product, buyer workflow, procurement, and incentives must align."
-  deep_prompt: "Write a POR playbook for scaling EO analytics in a customer organization. Provide a \"POC to production\" checklist and an integration reference architecture."
+  deep_prompt: "Write a POR playbook for scaling EO analytics in a customer organization. Provide a \"
   slug: "pilot-scale-eo-analytics-pocs-fail-engineer-adoption"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 91
-  title: "TRL Reality Check: Why \"TRL 7\" Claims Collapse During AIT"
+  title: "TRL Reality Check: Why \"
   core_evidence: "Common AIT integration failure modes: interfaces, thermal margins, EMI/EMC, software timing, supplier variance."
-  analytical_angle: "TRL often measures a component demo, but missions fail at interfaces. \"IRL\" (Integration Readiness Level) matters more."
+  analytical_angle: "TRL often measures a component demo, but missions fail at interfaces. \"
   deep_prompt: "Draft a BLUF that introduces an Integration Readiness checklist. Provide examples of evidence that should accompany TRL claims and what to demand from suppliers pre-AIT."
   slug: "trl-reality-check-trl-7-claims-collapse-ait"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 92
   title: "Ground Segment Bottlenecks: The Unsexy Constraint That Sets Your Mission Tempo"
   core_evidence: "Typical ground ops constraints: pass availability, downlink windows, staffing, automation maturity, data latency."
   analytical_angle: "Space is now data infrastructure. The mission is only as fast as its ground automation and delivery stack."
-  deep_prompt: "Write a Minto explainer with a \"mission tempo budget\": where time is lost from sensing to customer delivery. Include levers: automation, compression, edge processing, station diversity."
+  deep_prompt: "Write a Minto explainer with a \"
   slug: "ground-segment-bottlenecks-unsexy-constraint-sets-mission-tempo"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 93
   title: "Spectrum Is the New Orbital Slot: Performance Limits Driven by RF Coordination"
@@ -649,13 +741,15 @@
   analytical_angle: "Constellation performance is now co-determined by spectrum governance. Engineering must be designed around coordination reality."
   deep_prompt: "Construct a BLUF briefing explaining how spectrum constraints translate into throughput, latency, and scalability limits. Include mitigation options: adaptive coding, beam shaping, optical comms, ground diversity."
   slug: "spectrum-new-orbital-slot-performance-limits-driven-rf-coordination"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 94
   title: "Latency Budgets for EO Delivery: Where the Minutes (and Hours) Actually Go"
   core_evidence: "Standard EO pipeline stages and typical delay sources; cloud vs. on-prem trade-offs."
-  analytical_angle: "Many vendors sell \"near-real-time\" without publishing latency distributions. Buyers should demand percentile metrics."
+  analytical_angle: "Many vendors sell \"
   deep_prompt: "Write a POR guide to building a latency budget. Include a sample table (stage, median, P95, dependency) and procurement guidance on how to contract for latency."
   slug: "latency-budgets-eo-delivery-minutes-hours-actually-go"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 95
   title: "Performance Limits in SmallSats: Power, Thermal, and Pointing as the Real Constraints"
@@ -663,6 +757,7 @@
   analytical_angle: "SmallSat success is about margins. Performance claims must be mapped to power/thermal/pointing budgets."
   deep_prompt: "Draft a BLUF explainer showing how to sanity-check payload performance claims against bus constraints. Include a checklist for power and thermal budgets and ADCS requirements."
   slug: "performance-limits-smallsats-power-thermal-pointing-real-constraints"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 96
   title: "AIT as a Schedule Weapon: The Hidden Critical Path in Commercial Space Programs"
@@ -670,6 +765,7 @@
   analytical_angle: "AIT is where optimistic plans go to die. Mature programs treat AIT capacity like production capacity."
   deep_prompt: "Write a POR playbook for managing AIT. Include a critical-path map, risk register categories, and tactics: early interface freeze, test-as-you-fly discipline, and supplier readiness gates."
   slug: "ait-schedule-weapon-hidden-critical-path-commercial-space-programs"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 97
   title: "Interfaces Kill Missions: ICD Discipline and the Cost of Late Changes"
@@ -677,13 +773,15 @@
   analytical_angle: "In space systems, interfaces are the real product. ICD maturity is the best predictor of integration success."
   deep_prompt: "Draft a Minto-style guide to ICD discipline. Provide templates, change-control rules, and metrics to track interface stability over time."
   slug: "interfaces-kill-missions-icd-discipline-cost-late-changes"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 98
   title: "Testing for Space Cyber: Why Pen-Tests Alone Don't Prove Mission Resilience"
   core_evidence: "Typical security testing components: threat modeling, red teaming, logging, key management, recovery drills."
-  analytical_angle: "Cyber performance is measured by detection and recovery under constraints, not by \"no findings\" reports."
+  analytical_angle: "Cyber performance is measured by detection and recovery under constraints, not by \"
   deep_prompt: "Write a POR guide for buyers and operators. Define a minimal evidence set for cyber readiness, including tabletop exercises, on-orbit update procedures, and key custody audits."
   slug: "testing-space-cyber-pen-tests-alone-don-t-prove-mission-resilience"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 99
   title: "Ground Station Network Design: Coverage vs. Cost vs. Sovereignty Trade-Offs"
@@ -691,11 +789,12 @@
   analytical_angle: "The best technical network can be politically unusable. Sovereignty constraints must be designed in from day one."
   deep_prompt: "Write a POR analysis with architecture options, a cost/performance table, and procurement guidance. Include how to contract for data residency, auditability, and continuity."
   slug: "ground-station-network-design-coverage-cost-sovereignty-trade-offs"
+  status: "tbd" # tbd | drafting | editing | finalized
 
 - id: 100
-  title: "The \"Last Mile\" of Space Data: Delivery Performance, APIs, and Reliability Engineering"
+  title: "The \"
   core_evidence: "Common reliability engineering practices: SLOs, observability, incident postmortems, data lineage systems."
   analytical_angle: "EO is becoming an infrastructure service. Reliability engineering is now a differentiator as important as sensor quality."
-  deep_prompt: "Draft a BLUF for CTOs describing how to design the EO \"data last mile.\" Include recommended SLOs, observability metrics, and a minimal incident response playbook."
+  deep_prompt: "Draft a BLUF for CTOs describing how to design the EO \"
   slug: "last-mile-space-data-delivery-performance-apis-reliability-engineering"
-
+  status: "tbd" # tbd | drafting | editing | finalized

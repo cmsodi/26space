@@ -43,6 +43,24 @@ def generate_unique_slug(text: str, output_base: Path = Path("output")) -> str:
             raise RuntimeError(f"Too many existing folders for slug: {base_slug}")
 
 
+def ensure_unique_slug(slug: str, output_base: Path = Path("output")) -> str:
+    """Like generate_unique_slug but takes an existing slug directly.
+
+    Used when the slug comes from editorial_plan.yaml instead of being
+    generated from text.
+    """
+    output_dir = output_base / slug
+    if not output_dir.exists():
+        return slug
+    counter = 1
+    while counter <= 1000:
+        numbered = f"{slug}_{counter}"
+        if not (output_base / numbered).exists():
+            return numbered
+        counter += 1
+    raise RuntimeError(f"Too many existing folders for slug: {slug}")
+
+
 def get_document_filename(language: str) -> str:
     """Get final document filename based on language."""
     return "index.it.md" if language == "it" else "index.md"

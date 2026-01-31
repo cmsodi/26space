@@ -2422,13 +2422,13 @@ _research/
 **CLI Options:**
 ```bash
 # New analysis (creates numbered folder if slug exists)
-python strategic_orchestrator.py --run
+python run.py --run
 
 # Resume from checkpoint
-python strategic_orchestrator.py --resume output/workflow_state.yaml
+python run.py --resume output/workflow_state.yaml
 
 # Reuse analyst reports (try different templates/synthesizers)
-python strategic_orchestrator.py --from-folder output/{slug}_1
+python run.py --from-folder output/{slug}_1
 ```
 
 **Bring This Document:**

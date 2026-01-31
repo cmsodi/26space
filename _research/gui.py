@@ -3,7 +3,7 @@
 Web GUI for the Strategic Research System.
 
 Launches a NiceGUI web interface on localhost.
-The CLI (strategic_orchestrator.py) continues to work unchanged.
+The CLI (run.py) continues to work unchanged.
 
 Usage:
     python gui.py              # Launch on http://localhost:8080

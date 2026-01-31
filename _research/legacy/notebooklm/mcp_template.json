@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "notebooklm-mcp": {
+      "command": "notebooklm-mcp",
+      "env": {
+        "NOTEBOOKLM_COOKIES": "<PASTE_COOKIES_HERE>",
+        "NOTEBOOKLM_CSRF_TOKEN": "<PASTE_CSRF_TOKEN_HERE>",
+        "NOTEBOOKLM_SESSION_ID": "<PASTE_SESSION_ID_HERE>"
+      }
+    }
+  }
+}

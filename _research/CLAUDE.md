@@ -12,11 +12,13 @@ _research/
 │   └── recipes/         # Self-contained analytical pipelines
 ├── context_documents/   # Input: research briefings (YAML)
 ├── output/              # Output: generated reports
+├── editorial_plan.yaml  # 100 article topics with status tracking
 ├── src/
+│   ├── editorial.py     # Editorial workflow (--editorial mode)
 │   ├── recipe.py        # RecipeRunner — direct article generation
 │   ├── engines/         # Python step functions (Zwicky, etc.)
 │   └── utils.py         # Shared utilities
-├── strategic_orchestrator.py  # Main Python orchestrator
+├── run.py  # Main Python orchestrator
 ├── START_HERE.md        # Quick start guide
 └── SKILLS_ARCHITECTURE_BLUEPRINT.md  # Full system spec
 ```
@@ -31,17 +33,20 @@ export ANTHROPIC_API_KEY="your-key"
 export EXA_API_KEY="your-key"  # Optional, enables L2 web search
 
 # New analysis (full orchestrator workflow)
-python strategic_orchestrator.py --run
+python run.py --run
 
 # Direct article generation via recipe
-python strategic_orchestrator.py --recipe four-causes --topic "European Launch Autonomy"
-python strategic_orchestrator.py --list-recipes
+python run.py --recipe four-causes --topic "European Launch Autonomy"
+python run.py --list-recipes
+
+# Editorial mode (topic selection + NotebookLM research + analysis)
+python run.py --editorial
 
 # Reuse analyst reports (try different templates/synthesizers)
-python strategic_orchestrator.py --from-folder output/{slug}_1
+python run.py --from-folder output/{slug}_1
 
 # Resume from checkpoint
-python strategic_orchestrator.py --resume output/workflow_state.yaml
+python run.py --resume output/workflow_state.yaml
 ```
 
 See `START_HERE.md` for detailed usage.
@@ -99,6 +104,28 @@ See `START_HERE.md` for detailed usage.
 - **From checkpoint**: `--resume state.yaml` (any phase)
 - **From analyst reports**: `--from-folder output/{slug}/` (Phase 4.2+, allows template/synthesizer changes)
 
+### Editorial Workflow (`--editorial`)
+
+End-to-end flow from editorial plan to published analysis:
+
+1. **Topic Selection** — Pick from `editorial_plan.yaml` (status=tbd) or create new topic
+2. **Status Update** — Item set to `drafting`
+3. **Context Folder** — `context_documents/{slug}/` created
+4. **NotebookLM Research** (optional) — Deep web research via `notebooklm-py`:
+   - Creates notebook, runs deep research query
+   - Imports discovered sources, extracts structured YAML
+   - Saves to `context_documents/{slug}/sources.yaml`
+5. **Orchestrator Handoff** — Continues with normal analysis phases (sources pre-loaded)
+6. **Finalization** — Status updated to `finalized` on completion
+
+```bash
+python run.py --editorial
+```
+
+**Editorial Plan Status Values**: `tbd` → `drafting` → `finalized`
+
+**Custom Topics**: New topics get IDs starting from 10001 and are persisted in `editorial_plan.yaml`.
+
 ---
 
 ## Key Features
@@ -118,7 +145,7 @@ Expensive analyst LLM calls are saved individually. Reuse them to try:
 - Different configurations without re-running analysis
 
 ```bash
-python strategic_orchestrator.py --from-folder output/my-analysis_1
+python run.py --from-folder output/my-analysis_1
 # Review configuration → Change template → Continue from outline
 ```
 
@@ -151,16 +178,16 @@ Recipes are self-contained analytical pipelines that fuse methodology, synthesis
 
 ```bash
 # List available recipes
-python strategic_orchestrator.py --list-recipes
+python run.py --list-recipes
 
 # Run a recipe (interactive topic prompt)
-python strategic_orchestrator.py --recipe four-causes
+python run.py --recipe four-causes
 
 # Run with topic specified
-python strategic_orchestrator.py --recipe four-causes --topic "European Launch Autonomy"
+python run.py --recipe four-causes --topic "European Launch Autonomy"
 
 # Run with context documents
-python strategic_orchestrator.py --recipe nine-windows --topic "Lunar PNT" --context context_documents/briefing.yaml
+python run.py --recipe nine-windows --topic "Lunar PNT" --context context_documents/briefing.yaml
 ```
 
 ### Adding a New Recipe
@@ -192,6 +219,7 @@ No core code changes needed.
 - `legacy/PYTHON_ORCHESTRATOR_PLAN.md` — Implementation plan (completed)
 - `legacy/flow_weaknesses.md` — Original weakness analysis (resolved)
 - `legacy/tests/` — Phase D test suite (passed)
+- `legacy/notebooklm/` — NotebookLM integration (disabled, see `RESTORE.md` to re-enable)
 
 ---
 
@@ -202,114 +230,11 @@ No core code changes needed.
 - Maintain analytical rigor — no unsupported claims
 - Python code: commented, incremental changes
 
-## NotebookLM — Procedura blindata (solo CLI `nlm`)
-
-> **DIVIETO ASSOLUTO**: NON usare MAI i tool MCP `notebooklm-mcp` (notebook_create,
-> notebook_query, source_add, studio_create, ecc.). Il server MCP dà SEMPRE
-> "Authentication expired" indipendentemente da refresh_auth, save_auth_tokens,
-> reload VSCode, o qualsiasi altro tentativo. NON perdere tempo a riprovare.
-> Usare ESCLUSIVAMENTE il CLI `nlm` via Bash.
-
-### Avvio sessione — Eseguire SEMPRE all'inizio
-
-Quando l'utente chiede operazioni NotebookLM, eseguire questi step **nell'ordine esatto**.
-Prerequisito: Chrome deve essere aperto con una sessione Google attiva su notebooklm.google.com.
-
-```bash
-# STEP 1 — Estrarre cookies freschi da Chrome
-#   Richiede Chrome aperto. Connette via Chrome DevTools Protocol.
-notebooklm-mcp-auth
-```
-
-Attendere output "SUCCESS". Se fallisce, l'utente deve aprire Chrome su notebooklm.google.com e riprovare.
-
-```bash
-# STEP 2 — Convertire auth.json in formato cookie-string per nlm CLI
-python3 -c "
-import json
-with open('/home/cms/.notebooklm-mcp-cli/auth.json') as f:
-    d = json.load(f)
-cookie_str = '; '.join(f'{k}={v}' for k,v in d['cookies'].items())
-with open('/tmp/nlm_cookie_str.txt', 'w') as f:
-    f.write(cookie_str)
-print(f'OK: {len(cookie_str)} chars')
-"
-```
-
-```bash
-# STEP 3 — Importare nel profilo nlm CLI
-nlm login --manual -f /tmp/nlm_cookie_str.txt
-```
-
-Attendere output "Successfully authenticated!".
-
-```bash
-# STEP 4 — Verificare che funziona
-nlm notebook list
-```
-
-Se restituisce la lista dei notebook in JSON, l'autenticazione è attiva.
-Se dà errore, ripetere da STEP 1 (i cookies potrebbero essere scaduti).
-
-### Comandi `nlm` CLI — Riferimento completo
-
-```bash
-# ── Notebook ──
-nlm notebook list                                    # Lista tutti i notebook
-nlm notebook create "Titolo Notebook"                # Crea notebook
-nlm notebook get NOTEBOOK_ID                         # Dettagli notebook
-
-# ── Fonti ──
-nlm source list NOTEBOOK_ID                          # Lista fonti nel notebook
-nlm source add NOTEBOOK_ID --url "https://..."       # Aggiungi fonte da URL
-nlm source add NOTEBOOK_ID --text "contenuto" --title "Titolo"  # Fonte testo
-
-# ── Ricerca web ──
-nlm research start "query" -n NOTEBOOK_ID -m fast    # ~30s, ~10 fonti
-nlm research start "query" -n NOTEBOOK_ID -m deep    # ~5min, ~40 fonti
-nlm research status NOTEBOOK_ID                      # Polling stato ricerca
-nlm research import NOTEBOOK_ID TASK_ID              # Importa fonti trovate
-
-# ── Query (la funzione principale) ──
-nlm query notebook NOTEBOOK_ID "domanda"             # Query sulle fonti
-nlm query notebook NOTEBOOK_ID "domanda" -c CONV_ID  # Follow-up conversazione
-
-# ── Studio (generazione artefatti) ──
-nlm studio create NOTEBOOK_ID --type audio           # Podcast
-nlm studio create NOTEBOOK_ID --type report          # Report
-nlm studio status NOTEBOOK_ID                        # Stato generazione
-```
-
-### Note operative per Claude
-
-1. **Ad ogni nuova sessione**: eseguire STEP 1–4 prima di qualsiasi comando `nlm`.
-   I cookies Google scadono frequentemente (~ore). Non dare per scontato che
-   l'auth della sessione precedente sia ancora valida.
-
-2. **Timeout query**: le query `nlm query notebook` possono richiedere fino a
-   120 secondi. Usare `--timeout 300000` nel tool Bash.
-
-3. **Output JSON**: i comandi `nlm` restituiscono JSON. Per processarli in pipe
-   usare `python3 -c "import json,sys; ..."` (NON `jq`, potrebbe non essere installato).
-
-4. **Conversation ID**: `nlm query` restituisce un `Conversation ID` alla fine
-   dell'output. Salvarlo per follow-up con `-c CONV_ID`.
-
-5. **Ricerca web**: dopo `research start`, fare polling con `research status`
-   fino a `status: completed`, poi `research import` per aggiungere le fonti.
-
-### Path dei file (riferimento interno)
-
-| Cosa | Path |
-|------|------|
-| `notebooklm-mcp-auth` output | `~/.notebooklm-mcp-cli/auth.json` |
-| `nlm` CLI profilo default | `~/.notebooklm-mcp-cli/profiles/default/` |
-| Server MCP (IGNORARE) | `~/.notebooklm-mcp/auth.json` |
-
----
-
 ## Context Management
 
-Stop working and notify the user when context usage exceeds 60%.
-Report current progress, list remaining tasks, and save any necessary
-state so work can resume in a fresh conversation.
+After completing each major task or multi-step workflow, remind the user
+to check context usage (`/context` or the pie chart). If the conversation
+is long (>10 exchanges), suggest checking before starting new tasks.
+When the user reports context is above 60%, stop working: report current
+progress, list remaining tasks, and save any necessary state so work
+can resume in a fresh conversation.

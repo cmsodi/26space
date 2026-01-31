@@ -21,6 +21,7 @@ from .utils import (
     detect_language,
     generate_slug,
     generate_unique_slug,
+    ensure_unique_slug,
     get_document_filename,
 )
 
@@ -117,6 +118,15 @@ from .recipe import (
     load_recipe,
 )
 
+from .editorial import (
+    run_editorial_workflow,
+    select_or_create_topic,
+    build_problem_from_item,
+    load_editorial_plan,
+    update_item_status,
+    CONTEXT_DOCUMENTS_PATH,
+)
+
 # Import engines to trigger registration
 import src.engines  # noqa: F401
 
@@ -126,7 +136,8 @@ __all__ = [
     'MODEL_DEFAULT', 'MODEL_COMPLEX', 'MODEL_FAST',
     'Step', 'SYNTHESIZERS', 'TEMPLATES',
     # Utils
-    'detect_language', 'generate_slug', 'generate_unique_slug', 'get_document_filename',
+    'detect_language', 'generate_slug', 'generate_unique_slug', 'ensure_unique_slug',
+    'get_document_filename',
     # Models
     'Source', 'TextDocument', 'AnalystOutput', 'CitationEntry', 'WorkflowState',
     # State
@@ -160,4 +171,9 @@ __all__ = [
     'StrategicOrchestrator',
     # Recipe
     'RecipeRunner', 'discover_recipes', 'load_recipe',
+    # Editorial
+    'run_editorial_workflow',
+    'select_or_create_topic', 'build_problem_from_item',
+    'load_editorial_plan', 'update_item_status',
+    'CONTEXT_DOCUMENTS_PATH',
 ]

@@ -20,7 +20,7 @@ Working directory: `skills-definition/`
 cd /mnt/DATA/26space/aa-kb/skills-definition
 
 # Run the orchestrator
-python strategic_orchestrator.py --run
+python run.py --run
 ```
 
 Enter your analysis topic when prompted. The system handles everything else.
@@ -30,7 +30,7 @@ Enter your analysis topic when prompted. The system handles everything else.
 ## Option A: Quick Analysis (No L0 Context)
 
 ```bash
-python strategic_orchestrator.py --run
+python run.py --run
 ```
 
 When prompted, enter your topic:
@@ -81,7 +81,7 @@ sources:
 ### Step 2: Run Analysis
 
 ```bash
-python strategic_orchestrator.py --run
+python run.py --run
 ```
 
 At the proposal review stage, select **"Add context documents"** and then:
@@ -98,45 +98,45 @@ At the proposal review stage, select **"Add context documents"** and then:
 
 ```bash
 # Interactive mode (default, parallel analysts)
-python strategic_orchestrator.py --run
+python run.py --run
 
 # Sequential mode (one analyst at a time)
-python strategic_orchestrator.py --run --seq
+python run.py --run --seq
 
 # Auto-save checkpoints
-python strategic_orchestrator.py --run --save
+python run.py --run --save
 
 # Resume from saved state
-python strategic_orchestrator.py --resume output/workflow_state.yaml
+python run.py --resume output/workflow_state.yaml
 
 # Reuse analyst reports from existing folder
-python strategic_orchestrator.py --from-folder output/my-analysis_1
+python run.py --from-folder output/my-analysis_1
 ```
 
 ### Error Recovery
 
 ```bash
 # Abort on failures (no partial results)
-python strategic_orchestrator.py --run --no-graceful
+python run.py --run --no-graceful
 
 # Automatic recovery (no prompts)
-python strategic_orchestrator.py --run --auto-recovery
+python run.py --run --auto-recovery
 
 # Set max analyst retries
-python strategic_orchestrator.py --run --max-retries 3
+python run.py --run --max-retries 3
 ```
 
 ### Logging
 
 ```bash
 # Verbose (DEBUG level)
-python strategic_orchestrator.py --run -v
+python run.py --run -v
 
 # Quiet (WARNING+ only)
-python strategic_orchestrator.py --run -q
+python run.py --run -q
 
 # Log to file
-python strategic_orchestrator.py --run --log-file output/analysis.log
+python run.py --run --log-file output/analysis.log
 ```
 
 ---
@@ -146,7 +146,7 @@ python strategic_orchestrator.py --run --log-file output/analysis.log
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  1. USER INPUT                                          │
-│     python strategic_orchestrator.py --run              │
+│     python run.py --run              │
 │     "European space launch autonomy challenges"         │
 └────────────────────────┬────────────────────────────────┘
                          ▼
@@ -235,7 +235,7 @@ This prevents overwriting previous analyses and keeps all runs organized.
 ### Load from Folder
 
 ```bash
-python strategic_orchestrator.py --from-folder output/lunar-analysis_1
+python run.py --from-folder output/lunar-analysis_1
 ```
 
 The system will:
@@ -251,18 +251,18 @@ The system will:
 
 ```bash
 # Original analysis with BLUF template
-python strategic_orchestrator.py --run
+python run.py --run
 # Problem: "Lunar PNT standardization"
 # Template: BLUF
 # Output: output/lunar-pnt-standardization/
 
 # Try Hypothesis-Driven template with same analysts
-python strategic_orchestrator.py --from-folder output/lunar-pnt-standardization
+python run.py --from-folder output/lunar-pnt-standardization
 # Select: Change template → Hypothesis-Driven
 # Output: Same folder, regenerated outline and final document
 
 # Or run fresh analysis (gets numbered folder)
-python strategic_orchestrator.py --run
+python run.py --run
 # Same problem creates: output/lunar-pnt-standardization_1/
 ```
 
